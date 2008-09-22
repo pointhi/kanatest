@@ -434,7 +434,12 @@ gchar           buffer[BUFFER_SIZE];
 
     appGUI->main_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     gtk_container_set_border_width (GTK_CONTAINER (appGUI->main_window), 4);
-    gtk_window_set_title (GTK_WINDOW (appGUI->main_window), "Kanatest " VERSION);
+#ifndef REV
+    sprintf (buffer, "Kanatest %s", VERSION);
+#else
+    sprintf (buffer, "Kanatest SVN r%d", REV);
+#endif
+    gtk_window_set_title (GTK_WINDOW (appGUI->main_window), buffer);
 
     gtk_window_set_default_size (GTK_WINDOW(appGUI->main_window),
                                  config.window_size_x, config.window_size_y);
