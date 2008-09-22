@@ -1,0 +1,703 @@
+# Russian translations for Kanatest package
+# Английские переводы для пакета Kanatest.
+# Copyright (C) 2007 Tomasz Mąka <pasp@users.sorceforge.net>
+# This file is distributed under the same license as the Kanatest package.
+#  <taclipoka@gmail.com>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Kanatest 0.4.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-07-21 23:58+0200\n"
+"PO-Revision-Date: 2007-09-16 00:28+0200\n"
+"Last-Translator:  <taclipoka@gmail.com>\n"
+"Language-Team: Russian <ru@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "About"
+msgstr "О программе"
+
+msgid "compiled on"
+msgstr "скомпилировано на"
+
+msgid "Programming"
+msgstr "Программирование"
+
+msgid "Graphics"
+msgstr "Рисунки"
+
+msgid "Translators"
+msgstr "Переводчики"
+
+msgid ""
+"We would like to thank the following people for suggestions, bug reports and "
+"patches:"
+msgstr "Мы благодарим за предложения, отчёты об ошибках и патчи:"
+
+msgid "Contributors"
+msgstr "Помощники"
+
+#, fuzzy
+msgid ""
+"If you like our program, send a postcard with a photo of the city where you "
+"live to"
+msgstr ""
+"Если вам понравилась наша программа, пошлите нам открытку с видом Вашего "
+"города"
+
+#, fuzzy
+msgid "We have received several postcards from our happy users"
+msgstr "Кое-какие города мы уже видели:"
+
+msgid ""
+"Your postcards are a kind of motivation that encourages us to keep improving "
+"Kanatest :)"
+msgstr ""
+"Ваши открытки поддерживают нас в стремлении развивать Канатест. Наше вам с "
+"кисточкой!"
+
+msgid "Thank you!"
+msgstr "Спасибо!"
+
+msgid "Postcards"
+msgstr "Открытки"
+
+msgid "License"
+msgstr "Лицензия"
+
+# Кто б сказал, как "кана" склоняется? Отсюда и далее - символы вместо кан
+msgid "Kana chart"
+msgstr "Таблица символов каны"
+
+msgid "Hiragana"
+msgstr "Хирагана"
+
+msgid "Katakana"
+msgstr "Катакана"
+
+msgid "Select test mode, kana set and press START"
+msgstr "Выберите режим тестирования, набор символов каны и нажмите \"ПУСК\""
+
+msgid "Romaji"
+msgstr "Киридзи"
+
+msgid "Statistics"
+msgstr "Статистика"
+
+msgid "Options"
+msgstr "Настройки"
+
+msgid "Test mode"
+msgstr "Режим"
+
+msgid "Kana set"
+msgstr "Набор"
+
+msgid "Start"
+msgstr "Пуск"
+
+msgid "Press to begin testing..."
+msgstr "Нажмите для начала тестирования..."
+
+msgid "Stop"
+msgstr "Стоп"
+
+msgid "Press to stop testing..."
+msgstr "Нажмите для остановки тестирования..."
+
+msgid "Quit"
+msgstr "Выход"
+
+msgid "Exit!"
+msgstr "Выход именно здесь"
+
+msgid "Select kana font"
+msgstr "Шрифт каны"
+
+msgid "Please select at least two kanas to test."
+msgstr "Выберите хотя бы 2 символа для тестирования"
+
+msgid "Error"
+msgstr "Ошибка"
+
+#, fuzzy
+msgid "no kanas found"
+msgstr "Шрифт каны"
+
+msgid "kanas found"
+msgstr ""
+
+msgid "Statistics based selection"
+msgstr ""
+
+#, fuzzy
+msgid "From"
+msgstr "ро"
+
+#, fuzzy
+msgid "To"
+msgstr "о"
+
+#, fuzzy
+msgid "Ratio range"
+msgstr "Оценка (%)"
+
+#, fuzzy
+msgid "Kanas"
+msgstr "Набор"
+
+msgid "Select"
+msgstr "Выбрать"
+
+msgid "General"
+msgstr "Общие"
+
+msgid "Drill options"
+msgstr "Варианты прохождения:"
+
+msgid "Display each kana once"
+msgstr "Показывать каждый символ по одному разу"
+
+msgid ""
+"When this option is enabled the kanatest will display every question once"
+msgstr "Символы будут показаны один и только один раз за проход"
+
+msgid "Repeat wrongly-answered questions"
+msgstr "Повторять вопросы с неверными ответами"
+
+msgid ""
+"When this option is enabled the kanatest will repeat all wrongly answered "
+"questions at the end of test"
+msgstr ""
+"Повторять вопросы с неверными ответами в конце теста до тех пор, пока они не "
+"станут верными"
+
+msgid "Repeat all forever"
+msgstr "Повторять бесконечно"
+
+msgid ""
+"When this option is enabled the kanatest will repeat all questions forever"
+msgstr "Повторять до ручной остановки"
+
+msgid "Correct answer display timeout"
+msgstr "Показывать правильный ответ в течение:"
+
+msgid "Disabled"
+msgstr "Отключено"
+
+msgid "1 sec"
+msgstr "1 секунда"
+
+msgid "2 sec"
+msgstr "2 секунды"
+
+msgid "3 sec"
+msgstr "3 секунды"
+
+msgid "Until any key will be pressed"
+msgstr "До нажатия какой-либо клавиши"
+
+msgid "Appearance"
+msgstr "Внешний вид:"
+
+msgid "Kana color"
+msgstr "Цвет символов каны:"
+
+# опять - нужно киридзи
+msgid "Romaji color"
+msgstr "Цвет киридзи:"
+
+msgid "Misc options"
+msgstr "Всячина:"
+
+msgid "Enable tooltips"
+msgstr "Включить подсказки"
+
+msgid "Toggle to enable/disable tooltips"
+msgstr "Включить/отключить показ подсказок вроде этой"
+
+msgid "User-defined lesson"
+msgstr "Самодельные уроки"
+
+msgid "Select all kanas in row"
+msgstr "Отметить все символы каны в строке"
+
+msgid "Deselect all kanas in row"
+msgstr "Снять отметку со всей строки"
+
+msgid "Selected kanas"
+msgstr "Выбрано знаков"
+
+msgid "Display as"
+msgstr "Показывать как"
+
+msgid "All"
+msgstr "Все"
+
+msgid "None"
+msgstr "Ничего"
+
+msgid "Invert"
+msgstr "Обратить"
+
+#, fuzzy
+msgid "Please select options"
+msgstr "Всячина:"
+
+msgid "Question"
+msgstr "Вопрос"
+
+msgid "Remove lessons list"
+msgstr ""
+
+msgid "Remove Hiragana statistics"
+msgstr ""
+
+msgid "Remove Katakana statistics"
+msgstr ""
+
+msgid "No further recovery will be possible. Continue ?"
+msgstr ""
+
+msgid "Date"
+msgstr "Дата"
+
+msgid "Test time"
+msgstr "Время"
+
+msgid "Questions"
+msgstr "Вопросов"
+
+msgid "Correct"
+msgstr "Верно"
+
+msgid "Wrong"
+msgstr "Неверно"
+
+msgid "Ratio (%)"
+msgstr "Оценка (%)"
+
+#, fuzzy
+msgid "Lessons"
+msgstr "Вопросов"
+
+#, fuzzy
+msgid "Reset"
+msgstr "Сбросить статистику"
+
+msgid "RW"
+msgstr ""
+
+msgid "RA"
+msgstr ""
+
+msgid "Chart"
+msgstr ""
+
+msgid "Mixed"
+msgstr "Все"
+
+msgid "All kanas"
+msgstr "Все символы"
+
+msgid "Basic kanas"
+msgstr "Базовый набор"
+
+msgid "A-I-U-E-O"
+msgstr "А-И-У-Э-О"
+
+msgid "KA-KI-KU-KE-KO"
+msgstr "КА-КИ-КУ-КЭ-КО"
+
+msgid "SA-SHI-SU-SE-SO"
+msgstr "СА-ШИ-СУ-СЭ-СО"
+
+msgid "TA-CHI-TSU-TE-TO"
+msgstr "ТА-ЧИ-ЦУ-ТЭ-ТО"
+
+msgid "NA-NI-NU-NE-NO"
+msgstr "НА-НИ-НУ-НЭ-НО"
+
+msgid "HA-HI-FU-HE-HO"
+msgstr "ХА-ХИ-ФУ-ХЭ-ХО"
+
+msgid "MA-MI-MU-ME-MO"
+msgstr "МА-МИ-МУ-МЭ-МО"
+
+msgid "YA-YU-YO"
+msgstr "Я-Ю-Ё"
+
+msgid "RA-RI-RU-RE-RO"
+msgstr "РА-РИ-РУ-РЭ-РО"
+
+msgid "WA-WO-N"
+msgstr "ВА-ВО-Н"
+
+msgid "Combo letters (part 1)"
+msgstr "Сочетания (часть 1)"
+
+msgid "Combo letters (part 2)"
+msgstr "Сочетания (часть 2)"
+
+#. TRANSLATORS: if there exist several possible transliterations for kanas, they must be separated by comma
+#. 0
+#. 1
+#. 2
+#. 3
+#. 4
+msgid "a"
+msgstr "а"
+
+msgid "i"
+msgstr "и"
+
+msgid "u"
+msgstr "у"
+
+msgid "e"
+msgstr "э"
+
+msgid "o"
+msgstr "о"
+
+msgid "ka"
+msgstr "ка"
+
+msgid "ki"
+msgstr "ки"
+
+msgid "ku"
+msgstr "ку"
+
+msgid "ke"
+msgstr "кэ"
+
+msgid "ko"
+msgstr "ко"
+
+msgid "sa"
+msgstr "са"
+
+msgid "shi"
+msgstr "ши"
+
+msgid "su"
+msgstr "су"
+
+msgid "se"
+msgstr "сэ"
+
+msgid "so"
+msgstr "со"
+
+msgid "ta"
+msgstr "та"
+
+msgid "chi"
+msgstr "чи"
+
+msgid "tsu"
+msgstr "цу"
+
+msgid "te"
+msgstr "тэ"
+
+msgid "to"
+msgstr "то"
+
+msgid "na"
+msgstr "на"
+
+msgid "ni"
+msgstr "ни"
+
+msgid "nu"
+msgstr "ну"
+
+msgid "ne"
+msgstr "нэ"
+
+msgid "no"
+msgstr "но"
+
+msgid "ha"
+msgstr "ха"
+
+msgid "hi"
+msgstr "хи"
+
+msgid "fu"
+msgstr "фу"
+
+msgid "he"
+msgstr "хэ"
+
+msgid "ho"
+msgstr "хо"
+
+msgid "ma"
+msgstr "ма"
+
+msgid "mi"
+msgstr "ми"
+
+msgid "mu"
+msgstr "му"
+
+msgid "me"
+msgstr "мэ"
+
+msgid "mo"
+msgstr "мо"
+
+msgid "ya"
+msgstr "я"
+
+msgid "yu"
+msgstr "ю"
+
+msgid "yo"
+msgstr "ё"
+
+msgid "ra"
+msgstr "ра"
+
+msgid "ri"
+msgstr "ри"
+
+msgid "ru"
+msgstr "ру"
+
+msgid "re"
+msgstr "рэ"
+
+msgid "ro"
+msgstr "ро"
+
+msgid "wa"
+msgstr "ва"
+
+msgid "wo"
+msgstr "во"
+
+msgid "n"
+msgstr "н"
+
+msgid "ga"
+msgstr "га"
+
+msgid "gi"
+msgstr "ги"
+
+msgid "gu"
+msgstr "гу"
+
+msgid "ge"
+msgstr "гэ"
+
+msgid "go"
+msgstr "го"
+
+msgid "za"
+msgstr "дза"
+
+msgid "ji"
+msgstr "дзи"
+
+msgid "zu"
+msgstr "дзу"
+
+msgid "ze"
+msgstr "дзэ"
+
+msgid "zo"
+msgstr "дзо"
+
+msgid "da"
+msgstr "да"
+
+msgid "di,ji"
+msgstr "дзи"
+
+msgid "du,zu"
+msgstr "дзу"
+
+msgid "de"
+msgstr "дэ"
+
+msgid "do"
+msgstr "до"
+
+msgid "ba"
+msgstr "ба"
+
+msgid "bi"
+msgstr "би"
+
+msgid "bu"
+msgstr "бу"
+
+msgid "be"
+msgstr "бэ"
+
+msgid "bo"
+msgstr "бо"
+
+msgid "pa"
+msgstr "па"
+
+msgid "pi"
+msgstr "пи"
+
+msgid "pu"
+msgstr "пу"
+
+msgid "pe"
+msgstr "пэ"
+
+msgid "po"
+msgstr "по"
+
+msgid "kya"
+msgstr "кя"
+
+msgid "kyu"
+msgstr "кю"
+
+msgid "kyo"
+msgstr "кё"
+
+msgid "sha"
+msgstr "ся"
+
+msgid "shu"
+msgstr "шю"
+
+msgid "sho"
+msgstr "сё"
+
+msgid "cha"
+msgstr "ча"
+
+msgid "chu"
+msgstr "чю"
+
+msgid "cho"
+msgstr "чё"
+
+msgid "nya"
+msgstr "ня"
+
+msgid "nyu"
+msgstr "ню"
+
+msgid "nyo"
+msgstr "нё"
+
+msgid "hya"
+msgstr "хя"
+
+msgid "hyu"
+msgstr "хю"
+
+msgid "hyo"
+msgstr "хё"
+
+msgid "mya"
+msgstr "мя"
+
+msgid "myu"
+msgstr "мю"
+
+msgid "myo"
+msgstr "мё"
+
+msgid "rya"
+msgstr "ря"
+
+msgid "ryu"
+msgstr "рю"
+
+msgid "ryo"
+msgstr "рё"
+
+msgid "gya"
+msgstr "гя"
+
+msgid "gyu"
+msgstr "гю"
+
+msgid "gyo"
+msgstr "гё"
+
+msgid "ja"
+msgstr "дзя"
+
+msgid "ju"
+msgstr "дзю"
+
+msgid "jo"
+msgstr "дзё"
+
+msgid "bya"
+msgstr "бя"
+
+msgid "byu"
+msgstr "бю"
+
+msgid "byo"
+msgstr "бё"
+
+msgid "pya"
+msgstr "пя"
+
+msgid "pyu"
+msgstr "пю"
+
+msgid "pyo"
+msgstr "пё"
+
+msgid "minute and"
+msgid_plural "minutes and"
+msgstr[0] "минута и"
+msgstr[1] "минуты и"
+msgstr[2] "минут и"
+
+msgid "second"
+msgid_plural "seconds"
+msgstr[0] "секунда"
+msgstr[1] "секунды"
+msgstr[2] "секунд"
+
+msgid "Test has finished!"
+msgstr "Тест завершён!"
+
+#, fuzzy
+msgid "Total questions"
+msgstr "Всего вопросов:"
+
+msgid "unique"
+msgstr "разных"
+
+#, fuzzy
+msgid "Correct answers"
+msgstr "Правильных ответов:"
+
+#, fuzzy
+msgid "Wrong answers"
+msgstr "Неправильных ответов:"
+
+#, fuzzy
+msgid "Correctness ratio"
+msgstr "Оценка верности:"
+
+#, fuzzy
+msgid "Drilling-time"
+msgstr "Время выполнения:"
+
+msgid "Information"
+msgstr "Информация"

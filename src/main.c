@@ -1,0 +1,122 @@
+
+/*
+ * Kanatest
+ *
+ * Copyright (C) 2001-2004, 2006 Tomasz Maka <pasp@users.sourceforge.net>
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ */
+
+
+#include <stdio.h>
+#include <gtk/gtk.h>
+#include <locale.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <stdlib.h>
+
+#include <config.h>
+
+#include "gui.h"
+#include "test.h"
+#include "prefs.h"
+#include "stats.h"
+#include "i18n.h"
+
+
+int main (int argc, char **argv)
+{
+struct timeval timer;
+gchar buffer[PATH_MAX];
+
+GUI *appGUI = NULL;
+CHART *chr = NULL;
+STATISTICS *sts = NULL;
+TEST *tst = NULL;
+OPTIONS *opt = NULL;
+
+    appGUI = g_new0 (GUI, 1);
+    g_return_val_if_fail (appGUI != NULL, -1);
+
+    chr = g_new0 (CHART, 1);
+    g_return_val_if_fail (chr != NULL, -1);
+    sts = g_new0 (STATISTICS, 1);
+    g_return_val_if_fail (sts != NULL, -1);
+    tst = g_new0 (TEST, 1);
+    g_return_val_if_fail (tst != NULL, -1);
+
+    opt = g_new0 (OPTIONS, 1);
+    g_return_val_if_fail (opt != NULL, -1);
+
+    /* register modules */
+    appGUI->chr = chr;
+    appGUI->sts = sts;
+    appGUI->tst = tst;
+    appGUI->opt = opt;
+
+    /* default values */   
+    appGUI->old_kana_type = -1;
+    appGUI->chr->chart_window = NULL;
+    appGUI->tst->any_key = FALSE;
+    appGUI->tst->test_state = FALSE;
+    appGUI->sts->active_tab = -1;
+    appGUI->opt->active_tab = -1;
+
+    /* preferences update */
+
+    g_snprintf (buffer, PATH_MAX, "%s%c%s", g_get_home_dir(), G_DIR_SEPARATOR, CONFIG_DIRNAME);
+
+    if (g_file_test(buffer, G_FILE_TEST_EXISTS | G_FILE_TEST_IS_DIR) != TRUE) {
+        prefs_read_config (CONFIG_FILENAME_OLD, CONFIG_DIRNAME_OLD);
+        prefs_write_config (CONFIG_FILENAME, CONFIG_DIRNAME);
+        stats_read_list (STATS_FILENAME_OLD, CONFIG_DIRNAME_OLD, appGUI);
+        stats_write_list (STATS_FILENAME, CONFIG_DIRNAME, appGUI);
+    }
+
+    prefs_read_config (CONFIG_FILENAME, CONFIG_DIRNAME);
+    stats_read_list (STATS_FILENAME, CONFIG_DIRNAME, appGUI);
+
+    /* init */
+
+    gtk_init (&argc, &argv);
+
+    setlocale (LC_ALL, "");
+    bindtextdomain (PACKAGE, LOCALEDIR);
+    bind_textdomain_codeset (PACKAGE, "UTF-8");
+    textdomain (PACKAGE);
+
+    /* set seed */
+    gettimeofday(&timer, NULL);
+    srand48(timer.tv_usec + getpid());
+
+    gui_create_window (appGUI);
+    gtk_main ();
+
+    stats_write_list (STATS_FILENAME, CONFIG_DIRNAME, appGUI);
+    stats_free_list (appGUI);
+
+    prefs_write_config (CONFIG_FILENAME, CONFIG_DIRNAME);
+
+    g_free (opt);
+    g_free (tst);
+    g_free (sts);
+    g_free (chr);
+    g_free (appGUI);
+
+    return 0;
+}
+
+

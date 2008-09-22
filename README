@@ -1,0 +1,93 @@
+
+-----------------------------------------------------------------------------
+-----                          K A N A T E S T                          -----
+-----                                                                   -----
+-----                           version 0.4.6                           -----
+-----------------------------------------------------------------------------
+
+
+-----> WHAT ?
+
+Kanatest is a Japanese kana (Hiragana and Katakana) simple flashcard tool.
+You can learn, or remind yourself about kana chars in quick and easy way!
+
+Kanatest offers three drill modes:
+
+    * Hiragana mode (Hiragana charset only)
+    * Katakana mode (Katakana charset only)
+    * Mixed mode (both charsets)
+
+and following lessons:
+
+    * All kanas (all 104 chars)
+    * Basic kanas (46 chars)
+    * A-I-U-E-O (5 chars)
+    * KA-KI-KU-KE-KO (5 chars)
+    * SA-SHI-SU-SE-SO (5 chars)
+    * TA-CHI-TSU-TE-TO (5 chars)
+    * NA-NI-NU-NE-NO (5 chars)
+    * HA-HI-FU-HE-HO (5 chars)
+    * MA-MI-MU-ME-MO (5 chars)
+    * YA-YU-YO (3 chars)
+    * RA-RI-RU-RE-RO (5 chars)
+    * WA-WO-N (3 chars)
+    * Combo letters (part 1)
+      GA-GI-GU-GE-GO-ZA-JI-ZU-ZE-ZO-DA-DI-DU-DE-DO
+      BA-BI-BU-BE-BO-PA-PI-PU-PE-PO (25 chars)
+    * Combo letters (part 2)
+      KYA-KYU-KYO-SHA-SHU-SHO-CHA-CHU-CHO
+      NYA-NYU-NYO-HYA-HYU-HYO-MYA-MYU-MYO
+      RYA-RYU-RYO-GYA-GYU-GYO-JA-JU-JO
+      BYA-BYU-BYO-PYA-PYU-PYO (33 chars)
+    * User-defined lesson
+      From 2 to 104 kanas can be selected by user 
+      in the preferences dialog.
+
+During test the Kanatest displays randomly selected kana char (respecting
+mode and lesson) and waits for user answer expected as romaji equivalent.
+This process continues until all questions will be answered or all questions
+will be answered correctly (depends on options). At the end of test a short
+info about drilling time and correctness ratio is displayed. 
+The results are stored and user can review his performance in any time.
+
+List of key features:
+
+    * Fifteen lessons (groups of kana chars)
+    * Lesson can be fully customizable by user
+    * Repeating wrongly-answered questions mode
+    * Built-in kana chart
+    * A number of correct and incorrect answers, correctness ratio, date 
+      and time of test, lesson type are stored between program sessions 
+      and can be viewed in statistics window.
+    * Colors and kana font are configurable
+
+The most important thing you need is font supporting kana chars for 
+displaying questions during test. If you don't have japanese-friendly fonts 
+(check kana chart in Kanatest) you can download one of these font packages:
+
+    * FreeSans - http://www.nongnu.org/freefont/
+    * DejaVu - http://dejavu.sourceforge.net/
+
+After download, unpack font archive and copy all *.ttf files to $HOME/.fonts 
+directory. Don't forget to restart Kanatest after font installation.
+
+
+-----> WHERE ?
+
+Homepage: http://clay.ll.pl/kanatest
+
+
+-----> WHO ?
+
+Programming:
+     Tomasz Maka <pasp@users.sourceforge.net>
+
+Graphics:
+     Maja Kocon (http://ironya.ll.pl) - current logo, icons
+     Piotr Maka <sill@ll.pl> - logo used in previous versions
+
+Any suggestions, patches, criticism are kindly welcome.
+
+Happy drilling!
+
+

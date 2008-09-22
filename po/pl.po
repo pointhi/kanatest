@@ -1,0 +1,708 @@
+# Polish translation of Kanatest.
+# Copyright (C) 2006 Free Software Foundation, Inc.
+# Piotr Mąka <sill@ll.pl>, 2006.
+# 
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Kanatest 0.4.4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-07-21 23:58+0200\n"
+"PO-Revision-Date: 2007-09-16 00:16+0200\n"
+"Last-Translator: Piotr Mąka <sill@ll.pl>\n"
+"Language-Team: Polish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+
+msgid "About"
+msgstr "O programie"
+
+msgid "compiled on"
+msgstr "Skompilowany"
+
+msgid "Programming"
+msgstr "Programowanie"
+
+msgid "Graphics"
+msgstr "Grafika"
+
+msgid "Translators"
+msgstr "Tłumacze"
+
+msgid ""
+"We would like to thank the following people for suggestions, bug reports and "
+"patches:"
+msgstr ""
+"Dziękujemy następującym osobom za sugestie, zgłaszane błędy i poprawki:"
+
+msgid "Contributors"
+msgstr "Pomoc"
+
+#, fuzzy
+msgid ""
+"If you like our program, send a postcard with a photo of the city where you "
+"live to"
+msgstr ""
+"Jeśli podoba Ci się nasz program, wyślij pocztówkę z fotografią miasta w "
+"którym mieszkasz na adres:"
+
+#, fuzzy
+msgid "We have received several postcards from our happy users"
+msgstr ""
+"Otrzymaliśmy kilka kartek pocztowych od naszych zadowolonych użytkowników:"
+
+msgid ""
+"Your postcards are a kind of motivation that encourages us to keep improving "
+"Kanatest :)"
+msgstr ""
+"Otrzymane pocztówki zachęcają nas do ciągłego rozwijania programu :) "
+"Dziękujemy!"
+
+msgid "Thank you!"
+msgstr "Dziękujemy!"
+
+msgid "Postcards"
+msgstr "Pocztówki"
+
+msgid "License"
+msgstr "Licencja"
+
+msgid "Kana chart"
+msgstr "Tabela znaków"
+
+msgid "Hiragana"
+msgstr "Hiragana"
+
+msgid "Katakana"
+msgstr "Katakana"
+
+msgid "Select test mode, kana set and press START"
+msgstr "Wybierz typ testu, zestaw znaków i naciśnij START"
+
+msgid "Romaji"
+msgstr "Romaji"
+
+msgid "Statistics"
+msgstr "Statystyki"
+
+msgid "Options"
+msgstr "Opcje"
+
+msgid "Test mode"
+msgstr "Typ testu"
+
+msgid "Kana set"
+msgstr "Zestaw"
+
+msgid "Start"
+msgstr "Start"
+
+msgid "Press to begin testing..."
+msgstr "Wciśnij aby rozpocząć test..."
+
+msgid "Stop"
+msgstr "Stop"
+
+msgid "Press to stop testing..."
+msgstr "Naciśnij aby zatrzymać test..."
+
+msgid "Quit"
+msgstr "Wyjście"
+
+msgid "Exit!"
+msgstr "Wyjście!"
+
+msgid "Select kana font"
+msgstr "Wybierz czcionkę"
+
+msgid "Please select at least two kanas to test."
+msgstr "Proszę wybrać przynajmniej dwa znaki."
+
+msgid "Error"
+msgstr "Błąd"
+
+#, fuzzy
+msgid "no kanas found"
+msgstr "Wybierz czcionkę"
+
+msgid "kanas found"
+msgstr ""
+
+msgid "Statistics based selection"
+msgstr ""
+
+#, fuzzy
+msgid "From"
+msgstr "ro"
+
+#, fuzzy
+msgid "To"
+msgstr "o"
+
+#, fuzzy
+msgid "Ratio range"
+msgstr "Poprawność (%)"
+
+#, fuzzy
+msgid "Kanas"
+msgstr "Zestaw"
+
+msgid "Select"
+msgstr "Zaznacz"
+
+msgid "General"
+msgstr "Ogólne"
+
+msgid "Drill options"
+msgstr "Opcje testu"
+
+msgid "Display each kana once"
+msgstr "Każda kanę wyświetl tylko raz"
+
+msgid ""
+"When this option is enabled the kanatest will display every question once"
+msgstr ""
+"Jeśli ta opcja jest włączona, kanatest każde pytanie wyświetli tylko jeden "
+"raz"
+
+msgid "Repeat wrongly-answered questions"
+msgstr "Powtórz pytania ze złymi odpowiedziami"
+
+msgid ""
+"When this option is enabled the kanatest will repeat all wrongly answered "
+"questions at the end of test"
+msgstr ""
+"Jeśli ta opcja jest włączona, kanatest na koniec testu powtórzy pytania na "
+"które zostały udzielone złe odpowiedzi"
+
+msgid "Repeat all forever"
+msgstr "Powtarzaj w nieskończoność"
+
+msgid ""
+"When this option is enabled the kanatest will repeat all questions forever"
+msgstr ""
+"Jeśli ta opcja jest włączona, kanatest będzie powtarzał pytania w "
+"nieskończoność"
+
+#, fuzzy
+msgid "Correct answer display timeout"
+msgstr "Czas wyświetlania poprawnej odpowiedzi"
+
+msgid "Disabled"
+msgstr "Wyłączone"
+
+msgid "1 sec"
+msgstr "1 sek"
+
+msgid "2 sec"
+msgstr "2 sek"
+
+msgid "3 sec"
+msgstr "3 sek"
+
+msgid "Until any key will be pressed"
+msgstr "Do momentu wciśnięcia dowolnego klawisza"
+
+#, fuzzy
+msgid "Appearance"
+msgstr "Wygląd"
+
+msgid "Kana color"
+msgstr "Kolor Kana"
+
+msgid "Romaji color"
+msgstr "Kolor Romaji"
+
+msgid "Misc options"
+msgstr "Pozostałe opcje"
+
+msgid "Enable tooltips"
+msgstr "Włącz dymki"
+
+msgid "Toggle to enable/disable tooltips"
+msgstr "Przełącz aby włączyć/wyłączyć dymki"
+
+msgid "User-defined lesson"
+msgstr "Własna lekcja"
+
+msgid "Select all kanas in row"
+msgstr "Zaznacz cały rząd znaków"
+
+msgid "Deselect all kanas in row"
+msgstr "Odznacz cały rząd znaków"
+
+msgid "Selected kanas"
+msgstr "Wybrane znaki"
+
+msgid "Display as"
+msgstr "Wyświetl jako"
+
+msgid "All"
+msgstr "Wszystko"
+
+msgid "None"
+msgstr "Brak"
+
+msgid "Invert"
+msgstr "Odwróć"
+
+#, fuzzy
+msgid "Please select options"
+msgstr "Pozostałe opcje"
+
+msgid "Question"
+msgstr "Pytania"
+
+msgid "Remove lessons list"
+msgstr ""
+
+msgid "Remove Hiragana statistics"
+msgstr ""
+
+msgid "Remove Katakana statistics"
+msgstr ""
+
+msgid "No further recovery will be possible. Continue ?"
+msgstr ""
+
+msgid "Date"
+msgstr "Data"
+
+msgid "Test time"
+msgstr "Czas trwania testu"
+
+msgid "Questions"
+msgstr "Pytania"
+
+msgid "Correct"
+msgstr "Poprawne"
+
+msgid "Wrong"
+msgstr "Niepoprawne"
+
+msgid "Ratio (%)"
+msgstr "Poprawność (%)"
+
+#, fuzzy
+msgid "Lessons"
+msgstr "Pytania"
+
+#, fuzzy
+msgid "Reset"
+msgstr "Usuń statystyki"
+
+msgid "RW"
+msgstr "RW"
+
+msgid "RA"
+msgstr "RA"
+
+msgid "Chart"
+msgstr ""
+
+msgid "Mixed"
+msgstr "Mieszany"
+
+msgid "All kanas"
+msgstr "Wszystkie znaki"
+
+msgid "Basic kanas"
+msgstr "Podstawowe znaki"
+
+msgid "A-I-U-E-O"
+msgstr "A-I-U-E-O"
+
+msgid "KA-KI-KU-KE-KO"
+msgstr "KA-KI-KU-KE-KO"
+
+msgid "SA-SHI-SU-SE-SO"
+msgstr "SA-SHI-SU-SE-SO"
+
+msgid "TA-CHI-TSU-TE-TO"
+msgstr "TA-CHI-TSU-TE-TO"
+
+msgid "NA-NI-NU-NE-NO"
+msgstr "NA-NI-NU-NE-NO"
+
+msgid "HA-HI-FU-HE-HO"
+msgstr "HA-HI-FU-HE-HO"
+
+msgid "MA-MI-MU-ME-MO"
+msgstr "MA-MI-MU-ME-MO"
+
+msgid "YA-YU-YO"
+msgstr "YA-YU-YO"
+
+msgid "RA-RI-RU-RE-RO"
+msgstr "RA-RI-RU-RE-RO"
+
+msgid "WA-WO-N"
+msgstr "WA-WO-N"
+
+msgid "Combo letters (part 1)"
+msgstr "Znaki rozszerzone (część 1)"
+
+msgid "Combo letters (part 2)"
+msgstr "Znaki rozszerzone (część 2)"
+
+#. TRANSLATORS: if there exist several possible transliterations for kanas, they must be separated by comma
+#. 0
+#. 1
+#. 2
+#. 3
+#. 4
+msgid "a"
+msgstr "a"
+
+msgid "i"
+msgstr "i"
+
+msgid "u"
+msgstr "u"
+
+msgid "e"
+msgstr "e"
+
+msgid "o"
+msgstr "o"
+
+msgid "ka"
+msgstr "ka"
+
+msgid "ki"
+msgstr "ki"
+
+msgid "ku"
+msgstr "ku"
+
+msgid "ke"
+msgstr "ke"
+
+msgid "ko"
+msgstr "ko"
+
+msgid "sa"
+msgstr "sa"
+
+msgid "shi"
+msgstr "shi"
+
+msgid "su"
+msgstr "su"
+
+msgid "se"
+msgstr "se"
+
+msgid "so"
+msgstr "so"
+
+msgid "ta"
+msgstr "ta"
+
+msgid "chi"
+msgstr "chi"
+
+msgid "tsu"
+msgstr "tsu"
+
+msgid "te"
+msgstr "te"
+
+msgid "to"
+msgstr "to"
+
+msgid "na"
+msgstr "na"
+
+msgid "ni"
+msgstr "ni"
+
+msgid "nu"
+msgstr "nu"
+
+msgid "ne"
+msgstr "ne"
+
+msgid "no"
+msgstr "no"
+
+msgid "ha"
+msgstr "ha"
+
+msgid "hi"
+msgstr "hi"
+
+msgid "fu"
+msgstr "fu"
+
+msgid "he"
+msgstr "he"
+
+msgid "ho"
+msgstr "ho"
+
+msgid "ma"
+msgstr "ma"
+
+msgid "mi"
+msgstr "mi"
+
+msgid "mu"
+msgstr "mu"
+
+msgid "me"
+msgstr "me"
+
+msgid "mo"
+msgstr "mo"
+
+msgid "ya"
+msgstr "ya"
+
+msgid "yu"
+msgstr "yu"
+
+msgid "yo"
+msgstr "yo"
+
+msgid "ra"
+msgstr "ra"
+
+msgid "ri"
+msgstr "ri"
+
+msgid "ru"
+msgstr "ru"
+
+msgid "re"
+msgstr "re"
+
+msgid "ro"
+msgstr "ro"
+
+msgid "wa"
+msgstr "wa"
+
+msgid "wo"
+msgstr "wo"
+
+msgid "n"
+msgstr "n"
+
+msgid "ga"
+msgstr "ga"
+
+msgid "gi"
+msgstr "gi"
+
+msgid "gu"
+msgstr "gu"
+
+msgid "ge"
+msgstr "ge"
+
+msgid "go"
+msgstr "go"
+
+msgid "za"
+msgstr "za"
+
+msgid "ji"
+msgstr "ji"
+
+msgid "zu"
+msgstr "zu"
+
+msgid "ze"
+msgstr "ze"
+
+msgid "zo"
+msgstr "zo"
+
+msgid "da"
+msgstr "da"
+
+msgid "di,ji"
+msgstr "di,ji"
+
+msgid "du,zu"
+msgstr "du,zu"
+
+msgid "de"
+msgstr "de"
+
+msgid "do"
+msgstr "do"
+
+msgid "ba"
+msgstr "ba"
+
+msgid "bi"
+msgstr "bi"
+
+msgid "bu"
+msgstr "bu"
+
+msgid "be"
+msgstr "be"
+
+msgid "bo"
+msgstr "bo"
+
+msgid "pa"
+msgstr "pa"
+
+msgid "pi"
+msgstr "pi"
+
+msgid "pu"
+msgstr "pu"
+
+msgid "pe"
+msgstr "pe"
+
+msgid "po"
+msgstr "po"
+
+msgid "kya"
+msgstr "kya"
+
+msgid "kyu"
+msgstr "kyu"
+
+msgid "kyo"
+msgstr "kyo"
+
+msgid "sha"
+msgstr "sha"
+
+msgid "shu"
+msgstr "shu"
+
+msgid "sho"
+msgstr "sho"
+
+msgid "cha"
+msgstr "cha"
+
+msgid "chu"
+msgstr "chu"
+
+msgid "cho"
+msgstr "cho"
+
+msgid "nya"
+msgstr "nya"
+
+msgid "nyu"
+msgstr "nyu"
+
+msgid "nyo"
+msgstr "nyo"
+
+msgid "hya"
+msgstr "hya"
+
+msgid "hyu"
+msgstr "hyu"
+
+msgid "hyo"
+msgstr "hyo"
+
+msgid "mya"
+msgstr "mya"
+
+msgid "myu"
+msgstr "myu"
+
+msgid "myo"
+msgstr "myo"
+
+msgid "rya"
+msgstr "rya"
+
+msgid "ryu"
+msgstr "ryu"
+
+msgid "ryo"
+msgstr "ryo"
+
+msgid "gya"
+msgstr "gya"
+
+msgid "gyu"
+msgstr "gyu"
+
+msgid "gyo"
+msgstr "gyo"
+
+msgid "ja"
+msgstr "ja"
+
+msgid "ju"
+msgstr "ju"
+
+msgid "jo"
+msgstr "jo"
+
+msgid "bya"
+msgstr "bya"
+
+msgid "byu"
+msgstr "byu"
+
+msgid "byo"
+msgstr "byo"
+
+msgid "pya"
+msgstr "pya"
+
+msgid "pyu"
+msgstr "pyu"
+
+msgid "pyo"
+msgstr "pyo"
+
+msgid "minute and"
+msgid_plural "minutes and"
+msgstr[0] "minuta i"
+msgstr[1] "minuty i"
+msgstr[2] "minuty i"
+
+msgid "second"
+msgid_plural "seconds"
+msgstr[0] "sekunda"
+msgstr[1] "sekundy"
+msgstr[2] "sekundy"
+
+msgid "Test has finished!"
+msgstr "Test zakończony!"
+
+#, fuzzy
+msgid "Total questions"
+msgstr "Zadane pytania:"
+
+msgid "unique"
+msgstr "unikalny"
+
+#, fuzzy
+msgid "Correct answers"
+msgstr "Poprawne odpowiedzi:"
+
+#, fuzzy
+msgid "Wrong answers"
+msgstr "Niepoprawne odpowiedzi:"
+
+#, fuzzy
+msgid "Correctness ratio"
+msgstr "Procent poprawności:"
+
+#, fuzzy
+msgid "Drilling-time"
+msgstr "Czas trwania testu:"
+
+msgid "Information"
+msgstr "Informacja"
