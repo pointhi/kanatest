@@ -232,8 +232,15 @@ gchar *translators[] = {
     gui_url_setup (&appGUI->about_links_list, &appGUI->about_link_index, appGUI->about_textview, appGUI);
 
     gtk_text_buffer_insert (entry_buffer, &iter, "\n", -1);
+
+#ifndef REV
+    sprintf (buffer, "Kanatest %s\n", VERSION);
+#else
+    sprintf (buffer, "Kanatest SVN r%d\n", REV);
+#endif
     gtk_text_buffer_insert_with_tags_by_name (entry_buffer, &iter,
-                        "Kanatest " VERSION "\n", -1, "big", "center", NULL);
+                        buffer, -1, "big", "center", NULL);
+
     gtk_text_buffer_insert (entry_buffer, &iter, "\n", -1);
     gui_url_insert_link(&appGUI->about_links_list, &appGUI->about_link_index, appGUI->about_textview,
 			&iter, NULL, 0, "http://clay.ll.pl/kanatest", TRUE, appGUI);

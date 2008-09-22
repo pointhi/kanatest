@@ -1,4 +1,5 @@
-AM_CPPFLAGS = -DLOCALEDIR=\"$(datadir)/locale\"
+REVISION := $(shell if test -e .svn; then echo -DREV=\"`LC_ALL=C svn info | sed -n '/^Rev/p'| sed -e 's/^Revision:\ //'`\"; fi;)
+AM_CPPFLAGS = -DLOCALEDIR=\"$(datadir)/locale\" $(REVISION)
 bin_PROGRAMS = kanatest
 kanatest_SOURCES = about.c about.h \
 				   chart.c chart.h \
