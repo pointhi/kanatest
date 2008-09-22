@@ -23,6 +23,7 @@
 #include <config.h>
 
 #include <stdio.h>
+#include <string.h>
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
 #include <gdk/gdkkeysyms.h>
@@ -263,8 +264,12 @@ gchar *translators[] = {
 
     for (i=0; i < (sizeof(translators) / sizeof(translators[0]) / 3); i++) {
         gtk_text_buffer_insert (entry_buffer, &iter, "     ", -1);
-        g_snprintf (buffer, BUFFER_SIZE, "[%s]  ", translators[i*3+0]);
-        gtk_text_buffer_insert_with_tags_by_name (entry_buffer, &iter, buffer, -1, "fixed", NULL);
+        if (strlen(translators[i*3+0])) {
+            g_snprintf (buffer, BUFFER_SIZE, "[%s]  ", translators[i*3+0]);      
+            gtk_text_buffer_insert_with_tags_by_name (entry_buffer, &iter, buffer, -1, "fixed", NULL);
+        } else {
+            gtk_text_buffer_insert_with_tags_by_name (entry_buffer, &iter, "      ", -1, "fixed", NULL);
+        }
         g_snprintf (buffer, BUFFER_SIZE, "%s <", translators[i*3+1]);
         gtk_text_buffer_insert (entry_buffer, &iter, buffer, -1);
         gui_url_insert_link (&appGUI->about_links_list, &appGUI->about_link_index, appGUI->about_textview,
