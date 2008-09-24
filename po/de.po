@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kanatest 0.4.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-24 11:51+0200\n"
+"POT-Creation-Date: 2008-09-24 12:19+0200\n"
 "PO-Revision-Date: 2008-09-22 17:07+0100\n"
 "Last-Translator: Mathias Brodala <info@noctus.net>\n"
 "Language-Team: German <info@noctus.net>\n"
@@ -85,6 +85,12 @@ msgstr "Katakana"
 
 msgid "Select test mode, kana set and press START"
 msgstr "Wähle einen Testmodus, ein Kana-Set und drücke auf START."
+
+msgid "Test is in progress... Abort?"
+msgstr ""
+
+msgid "Question"
+msgstr "Frage"
 
 msgid "Romaji"
 msgstr "Romaji"
@@ -255,9 +261,6 @@ msgstr "Invertiert"
 #, fuzzy
 msgid "Please select options"
 msgstr "Verschiedenes"
-
-msgid "Question"
-msgstr "Frage"
 
 msgid "Remove lessons list"
 msgstr ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kanatest 0.4.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-21 23:58+0200\n"
+"POT-Creation-Date: 2008-09-24 12:19+0200\n"
 "PO-Revision-Date: 2007-09-16 00:16+0200\n"
 "Last-Translator: Bruno Ramos <ladrilho@gmail.com>\n"
 "Language-Team: Portuguese\n"
@@ -78,6 +78,12 @@ msgstr "Katakana"
 
 msgid "Select test mode, kana set and press START"
 msgstr "Escolha o tipo de teste, o grupo de kanas e carregue em START"
+
+msgid "Test is in progress... Abort?"
+msgstr ""
+
+msgid "Question"
+msgstr "Pergunta"
 
 msgid "Romaji"
 msgstr "Romaji"
@@ -244,9 +250,6 @@ msgstr "Inverter"
 #, fuzzy
 msgid "Please select options"
 msgstr "Opções extra"
-
-msgid "Question"
-msgstr "Pergunta"
 
 msgid "Remove lessons list"
 msgstr ""

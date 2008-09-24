@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kanatest 0.4.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-21 23:58+0200\n"
+"POT-Creation-Date: 2008-09-24 12:19+0200\n"
 "PO-Revision-Date: 2008-05-18 22:13+0100\n"
 "Last-Translator: Adrian Courrèges <a.courreges@gmail.com>\n"
 "Language-Team: French\n"
@@ -81,6 +81,12 @@ msgstr "Katakana"
 
 msgid "Select test mode, kana set and press START"
 msgstr "Sélectionnez le mode, la série de kanas et appuyez sur DÉMARRER"
+
+msgid "Test is in progress... Abort?"
+msgstr ""
+
+msgid "Question"
+msgstr "Question"
 
 msgid "Romaji"
 msgstr "Rōmaji"
@@ -249,9 +255,6 @@ msgstr "Inverser"
 #, fuzzy
 msgid "Please select options"
 msgstr "Divers"
-
-msgid "Question"
-msgstr "Question"
 
 msgid "Remove lessons list"
 msgstr ""

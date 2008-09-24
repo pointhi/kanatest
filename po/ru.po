@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kanatest 0.4.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-21 23:58+0200\n"
+"POT-Creation-Date: 2008-09-24 12:19+0200\n"
 "PO-Revision-Date: 2007-09-16 00:28+0200\n"
 "Last-Translator:  <taclipoka@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -81,6 +81,12 @@ msgstr "Катакана"
 
 msgid "Select test mode, kana set and press START"
 msgstr "Выберите режим тестирования, набор символов каны и нажмите \"ПУСК\""
+
+msgid "Test is in progress... Abort?"
+msgstr ""
+
+msgid "Question"
+msgstr "Вопрос"
 
 msgid "Romaji"
 msgstr "Киридзи"
@@ -247,9 +253,6 @@ msgstr "Обратить"
 #, fuzzy
 msgid "Please select options"
 msgstr "Всячина:"
-
-msgid "Question"
-msgstr "Вопрос"
 
 msgid "Remove lessons list"
 msgstr ""

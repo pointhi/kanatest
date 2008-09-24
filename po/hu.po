@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kanatest 0.4.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-21 23:58+0200\n"
+"POT-Creation-Date: 2008-09-24 12:19+0200\n"
 "PO-Revision-Date: 2008-07-12 10:38+0200\n"
 "Last-Translator: Csaba Szigetvári <csaba.szigetvari@informedia.hu>\n"
 "Language-Team: Csaba Szigetvári <csaba.szigetvari@informedia.hu>\n"
@@ -79,6 +79,12 @@ msgstr "Katakana"
 
 msgid "Select test mode, kana set and press START"
 msgstr "Válassz teszt üzemmódot, kana készletet és indíts a START-tal"
+
+msgid "Test is in progress... Abort?"
+msgstr ""
+
+msgid "Question"
+msgstr "Kérdés"
 
 msgid "Romaji"
 msgstr "Romaji"
@@ -244,9 +250,6 @@ msgstr "Invertálás"
 #, fuzzy
 msgid "Please select options"
 msgstr "Egyéb beállítások"
-
-msgid "Question"
-msgstr "Kérdés"
 
 msgid "Remove lessons list"
 msgstr ""
