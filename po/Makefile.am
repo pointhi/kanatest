@@ -5,7 +5,7 @@ MSGFMT = /usr/bin/msgfmt
 XGETTEXT = /usr/bin/xgettext
 MSGMERGE = /usr/bin/msgmerge
 
-XGETTEXT_OPTS = --keyword=_ --keyword=N_ --keyword=X_ --add-comments=TRANSLATORS: --no-location
+XGETTEXT_OPTS = --keyword=_ --keyword=N_ --keyword=X_ --add-comments=TRANSLATORS: 
 POFILES = de.po fr.po hu.po pl.po pt.po ru.po
 MOFILES = $(POFILES:.po=.mo)
 

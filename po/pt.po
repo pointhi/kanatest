@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kanatest 0.4.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-24 12:19+0200\n"
+"POT-Creation-Date: 2008-09-24 18:54+0200\n"
 "PO-Revision-Date: 2007-09-16 00:16+0200\n"
 "Last-Translator: Bruno Ramos <ladrilho@gmail.com>\n"
 "Language-Team: Portuguese\n"
@@ -16,21 +16,28 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ../src/about.c:170 ../src/about.c:288 ../src/gui.c:609
+#: ../src/stock_icons.c:45
 msgid "About"
 msgstr "Sobre"
 
+#: ../src/about.c:249
 msgid "compiled on"
 msgstr "Compilado em"
 
+#: ../src/about.c:252
 msgid "Programming"
 msgstr "Programação"
 
+#: ../src/about.c:259
 msgid "Graphics"
 msgstr "Gráficos"
 
+#: ../src/about.c:270
 msgid "Translators"
 msgstr "Tradutores"
 
+#: ../src/about.c:325
 msgid ""
 "We would like to thank the following people for suggestions, bug reports and "
 "patches:"
@@ -38,19 +45,23 @@ msgstr ""
 "Agradecemos às seguintes pessoas pelas sugestões, relatórios de problemas e "
 "correcções:"
 
+#: ../src/about.c:330
 msgid "Contributors"
 msgstr "Contribuiram ainda"
 
+#: ../src/about.c:369
 #, fuzzy
 msgid ""
 "If you like our program, send a postcard with a photo of the city where you "
 "live to"
 msgstr "Se gostaram do nosso programa mandem um postal da cidade onde vivem:"
 
+#: ../src/about.c:375
 #, fuzzy
 msgid "We have received several postcards from our happy users"
 msgstr "Recebemos vários postais dos nossos utilizadores:"
 
+#: ../src/about.c:381
 msgid ""
 "Your postcards are a kind of motivation that encourages us to keep improving "
 "Kanatest :)"
@@ -58,120 +69,160 @@ msgstr ""
 "Os vossos postais são uma espécie de motivação que nos encoraja a continuar "
 "a melhorar o Kanatest :)"
 
+#: ../src/about.c:383
 msgid "Thank you!"
 msgstr "Obrigado!"
 
+#: ../src/about.c:386
 msgid "Postcards"
 msgstr "Postais"
 
+#: ../src/about.c:423
 msgid "License"
 msgstr "Licença"
 
+#: ../src/chart.c:180 ../src/gui.c:591
 msgid "Kana chart"
 msgstr "Tabela Kana"
 
+#: ../src/chart.c:241 ../src/options.c:525 ../src/options.c:1088
+#: ../src/stats.c:299 ../src/test.c:51
 msgid "Hiragana"
 msgstr "Hiragana"
 
+#: ../src/chart.c:251 ../src/options.c:534 ../src/options.c:1089
+#: ../src/stats.c:369 ../src/test.c:51
 msgid "Katakana"
 msgstr "Katakana"
 
+#: ../src/gui.c:175
 msgid "Select test mode, kana set and press START"
 msgstr "Escolha o tipo de teste, o grupo de kanas e carregue em START"
 
+#: ../src/gui.c:386
 msgid "Test is in progress... Abort?"
 msgstr ""
 
+#: ../src/gui.c:388 ../src/stats.c:104
 msgid "Question"
 msgstr "Pergunta"
 
+#: ../src/gui.c:537 ../src/options.c:1087
 msgid "Romaji"
 msgstr "Romaji"
 
+#: ../src/gui.c:582 ../src/options.c:541 ../src/stats.c:224
+#: ../src/stock_icons.c:42
 msgid "Statistics"
 msgstr "Estatísticas"
 
+#: ../src/gui.c:600 ../src/options.c:736 ../src/stock_icons.c:44
 msgid "Options"
 msgstr "Opções"
 
+#: ../src/gui.c:639 ../src/stats.c:216
 msgid "Test mode"
 msgstr "Tipo de teste"
 
+#: ../src/gui.c:666 ../src/stats.c:217
 msgid "Kana set"
 msgstr "Kana set"
 
+#: ../src/gui.c:674
 msgid "Start"
 msgstr "Start"
 
+#: ../src/gui.c:682
 msgid "Press to begin testing..."
 msgstr "Carregue para iniciar o teste..."
 
+#: ../src/gui.c:684
 msgid "Stop"
 msgstr "Stop"
 
+#: ../src/gui.c:692
 msgid "Press to stop testing..."
 msgstr "Carregue para terminar o teste..."
 
+#: ../src/gui.c:694
 msgid "Quit"
 msgstr "Terminar"
 
+#: ../src/gui.c:702
 msgid "Exit!"
 msgstr "Sair!"
 
+#: ../src/options.c:53 ../src/options.c:908
 msgid "Select kana font"
 msgstr "Escolha a fonte para os kanas"
 
+#: ../src/options.c:161
 msgid "Please select at least two kanas to test."
 msgstr "Por favor escolha pelo menos dois kanas para o teste."
 
+#: ../src/options.c:164
 msgid "Error"
 msgstr "Erro"
 
+#: ../src/options.c:380 ../src/options.c:425
 #, fuzzy
 msgid "no kanas found"
 msgstr "Escolha a fonte para os kanas"
 
+#: ../src/options.c:423
 msgid "kanas found"
 msgstr ""
 
+#: ../src/options.c:498 ../src/options.c:1063
 msgid "Statistics based selection"
 msgstr ""
 
+#: ../src/options.c:562
 #, fuzzy
 msgid "From"
 msgstr "ro"
 
+#: ../src/options.c:590
 #, fuzzy
 msgid "To"
 msgstr "o"
 
+#: ../src/options.c:612
 #, fuzzy
 msgid "Ratio range"
 msgstr "Percentagem (%)"
 
+#: ../src/options.c:645
 #, fuzzy
 msgid "Kanas"
 msgstr "Kana set"
 
+#: ../src/options.c:677 ../src/options.c:1098
 msgid "Select"
 msgstr "Escolher"
 
+#: ../src/options.c:757
 msgid "General"
 msgstr "Geral"
 
+#: ../src/options.c:771
 msgid "Drill options"
 msgstr "Opções do teste"
 
+#: ../src/options.c:787
 msgid "Display each kana once"
 msgstr "Mostrar cada kana uma vez"
 
+#: ../src/options.c:792
 msgid ""
 "When this option is enabled the kanatest will display every question once"
 msgstr "O kanatest vai mostrar cada pergunta uma vez"
 
+#: ../src/options.c:797
 msgid "Repeat wrongly-answered questions"
 msgstr "Repetir as perguntas respondidas incorrectamente"
 
+#: ../src/options.c:802
 msgid ""
 "When this option is enabled the kanatest will repeat all wrongly answered "
 "questions at the end of test"
@@ -179,167 +230,220 @@ msgstr ""
 "O kanatest vai repetir todas as perguntas respondidas erradamente no final "
 "do teste"
 
+#: ../src/options.c:807
 msgid "Repeat all forever"
 msgstr "Repetir sempre"
 
+#: ../src/options.c:812
 msgid ""
 "When this option is enabled the kanatest will repeat all questions forever"
 msgstr "O kanatest vai repetir todas as perguntas para sempre"
 
+#: ../src/options.c:821
 msgid "Correct answer display timeout"
 msgstr "Mostar as respostas correctas durante"
 
+#: ../src/options.c:836
 msgid "Disabled"
 msgstr "Desligado"
 
+#: ../src/options.c:837
 msgid "1 sec"
 msgstr "1 seg"
 
+#: ../src/options.c:838
 msgid "2 sec"
 msgstr "2 seg"
 
+#: ../src/options.c:839
 msgid "3 sec"
 msgstr "3 seg"
 
+#: ../src/options.c:840
 msgid "Until any key will be pressed"
 msgstr "Até alguma tecla ser carregada"
 
+#: ../src/options.c:852
 #, fuzzy
 msgid "Appearance"
 msgstr "Aparência"
 
+#: ../src/options.c:872
 msgid "Kana color"
 msgstr "Cor do Kana"
 
+#: ../src/options.c:890
 msgid "Romaji color"
 msgstr "Cor do Romaji"
 
+#: ../src/options.c:924
 msgid "Misc options"
 msgstr "Opções extra"
 
+#: ../src/options.c:939
 msgid "Enable tooltips"
 msgstr "Ligar tooltips"
 
+#: ../src/options.c:946
 msgid "Toggle to enable/disable tooltips"
 msgstr "Selectione para ligar/desligar as tooltips"
 
+#: ../src/options.c:951 ../src/test.c:77
 msgid "User-defined lesson"
 msgstr "Lição definida pelo utilizador"
 
+#: ../src/options.c:1019
 msgid "Select all kanas in row"
 msgstr "Escolher todos os kanas na linha"
 
+#: ../src/options.c:1035
 msgid "Deselect all kanas in row"
 msgstr "Remover todos os kanas na linha"
 
+#: ../src/options.c:1051
 msgid "Selected kanas"
 msgstr "Kanas escolhidos"
 
+#: ../src/options.c:1074
 msgid "Display as"
 msgstr "Mostrar como"
 
+#: ../src/options.c:1105
 msgid "All"
 msgstr "Todos"
 
+#: ../src/options.c:1112
 msgid "None"
 msgstr "Nenhum"
 
+#: ../src/options.c:1119
 msgid "Invert"
 msgstr "Inverter"
 
+#: ../src/stats.c:98
 #, fuzzy
 msgid "Please select options"
 msgstr "Opções extra"
 
+#: ../src/stats.c:108
 msgid "Remove lessons list"
 msgstr ""
 
+#: ../src/stats.c:114
 msgid "Remove Hiragana statistics"
 msgstr ""
 
+#: ../src/stats.c:119
 msgid "Remove Katakana statistics"
 msgstr ""
 
+#: ../src/stats.c:124
 msgid "No further recovery will be possible. Continue ?"
 msgstr ""
 
+#: ../src/stats.c:216
 msgid "Date"
 msgstr "Data"
 
+#: ../src/stats.c:216
 msgid "Test time"
 msgstr "Tempo do teste"
 
+#: ../src/stats.c:216
 msgid "Questions"
 msgstr "Perguntas"
 
+#: ../src/stats.c:217
 msgid "Correct"
 msgstr "Certo"
 
+#: ../src/stats.c:217
 msgid "Wrong"
 msgstr "Errado"
 
+#: ../src/stats.c:217
 msgid "Ratio (%)"
 msgstr "Percentagem (%)"
 
+#: ../src/stats.c:253
 #, fuzzy
 msgid "Lessons"
 msgstr "Perguntas"
 
+#: ../src/stats.c:448
 #, fuzzy
 msgid "Reset"
 msgstr "Apagar estatísticas"
 
+#: ../src/stats.c:483
 msgid "RW"
 msgstr "RW"
 
+#: ../src/stats.c:486
 msgid "RA"
 msgstr "RA"
 
+#: ../src/stock_icons.c:43
 msgid "Chart"
 msgstr ""
 
+#: ../src/test.c:51
 msgid "Mixed"
 msgstr "Mixed"
 
+#: ../src/test.c:63
 msgid "All kanas"
 msgstr "Todos os kanas"
 
+#: ../src/test.c:64
 msgid "Basic kanas"
 msgstr "Kanas básicos"
 
+#: ../src/test.c:65
 msgid "A-I-U-E-O"
 msgstr "A-I-U-E-O"
 
+#: ../src/test.c:66
 msgid "KA-KI-KU-KE-KO"
 msgstr "KA-KI-KU-KE-KO"
 
+#: ../src/test.c:67
 msgid "SA-SHI-SU-SE-SO"
 msgstr "SA-SHI-SU-SE-SO"
 
+#: ../src/test.c:68
 msgid "TA-CHI-TSU-TE-TO"
 msgstr "TA-CHI-TSU-TE-TO"
 
+#: ../src/test.c:69
 msgid "NA-NI-NU-NE-NO"
 msgstr "NA-NI-NU-NE-NO"
 
+#: ../src/test.c:70
 msgid "HA-HI-FU-HE-HO"
 msgstr "HA-HI-FU-HE-HO"
 
+#: ../src/test.c:71
 msgid "MA-MI-MU-ME-MO"
 msgstr "MA-MI-MU-ME-MO"
 
+#: ../src/test.c:72
 msgid "YA-YU-YO"
 msgstr "YA-YU-YO"
 
+#: ../src/test.c:73
 msgid "RA-RI-RU-RE-RO"
 msgstr "RA-RI-RU-RE-RO"
 
+#: ../src/test.c:74
 msgid "WA-WO-N"
 msgstr "WA-WO-N"
 
+#: ../src/test.c:75
 msgid "Combo letters (part 1)"
 msgstr "Letras agrupadas (parte 1)"
 
+#: ../src/test.c:76
 msgid "Combo letters (part 2)"
 msgstr "Letras agrupadas (parte 2)"
 
@@ -349,353 +453,467 @@ msgstr "Letras agrupadas (parte 2)"
 #. 2
 #. 3
 #. 4
+#: ../src/test.c:95
 msgid "a"
 msgstr "a"
 
+#: ../src/test.c:95
 msgid "i"
 msgstr "i"
 
+#: ../src/test.c:95
 msgid "u"
 msgstr "u"
 
+#: ../src/test.c:95
 msgid "e"
 msgstr "e"
 
+#: ../src/test.c:95
 msgid "o"
 msgstr "o"
 
+#: ../src/test.c:97
 msgid "ka"
 msgstr "ka"
 
+#: ../src/test.c:97
 msgid "ki"
 msgstr "ki"
 
+#: ../src/test.c:97
 msgid "ku"
 msgstr "ku"
 
+#: ../src/test.c:97
 msgid "ke"
 msgstr "ke"
 
+#: ../src/test.c:97
 msgid "ko"
 msgstr "ko"
 
+#: ../src/test.c:99
 msgid "sa"
 msgstr "sa"
 
+#: ../src/test.c:99
 msgid "shi"
 msgstr "shi"
 
+#: ../src/test.c:99
 msgid "su"
 msgstr "su"
 
+#: ../src/test.c:99
 msgid "se"
 msgstr "se"
 
+#: ../src/test.c:99
 msgid "so"
 msgstr "so"
 
+#: ../src/test.c:101
 msgid "ta"
 msgstr "ta"
 
+#: ../src/test.c:101
 msgid "chi"
 msgstr "chi"
 
+#: ../src/test.c:101
 msgid "tsu"
 msgstr "tsu"
 
+#: ../src/test.c:101
 msgid "te"
 msgstr "te"
 
+#: ../src/test.c:101
 msgid "to"
 msgstr "to"
 
+#: ../src/test.c:104
 msgid "na"
 msgstr "na"
 
+#: ../src/test.c:104
 msgid "ni"
 msgstr "ni"
 
+#: ../src/test.c:104
 msgid "nu"
 msgstr "nu"
 
+#: ../src/test.c:104
 msgid "ne"
 msgstr "ne"
 
+#: ../src/test.c:104
 msgid "no"
 msgstr "no"
 
+#: ../src/test.c:106
 msgid "ha"
 msgstr "ha"
 
+#: ../src/test.c:106
 msgid "hi"
 msgstr "hi"
 
+#: ../src/test.c:106
 msgid "fu"
 msgstr "fu"
 
+#: ../src/test.c:106
 msgid "he"
 msgstr "he"
 
+#: ../src/test.c:106
 msgid "ho"
 msgstr "ho"
 
+#: ../src/test.c:108
 msgid "ma"
 msgstr "ma"
 
+#: ../src/test.c:108
 msgid "mi"
 msgstr "mi"
 
+#: ../src/test.c:108
 msgid "mu"
 msgstr "mu"
 
+#: ../src/test.c:108
 msgid "me"
 msgstr "me"
 
+#: ../src/test.c:108
 msgid "mo"
 msgstr "mo"
 
+#: ../src/test.c:110
 msgid "ya"
 msgstr "ya"
 
+#: ../src/test.c:110
 msgid "yu"
 msgstr "yu"
 
+#: ../src/test.c:110
 msgid "yo"
 msgstr "yo"
 
+#: ../src/test.c:112
 msgid "ra"
 msgstr "ra"
 
+#: ../src/test.c:112
 msgid "ri"
 msgstr "ri"
 
+#: ../src/test.c:112
 msgid "ru"
 msgstr "ru"
 
+#: ../src/test.c:112
 msgid "re"
 msgstr "re"
 
+#: ../src/test.c:112
 msgid "ro"
 msgstr "ro"
 
+#: ../src/test.c:115
 msgid "wa"
 msgstr "wa"
 
+#: ../src/test.c:115
 msgid "wo"
 msgstr "wo"
 
+#: ../src/test.c:117
 msgid "n"
 msgstr "n"
 
+#: ../src/test.c:120
 msgid "ga"
 msgstr "ga"
 
+#: ../src/test.c:120
 msgid "gi"
 msgstr "gi"
 
+#: ../src/test.c:120
 msgid "gu"
 msgstr "gu"
 
+#: ../src/test.c:120
 msgid "ge"
 msgstr "ge"
 
+#: ../src/test.c:120
 msgid "go"
 msgstr "go"
 
+#: ../src/test.c:122
 msgid "za"
 msgstr "za"
 
+#: ../src/test.c:122
 msgid "ji"
 msgstr "ji"
 
+#: ../src/test.c:122
 msgid "zu"
 msgstr "zu"
 
+#: ../src/test.c:122
 msgid "ze"
 msgstr "ze"
 
+#: ../src/test.c:122
 msgid "zo"
 msgstr "zo"
 
+#: ../src/test.c:124
 msgid "da"
 msgstr "da"
 
+#: ../src/test.c:124
 msgid "di,ji"
 msgstr "di,ji"
 
+#: ../src/test.c:124
 msgid "du,zu"
 msgstr "du,zu"
 
+#: ../src/test.c:124
 msgid "de"
 msgstr "de"
 
+#: ../src/test.c:124
 msgid "do"
 msgstr "do"
 
+#: ../src/test.c:126
 msgid "ba"
 msgstr "ba"
 
+#: ../src/test.c:126
 msgid "bi"
 msgstr "bi"
 
+#: ../src/test.c:126
 msgid "bu"
 msgstr "bu"
 
+#: ../src/test.c:126
 msgid "be"
 msgstr "be"
 
+#: ../src/test.c:126
 msgid "bo"
 msgstr "bo"
 
+#: ../src/test.c:128
 msgid "pa"
 msgstr "pa"
 
+#: ../src/test.c:128
 msgid "pi"
 msgstr "pi"
 
+#: ../src/test.c:128
 msgid "pu"
 msgstr "pu"
 
+#: ../src/test.c:128
 msgid "pe"
 msgstr "pe"
 
+#: ../src/test.c:128
 msgid "po"
 msgstr "po"
 
+#: ../src/test.c:131
 msgid "kya"
 msgstr "kya"
 
+#: ../src/test.c:131
 msgid "kyu"
 msgstr "kyu"
 
+#: ../src/test.c:131
 msgid "kyo"
 msgstr "kyo"
 
+#: ../src/test.c:133
 msgid "sha"
 msgstr "sha"
 
+#: ../src/test.c:133
 msgid "shu"
 msgstr "shu"
 
+#: ../src/test.c:133
 msgid "sho"
 msgstr "sho"
 
+#: ../src/test.c:135
 msgid "cha"
 msgstr "cha"
 
+#: ../src/test.c:135
 msgid "chu"
 msgstr "chu"
 
+#: ../src/test.c:135
 msgid "cho"
 msgstr "cho"
 
+#: ../src/test.c:137
 msgid "nya"
 msgstr "nya"
 
+#: ../src/test.c:137
 msgid "nyu"
 msgstr "nyu"
 
+#: ../src/test.c:137
 msgid "nyo"
 msgstr "nyo"
 
+#: ../src/test.c:139
 msgid "hya"
 msgstr "hya"
 
+#: ../src/test.c:139
 msgid "hyu"
 msgstr "hyu"
 
+#: ../src/test.c:139
 msgid "hyo"
 msgstr "hyo"
 
+#: ../src/test.c:141
 msgid "mya"
 msgstr "mya"
 
+#: ../src/test.c:141
 msgid "myu"
 msgstr "myu"
 
+#: ../src/test.c:141
 msgid "myo"
 msgstr "myo"
 
+#: ../src/test.c:143
 msgid "rya"
 msgstr "rya"
 
+#: ../src/test.c:143
 msgid "ryu"
 msgstr "ryu"
 
+#: ../src/test.c:143
 msgid "ryo"
 msgstr "ryo"
 
+#: ../src/test.c:146
 msgid "gya"
 msgstr "gya"
 
+#: ../src/test.c:146
 msgid "gyu"
 msgstr "gyu"
 
+#: ../src/test.c:146
 msgid "gyo"
 msgstr "gyo"
 
+#: ../src/test.c:148
 msgid "ja"
 msgstr "ja"
 
+#: ../src/test.c:148
 msgid "ju"
 msgstr "ju"
 
+#: ../src/test.c:148
 msgid "jo"
 msgstr "jo"
 
+#: ../src/test.c:150
 msgid "bya"
 msgstr "bya"
 
+#: ../src/test.c:150
 msgid "byu"
 msgstr "byu"
 
+#: ../src/test.c:150
 msgid "byo"
 msgstr "byo"
 
+#: ../src/test.c:152
 msgid "pya"
 msgstr "pya"
 
+#: ../src/test.c:152
 msgid "pyu"
 msgstr "pyu"
 
+#: ../src/test.c:152
 msgid "pyo"
 msgstr "pyo"
 
+#: ../src/test.c:336
 msgid "minute and"
 msgid_plural "minutes and"
 msgstr[0] "minuto e"
 msgstr[1] "minutos e"
 
+#: ../src/test.c:337 ../src/test.c:339
 msgid "second"
 msgid_plural "seconds"
 msgstr[0] "segundo"
 msgstr[1] "segundos"
 
+#: ../src/test.c:517 ../src/test.c:537
 msgid "Test has finished!"
 msgstr "O teste terminou!"
 
+#: ../src/test.c:517 ../src/test.c:537
 #, fuzzy
 msgid "Total questions"
 msgstr "Total de perguntas:"
 
+#: ../src/test.c:520
 msgid "unique"
 msgstr "únicas"
 
+#: ../src/test.c:521 ../src/test.c:539
 #, fuzzy
 msgid "Correct answers"
 msgstr "Respostas correctas:"
 
+#: ../src/test.c:523 ../src/test.c:541
 #, fuzzy
 msgid "Wrong answers"
 msgstr "Respostas erradas:"
 
+#: ../src/test.c:525 ../src/test.c:543
 #, fuzzy
 msgid "Correctness ratio"
 msgstr "Percentagem de respostas certas:"
 
+#: ../src/test.c:527 ../src/test.c:545
 #, fuzzy
 msgid "Drilling-time"
 msgstr "Tempo do teste:"
 
+#: ../src/test.c:553
 msgid "Information"
 msgstr "Informação"
