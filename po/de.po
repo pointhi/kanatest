@@ -1,44 +1,48 @@
-# LANGUAGE translation of Kanatest.
-# Copyright (C) 2008 THE Kanatest'S COPYRIGHT HOLDER
+# German translation of Kanatest.
+# Copyright (C) 2008 Tomasz MƒÖka <pasp@users.sorceforge.net>
 # This file is distributed under the same license as the Kanatest package.
-# Frank Polte <frederyk@gmx.de>, 2008.
-# 
-# 
-# 
+# Mathias Brodala <info@noctus.net>, 2008.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Kanatest 0.4.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-21 23:58+0200\n"
-"PO-Revision-Date: 2008-01-03 17:13+0100\n"
-"Last-Translator: Frank Polte <frederyk@gmx.de>\n"
-"Language-Team: German <gnome-de@gnome.org>\n"
+"POT-Creation-Date: 2008-09-24 11:51+0200\n"
+"PO-Revision-Date: 2008-09-22 17:07+0100\n"
+"Last-Translator: Mathias Brodala <info@noctus.net>\n"
+"Language-Team: German <info@noctus.net>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-Basepath: ../src\n"
 
 msgid "About"
-msgstr "‹ber"
+msgstr "√úber"
 
 msgid "compiled on"
-msgstr "Kompiliert auf"
+msgstr "kompiliert am"
 
+#, fuzzy
 msgid "Programming"
-msgstr "Programmierung"
+msgstr "Programmierung:"
 
+#, fuzzy
 msgid "Graphics"
-msgstr "Grafik"
+msgstr "Graphiken:"
 
+#, fuzzy
 msgid "Translators"
-msgstr "‹bersetzer"
+msgstr "√úbersetzer:"
 
 msgid ""
 "We would like to thank the following people for suggestions, bug reports and "
 "patches:"
 msgstr ""
-"Wir mˆchten folgenden Personen f¸r ihre Anregungen, Fehlermeldungen und "
-"Patches danken:"
+"Wir m√∂chten uns bei folgenden Personen f√ºr Anregungen, Bugreports und "
+"Patches bedanken:"
 
 msgid "Contributors"
 msgstr "Mitwirkende"
@@ -48,22 +52,21 @@ msgid ""
 "If you like our program, send a postcard with a photo of the city where you "
 "live to"
 msgstr ""
-"Wenn dir das programm gefallen sollte, schicke uns bitte eine Postkarte mit "
-"einem Bild von der Stadt, in der du wohnst:"
+"Wenn dir unser Programm gef√§llt, sende eine Postkarte mit einem Bild deiner "
+"Heimatstadt an:"
 
 #, fuzzy
 msgid "We have received several postcards from our happy users"
-msgstr "We haben einige Postkarten von gl¸cklichen Nutzern bekommen:"
+msgstr "Wir haben schon einige Postkarten von gl√ºcklichen Nutzern erhalten:"
 
 msgid ""
 "Your postcards are a kind of motivation that encourages us to keep improving "
 "Kanatest :)"
 msgstr ""
-"Eure Postkarten motivieren uns, das Projekt \"Kanatest\" fortzusetzen und "
-"weiter zu entwickeln."
+"Eure Postkarten verleihen uns Motivation, Kanatest weiter zu verbessern. :)"
 
 msgid "Thank you!"
-msgstr "Danke schˆn!"
+msgstr "Dankesch√∂n!"
 
 msgid "Postcards"
 msgstr "Postkarten"
@@ -72,7 +75,7 @@ msgid "License"
 msgstr "Lizenz"
 
 msgid "Kana chart"
-msgstr "Kanatabelle"
+msgstr "Kana-Tabelle"
 
 msgid "Hiragana"
 msgstr "Hiragana"
@@ -81,13 +84,13 @@ msgid "Katakana"
 msgstr "Katakana"
 
 msgid "Select test mode, kana set and press START"
-msgstr "W‰hle Testmodus, Kanaauswahl und dr¸cke START"
+msgstr "W√§hle einen Testmodus, ein Kana-Set und dr√ºcke auf START."
 
 msgid "Romaji"
 msgstr "Romaji"
 
 msgid "Statistics"
-msgstr "Statistik"
+msgstr "Statistiken"
 
 msgid "Options"
 msgstr "Optionen"
@@ -96,38 +99,41 @@ msgid "Test mode"
 msgstr "Testmodus"
 
 msgid "Kana set"
-msgstr "Kanaset"
+msgstr "Kana-Set"
 
+#, fuzzy
 msgid "Start"
-msgstr "Start"
+msgstr "_Start"
 
 msgid "Press to begin testing..."
-msgstr "Hier dr¸cken, um zu beginnen..."
+msgstr "Zum Beginn des Tests hier dr√ºcken ‚Ä¶"
 
+#, fuzzy
 msgid "Stop"
-msgstr "Stop"
+msgstr "_Stop"
 
 msgid "Press to stop testing..."
-msgstr "Dr¸cke hier, um zu beenden..."
+msgstr "Zum Beenden des Tests hier dr√ºcken ‚Ä¶"
 
+#, fuzzy
 msgid "Quit"
-msgstr "Beenden"
+msgstr "_Beenden"
 
 msgid "Exit!"
-msgstr "Ausgang!"
+msgstr "Verlassen"
 
 msgid "Select kana font"
-msgstr "W‰hle Kanaschriftart"
+msgstr "Kana-Schriftart ausw√§hlen"
 
 msgid "Please select at least two kanas to test."
-msgstr "Bitte w‰hle mindestens zwei Kanas aus und den Test zu starten."
+msgstr "Bitte mindestens zwei Kana zum Testen ausw√§hlen."
 
 msgid "Error"
 msgstr "Fehler"
 
 #, fuzzy
 msgid "no kanas found"
-msgstr "W‰hle Kanaschriftart"
+msgstr "Kana-Schriftart ausw√§hlen"
 
 msgid "kanas found"
 msgstr ""
@@ -145,97 +151,97 @@ msgstr "o"
 
 #, fuzzy
 msgid "Ratio range"
-msgstr "Rate (%)"
+msgstr "Verh√§ltnis (%)"
 
 #, fuzzy
 msgid "Kanas"
-msgstr "Kanaset"
+msgstr "Kana-Set"
 
 msgid "Select"
-msgstr "W‰hle"
+msgstr "W√§hle"
 
 msgid "General"
 msgstr "Allgemein"
 
 msgid "Drill options"
-msgstr "Testoptionen"
+msgstr "Drill-Optionen"
 
 msgid "Display each kana once"
-msgstr "Zeige jedes Kana ein Mal"
+msgstr "Jedes Kana einmal anzeigen"
 
 msgid ""
 "When this option is enabled the kanatest will display every question once"
 msgstr ""
-"Wenn diese Option aktiviert ist, wird Kanatest jede Frage ein Mal zeigen"
+"Wenn diese Option gew√§hlt ist, wird Kanatest jede Frage einmal anzeigen"
 
 msgid "Repeat wrongly-answered questions"
-msgstr "Wiederhole falsch beantwortete Fragen"
+msgstr "Falsch beantwortete Fragen wiederholen"
 
 msgid ""
 "When this option is enabled the kanatest will repeat all wrongly answered "
 "questions at the end of test"
 msgstr ""
-"Wenn diese Option aktiviert ist, wird Kanatest alle falsch beantworteten "
-"Fragen am Ende noch ein Mal abfragen."
+"Wenn diese Option gew√§hlt ist, wird Kanatest am Ende des Tests alle falsch "
+"beantworteten Fragen wiederholen"
 
 msgid "Repeat all forever"
-msgstr "Wiederhole immer alle "
+msgstr "Alle endlos wiederholen"
 
 msgid ""
 "When this option is enabled the kanatest will repeat all questions forever"
 msgstr ""
-"Wenn diese Option aktiviert ist, wird Kanatest immer alle Fragen wiederholen."
+"Wenn diese Option gew√§hlt ist, wird Kanatest alle Fragen endlos wiederholen"
 
 msgid "Correct answer display timeout"
-msgstr "Die Zeit f¸r Antwort ist vorbei"
+msgstr "Zeitbeschr√§nkung f√ºr die Anzeige der richtigen Antwort"
 
 msgid "Disabled"
-msgstr "deaktiviert"
+msgstr "Ausgeschaltet"
 
 msgid "1 sec"
-msgstr "1 s"
+msgstr "1 Sekunde"
 
 msgid "2 sec"
-msgstr "2 s"
+msgstr "2 Sekunden"
 
 msgid "3 sec"
-msgstr "3 "
+msgstr "3 Sekunden"
 
 msgid "Until any key will be pressed"
-msgstr "Bis irgendeine Taste gedr¸ckt wird"
+msgstr "Bis zu einem Tastendruck"
 
 msgid "Appearance"
 msgstr "Darstellung"
 
 msgid "Kana color"
-msgstr "Kanafarbe"
+msgstr "Kana-Farbe"
 
 msgid "Romaji color"
-msgstr "Romajifarbe"
+msgstr "Romaji-Farbe"
 
 msgid "Misc options"
-msgstr "Div. Optionen"
+msgstr "Verschiedenes"
 
 msgid "Enable tooltips"
-msgstr "Aktiviere Werkzeughilfe"
+msgstr "Tooltips aktivieren"
 
 msgid "Toggle to enable/disable tooltips"
-msgstr "aktviere/deaktiviere hier die Werkzeughile"
+msgstr "Aktivieren/deaktivieren der Tooltips"
 
 msgid "User-defined lesson"
-msgstr "Benutzerdefinierte ‹bung"
+msgstr "Benutzerdefinierter Test"
 
 msgid "Select all kanas in row"
-msgstr "W‰hle all Kanas in einer Reihe"
+msgstr "Alle Kana dieser Zeile ausw√§hlen"
 
 msgid "Deselect all kanas in row"
-msgstr "Deselektiere alle Kanas in einer Reihe"
+msgstr "Alle Kana dieser Zeile abw√§hlen"
 
 msgid "Selected kanas"
-msgstr "Ausgew‰hlte Kanas"
+msgstr "Ausgew√§hlte Kana"
 
 msgid "Display as"
-msgstr "Zeige als"
+msgstr "Anzeigen als"
 
 msgid "All"
 msgstr "Alle"
@@ -244,11 +250,11 @@ msgid "None"
 msgstr "Keine"
 
 msgid "Invert"
-msgstr "Invertiere"
+msgstr "Invertiert"
 
 #, fuzzy
 msgid "Please select options"
-msgstr "Div. Optionen"
+msgstr "Verschiedenes"
 
 msgid "Question"
 msgstr "Frage"
@@ -272,42 +278,42 @@ msgid "Test time"
 msgstr "Testzeit"
 
 msgid "Questions"
-msgstr "Frage"
+msgstr "Fragen"
 
 msgid "Correct"
-msgstr "Richtig"
+msgstr "Korrekt"
 
 msgid "Wrong"
 msgstr "Falsch"
 
 msgid "Ratio (%)"
-msgstr "Rate (%)"
+msgstr "Verh√§ltnis (%)"
 
 #, fuzzy
 msgid "Lessons"
-msgstr "Frage"
+msgstr "Fragen"
 
 #, fuzzy
 msgid "Reset"
-msgstr "Resetstatus"
+msgstr "Statistiken zur√ºcksetzen"
 
 msgid "RW"
-msgstr "RW"
+msgstr "FW"
 
 msgid "RA"
-msgstr "Ra"
+msgstr "AW"
 
 msgid "Chart"
 msgstr ""
 
 msgid "Mixed"
-msgstr "vermischt"
+msgstr "Gemischt"
 
 msgid "All kanas"
-msgstr "Alle Kanas"
+msgstr "Alle Kana"
 
 msgid "Basic kanas"
-msgstr "Grundkanas"
+msgstr "Einfache Kana"
 
 msgid "A-I-U-E-O"
 msgstr "A-I-U-E-O"
@@ -340,10 +346,10 @@ msgid "WA-WO-N"
 msgstr "WA-WO-N"
 
 msgid "Combo letters (part 1)"
-msgstr "Zeichenkombinationen (Teil 1)"
+msgstr "Kombinierte Zeichen (Teil 1)"
 
 msgid "Combo letters (part 2)"
-msgstr "Zeichenkombinationen (Teil 2)"
+msgstr "Kombinierte Zeichen (Teil 2)"
 
 #. TRANSLATORS: if there exist several possible transliterations for kanas, they must be separated by comma
 #. 0
@@ -523,10 +529,10 @@ msgid "da"
 msgstr "da"
 
 msgid "di,ji"
-msgstr "di,ji"
+msgstr "di, ji"
 
 msgid "du,zu"
-msgstr "du,zu"
+msgstr "du, zu"
 
 msgid "de"
 msgstr "de"
@@ -665,27 +671,27 @@ msgstr "pyo"
 
 msgid "minute and"
 msgid_plural "minutes and"
-msgstr[0] "Minuten und"
+msgstr[0] "Minute und"
 msgstr[1] "Minuten und"
 
 msgid "second"
 msgid_plural "seconds"
-msgstr[0] "Sekunden"
+msgstr[0] "Sekunde"
 msgstr[1] "Sekunden"
 
 msgid "Test has finished!"
-msgstr "Test beendet!"
+msgstr "Test abgeschlossen!"
 
 #, fuzzy
 msgid "Total questions"
-msgstr "Anzahl der Fragen:"
+msgstr "Fragen insgesamt:"
 
 msgid "unique"
-msgstr "einzeln"
+msgstr "einzigartig"
 
 #, fuzzy
 msgid "Correct answers"
-msgstr "Richte Antworten:"
+msgstr "Korrekte Antworten:"
 
 #, fuzzy
 msgid "Wrong answers"
@@ -693,11 +699,26 @@ msgstr "Falsche Antworten:"
 
 #, fuzzy
 msgid "Correctness ratio"
-msgstr "Erfolgsrate:"
+msgstr "Verh√§ltnis:"
 
 #, fuzzy
 msgid "Drilling-time"
-msgstr "Testzeit:"
+msgstr "Drill-Zeit:"
 
 msgid "Information"
 msgstr "Information"
+
+#~ msgid "Homepage:"
+#~ msgstr "Homepage:"
+
+#~ msgid "Preferences"
+#~ msgstr "Einstellungen"
+
+#~ msgid "All statistics entries will be destroyed. Continue ?"
+#~ msgstr "Alle Eintr√§ge in den Statistiken werden gel√∂scht. Fortfahren?"
+
+#~ msgid "Statistics are not available. The results table is empty."
+#~ msgstr "Statistiken sind nicht verf√ºgbar, die Tabelle ist leer."
+
+#~ msgid "Warning"
+#~ msgstr "Warnung"

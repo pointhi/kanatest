@@ -153,7 +153,8 @@ gchar text_license[] = {
 };
 
 gchar *translators[] = {
-    "de",   "Frank Polte",          "frederyk@gmx.de",
+    "de",   "Mathias Brodala",      "info@noctus.net",
+    "",     "Frank Polte",          "frederyk@gmx.de",
     "fr",   "Adrian Courrèges",     "a.courreges@gmail.com",
     "hu",   "Szigetvári Csaba",     "csaba.szigetvari@informedia.hu",
     "pl",   "Piotr Mąka",           "sill@ll.pl",
