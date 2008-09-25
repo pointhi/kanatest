@@ -21,17 +21,10 @@
 
 #include <config.h>
 
-#include <stdio.h>
 #include <gtk/gtk.h>
-#include <gdk/gdk.h>
 #include <gdk/gdkkeysyms.h>
-
-#include <time.h>
-#include <ctype.h>
 #include <string.h>
-#include <stdlib.h>
 
-#include "gui.h"
 #include "gui_utils.h"
 #include "about.h"
 #include "main.h"

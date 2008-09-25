@@ -22,14 +22,11 @@
 
 #include <config.h>
 
-#include <stdio.h>
 #include <string.h>
 #include <gtk/gtk.h>
-#include <gdk/gdk.h>
 #include <gdk/gdkkeysyms.h>
 
 #include "i18n.h"
-#include "gui.h"
 #include "gui_utils.h"
 #include "chart.h"
 #include "main.h"

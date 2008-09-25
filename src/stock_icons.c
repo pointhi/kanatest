@@ -20,7 +20,6 @@
  */
 
 #include <gtk/gtk.h>
-#include <glib.h>
 
 #include "gui.h"
 #include "i18n.h"

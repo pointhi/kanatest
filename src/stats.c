@@ -22,19 +22,11 @@
 
 #include <config.h>
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <limits.h>
-#include <sys/stat.h>
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
-#include <libxml/xmlmemory.h>
 #include <libxml/parser.h>
 
 #include "i18n.h"
-#include "gui.h"
 #include "gui_utils.h"
 #include "main.h"
 #include "test.h"

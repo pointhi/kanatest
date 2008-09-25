@@ -19,20 +19,11 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <sys/stat.h>
-#include <limits.h>
 #include <glib/gstdio.h>
-#include <libxml/xmlmemory.h>
 #include <libxml/parser.h>
 
 #include "main.h"
 #include "gui.h"
-#include "test.h"
 #include "prefs.h"
 
 struct kanatest_prefs config;

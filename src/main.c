@@ -20,18 +20,13 @@
  */
 
 
-#include <stdio.h>
-#include <gtk/gtk.h>
-#include <locale.h>
 #include <sys/time.h>
-#include <sys/types.h>
 #include <unistd.h>
 #include <stdlib.h>
 
 #include <config.h>
 
 #include "gui.h"
-#include "test.h"
 #include "prefs.h"
 #include "stats.h"
 #include "i18n.h"
