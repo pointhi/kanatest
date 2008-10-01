@@ -4,6 +4,8 @@ ACLOCAL_AMFLAGS = -I m4
 pixmapdir = $(datadir)/pixmaps
 pixmap_DATA = kanatest.svg kanatest.png
 
-EXTRA_DIST = $(pixmap_DATA) README AUTHORS COPYING ChangeLog
+applicationsdir = $(datadir)/applications
+applications_DATA = kanatest.desktop
 
+EXTRA_DIST = $(pixmap_DATA) $(applications_DATA) README AUTHORS TRANSLATORS COPYING ChangeLog
 
