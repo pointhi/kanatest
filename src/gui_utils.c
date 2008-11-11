@@ -61,6 +61,37 @@ GtkWidget   *image;
 /*------------------------------------------------------------------------------*/
 
 gchar *
+gui_get_www_browser (void) {
+
+static gchar browser_cmd[PATH_MAX];
+
+gchar *browsers[] = {
+    "firefox",      "opera",        "x-www-browser",    "htmlview",
+    "epiphany",     "konqueror",    "netscape"
+};
+
+gint i;
+gchar *found_path;
+gboolean found = FALSE;
+
+    for (i=0; i < (sizeof(browsers) / sizeof(browsers[0]) / 2); i++) {
+        found_path = g_find_program_in_path (browsers[i]);
+        if (found_path != NULL) {
+            found = TRUE;
+            g_free (found_path);
+            break;
+        }
+    }
+
+    i = found ? i : 0;
+    g_snprintf (browser_cmd, PATH_MAX, "%s ", browsers[i]);
+
+    return browser_cmd;
+}
+
+/*------------------------------------------------------------------------------*/
+
+gchar *
 gui_get_email_client (void) {
 
 static gchar client_cmd[PATH_MAX];
@@ -106,7 +137,7 @@ gchar *cmdline[4], command[PATH_MAX];
     if (helper == EMAIL) {
         g_snprintf (command, PATH_MAX, "%s%s", gui_get_email_client(), parameter);
     } else if (helper == WWW) {
-        g_snprintf (command, PATH_MAX, "firefox %s", parameter);
+        g_snprintf (command, PATH_MAX, "%s%s", gui_get_www_browser(), parameter);
     } else {
         return FALSE;
     }
