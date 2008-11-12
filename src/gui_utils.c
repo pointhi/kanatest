@@ -74,7 +74,7 @@ gint i;
 gchar *found_path;
 gboolean found = FALSE;
 
-    for (i=0; i < (sizeof(browsers) / sizeof(browsers[0]) / 2); i++) {
+    for (i=0; i < (sizeof(browsers) / sizeof(browsers[0])); i++) {
         found_path = g_find_program_in_path (browsers[i]);
         if (found_path != NULL) {
             found = TRUE;
