@@ -130,6 +130,7 @@ gchar text_received_postcards[] = {
     "  * Chris from Mâcon (France)\n"
     "  * Giulia and Daniele from Genova (Italy)\n"
     "  * Csaba, Brendon and Xenia from Budapest (Hungary)\n"
+    "  * Kate from Upholland (UK)\n"
 };
 
 gchar text_license[] = {
