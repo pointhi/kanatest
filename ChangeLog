@@ -1,11 +1,10 @@
 
-2008-XX-XX: version 0.4.6
-  * A new mode in statistics (ratio per kana)
+2008-11-30: version 0.4.6
   * Statistics based kana selection in user-defined lesson
+  * A new mode in statistics
   * Elapsed time is displayed during test
   * Fresh look (new logo and icons)
-  * Fixed Debian bug #466735
-  * Many small improvements
+  * Many small improvements and bug fixes (e.g. Debian bug #466735)
   * Added German, Portugal, French and Hungarian translations
 
 2007-09-15: version 0.4.4
