@@ -50,19 +50,17 @@ msgid "Contributors"
 msgstr "Pomoc"
 
 #: ../src/about.c:366
-#, fuzzy
 msgid ""
 "If you like our program, send a postcard with a photo of the city where you "
 "live to"
 msgstr ""
 "Jeśli podoba Ci się nasz program, wyślij pocztówkę z fotografią miasta w "
-"którym mieszkasz na adres:"
+"którym mieszkasz na adres"
 
 #: ../src/about.c:372
-#, fuzzy
 msgid "We have received several postcards from our happy users"
 msgstr ""
-"Otrzymaliśmy kilka kartek pocztowych od naszych zadowolonych użytkowników:"
+"Otrzymaliśmy kilka kartek pocztowych od naszych zadowolonych użytkowników"
 
 #: ../src/about.c:378
 msgid ""
@@ -100,7 +98,7 @@ msgstr "Katakana"
 
 #: ../src/gui.c:149
 msgid "Test is in progress... Abort?"
-msgstr ""
+msgstr "Czy przerwać test?"
 
 #: ../src/gui.c:151 ../src/stats.c:96
 msgid "Question"
@@ -168,37 +166,32 @@ msgid "Error"
 msgstr "Błąd"
 
 #: ../src/options.c:377 ../src/options.c:422
-#, fuzzy
 msgid "no kanas found"
-msgstr "Wybierz czcionkę"
+msgstr "nie znaleziono znaków"
 
 #: ../src/options.c:420
 msgid "kanas found"
-msgstr ""
+msgstr "znakow znaleziono"
 
 #: ../src/options.c:495 ../src/options.c:1060
 msgid "Statistics based selection"
-msgstr ""
+msgstr "Statystyki z zaznaczenia"
 
 #: ../src/options.c:559
-#, fuzzy
 msgid "From"
-msgstr "ro"
+msgstr "Od"
 
 #: ../src/options.c:587
-#, fuzzy
 msgid "To"
-msgstr "o"
+msgstr "Do"
 
 #: ../src/options.c:609
-#, fuzzy
 msgid "Ratio range"
-msgstr "Poprawność (%)"
+msgstr "Przedział (%)"
 
 #: ../src/options.c:642
-#, fuzzy
 msgid "Kanas"
-msgstr "Zestaw"
+msgstr "Kana"
 
 #: ../src/options.c:674 ../src/options.c:1095
 msgid "Select"
@@ -247,7 +240,6 @@ msgstr ""
 "nieskończoność"
 
 #: ../src/options.c:818
-#, fuzzy
 msgid "Correct answer display timeout"
 msgstr "Czas wyświetlania poprawnej odpowiedzi"
 
@@ -272,7 +264,6 @@ msgid "Until any key will be pressed"
 msgstr "Do momentu wciśnięcia dowolnego klawisza"
 
 #: ../src/options.c:849
-#, fuzzy
 msgid "Appearance"
 msgstr "Wygląd"
 
@@ -329,25 +320,24 @@ msgid "Invert"
 msgstr "Odwróć"
 
 #: ../src/stats.c:90
-#, fuzzy
 msgid "Please select options"
-msgstr "Pozostałe opcje"
+msgstr "Proszę wybrać opcje"
 
 #: ../src/stats.c:100
 msgid "Remove lessons list"
-msgstr ""
+msgstr "Usuń listę lekcji"
 
 #: ../src/stats.c:106
 msgid "Remove Hiragana statistics"
-msgstr ""
+msgstr "Usuń statystyki Hiragana"
 
 #: ../src/stats.c:111
 msgid "Remove Katakana statistics"
-msgstr ""
+msgstr "Usuń statystyki Katakana"
 
 #: ../src/stats.c:116
 msgid "No further recovery will be possible. Continue ?"
-msgstr ""
+msgstr "Odzyskanie danych nie będzie możliwe. Kontynuować?"
 
 #: ../src/stats.c:208
 msgid "Date"
@@ -374,14 +364,12 @@ msgid "Ratio (%)"
 msgstr "Poprawność (%)"
 
 #: ../src/stats.c:245
-#, fuzzy
 msgid "Lessons"
-msgstr "Pytania"
+msgstr "Lekcje"
 
 #: ../src/stats.c:440
-#, fuzzy
 msgid "Reset"
-msgstr "Usuń statystyki"
+msgstr "Resetuj"
 
 #: ../src/stats.c:475
 msgid "RW"
@@ -393,7 +381,7 @@ msgstr "RA"
 
 #: ../src/stock_icons.c:42
 msgid "Chart"
-msgstr ""
+msgstr "Wykres"
 
 #: ../src/test.c:44
 msgid "Mixed"
@@ -896,33 +884,28 @@ msgid "Test has finished!"
 msgstr "Test zakończony!"
 
 #: ../src/test.c:510 ../src/test.c:530
-#, fuzzy
 msgid "Total questions"
-msgstr "Zadane pytania:"
+msgstr "Zadane pytania"
 
 #: ../src/test.c:513
 msgid "unique"
 msgstr "unikalny"
 
 #: ../src/test.c:514 ../src/test.c:532
-#, fuzzy
 msgid "Correct answers"
-msgstr "Poprawne odpowiedzi:"
+msgstr "Poprawne odpowiedzi"
 
 #: ../src/test.c:516 ../src/test.c:534
-#, fuzzy
 msgid "Wrong answers"
-msgstr "Niepoprawne odpowiedzi:"
+msgstr "Niepoprawne odpowiedzi"
 
 #: ../src/test.c:518 ../src/test.c:536
-#, fuzzy
 msgid "Correctness ratio"
-msgstr "Procent poprawności:"
+msgstr "Procent poprawności"
 
 #: ../src/test.c:520 ../src/test.c:538
-#, fuzzy
 msgid "Drilling-time"
-msgstr "Czas trwania testu:"
+msgstr "Czas trwania testu"
 
 #: ../src/test.c:546
 msgid "Information"
