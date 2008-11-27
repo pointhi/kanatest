@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kanatest 0.4.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-24 18:54+0200\n"
+"POT-Creation-Date: 2008-11-27 01:56+0100\n"
 "PO-Revision-Date: 2007-09-16 00:28+0200\n"
 "Last-Translator:  <taclipoka@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -18,38 +18,38 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../src/about.c:170 ../src/about.c:288 ../src/gui.c:609
-#: ../src/stock_icons.c:45
+#: ../src/about.c:167 ../src/about.c:285 ../src/gui.c:601
+#: ../src/stock_icons.c:44
 msgid "About"
 msgstr "О программе"
 
-#: ../src/about.c:249
+#: ../src/about.c:246
 msgid "compiled on"
 msgstr "скомпилировано на"
 
-#: ../src/about.c:252
+#: ../src/about.c:249
 msgid "Programming"
 msgstr "Программирование"
 
-#: ../src/about.c:259
+#: ../src/about.c:256
 msgid "Graphics"
 msgstr "Рисунки"
 
-#: ../src/about.c:270
+#: ../src/about.c:267
 msgid "Translators"
 msgstr "Переводчики"
 
-#: ../src/about.c:325
+#: ../src/about.c:322
 msgid ""
 "We would like to thank the following people for suggestions, bug reports and "
 "patches:"
 msgstr "Мы благодарим за предложения, отчёты об ошибках и патчи:"
 
-#: ../src/about.c:330
+#: ../src/about.c:327
 msgid "Contributors"
 msgstr "Помощники"
 
-#: ../src/about.c:369
+#: ../src/about.c:366
 #, fuzzy
 msgid ""
 "If you like our program, send a postcard with a photo of the city where you "
@@ -58,12 +58,12 @@ msgstr ""
 "Если вам понравилась наша программа, пошлите нам открытку с видом Вашего "
 "города"
 
-#: ../src/about.c:375
+#: ../src/about.c:372
 #, fuzzy
 msgid "We have received several postcards from our happy users"
 msgstr "Кое-какие города мы уже видели:"
 
-#: ../src/about.c:381
+#: ../src/about.c:378
 msgid ""
 "Your postcards are a kind of motivation that encourages us to keep improving "
 "Kanatest :)"
@@ -71,161 +71,161 @@ msgstr ""
 "Ваши открытки поддерживают нас в стремлении развивать Канатест. Наше вам с "
 "кисточкой!"
 
-#: ../src/about.c:383
+#: ../src/about.c:380
 msgid "Thank you!"
 msgstr "Спасибо!"
 
-#: ../src/about.c:386
+#: ../src/about.c:383
 msgid "Postcards"
 msgstr "Открытки"
 
-#: ../src/about.c:423
+#: ../src/about.c:420
 msgid "License"
 msgstr "Лицензия"
 
 # Кто б сказал, как "кана" склоняется? Отсюда и далее - символы вместо кан
-#: ../src/chart.c:180 ../src/gui.c:591
+#: ../src/chart.c:177 ../src/gui.c:583
 msgid "Kana chart"
 msgstr "Таблица символов каны"
 
-#: ../src/chart.c:241 ../src/options.c:525 ../src/options.c:1088
-#: ../src/stats.c:299 ../src/test.c:51
+#: ../src/chart.c:238 ../src/options.c:522 ../src/options.c:1085
+#: ../src/stats.c:291 ../src/test.c:44
 msgid "Hiragana"
 msgstr "Хирагана"
 
-#: ../src/chart.c:251 ../src/options.c:534 ../src/options.c:1089
-#: ../src/stats.c:369 ../src/test.c:51
+#: ../src/chart.c:248 ../src/options.c:531 ../src/options.c:1086
+#: ../src/stats.c:361 ../src/test.c:44
 msgid "Katakana"
 msgstr "Катакана"
 
-#: ../src/gui.c:175
-msgid "Select test mode, kana set and press START"
-msgstr "Выберите режим тестирования, набор символов каны и нажмите \"ПУСК\""
-
-#: ../src/gui.c:386
+#: ../src/gui.c:149
 msgid "Test is in progress... Abort?"
 msgstr ""
 
-#: ../src/gui.c:388 ../src/stats.c:104
+#: ../src/gui.c:151 ../src/stats.c:96
 msgid "Question"
 msgstr "Вопрос"
 
-#: ../src/gui.c:537 ../src/options.c:1087
+#: ../src/gui.c:184
+msgid "Select test mode, kana set and press START"
+msgstr "Выберите режим тестирования, набор символов каны и нажмите \"ПУСК\""
+
+#: ../src/gui.c:529 ../src/options.c:1084
 msgid "Romaji"
 msgstr "Киридзи"
 
-#: ../src/gui.c:582 ../src/options.c:541 ../src/stats.c:224
-#: ../src/stock_icons.c:42
+#: ../src/gui.c:574 ../src/options.c:538 ../src/stats.c:216
+#: ../src/stock_icons.c:41
 msgid "Statistics"
 msgstr "Статистика"
 
-#: ../src/gui.c:600 ../src/options.c:736 ../src/stock_icons.c:44
+#: ../src/gui.c:592 ../src/options.c:733 ../src/stock_icons.c:43
 msgid "Options"
 msgstr "Настройки"
 
-#: ../src/gui.c:639 ../src/stats.c:216
+#: ../src/gui.c:631 ../src/stats.c:208
 msgid "Test mode"
 msgstr "Режим"
 
-#: ../src/gui.c:666 ../src/stats.c:217
+#: ../src/gui.c:658 ../src/stats.c:209
 msgid "Kana set"
 msgstr "Набор"
 
-#: ../src/gui.c:674
+#: ../src/gui.c:666
 msgid "Start"
 msgstr "Пуск"
 
-#: ../src/gui.c:682
+#: ../src/gui.c:674
 msgid "Press to begin testing..."
 msgstr "Нажмите для начала тестирования..."
 
-#: ../src/gui.c:684
+#: ../src/gui.c:676
 msgid "Stop"
 msgstr "Стоп"
 
-#: ../src/gui.c:692
+#: ../src/gui.c:684
 msgid "Press to stop testing..."
 msgstr "Нажмите для остановки тестирования..."
 
-#: ../src/gui.c:694
+#: ../src/gui.c:686
 msgid "Quit"
 msgstr "Выход"
 
-#: ../src/gui.c:702
+#: ../src/gui.c:694
 msgid "Exit!"
 msgstr "Выход именно здесь"
 
-#: ../src/options.c:53 ../src/options.c:908
+#: ../src/options.c:50 ../src/options.c:905
 msgid "Select kana font"
 msgstr "Шрифт каны"
 
-#: ../src/options.c:161
+#: ../src/options.c:158
 msgid "Please select at least two kanas to test."
 msgstr "Выберите хотя бы 2 символа для тестирования"
 
-#: ../src/options.c:164
+#: ../src/options.c:161
 msgid "Error"
 msgstr "Ошибка"
 
-#: ../src/options.c:380 ../src/options.c:425
+#: ../src/options.c:377 ../src/options.c:422
 #, fuzzy
 msgid "no kanas found"
 msgstr "Шрифт каны"
 
-#: ../src/options.c:423
+#: ../src/options.c:420
 msgid "kanas found"
 msgstr ""
 
-#: ../src/options.c:498 ../src/options.c:1063
+#: ../src/options.c:495 ../src/options.c:1060
 msgid "Statistics based selection"
 msgstr ""
 
-#: ../src/options.c:562
+#: ../src/options.c:559
 #, fuzzy
 msgid "From"
 msgstr "ро"
 
-#: ../src/options.c:590
+#: ../src/options.c:587
 #, fuzzy
 msgid "To"
 msgstr "о"
 
-#: ../src/options.c:612
+#: ../src/options.c:609
 #, fuzzy
 msgid "Ratio range"
 msgstr "Оценка (%)"
 
-#: ../src/options.c:645
+#: ../src/options.c:642
 #, fuzzy
 msgid "Kanas"
 msgstr "Набор"
 
-#: ../src/options.c:677 ../src/options.c:1098
+#: ../src/options.c:674 ../src/options.c:1095
 msgid "Select"
 msgstr "Выбрать"
 
-#: ../src/options.c:757
+#: ../src/options.c:754
 msgid "General"
 msgstr "Общие"
 
-#: ../src/options.c:771
+#: ../src/options.c:768
 msgid "Drill options"
 msgstr "Варианты прохождения:"
 
-#: ../src/options.c:787
+#: ../src/options.c:784
 msgid "Display each kana once"
 msgstr "Показывать каждый символ по одному разу"
 
-#: ../src/options.c:792
+#: ../src/options.c:789
 msgid ""
 "When this option is enabled the kanatest will display every question once"
 msgstr "Символы будут показаны один и только один раз за проход"
 
-#: ../src/options.c:797
+#: ../src/options.c:794
 msgid "Repeat wrongly-answered questions"
 msgstr "Повторять вопросы с неверными ответами"
 
-#: ../src/options.c:802
+#: ../src/options.c:799
 msgid ""
 "When this option is enabled the kanatest will repeat all wrongly answered "
 "questions at the end of test"
@@ -233,220 +233,220 @@ msgstr ""
 "Повторять вопросы с неверными ответами в конце теста до тех пор, пока они не "
 "станут верными"
 
-#: ../src/options.c:807
+#: ../src/options.c:804
 msgid "Repeat all forever"
 msgstr "Повторять бесконечно"
 
-#: ../src/options.c:812
+#: ../src/options.c:809
 msgid ""
 "When this option is enabled the kanatest will repeat all questions forever"
 msgstr "Повторять до ручной остановки"
 
-#: ../src/options.c:821
+#: ../src/options.c:818
 msgid "Correct answer display timeout"
 msgstr "Показывать правильный ответ в течение:"
 
-#: ../src/options.c:836
+#: ../src/options.c:833
 msgid "Disabled"
 msgstr "Отключено"
 
-#: ../src/options.c:837
+#: ../src/options.c:834
 msgid "1 sec"
 msgstr "1 секунда"
 
-#: ../src/options.c:838
+#: ../src/options.c:835
 msgid "2 sec"
 msgstr "2 секунды"
 
-#: ../src/options.c:839
+#: ../src/options.c:836
 msgid "3 sec"
 msgstr "3 секунды"
 
-#: ../src/options.c:840
+#: ../src/options.c:837
 msgid "Until any key will be pressed"
 msgstr "До нажатия какой-либо клавиши"
 
-#: ../src/options.c:852
+#: ../src/options.c:849
 msgid "Appearance"
 msgstr "Внешний вид:"
 
-#: ../src/options.c:872
+#: ../src/options.c:869
 msgid "Kana color"
 msgstr "Цвет символов каны:"
 
 # опять - нужно киридзи
-#: ../src/options.c:890
+#: ../src/options.c:887
 msgid "Romaji color"
 msgstr "Цвет киридзи:"
 
-#: ../src/options.c:924
+#: ../src/options.c:921
 msgid "Misc options"
 msgstr "Всячина:"
 
-#: ../src/options.c:939
+#: ../src/options.c:936
 msgid "Enable tooltips"
 msgstr "Включить подсказки"
 
-#: ../src/options.c:946
+#: ../src/options.c:943
 msgid "Toggle to enable/disable tooltips"
 msgstr "Включить/отключить показ подсказок вроде этой"
 
-#: ../src/options.c:951 ../src/test.c:77
+#: ../src/options.c:948 ../src/test.c:70
 msgid "User-defined lesson"
 msgstr "Самодельные уроки"
 
-#: ../src/options.c:1019
+#: ../src/options.c:1016
 msgid "Select all kanas in row"
 msgstr "Отметить все символы каны в строке"
 
-#: ../src/options.c:1035
+#: ../src/options.c:1032
 msgid "Deselect all kanas in row"
 msgstr "Снять отметку со всей строки"
 
-#: ../src/options.c:1051
+#: ../src/options.c:1048
 msgid "Selected kanas"
 msgstr "Выбрано знаков"
 
-#: ../src/options.c:1074
+#: ../src/options.c:1071
 msgid "Display as"
 msgstr "Показывать как"
 
-#: ../src/options.c:1105
+#: ../src/options.c:1102
 msgid "All"
 msgstr "Все"
 
-#: ../src/options.c:1112
+#: ../src/options.c:1109
 msgid "None"
 msgstr "Ничего"
 
-#: ../src/options.c:1119
+#: ../src/options.c:1116
 msgid "Invert"
 msgstr "Обратить"
 
-#: ../src/stats.c:98
+#: ../src/stats.c:90
 #, fuzzy
 msgid "Please select options"
 msgstr "Всячина:"
 
-#: ../src/stats.c:108
+#: ../src/stats.c:100
 msgid "Remove lessons list"
 msgstr ""
 
-#: ../src/stats.c:114
+#: ../src/stats.c:106
 msgid "Remove Hiragana statistics"
 msgstr ""
 
-#: ../src/stats.c:119
+#: ../src/stats.c:111
 msgid "Remove Katakana statistics"
 msgstr ""
 
-#: ../src/stats.c:124
+#: ../src/stats.c:116
 msgid "No further recovery will be possible. Continue ?"
 msgstr ""
 
-#: ../src/stats.c:216
+#: ../src/stats.c:208
 msgid "Date"
 msgstr "Дата"
 
-#: ../src/stats.c:216
+#: ../src/stats.c:208
 msgid "Test time"
 msgstr "Время"
 
-#: ../src/stats.c:216
+#: ../src/stats.c:208
 msgid "Questions"
 msgstr "Вопросов"
 
-#: ../src/stats.c:217
+#: ../src/stats.c:209
 msgid "Correct"
 msgstr "Верно"
 
-#: ../src/stats.c:217
+#: ../src/stats.c:209
 msgid "Wrong"
 msgstr "Неверно"
 
-#: ../src/stats.c:217
+#: ../src/stats.c:209
 msgid "Ratio (%)"
 msgstr "Оценка (%)"
 
-#: ../src/stats.c:253
+#: ../src/stats.c:245
 #, fuzzy
 msgid "Lessons"
 msgstr "Вопросов"
 
-#: ../src/stats.c:448
+#: ../src/stats.c:440
 #, fuzzy
 msgid "Reset"
 msgstr "Сбросить статистику"
 
-#: ../src/stats.c:483
+#: ../src/stats.c:475
 msgid "RW"
 msgstr ""
 
-#: ../src/stats.c:486
+#: ../src/stats.c:478
 msgid "RA"
 msgstr ""
 
-#: ../src/stock_icons.c:43
+#: ../src/stock_icons.c:42
 msgid "Chart"
 msgstr ""
 
-#: ../src/test.c:51
+#: ../src/test.c:44
 msgid "Mixed"
 msgstr "Все"
 
-#: ../src/test.c:63
+#: ../src/test.c:56
 msgid "All kanas"
 msgstr "Все символы"
 
-#: ../src/test.c:64
+#: ../src/test.c:57
 msgid "Basic kanas"
 msgstr "Базовый набор"
 
-#: ../src/test.c:65
+#: ../src/test.c:58
 msgid "A-I-U-E-O"
 msgstr "А-И-У-Э-О"
 
-#: ../src/test.c:66
+#: ../src/test.c:59
 msgid "KA-KI-KU-KE-KO"
 msgstr "КА-КИ-КУ-КЭ-КО"
 
-#: ../src/test.c:67
+#: ../src/test.c:60
 msgid "SA-SHI-SU-SE-SO"
 msgstr "СА-ШИ-СУ-СЭ-СО"
 
-#: ../src/test.c:68
+#: ../src/test.c:61
 msgid "TA-CHI-TSU-TE-TO"
 msgstr "ТА-ЧИ-ЦУ-ТЭ-ТО"
 
-#: ../src/test.c:69
+#: ../src/test.c:62
 msgid "NA-NI-NU-NE-NO"
 msgstr "НА-НИ-НУ-НЭ-НО"
 
-#: ../src/test.c:70
+#: ../src/test.c:63
 msgid "HA-HI-FU-HE-HO"
 msgstr "ХА-ХИ-ФУ-ХЭ-ХО"
 
-#: ../src/test.c:71
+#: ../src/test.c:64
 msgid "MA-MI-MU-ME-MO"
 msgstr "МА-МИ-МУ-МЭ-МО"
 
-#: ../src/test.c:72
+#: ../src/test.c:65
 msgid "YA-YU-YO"
 msgstr "Я-Ю-Ё"
 
-#: ../src/test.c:73
+#: ../src/test.c:66
 msgid "RA-RI-RU-RE-RO"
 msgstr "РА-РИ-РУ-РЭ-РО"
 
-#: ../src/test.c:74
+#: ../src/test.c:67
 msgid "WA-WO-N"
 msgstr "ВА-ВО-Н"
 
-#: ../src/test.c:75
+#: ../src/test.c:68
 msgid "Combo letters (part 1)"
 msgstr "Сочетания (часть 1)"
 
-#: ../src/test.c:76
+#: ../src/test.c:69
 msgid "Combo letters (part 2)"
 msgstr "Сочетания (часть 2)"
 
@@ -456,469 +456,469 @@ msgstr "Сочетания (часть 2)"
 #. 2
 #. 3
 #. 4
-#: ../src/test.c:95
+#: ../src/test.c:88
 msgid "a"
 msgstr "а"
 
-#: ../src/test.c:95
+#: ../src/test.c:88
 msgid "i"
 msgstr "и"
 
-#: ../src/test.c:95
+#: ../src/test.c:88
 msgid "u"
 msgstr "у"
 
-#: ../src/test.c:95
+#: ../src/test.c:88
 msgid "e"
 msgstr "э"
 
-#: ../src/test.c:95
+#: ../src/test.c:88
 msgid "o"
 msgstr "о"
 
-#: ../src/test.c:97
+#: ../src/test.c:90
 msgid "ka"
 msgstr "ка"
 
-#: ../src/test.c:97
+#: ../src/test.c:90
 msgid "ki"
 msgstr "ки"
 
-#: ../src/test.c:97
+#: ../src/test.c:90
 msgid "ku"
 msgstr "ку"
 
-#: ../src/test.c:97
+#: ../src/test.c:90
 msgid "ke"
 msgstr "кэ"
 
-#: ../src/test.c:97
+#: ../src/test.c:90
 msgid "ko"
 msgstr "ко"
 
-#: ../src/test.c:99
+#: ../src/test.c:92
 msgid "sa"
 msgstr "са"
 
-#: ../src/test.c:99
+#: ../src/test.c:92
 msgid "shi"
 msgstr "ши"
 
-#: ../src/test.c:99
+#: ../src/test.c:92
 msgid "su"
 msgstr "су"
 
-#: ../src/test.c:99
+#: ../src/test.c:92
 msgid "se"
 msgstr "сэ"
 
-#: ../src/test.c:99
+#: ../src/test.c:92
 msgid "so"
 msgstr "со"
 
-#: ../src/test.c:101
+#: ../src/test.c:94
 msgid "ta"
 msgstr "та"
 
-#: ../src/test.c:101
+#: ../src/test.c:94
 msgid "chi"
 msgstr "чи"
 
-#: ../src/test.c:101
+#: ../src/test.c:94
 msgid "tsu"
 msgstr "цу"
 
-#: ../src/test.c:101
+#: ../src/test.c:94
 msgid "te"
 msgstr "тэ"
 
-#: ../src/test.c:101
+#: ../src/test.c:94
 msgid "to"
 msgstr "то"
 
-#: ../src/test.c:104
+#: ../src/test.c:97
 msgid "na"
 msgstr "на"
 
-#: ../src/test.c:104
+#: ../src/test.c:97
 msgid "ni"
 msgstr "ни"
 
-#: ../src/test.c:104
+#: ../src/test.c:97
 msgid "nu"
 msgstr "ну"
 
-#: ../src/test.c:104
+#: ../src/test.c:97
 msgid "ne"
 msgstr "нэ"
 
-#: ../src/test.c:104
+#: ../src/test.c:97
 msgid "no"
 msgstr "но"
 
-#: ../src/test.c:106
+#: ../src/test.c:99
 msgid "ha"
 msgstr "ха"
 
-#: ../src/test.c:106
+#: ../src/test.c:99
 msgid "hi"
 msgstr "хи"
 
-#: ../src/test.c:106
+#: ../src/test.c:99
 msgid "fu"
 msgstr "фу"
 
-#: ../src/test.c:106
+#: ../src/test.c:99
 msgid "he"
 msgstr "хэ"
 
-#: ../src/test.c:106
+#: ../src/test.c:99
 msgid "ho"
 msgstr "хо"
 
-#: ../src/test.c:108
+#: ../src/test.c:101
 msgid "ma"
 msgstr "ма"
 
-#: ../src/test.c:108
+#: ../src/test.c:101
 msgid "mi"
 msgstr "ми"
 
-#: ../src/test.c:108
+#: ../src/test.c:101
 msgid "mu"
 msgstr "му"
 
-#: ../src/test.c:108
+#: ../src/test.c:101
 msgid "me"
 msgstr "мэ"
 
-#: ../src/test.c:108
+#: ../src/test.c:101
 msgid "mo"
 msgstr "мо"
 
-#: ../src/test.c:110
+#: ../src/test.c:103
 msgid "ya"
 msgstr "я"
 
-#: ../src/test.c:110
+#: ../src/test.c:103
 msgid "yu"
 msgstr "ю"
 
-#: ../src/test.c:110
+#: ../src/test.c:103
 msgid "yo"
 msgstr "ё"
 
-#: ../src/test.c:112
+#: ../src/test.c:105
 msgid "ra"
 msgstr "ра"
 
-#: ../src/test.c:112
+#: ../src/test.c:105
 msgid "ri"
 msgstr "ри"
 
-#: ../src/test.c:112
+#: ../src/test.c:105
 msgid "ru"
 msgstr "ру"
 
-#: ../src/test.c:112
+#: ../src/test.c:105
 msgid "re"
 msgstr "рэ"
 
-#: ../src/test.c:112
+#: ../src/test.c:105
 msgid "ro"
 msgstr "ро"
 
-#: ../src/test.c:115
+#: ../src/test.c:108
 msgid "wa"
 msgstr "ва"
 
-#: ../src/test.c:115
+#: ../src/test.c:108
 msgid "wo"
 msgstr "во"
 
-#: ../src/test.c:117
+#: ../src/test.c:110
 msgid "n"
 msgstr "н"
 
-#: ../src/test.c:120
+#: ../src/test.c:113
 msgid "ga"
 msgstr "га"
 
-#: ../src/test.c:120
+#: ../src/test.c:113
 msgid "gi"
 msgstr "ги"
 
-#: ../src/test.c:120
+#: ../src/test.c:113
 msgid "gu"
 msgstr "гу"
 
-#: ../src/test.c:120
+#: ../src/test.c:113
 msgid "ge"
 msgstr "гэ"
 
-#: ../src/test.c:120
+#: ../src/test.c:113
 msgid "go"
 msgstr "го"
 
-#: ../src/test.c:122
+#: ../src/test.c:115
 msgid "za"
 msgstr "дза"
 
-#: ../src/test.c:122
+#: ../src/test.c:115
 msgid "ji"
 msgstr "дзи"
 
-#: ../src/test.c:122
+#: ../src/test.c:115
 msgid "zu"
 msgstr "дзу"
 
-#: ../src/test.c:122
+#: ../src/test.c:115
 msgid "ze"
 msgstr "дзэ"
 
-#: ../src/test.c:122
+#: ../src/test.c:115
 msgid "zo"
 msgstr "дзо"
 
-#: ../src/test.c:124
+#: ../src/test.c:117
 msgid "da"
 msgstr "да"
 
-#: ../src/test.c:124
+#: ../src/test.c:117
 msgid "di,ji"
 msgstr "дзи"
 
-#: ../src/test.c:124
+#: ../src/test.c:117
 msgid "du,zu"
 msgstr "дзу"
 
-#: ../src/test.c:124
+#: ../src/test.c:117
 msgid "de"
 msgstr "дэ"
 
-#: ../src/test.c:124
+#: ../src/test.c:117
 msgid "do"
 msgstr "до"
 
-#: ../src/test.c:126
+#: ../src/test.c:119
 msgid "ba"
 msgstr "ба"
 
-#: ../src/test.c:126
+#: ../src/test.c:119
 msgid "bi"
 msgstr "би"
 
-#: ../src/test.c:126
+#: ../src/test.c:119
 msgid "bu"
 msgstr "бу"
 
-#: ../src/test.c:126
+#: ../src/test.c:119
 msgid "be"
 msgstr "бэ"
 
-#: ../src/test.c:126
+#: ../src/test.c:119
 msgid "bo"
 msgstr "бо"
 
-#: ../src/test.c:128
+#: ../src/test.c:121
 msgid "pa"
 msgstr "па"
 
-#: ../src/test.c:128
+#: ../src/test.c:121
 msgid "pi"
 msgstr "пи"
 
-#: ../src/test.c:128
+#: ../src/test.c:121
 msgid "pu"
 msgstr "пу"
 
-#: ../src/test.c:128
+#: ../src/test.c:121
 msgid "pe"
 msgstr "пэ"
 
-#: ../src/test.c:128
+#: ../src/test.c:121
 msgid "po"
 msgstr "по"
 
-#: ../src/test.c:131
+#: ../src/test.c:124
 msgid "kya"
 msgstr "кя"
 
-#: ../src/test.c:131
+#: ../src/test.c:124
 msgid "kyu"
 msgstr "кю"
 
-#: ../src/test.c:131
+#: ../src/test.c:124
 msgid "kyo"
 msgstr "кё"
 
-#: ../src/test.c:133
+#: ../src/test.c:126
 msgid "sha"
 msgstr "ся"
 
-#: ../src/test.c:133
+#: ../src/test.c:126
 msgid "shu"
 msgstr "шю"
 
-#: ../src/test.c:133
+#: ../src/test.c:126
 msgid "sho"
 msgstr "сё"
 
-#: ../src/test.c:135
+#: ../src/test.c:128
 msgid "cha"
 msgstr "ча"
 
-#: ../src/test.c:135
+#: ../src/test.c:128
 msgid "chu"
 msgstr "чю"
 
-#: ../src/test.c:135
+#: ../src/test.c:128
 msgid "cho"
 msgstr "чё"
 
-#: ../src/test.c:137
+#: ../src/test.c:130
 msgid "nya"
 msgstr "ня"
 
-#: ../src/test.c:137
+#: ../src/test.c:130
 msgid "nyu"
 msgstr "ню"
 
-#: ../src/test.c:137
+#: ../src/test.c:130
 msgid "nyo"
 msgstr "нё"
 
-#: ../src/test.c:139
+#: ../src/test.c:132
 msgid "hya"
 msgstr "хя"
 
-#: ../src/test.c:139
+#: ../src/test.c:132
 msgid "hyu"
 msgstr "хю"
 
-#: ../src/test.c:139
+#: ../src/test.c:132
 msgid "hyo"
 msgstr "хё"
 
-#: ../src/test.c:141
+#: ../src/test.c:134
 msgid "mya"
 msgstr "мя"
 
-#: ../src/test.c:141
+#: ../src/test.c:134
 msgid "myu"
 msgstr "мю"
 
-#: ../src/test.c:141
+#: ../src/test.c:134
 msgid "myo"
 msgstr "мё"
 
-#: ../src/test.c:143
+#: ../src/test.c:136
 msgid "rya"
 msgstr "ря"
 
-#: ../src/test.c:143
+#: ../src/test.c:136
 msgid "ryu"
 msgstr "рю"
 
-#: ../src/test.c:143
+#: ../src/test.c:136
 msgid "ryo"
 msgstr "рё"
 
-#: ../src/test.c:146
+#: ../src/test.c:139
 msgid "gya"
 msgstr "гя"
 
-#: ../src/test.c:146
+#: ../src/test.c:139
 msgid "gyu"
 msgstr "гю"
 
-#: ../src/test.c:146
+#: ../src/test.c:139
 msgid "gyo"
 msgstr "гё"
 
-#: ../src/test.c:148
+#: ../src/test.c:141
 msgid "ja"
 msgstr "дзя"
 
-#: ../src/test.c:148
+#: ../src/test.c:141
 msgid "ju"
 msgstr "дзю"
 
-#: ../src/test.c:148
+#: ../src/test.c:141
 msgid "jo"
 msgstr "дзё"
 
-#: ../src/test.c:150
+#: ../src/test.c:143
 msgid "bya"
 msgstr "бя"
 
-#: ../src/test.c:150
+#: ../src/test.c:143
 msgid "byu"
 msgstr "бю"
 
-#: ../src/test.c:150
+#: ../src/test.c:143
 msgid "byo"
 msgstr "бё"
 
-#: ../src/test.c:152
+#: ../src/test.c:145
 msgid "pya"
 msgstr "пя"
 
-#: ../src/test.c:152
+#: ../src/test.c:145
 msgid "pyu"
 msgstr "пю"
 
-#: ../src/test.c:152
+#: ../src/test.c:145
 msgid "pyo"
 msgstr "пё"
 
-#: ../src/test.c:336
+#: ../src/test.c:329
 msgid "minute and"
 msgid_plural "minutes and"
 msgstr[0] "минута и"
 msgstr[1] "минуты и"
 msgstr[2] "минут и"
 
-#: ../src/test.c:337 ../src/test.c:339
+#: ../src/test.c:330 ../src/test.c:332
 msgid "second"
 msgid_plural "seconds"
 msgstr[0] "секунда"
 msgstr[1] "секунды"
 msgstr[2] "секунд"
 
-#: ../src/test.c:517 ../src/test.c:537
+#: ../src/test.c:510 ../src/test.c:530
 msgid "Test has finished!"
 msgstr "Тест завершён!"
 
-#: ../src/test.c:517 ../src/test.c:537
+#: ../src/test.c:510 ../src/test.c:530
 #, fuzzy
 msgid "Total questions"
 msgstr "Всего вопросов:"
 
-#: ../src/test.c:520
+#: ../src/test.c:513
 msgid "unique"
 msgstr "разных"
 
-#: ../src/test.c:521 ../src/test.c:539
+#: ../src/test.c:514 ../src/test.c:532
 #, fuzzy
 msgid "Correct answers"
 msgstr "Правильных ответов:"
 
-#: ../src/test.c:523 ../src/test.c:541
+#: ../src/test.c:516 ../src/test.c:534
 #, fuzzy
 msgid "Wrong answers"
 msgstr "Неправильных ответов:"
 
-#: ../src/test.c:525 ../src/test.c:543
+#: ../src/test.c:518 ../src/test.c:536
 #, fuzzy
 msgid "Correctness ratio"
 msgstr "Оценка верности:"
 
-#: ../src/test.c:527 ../src/test.c:545
+#: ../src/test.c:520 ../src/test.c:538
 #, fuzzy
 msgid "Drilling-time"
 msgstr "Время выполнения:"
 
-#: ../src/test.c:553
+#: ../src/test.c:546
 msgid "Information"
 msgstr "Информация"
