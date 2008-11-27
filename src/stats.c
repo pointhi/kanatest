@@ -198,7 +198,7 @@ gint            i, j, cpos, pos;
 GSList          *lnode;
 gchar           buffer[BUFFER_SIZE];
 static          MESSAGE msg[NUMBER_OF_COLUMNS];
-double          ratio;
+gdouble         ratio;
 gchar           color_str[BUFFER_SIZE];
 stats_entry     *entry;
 
@@ -337,7 +337,7 @@ gchar *column_names[NUMBER_OF_COLUMNS] = {
                 g_strlcpy (color_str, "#b00000", BUFFER_SIZE);     /* red */
                 if (ratio > 50 && ratio < 80) {
                     g_strlcpy (color_str, "#0000b0", BUFFER_SIZE);     /* blue */
-                } else if (ratio > 80) {
+                } else if (ratio >= 80) {
                     g_strlcpy (color_str, "#008800", BUFFER_SIZE);     /* green */
                 }
 
@@ -408,7 +408,7 @@ gchar *column_names[NUMBER_OF_COLUMNS] = {
                 g_strlcpy (color_str, "#b00000", BUFFER_SIZE);     /* red */
                 if (ratio > 50 && ratio < 80) {
                     g_strlcpy (color_str, "#0000b0", BUFFER_SIZE);     /* blue */
-                } else if (ratio > 80) {
+                } else if (ratio >= 80) {
                     g_strlcpy (color_str, "#008800", BUFFER_SIZE);     /* green */
                 }
 
