@@ -102,7 +102,7 @@ update_timer (GUI *appGUI) {
 
 static gchar buffer[BUFFER_SIZE];
     
-    g_snprintf (buffer, BUFFER_SIZE, "<big><tt>%02d:%02d</tt></big>", 
+    g_snprintf (buffer, BUFFER_SIZE, "<big><tt><b>%02d:%02d</b></tt></big>", 
                 appGUI->time_counter / 60, appGUI->time_counter % 60);
     gtk_label_set_markup (GTK_LABEL (appGUI->timer_label), buffer);
 }
@@ -384,7 +384,7 @@ gui_mw_key_press_cb (GtkWidget *widget, GdkEventKey *event, gpointer user_data) 
                 return TRUE;
         }
 
-    } else if (event->keyval == GDK_Escape) {   /* Esc in test mode? */
+    } else if (event->keyval == GDK_Escape && appGUI->tst->any_key != FALSE) {   /* Esc in test mode? */
         stop_test_cb (NULL, appGUI);
     }
 
