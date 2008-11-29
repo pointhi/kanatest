@@ -1,9 +1,9 @@
 
 2008-11-30: version 0.4.6
-  * Statistics based kana selection in user-defined lesson
-  * A new mode in statistics
+  * Kana selection based on statistics for user-defined lesson
+  * Statistics for each kana
   * Elapsed time is displayed during test
-  * Fresh look (new logo and icons)
+  * A new logo and icons
   * Many small improvements and bug fixes
   * Updated Polish translation
   * Added German, Portugal, French and Hungarian translations
