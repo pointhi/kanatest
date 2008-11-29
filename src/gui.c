@@ -128,9 +128,8 @@ start_test_cb (GtkWidget *widget, gpointer user_data) {
     gui_display_kana (appGUI->tst->questions_table[appGUI->tst->question_counter], config.kana_mode, appGUI);
     gui_set_progress (appGUI);
 
-    appGUI->time_counter = 0;
-    appGUI->start_time = time (NULL);
-    update_timer (appGUI);
+    appGUI->time_counter = -1;
+    gtk_label_set_markup (GTK_LABEL (appGUI->timer_label), "<big><tt><b>00:00</b></tt></big>");
 }
 
 /*--------------------------------------------------------------------*/
@@ -413,8 +412,8 @@ gui_combobox_kana_set_handler_cb (GtkComboBox *widget, gpointer user_data) {
 gboolean
 time_handler (GUI *appGUI) {
 
-    update_timer (appGUI);
     appGUI->time_counter++;
+    update_timer (appGUI);
 	return TRUE;
 }
 
@@ -560,7 +559,7 @@ gchar           buffer[BUFFER_SIZE];
     gtk_widget_show (hbox2);
     gtk_container_add (GTK_CONTAINER (alignment), hbox2);
 
-    appGUI->timer_label = gtk_label_new ("00:00");
+    appGUI->timer_label = gtk_label_new (NULL);
     gtk_widget_set_size_request (appGUI->timer_label, -1, 34);  /* icon height */
     gtk_box_pack_start (GTK_BOX (hbox2), appGUI->timer_label, TRUE, TRUE, 0);
 

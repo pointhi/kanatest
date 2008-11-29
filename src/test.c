@@ -497,7 +497,6 @@ test_info(GUI *appGUI) {
     gui_disable_test (appGUI);
 
     if (answer_counter == 0) return;
-    appGUI->tst->test_time = difftime (time (NULL), appGUI->start_time);
 
     if (config.repeat_mode == REPEAT_ALL) {
 
@@ -518,7 +517,7 @@ test_info(GUI *appGUI) {
                     _("Correctness ratio"),
                     (gfloat)(appGUI->tst->right_answer_counter) / answer_counter * 100.0,
                     _("Drilling-time"),
-                    test_sec2str (appGUI->tst->test_time, FALSE));
+                    test_sec2str (appGUI->time_counter, FALSE));
     } else {
 
         g_snprintf (message, BUFFER_SIZE,
@@ -536,7 +535,7 @@ test_info(GUI *appGUI) {
                     _("Correctness ratio"),
                     (gfloat)(appGUI->tst->right_answer_counter) / answer_counter * 100.0,
                     _("Drilling-time"),
-                    test_sec2str (appGUI->tst->test_time, FALSE));
+                    test_sec2str (appGUI->time_counter, FALSE));
     }
 
     info_dialog = gtk_message_dialog_new_with_markup (GTK_WINDOW(appGUI->main_window),
@@ -560,7 +559,7 @@ test_info(GUI *appGUI) {
         entry->date_year = timer->tm_year+1900;
         entry->date_hour = timer->tm_hour;
         entry->date_minute = timer->tm_min;
-        entry->test_time = (guint) appGUI->tst->test_time;
+        entry->test_time = appGUI->time_counter;
         entry->test_mode = config.kana_mode;
         entry->test_kana_set = config.kana_set;
         entry->test_questions = answer_counter;

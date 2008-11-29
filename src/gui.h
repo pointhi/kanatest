@@ -129,7 +129,6 @@ typedef struct {
 
     gboolean    any_key;
     gboolean    test_state;
-    guint       test_time;
 
     gint        questions_table[MAX_NUMBER_OF_SIGNS];
     gint        kana_set_len[USER_DEFINED_LEN_OFFSET + 1];
@@ -179,9 +178,8 @@ typedef struct {
     GtkWidget       *logo_area;
     GtkWidget       *char_label;
 
-    time_t          start_time;
     gint            old_kana_type;
-    guint           time_counter;
+    gint            time_counter;
 
     /* modules */
     CHART *chr;
