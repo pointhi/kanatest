@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Kanatest 0.4.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-11-27 01:56+0100\n"
-"PO-Revision-Date: 2008-07-12 10:38+0200\n"
+"PO-Revision-Date: 2008-11-27 19:40+0200\n"
 "Last-Translator: Csaba Szigetvári <csaba.szigetvari@informedia.hu>\n"
 "Language-Team: Csaba Szigetvári <csaba.szigetvari@informedia.hu>\n"
 "MIME-Version: 1.0\n"
@@ -98,7 +98,7 @@ msgstr "Katakana"
 
 #: ../src/gui.c:149
 msgid "Test is in progress... Abort?"
-msgstr ""
+msgstr "Teszt folyamatban... Megszakítás?"
 
 #: ../src/gui.c:151 ../src/stats.c:96
 msgid "Question"
@@ -172,21 +172,21 @@ msgstr "Válassz kana betűkészletet"
 
 #: ../src/options.c:420
 msgid "kanas found"
-msgstr ""
+msgstr "kana megtalálva"
 
 #: ../src/options.c:495 ../src/options.c:1060
 msgid "Statistics based selection"
-msgstr ""
+msgstr "Statisztika-alapú kiválasztás"
 
 #: ../src/options.c:559
 #, fuzzy
 msgid "From"
-msgstr "ro"
+msgstr "Kezdés"
 
 #: ../src/options.c:587
 #, fuzzy
 msgid "To"
-msgstr "o"
+msgstr "Zárás"
 
 #: ../src/options.c:609
 #, fuzzy
@@ -327,19 +327,19 @@ msgstr "Egyéb beállítások"
 
 #: ../src/stats.c:100
 msgid "Remove lessons list"
-msgstr ""
+msgstr "Gyakorlat lista törlése"
 
 #: ../src/stats.c:106
 msgid "Remove Hiragana statistics"
-msgstr ""
+msgstr "Hiragana statisztika törlése"
 
 #: ../src/stats.c:111
 msgid "Remove Katakana statistics"
-msgstr ""
+msgstr "Katakana statisztika törlése"
 
 #: ../src/stats.c:116
 msgid "No further recovery will be possible. Continue ?"
-msgstr ""
+msgstr "Egyéb javításra nincsen mód. Folytassam ?"
 
 #: ../src/stats.c:208
 msgid "Date"
@@ -385,7 +385,7 @@ msgstr "RA"
 
 #: ../src/stock_icons.c:42
 msgid "Chart"
-msgstr ""
+msgstr "Grafikon"
 
 #: ../src/test.c:44
 msgid "Mixed"

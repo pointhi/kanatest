@@ -109,12 +109,25 @@ static gchar buffer[BUFFER_SIZE];
 
 /*--------------------------------------------------------------------*/
 
+gboolean
+time_handler (GUI *appGUI) {
+
+    appGUI->time_counter++;
+    update_timer (appGUI);
+
+  	return appGUI->tst->test_state;
+}
+
+/*--------------------------------------------------------------------*/
+
 void
 start_test_cb (GtkWidget *widget, gpointer user_data) {
 
     GUI *appGUI = (GUI *)user_data;
 
     appGUI->tst->test_state = TRUE;
+    g_timeout_add (1000, (GtkFunction) time_handler, appGUI);
+
     gtk_widget_show (appGUI->char_label);
     gtk_widget_hide (appGUI->logo_area);
 
@@ -128,7 +141,7 @@ start_test_cb (GtkWidget *widget, gpointer user_data) {
     gui_display_kana (appGUI->tst->questions_table[appGUI->tst->question_counter], config.kana_mode, appGUI);
     gui_set_progress (appGUI);
 
-    appGUI->time_counter = -1;
+    appGUI->time_counter = 0;
     gtk_label_set_markup (GTK_LABEL (appGUI->timer_label), "<big><tt><b>00:00</b></tt></big>");
 }
 
@@ -324,6 +337,9 @@ gui_close_window_cb (GtkWidget *widget, gpointer user_data) {
 void
 gui_delete_event_cb (GtkWidget *widget, GdkEvent *event, gpointer user_data) {
 
+    GUI *appGUI = (GUI *)user_data;
+
+    appGUI->tst->test_state = FALSE;
     gui_close_window_cb (widget, user_data);
 }
 
@@ -409,16 +425,6 @@ gui_combobox_kana_set_handler_cb (GtkComboBox *widget, gpointer user_data) {
 
 /*--------------------------------------------------------------------*/
 
-gboolean
-time_handler (GUI *appGUI) {
-
-    appGUI->time_counter++;
-    update_timer (appGUI);
-	return TRUE;
-}
-
-/*--------------------------------------------------------------------*/
-
 void
 gui_create_window (GUI *appGUI) {
 
@@ -438,8 +444,6 @@ gint            i;
 gchar           buffer[BUFFER_SIZE];
 
     appGUI->tooltips = gtk_tooltips_new();
-
-    g_timeout_add (1000, (GtkFunction) time_handler, appGUI);
 
     kanatest_register_stock_icons ();
 
