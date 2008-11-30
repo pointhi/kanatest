@@ -68,7 +68,6 @@ msgid ""
 "Kanatest :)"
 msgstr ""
 "Otrzymane pocztówki zachęcają nas do ciągłego rozwijania programu :) "
-"Dziękujemy!"
 
 #: ../src/about.c:380
 msgid "Thank you!"
@@ -171,11 +170,11 @@ msgstr "nie znaleziono znaków"
 
 #: ../src/options.c:420
 msgid "kanas found"
-msgstr "znakow znaleziono"
+msgstr "znaków znaleziono"
 
 #: ../src/options.c:495 ../src/options.c:1060
 msgid "Statistics based selection"
-msgstr "Statystyki z zaznaczenia"
+msgstr "Zaznacz według statystyk"
 
 #: ../src/options.c:559
 msgid "From"
@@ -207,7 +206,7 @@ msgstr "Opcje testu"
 
 #: ../src/options.c:784
 msgid "Display each kana once"
-msgstr "Każda kanę wyświetl tylko raz"
+msgstr "Każdy znak kana wyświetl tylko raz"
 
 #: ../src/options.c:789
 msgid ""
@@ -269,7 +268,7 @@ msgstr "Wygląd"
 
 #: ../src/options.c:869
 msgid "Kana color"
-msgstr "Kolor Kana"
+msgstr "Kolor znaku kana"
 
 #: ../src/options.c:887
 msgid "Romaji color"
