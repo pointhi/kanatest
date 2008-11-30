@@ -398,7 +398,7 @@ gint n_answ;
                 g_snprintf (tmp_b, BUFFER_SIZE, "%s (Press any key)", tmp_a);
                 gtk_entry_set_max_length (GTK_ENTRY(appGUI->romaji_entry), 32);
 
-                while (appGUI->tst->any_key != TRUE) {
+                while (appGUI->tst->any_key != TRUE && appGUI->tst->test_state != FALSE) {
                     gtk_entry_set_text (GTK_ENTRY(appGUI->romaji_entry), tmp_b);
                     while (g_main_context_iteration (NULL, FALSE));
                     g_usleep (250000);
@@ -413,6 +413,8 @@ gint n_answ;
                 gtk_entry_set_max_length (GTK_ENTRY(appGUI->romaji_entry), 3);
                 gtk_entry_set_text (GTK_ENTRY(appGUI->romaji_entry), tmp_a);
                 while (g_main_context_iteration (NULL, FALSE));
+    
+                if (appGUI->tst->test_state == FALSE) return;
             }
 
             gtk_widget_set_sensitive (appGUI->romaji_entry, TRUE);

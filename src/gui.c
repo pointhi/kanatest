@@ -101,6 +101,8 @@ void
 update_timer (GUI *appGUI) {
 
 static gchar buffer[BUFFER_SIZE];
+
+    if (appGUI->tst->test_state == FALSE) return;
     
     g_snprintf (buffer, BUFFER_SIZE, "<big><tt><b>%02d:%02d</b></tt></big>", 
                 appGUI->time_counter / 60, appGUI->time_counter % 60);
