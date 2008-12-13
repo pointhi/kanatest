@@ -467,7 +467,7 @@ gchar *column_names[NUMBER_OF_COLUMNS] = {
             gtk_list_store_append (stats_store, &stats_iter);
 
             g_snprintf (buffer, BUFFER_SIZE, "%4d.%02d.%02d, %02d:%02d", entry->date_year, entry->date_month+1, 
-                        entry->date_day+1, entry->date_hour, entry->date_minute);
+                        entry->date_day, entry->date_hour, entry->date_minute);
             gtk_list_store_set (stats_store, &stats_iter, 0, buffer, -1);
 
             switch(entry->test_repeat_mode) {
