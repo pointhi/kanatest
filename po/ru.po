@@ -50,7 +50,6 @@ msgid "Contributors"
 msgstr "Помощники"
 
 #: ../src/about.c:366
-#, fuzzy
 msgid ""
 "If you like our program, send a postcard with a photo of the city where you "
 "live to"
@@ -59,9 +58,8 @@ msgstr ""
 "города"
 
 #: ../src/about.c:372
-#, fuzzy
 msgid "We have received several postcards from our happy users"
-msgstr "Кое-какие города мы уже видели:"
+msgstr "Кое-какие города мы уже видели"
 
 #: ../src/about.c:378
 msgid ""
@@ -100,7 +98,7 @@ msgstr "Катакана"
 
 #: ../src/gui.c:149
 msgid "Test is in progress... Abort?"
-msgstr ""
+msgstr "Идёт тестирование... Прервать?"
 
 #: ../src/gui.c:151 ../src/stats.c:96
 msgid "Question"
@@ -168,35 +166,30 @@ msgid "Error"
 msgstr "Ошибка"
 
 #: ../src/options.c:377 ../src/options.c:422
-#, fuzzy
 msgid "no kanas found"
-msgstr "Шрифт каны"
+msgstr "ничего не найдено"
 
 #: ../src/options.c:420
 msgid "kanas found"
-msgstr ""
+msgstr "символов найдено"
 
 #: ../src/options.c:495 ../src/options.c:1060
 msgid "Statistics based selection"
-msgstr ""
+msgstr "Подборка на основе статистики"
 
 #: ../src/options.c:559
-#, fuzzy
 msgid "From"
-msgstr "ро"
+msgstr "От"
 
 #: ../src/options.c:587
-#, fuzzy
 msgid "To"
-msgstr "о"
+msgstr "по"
 
 #: ../src/options.c:609
-#, fuzzy
 msgid "Ratio range"
-msgstr "Оценка (%)"
+msgstr "Правильность"
 
 #: ../src/options.c:642
-#, fuzzy
 msgid "Kanas"
 msgstr "Набор"
 
@@ -210,7 +203,7 @@ msgstr "Общие"
 
 #: ../src/options.c:768
 msgid "Drill options"
-msgstr "Варианты прохождения:"
+msgstr "Варианты прохождения"
 
 #: ../src/options.c:784
 msgid "Display each kana once"
@@ -244,7 +237,7 @@ msgstr "Повторять до ручной остановки"
 
 #: ../src/options.c:818
 msgid "Correct answer display timeout"
-msgstr "Показывать правильный ответ в течение:"
+msgstr "Показывать правильный ответ в течение"
 
 #: ../src/options.c:833
 msgid "Disabled"
@@ -268,20 +261,19 @@ msgstr "До нажатия какой-либо клавиши"
 
 #: ../src/options.c:849
 msgid "Appearance"
-msgstr "Внешний вид:"
+msgstr "Внешний вид"
 
 #: ../src/options.c:869
 msgid "Kana color"
-msgstr "Цвет символов каны:"
+msgstr "Цвет символов каны"
 
-# опять - нужно киридзи
 #: ../src/options.c:887
 msgid "Romaji color"
-msgstr "Цвет киридзи:"
+msgstr "Цвет киридзи"
 
 #: ../src/options.c:921
 msgid "Misc options"
-msgstr "Всячина:"
+msgstr "Всячина"
 
 #: ../src/options.c:936
 msgid "Enable tooltips"
@@ -324,25 +316,24 @@ msgid "Invert"
 msgstr "Обратить"
 
 #: ../src/stats.c:90
-#, fuzzy
 msgid "Please select options"
-msgstr "Всячина:"
+msgstr "Выберите настройки"
 
 #: ../src/stats.c:100
 msgid "Remove lessons list"
-msgstr ""
+msgstr "Удилить список уроков"
 
 #: ../src/stats.c:106
 msgid "Remove Hiragana statistics"
-msgstr ""
+msgstr "Удалить статистику по хирагане"
 
 #: ../src/stats.c:111
 msgid "Remove Katakana statistics"
-msgstr ""
+msgstr "Удалить статистику по катакане"
 
 #: ../src/stats.c:116
 msgid "No further recovery will be possible. Continue ?"
-msgstr ""
+msgstr "Восстановление будет невозможно. Продолжить?"
 
 #: ../src/stats.c:208
 msgid "Date"
@@ -369,14 +360,12 @@ msgid "Ratio (%)"
 msgstr "Оценка (%)"
 
 #: ../src/stats.c:245
-#, fuzzy
 msgid "Lessons"
 msgstr "Вопросов"
 
 #: ../src/stats.c:440
-#, fuzzy
 msgid "Reset"
-msgstr "Сбросить статистику"
+msgstr "Сбросить"
 
 #: ../src/stats.c:475
 msgid "RW"
@@ -891,33 +880,28 @@ msgid "Test has finished!"
 msgstr "Тест завершён!"
 
 #: ../src/test.c:510 ../src/test.c:530
-#, fuzzy
 msgid "Total questions"
-msgstr "Всего вопросов:"
+msgstr "Всего вопросов"
 
 #: ../src/test.c:513
 msgid "unique"
 msgstr "разных"
 
 #: ../src/test.c:514 ../src/test.c:532
-#, fuzzy
 msgid "Correct answers"
-msgstr "Правильных ответов:"
+msgstr "Правильных ответов"
 
 #: ../src/test.c:516 ../src/test.c:534
-#, fuzzy
 msgid "Wrong answers"
-msgstr "Неправильных ответов:"
+msgstr "Неправильных ответов"
 
 #: ../src/test.c:518 ../src/test.c:536
-#, fuzzy
 msgid "Correctness ratio"
-msgstr "Оценка верности:"
+msgstr "Оценка верности"
 
 #: ../src/test.c:520 ../src/test.c:538
-#, fuzzy
 msgid "Drilling-time"
-msgstr "Время выполнения:"
+msgstr "Время выполнения"
 
 #: ../src/test.c:546
 msgid "Information"

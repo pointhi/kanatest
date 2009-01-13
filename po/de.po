@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kanatest 0.4.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-27 01:56+0100\n"
+"POT-Creation-Date: 2008-12-12 23:18+0100\n"
 "PO-Revision-Date: 2008-11-27 18:17+0900\n"
 "Last-Translator: Mathias Brodala <info@noctus.net>\n"
 "Language-Team: German <info@noctus.net>\n"
@@ -19,9 +19,7 @@ msgstr ""
 "X-Poedit-Country: GERMANY\n"
 "X-Poedit-Basepath: ../src\n"
 
-#: ../src/about.c:167
-#: ../src/about.c:285
-#: ../src/gui.c:601
+#: ../src/about.c:167 ../src/about.c:285 ../src/gui.c:606
 #: ../src/stock_icons.c:44
 msgid "About"
 msgstr "Über"
@@ -43,24 +41,35 @@ msgid "Translators"
 msgstr "Übersetzer"
 
 #: ../src/about.c:322
-msgid "We would like to thank the following people for suggestions, bug reports and patches:"
-msgstr "Wir möchten uns bei folgenden Personen für Anregungen, Bugreports und Patches bedanken:"
+msgid ""
+"We would like to thank the following people for suggestions, bug reports and "
+"patches:"
+msgstr ""
+"Wir möchten uns bei folgenden Personen für Anregungen, Bugreports und "
+"Patches bedanken:"
 
 #: ../src/about.c:327
 msgid "Contributors"
 msgstr "Mitwirkende"
 
 #: ../src/about.c:366
-msgid "If you like our program, send a postcard with a photo of the city where you live to"
-msgstr "Wenn euch unser Programm gefällt, sendet eine Postkarte mit einem Bild eurer Heimatstadt an"
+msgid ""
+"If you like our program, send a postcard with a photo of the city where you "
+"live to"
+msgstr ""
+"Wenn euch unser Programm gefällt, sendet eine Postkarte mit einem Bild eurer "
+"Heimatstadt an"
 
 #: ../src/about.c:372
 msgid "We have received several postcards from our happy users"
 msgstr "Wir haben schon einige Postkarten von glücklichen Nutzern erhalten"
 
 #: ../src/about.c:378
-msgid "Your postcards are a kind of motivation that encourages us to keep improving Kanatest :)"
-msgstr "Eure Postkarten verleihen uns Motivation, Kanatest weiter zu verbessern. :)"
+msgid ""
+"Your postcards are a kind of motivation that encourages us to keep improving "
+"Kanatest :)"
+msgstr ""
+"Eure Postkarten verleihen uns Motivation, Kanatest weiter zu verbessern. :)"
 
 #: ../src/about.c:380
 msgid "Thank you!"
@@ -74,94 +83,78 @@ msgstr "Postkarten"
 msgid "License"
 msgstr "Lizenz"
 
-#: ../src/chart.c:177
-#: ../src/gui.c:583
+#: ../src/chart.c:177 ../src/gui.c:588
 msgid "Kana chart"
 msgstr "Kana-Tabelle"
 
-#: ../src/chart.c:238
-#: ../src/options.c:522
-#: ../src/options.c:1085
-#: ../src/stats.c:291
-#: ../src/test.c:44
+#: ../src/chart.c:238 ../src/options.c:522 ../src/options.c:1085
+#: ../src/stats.c:291 ../src/test.c:44
 msgid "Hiragana"
 msgstr "Hiragana"
 
-#: ../src/chart.c:248
-#: ../src/options.c:531
-#: ../src/options.c:1086
-#: ../src/stats.c:361
-#: ../src/test.c:44
+#: ../src/chart.c:248 ../src/options.c:531 ../src/options.c:1086
+#: ../src/stats.c:361 ../src/test.c:44
 msgid "Katakana"
 msgstr "Katakana"
 
-#: ../src/gui.c:149
+#: ../src/gui.c:163
 msgid "Test is in progress... Abort?"
 msgstr "Momentan läuft ein Test … Abbrechen?"
 
-#: ../src/gui.c:151
-#: ../src/stats.c:96
+#: ../src/gui.c:165 ../src/stats.c:96
 msgid "Question"
 msgstr "Frage"
 
-#: ../src/gui.c:184
+#: ../src/gui.c:198
 msgid "Select test mode, kana set and press START"
 msgstr "Wähle einen Testmodus, ein Kana-Set und drücke auf START."
 
-#: ../src/gui.c:529
-#: ../src/options.c:1084
+#: ../src/gui.c:534 ../src/options.c:1084
 msgid "Romaji"
 msgstr "Romaji"
 
-#: ../src/gui.c:574
-#: ../src/options.c:538
-#: ../src/stats.c:216
+#: ../src/gui.c:579 ../src/options.c:538 ../src/stats.c:216
 #: ../src/stock_icons.c:41
 msgid "Statistics"
 msgstr "Statistiken"
 
-#: ../src/gui.c:592
-#: ../src/options.c:733
-#: ../src/stock_icons.c:43
+#: ../src/gui.c:597 ../src/options.c:733 ../src/stock_icons.c:43
 msgid "Options"
 msgstr "Optionen"
 
-#: ../src/gui.c:631
-#: ../src/stats.c:208
+#: ../src/gui.c:636 ../src/stats.c:208
 msgid "Test mode"
 msgstr "Testmodus"
 
-#: ../src/gui.c:658
-#: ../src/stats.c:209
+#: ../src/gui.c:663 ../src/stats.c:209
 msgid "Kana set"
 msgstr "Kana-Set"
 
-#: ../src/gui.c:666
+#: ../src/gui.c:671
 msgid "Start"
 msgstr "Start"
 
-#: ../src/gui.c:674
+#: ../src/gui.c:679
 msgid "Press to begin testing..."
 msgstr "Zum Beginn des Tests hier drücken …"
 
-#: ../src/gui.c:676
+#: ../src/gui.c:681
 msgid "Stop"
 msgstr "Stop"
 
-#: ../src/gui.c:684
+#: ../src/gui.c:689
 msgid "Press to stop testing..."
 msgstr "Zum Beenden des Tests hier drücken …"
 
-#: ../src/gui.c:686
+#: ../src/gui.c:691
 msgid "Quit"
 msgstr "Beenden"
 
-#: ../src/gui.c:694
+#: ../src/gui.c:699
 msgid "Exit!"
 msgstr "Verlassen"
 
-#: ../src/options.c:50
-#: ../src/options.c:905
+#: ../src/options.c:50 ../src/options.c:905
 msgid "Select kana font"
 msgstr "Kana-Schriftart auswählen"
 
@@ -173,8 +166,7 @@ msgstr "Bitte mindestens zwei Kana zum Testen auswählen."
 msgid "Error"
 msgstr "Fehler"
 
-#: ../src/options.c:377
-#: ../src/options.c:422
+#: ../src/options.c:377 ../src/options.c:422
 msgid "no kanas found"
 msgstr "Keine Kana gefunden"
 
@@ -182,8 +174,7 @@ msgstr "Keine Kana gefunden"
 msgid "kanas found"
 msgstr "Kana gefunden"
 
-#: ../src/options.c:495
-#: ../src/options.c:1060
+#: ../src/options.c:495 ../src/options.c:1060
 msgid "Statistics based selection"
 msgstr "Statistik-basierte Auswahl"
 
@@ -203,8 +194,7 @@ msgstr "Verhältnis-Bereich"
 msgid "Kanas"
 msgstr "Kana"
 
-#: ../src/options.c:674
-#: ../src/options.c:1095
+#: ../src/options.c:674 ../src/options.c:1095
 msgid "Select"
 msgstr "Wähle"
 
@@ -221,24 +211,32 @@ msgid "Display each kana once"
 msgstr "Jedes Kana einmal anzeigen"
 
 #: ../src/options.c:789
-msgid "When this option is enabled the kanatest will display every question once"
-msgstr "Wenn diese Option gewählt ist, wird Kanatest jede Frage einmal anzeigen"
+msgid ""
+"When this option is enabled the kanatest will display every question once"
+msgstr ""
+"Wenn diese Option gewählt ist, wird Kanatest jede Frage einmal anzeigen"
 
 #: ../src/options.c:794
 msgid "Repeat wrongly-answered questions"
 msgstr "Falsch beantwortete Fragen wiederholen"
 
 #: ../src/options.c:799
-msgid "When this option is enabled the kanatest will repeat all wrongly answered questions at the end of test"
-msgstr "Wenn diese Option gewählt ist, wird Kanatest am Ende des Tests alle falsch beantworteten Fragen wiederholen"
+msgid ""
+"When this option is enabled the kanatest will repeat all wrongly answered "
+"questions at the end of test"
+msgstr ""
+"Wenn diese Option gewählt ist, wird Kanatest am Ende des Tests alle falsch "
+"beantworteten Fragen wiederholen"
 
 #: ../src/options.c:804
 msgid "Repeat all forever"
 msgstr "Alle endlos wiederholen"
 
 #: ../src/options.c:809
-msgid "When this option is enabled the kanatest will repeat all questions forever"
-msgstr "Wenn diese Option gewählt ist, wird Kanatest alle Fragen endlos wiederholen"
+msgid ""
+"When this option is enabled the kanatest will repeat all questions forever"
+msgstr ""
+"Wenn diese Option gewählt ist, wird Kanatest alle Fragen endlos wiederholen"
 
 #: ../src/options.c:818
 msgid "Correct answer display timeout"
@@ -288,8 +286,7 @@ msgstr "Tooltips aktivieren"
 msgid "Toggle to enable/disable tooltips"
 msgstr "Aktivieren/deaktivieren der Tooltips"
 
-#: ../src/options.c:948
-#: ../src/test.c:70
+#: ../src/options.c:948 ../src/test.c:70
 msgid "User-defined lesson"
 msgstr "Benutzerdefinierter Test"
 
@@ -873,48 +870,40 @@ msgid_plural "minutes and"
 msgstr[0] "Minute und"
 msgstr[1] "Minuten und"
 
-#: ../src/test.c:330
-#: ../src/test.c:332
+#: ../src/test.c:330 ../src/test.c:332
 msgid "second"
 msgid_plural "seconds"
 msgstr[0] "Sekunde"
 msgstr[1] "Sekunden"
 
-#: ../src/test.c:510
-#: ../src/test.c:530
+#: ../src/test.c:511 ../src/test.c:531
 msgid "Test has finished!"
 msgstr "Test abgeschlossen!"
 
-#: ../src/test.c:510
-#: ../src/test.c:530
+#: ../src/test.c:511 ../src/test.c:531
 msgid "Total questions"
 msgstr "Fragen insgesamt"
 
-#: ../src/test.c:513
+#: ../src/test.c:514
 msgid "unique"
 msgstr "einzigartig"
 
-#: ../src/test.c:514
-#: ../src/test.c:532
+#: ../src/test.c:515 ../src/test.c:533
 msgid "Correct answers"
 msgstr "Korrekte Antworten"
 
-#: ../src/test.c:516
-#: ../src/test.c:534
+#: ../src/test.c:517 ../src/test.c:535
 msgid "Wrong answers"
 msgstr "Falsche Antworten"
 
-#: ../src/test.c:518
-#: ../src/test.c:536
+#: ../src/test.c:519 ../src/test.c:537
 msgid "Correctness ratio"
 msgstr "Verhältnis"
 
-#: ../src/test.c:520
-#: ../src/test.c:538
+#: ../src/test.c:521 ../src/test.c:539
 msgid "Drilling-time"
 msgstr "Drill-Zeit"
 
-#: ../src/test.c:546
+#: ../src/test.c:547
 msgid "Information"
 msgstr "Information"
-

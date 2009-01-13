@@ -2,12 +2,12 @@
 # Tradução portuguesa para o Kanatest.
 # Copyright (C) 2008 Bruno Ramos <ladrilho@gmail.com>
 # This file is distributed under the same license as the Kanatest package.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Kanatest 0.4.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-27 01:56+0100\n"
+"POT-Creation-Date: 2008-12-12 23:18+0100\n"
 "PO-Revision-Date: 2007-09-16 00:16+0200\n"
 "Last-Translator: Bruno Ramos <ladrilho@gmail.com>\n"
 "Language-Team: Portuguese\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/about.c:167 ../src/about.c:285 ../src/gui.c:601
+#: ../src/about.c:167 ../src/about.c:285 ../src/gui.c:606
 #: ../src/stock_icons.c:44
 msgid "About"
 msgstr "Sobre"
@@ -81,7 +81,7 @@ msgstr "Postais"
 msgid "License"
 msgstr "Licença"
 
-#: ../src/chart.c:177 ../src/gui.c:583
+#: ../src/chart.c:177 ../src/gui.c:588
 msgid "Kana chart"
 msgstr "Tabela Kana"
 
@@ -95,60 +95,60 @@ msgstr "Hiragana"
 msgid "Katakana"
 msgstr "Katakana"
 
-#: ../src/gui.c:149
+#: ../src/gui.c:163
 msgid "Test is in progress... Abort?"
 msgstr ""
 
-#: ../src/gui.c:151 ../src/stats.c:96
+#: ../src/gui.c:165 ../src/stats.c:96
 msgid "Question"
 msgstr "Pergunta"
 
-#: ../src/gui.c:184
+#: ../src/gui.c:198
 msgid "Select test mode, kana set and press START"
 msgstr "Escolha o tipo de teste, o grupo de kanas e carregue em START"
 
-#: ../src/gui.c:529 ../src/options.c:1084
+#: ../src/gui.c:534 ../src/options.c:1084
 msgid "Romaji"
 msgstr "Romaji"
 
-#: ../src/gui.c:574 ../src/options.c:538 ../src/stats.c:216
+#: ../src/gui.c:579 ../src/options.c:538 ../src/stats.c:216
 #: ../src/stock_icons.c:41
 msgid "Statistics"
 msgstr "Estatísticas"
 
-#: ../src/gui.c:592 ../src/options.c:733 ../src/stock_icons.c:43
+#: ../src/gui.c:597 ../src/options.c:733 ../src/stock_icons.c:43
 msgid "Options"
 msgstr "Opções"
 
-#: ../src/gui.c:631 ../src/stats.c:208
+#: ../src/gui.c:636 ../src/stats.c:208
 msgid "Test mode"
 msgstr "Tipo de teste"
 
-#: ../src/gui.c:658 ../src/stats.c:209
+#: ../src/gui.c:663 ../src/stats.c:209
 msgid "Kana set"
 msgstr "Kana set"
 
-#: ../src/gui.c:666
+#: ../src/gui.c:671
 msgid "Start"
 msgstr "Start"
 
-#: ../src/gui.c:674
+#: ../src/gui.c:679
 msgid "Press to begin testing..."
 msgstr "Carregue para iniciar o teste..."
 
-#: ../src/gui.c:676
+#: ../src/gui.c:681
 msgid "Stop"
 msgstr "Stop"
 
-#: ../src/gui.c:684
+#: ../src/gui.c:689
 msgid "Press to stop testing..."
 msgstr "Carregue para terminar o teste..."
 
-#: ../src/gui.c:686
+#: ../src/gui.c:691
 msgid "Quit"
 msgstr "Terminar"
 
-#: ../src/gui.c:694
+#: ../src/gui.c:699
 msgid "Exit!"
 msgstr "Sair!"
 
@@ -881,39 +881,39 @@ msgid_plural "seconds"
 msgstr[0] "segundo"
 msgstr[1] "segundos"
 
-#: ../src/test.c:510 ../src/test.c:530
+#: ../src/test.c:511 ../src/test.c:531
 msgid "Test has finished!"
 msgstr "O teste terminou!"
 
-#: ../src/test.c:510 ../src/test.c:530
+#: ../src/test.c:511 ../src/test.c:531
 #, fuzzy
 msgid "Total questions"
 msgstr "Total de perguntas:"
 
-#: ../src/test.c:513
+#: ../src/test.c:514
 msgid "unique"
 msgstr "únicas"
 
-#: ../src/test.c:514 ../src/test.c:532
+#: ../src/test.c:515 ../src/test.c:533
 #, fuzzy
 msgid "Correct answers"
 msgstr "Respostas correctas:"
 
-#: ../src/test.c:516 ../src/test.c:534
+#: ../src/test.c:517 ../src/test.c:535
 #, fuzzy
 msgid "Wrong answers"
 msgstr "Respostas erradas:"
 
-#: ../src/test.c:518 ../src/test.c:536
+#: ../src/test.c:519 ../src/test.c:537
 #, fuzzy
 msgid "Correctness ratio"
 msgstr "Percentagem de respostas certas:"
 
-#: ../src/test.c:520 ../src/test.c:538
+#: ../src/test.c:521 ../src/test.c:539
 #, fuzzy
 msgid "Drilling-time"
 msgstr "Tempo do teste:"
 
-#: ../src/test.c:546
+#: ../src/test.c:547
 msgid "Information"
 msgstr "Informação"
