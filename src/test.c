@@ -76,7 +76,7 @@ gchar *kana_set_name[] = {
 /*--------------------------------------------------------------------*/
 
 gchar *
-get_kana_sign (gint index, gint kana_type) {
+get_kana_sign (gint index, gint kana_type, gboolean translated) {
 
 /* romanji | hiragana | katakana */
 
@@ -146,7 +146,11 @@ gchar *kana_signs[] = {
 
 };
 
-    return gettext(kana_signs[3 * index + kana_type]);
+	if (translated == TRUE) {
+	    return gettext(kana_signs[3 * index + kana_type]);
+	} else {
+        return kana_signs[3 * index + kana_type];
+	}
 }
 
 /*--------------------------------------------------------------------*/
@@ -348,8 +352,8 @@ gchar **r_answers;
 gint n_answ;
 
     kana_number = appGUI->tst->questions_table[appGUI->tst->question_counter] % MIXED_SEPARATOR;
-    r_answers = g_strsplit (get_kana_sign (kana_number, ROMAJI), ANSWER_DELIMITER, MAX_RANSWERS);
-	n_answ=0;
+    r_answers = g_strsplit (get_kana_sign (kana_number, ROMAJI, TRUE), ANSWER_DELIMITER, MAX_RANSWERS);
+	n_answ = 0;
 	correct_answer = FALSE;
 
     while (r_answers[n_answ]) {

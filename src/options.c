@@ -237,10 +237,10 @@ gchar tmp[BUFFER_SIZE];
             if(get_kana_sign_mask(j, i)) {
                 if (n != 0) {
                     g_snprintf (tmp, BUFFER_SIZE, "<span font_desc='12' face='%s'>%s</span>",
-                                config.kana_font_face, get_kana_sign(pos, n));
+                                config.kana_font_face, get_kana_sign(pos, n, TRUE));
                 } else {
                     g_snprintf (tmp, BUFFER_SIZE, "<span font_desc='10' face='%s'>%s</span>",
-                                config.kana_font_face, get_kana_sign(pos, ROMAJI));
+                                config.kana_font_face, get_kana_sign(pos, ROMAJI, TRUE));
                 }
                 gtk_label_set_markup (GTK_LABEL(GTK_BIN(GTK_BUTTON(appGUI->opt->check_buttons[pos]))->child), tmp);
                 pos++;
@@ -408,7 +408,8 @@ gchar buffer[BUFFER_SIZE];
             if (select == TRUE) {
                 gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(appGUI->opt->check_buttons[i]), TRUE);
             } else {
-                g_snprintf (buffer, BUFFER_SIZE, "%s ", get_kana_sign(i, hiragana_mode == TRUE ? HIRAGANA:KATAKANA));
+                g_snprintf (buffer, BUFFER_SIZE, "%s ", 
+							get_kana_sign(i, hiragana_mode == TRUE ? HIRAGANA:KATAKANA, TRUE));
                 gtk_text_buffer_insert (textbuffer, &iter_start, buffer, -1);
                 n++;
             }
@@ -985,7 +986,7 @@ static          MESSAGE msg2[CHART_ROWS];
                 gtk_container_set_border_width (GTK_CONTAINER (frames[pos]), 2);
                 gtk_frame_set_shadow_type (GTK_FRAME (frames[pos]), GTK_SHADOW_ETCHED_OUT);
 
-                g_snprintf (buffer, BUFFER_SIZE, "%s", get_kana_sign (pos, ROMAJI));
+                g_snprintf (buffer, BUFFER_SIZE, "%s", get_kana_sign (pos, ROMAJI, TRUE));
 
                 appGUI->opt->check_buttons[pos] = gtk_check_button_new_with_mnemonic (buffer);
 

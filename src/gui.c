@@ -252,7 +252,7 @@ gchar tmpbuf[BUFFER_SIZE], letbuf[BUFFER_SIZE];
             g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='80' face='%s' color='%s'>%s</span>",
                         config.kana_font_face,
                         config.kana_color,
-                        get_kana_sign(number, HIRAGANA));
+                        get_kana_sign(number, HIRAGANA, TRUE));
             appGUI->old_kana_type = HIRAGANA;
             break;
         case KATAKANA:
@@ -262,7 +262,7 @@ gchar tmpbuf[BUFFER_SIZE], letbuf[BUFFER_SIZE];
             g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='80' face='%s' color='%s'>%s</span>",
                         config.kana_font_face,
                         config.kana_color,
-                        get_kana_sign(number, KATAKANA));
+                        get_kana_sign(number, KATAKANA, TRUE));
             appGUI->old_kana_type = KATAKANA;
             break;
         case ROMAJI:
@@ -270,14 +270,14 @@ gchar tmpbuf[BUFFER_SIZE], letbuf[BUFFER_SIZE];
                 number -= MIXED_SEPARATOR;
             }
 
-            g_snprintf (letbuf, BUFFER_SIZE, "%s", get_kana_sign(number, ROMAJI));
+            g_snprintf (letbuf, BUFFER_SIZE, "%s", get_kana_sign(number, ROMAJI, TRUE));
 
             if (appGUI->old_kana_type == HIRAGANA) {
                 g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='60' face='%s' color='%s'>%s</span>"
                                                  "<span font_desc='40' face='%s' color='%s'>(%s)</span>",
                                                  config.kana_font_face,
                                                  config.kana_color,
-                                                 get_kana_sign(number, HIRAGANA),
+                                                 get_kana_sign(number, HIRAGANA, TRUE),
                                                  config.kana_font_face,
                                                  config.romaji_color,
                                                  letbuf);
@@ -286,7 +286,7 @@ gchar tmpbuf[BUFFER_SIZE], letbuf[BUFFER_SIZE];
                                                  "<span font_desc='40' face='%s' color='%s'>(%s)</span>",
                                                  config.kana_font_face,
                                                  config.kana_color,
-                                                 get_kana_sign(number, KATAKANA),
+                                                 get_kana_sign(number, KATAKANA, TRUE),
                                                  config.kana_font_face,
                                                  config.romaji_color,
                                                  letbuf);
@@ -294,7 +294,7 @@ gchar tmpbuf[BUFFER_SIZE], letbuf[BUFFER_SIZE];
                 g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='80' face='%s' color='%s'>%s</span>",
                                                  config.kana_font_face,
                                                  config.romaji_color,
-                                                 get_kana_sign(number, ROMAJI));
+                                                 get_kana_sign(number, ROMAJI, TRUE));
             }
             break;
         case MIXED:
@@ -302,13 +302,13 @@ gchar tmpbuf[BUFFER_SIZE], letbuf[BUFFER_SIZE];
                 g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='80' face='%s' color='%s'>%s</span>",
                                                  config.kana_font_face,
                                                  config.kana_color,
-                                                 get_kana_sign((number-MIXED_SEPARATOR), KATAKANA));
+                                                 get_kana_sign((number-MIXED_SEPARATOR), KATAKANA, TRUE));
                 appGUI->old_kana_type = KATAKANA;
             } else {
                 g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='80' face='%s' color='%s'>%s</span>",
                                                  config.kana_font_face,
                                                  config.kana_color,
-                                                 get_kana_sign(number, HIRAGANA));
+                                                 get_kana_sign(number, HIRAGANA, TRUE));
                 appGUI->old_kana_type = HIRAGANA;
             }
             break;

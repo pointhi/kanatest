@@ -24,7 +24,7 @@
 
 gchar *     get_test_mode_name      (gint mode);
 gchar *     get_kana_set_name       (gint set);
-gchar *     get_kana_sign           (gint index, gint kana_type);
+gchar *     get_kana_sign           (gint index, gint kana_type, gboolean translated);
 
 void        test_init               (GUI *appGUI);
 void        test_info               (GUI *appGUI);

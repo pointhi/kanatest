@@ -343,7 +343,7 @@ gchar *column_names[NUMBER_OF_COLUMNS] = {
 
                 g_snprintf (buffer, BUFFER_SIZE, "<span face='%s'>%s/%s</span>: <span color='%s'>%d/%d</span> (%.f %%)",
                             config.kana_font_face,
-                            get_kana_sign(cpos, HIRAGANA), get_kana_sign(cpos, ROMAJI), color_str, 
+                            get_kana_sign(cpos, HIRAGANA, TRUE), get_kana_sign(cpos, ROMAJI, TRUE), color_str, 
                             appGUI->sts->correct_hiragana_counters[cpos], appGUI->sts->hiragana_counters[cpos], ratio);
 
                 gtk_label_set_markup (GTK_LABEL (appGUI->chr->labels[pos]), buffer);
@@ -414,7 +414,7 @@ gchar *column_names[NUMBER_OF_COLUMNS] = {
 
                 g_snprintf (buffer, BUFFER_SIZE, "<span face='%s'>%s/%s</span>: <span color='%s'>%d/%d</span> (%.f %%)",
                             config.kana_font_face,
-                            get_kana_sign(cpos, KATAKANA), get_kana_sign(cpos, ROMAJI), color_str, 
+                            get_kana_sign(cpos, KATAKANA, TRUE), get_kana_sign(cpos, ROMAJI, TRUE), color_str, 
                             appGUI->sts->correct_katakana_counters[cpos], appGUI->sts->katakana_counters[cpos], ratio);
 
                 gtk_label_set_markup (GTK_LABEL (appGUI->chr->labels[pos]), buffer);
@@ -572,7 +572,7 @@ get_kana_token (gint token, gint type) {
 
 static gchar temp[BUFFER_SIZE];
 
-    g_snprintf (temp, BUFFER_SIZE, "%s_%d", get_kana_sign (token, ROMAJI), type);
+    g_snprintf (temp, BUFFER_SIZE, "%s_%d", get_kana_sign (token, ROMAJI, FALSE), type);
     if (temp[2] == ',') temp[2] = '_';  /* special case: di,ji */
 
     return temp;

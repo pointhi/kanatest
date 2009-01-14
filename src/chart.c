@@ -75,7 +75,7 @@ gchar tmpbuf[BUFFER_SIZE];
 
                 g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='20' face='%s'>%s</span> (%s)",
                             config.kana_font_face,
-                            get_kana_sign(cpos, type), get_kana_sign(cpos, ROMAJI));
+                            get_kana_sign(cpos, type, TRUE), get_kana_sign(cpos, ROMAJI, TRUE));
 
                 gtk_label_set_markup (GTK_LABEL (appGUI->chr->labels[pos]), tmpbuf);
                 cpos++;
