@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kanatest 0.4.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-27 01:56+0100\n"
+"POT-Creation-Date: 2009-01-18 13:09+0300\n"
 "PO-Revision-Date: 2007-09-16 00:28+0200\n"
 "Last-Translator:  <taclipoka@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../src/about.c:167 ../src/about.c:285 ../src/gui.c:601
+#: ../src/about.c:167 ../src/about.c:285 ../src/gui.c:606
 #: ../src/stock_icons.c:44
 msgid "About"
 msgstr "О программе"
@@ -82,78 +82,78 @@ msgid "License"
 msgstr "Лицензия"
 
 # Кто б сказал, как "кана" склоняется? Отсюда и далее - символы вместо кан
-#: ../src/chart.c:177 ../src/gui.c:583
+#: ../src/chart.c:177 ../src/gui.c:588
 msgid "Kana chart"
 msgstr "Таблица символов каны"
 
-#: ../src/chart.c:238 ../src/options.c:522 ../src/options.c:1085
+#: ../src/chart.c:238 ../src/options.c:523 ../src/options.c:1086
 #: ../src/stats.c:291 ../src/test.c:44
 msgid "Hiragana"
 msgstr "Хирагана"
 
-#: ../src/chart.c:248 ../src/options.c:531 ../src/options.c:1086
+#: ../src/chart.c:248 ../src/options.c:532 ../src/options.c:1087
 #: ../src/stats.c:361 ../src/test.c:44
 msgid "Katakana"
 msgstr "Катакана"
 
-#: ../src/gui.c:149
+#: ../src/gui.c:163
 msgid "Test is in progress... Abort?"
 msgstr "Идёт тестирование... Прервать?"
 
-#: ../src/gui.c:151 ../src/stats.c:96
+#: ../src/gui.c:165 ../src/stats.c:96
 msgid "Question"
 msgstr "Вопрос"
 
-#: ../src/gui.c:184
+#: ../src/gui.c:198
 msgid "Select test mode, kana set and press START"
 msgstr "Выберите режим тестирования, набор символов каны и нажмите \"ПУСК\""
 
-#: ../src/gui.c:529 ../src/options.c:1084
+#: ../src/gui.c:534 ../src/options.c:1085
 msgid "Romaji"
 msgstr "Киридзи"
 
-#: ../src/gui.c:574 ../src/options.c:538 ../src/stats.c:216
+#: ../src/gui.c:579 ../src/options.c:539 ../src/stats.c:216
 #: ../src/stock_icons.c:41
 msgid "Statistics"
 msgstr "Статистика"
 
-#: ../src/gui.c:592 ../src/options.c:733 ../src/stock_icons.c:43
+#: ../src/gui.c:597 ../src/options.c:734 ../src/stock_icons.c:43
 msgid "Options"
 msgstr "Настройки"
 
-#: ../src/gui.c:631 ../src/stats.c:208
+#: ../src/gui.c:636 ../src/stats.c:208
 msgid "Test mode"
 msgstr "Режим"
 
-#: ../src/gui.c:658 ../src/stats.c:209
+#: ../src/gui.c:663 ../src/stats.c:209
 msgid "Kana set"
 msgstr "Набор"
 
-#: ../src/gui.c:666
+#: ../src/gui.c:671
 msgid "Start"
 msgstr "Пуск"
 
-#: ../src/gui.c:674
+#: ../src/gui.c:679
 msgid "Press to begin testing..."
 msgstr "Нажмите для начала тестирования..."
 
-#: ../src/gui.c:676
+#: ../src/gui.c:681
 msgid "Stop"
 msgstr "Стоп"
 
-#: ../src/gui.c:684
+#: ../src/gui.c:689
 msgid "Press to stop testing..."
 msgstr "Нажмите для остановки тестирования..."
 
-#: ../src/gui.c:686
+#: ../src/gui.c:691
 msgid "Quit"
 msgstr "Выход"
 
-#: ../src/gui.c:694
+#: ../src/gui.c:699
 msgid "Exit!"
 msgstr "Выход именно здесь"
 
-#: ../src/options.c:50 ../src/options.c:905
+#: ../src/options.c:50 ../src/options.c:906
 msgid "Select kana font"
 msgstr "Шрифт каны"
 
@@ -165,60 +165,63 @@ msgstr "Выберите хотя бы 2 символа для тестиров�
 msgid "Error"
 msgstr "Ошибка"
 
-#: ../src/options.c:377 ../src/options.c:422
+#: ../src/options.c:377 ../src/options.c:423
 msgid "no kanas found"
 msgstr "ничего не найдено"
 
-#: ../src/options.c:420
-msgid "kanas found"
-msgstr "символов найдено"
+#: ../src/options.c:421
+msgid "kana found"
+msgid_plural "kanas found"
+msgstr[0] "символ найден"
+msgstr[1] "символа найдено"
+msgstr[2] "символов найдено"
 
-#: ../src/options.c:495 ../src/options.c:1060
+#: ../src/options.c:496 ../src/options.c:1061
 msgid "Statistics based selection"
 msgstr "Подборка на основе статистики"
 
-#: ../src/options.c:559
+#: ../src/options.c:560
 msgid "From"
 msgstr "От"
 
-#: ../src/options.c:587
+#: ../src/options.c:588
 msgid "To"
 msgstr "по"
 
-#: ../src/options.c:609
+#: ../src/options.c:610
 msgid "Ratio range"
 msgstr "Правильность"
 
-#: ../src/options.c:642
+#: ../src/options.c:643
 msgid "Kanas"
 msgstr "Набор"
 
-#: ../src/options.c:674 ../src/options.c:1095
+#: ../src/options.c:675 ../src/options.c:1096
 msgid "Select"
 msgstr "Выбрать"
 
-#: ../src/options.c:754
+#: ../src/options.c:755
 msgid "General"
 msgstr "Общие"
 
-#: ../src/options.c:768
+#: ../src/options.c:769
 msgid "Drill options"
 msgstr "Варианты прохождения"
 
-#: ../src/options.c:784
+#: ../src/options.c:785
 msgid "Display each kana once"
 msgstr "Показывать каждый символ по одному разу"
 
-#: ../src/options.c:789
+#: ../src/options.c:790
 msgid ""
 "When this option is enabled the kanatest will display every question once"
 msgstr "Символы будут показаны один и только один раз за проход"
 
-#: ../src/options.c:794
+#: ../src/options.c:795
 msgid "Repeat wrongly-answered questions"
 msgstr "Повторять вопросы с неверными ответами"
 
-#: ../src/options.c:799
+#: ../src/options.c:800
 msgid ""
 "When this option is enabled the kanatest will repeat all wrongly answered "
 "questions at the end of test"
@@ -226,92 +229,92 @@ msgstr ""
 "Повторять вопросы с неверными ответами в конце теста до тех пор, пока они не "
 "станут верными"
 
-#: ../src/options.c:804
+#: ../src/options.c:805
 msgid "Repeat all forever"
 msgstr "Повторять бесконечно"
 
-#: ../src/options.c:809
+#: ../src/options.c:810
 msgid ""
 "When this option is enabled the kanatest will repeat all questions forever"
 msgstr "Повторять до ручной остановки"
 
-#: ../src/options.c:818
+#: ../src/options.c:819
 msgid "Correct answer display timeout"
 msgstr "Показывать правильный ответ в течение"
 
-#: ../src/options.c:833
+#: ../src/options.c:834
 msgid "Disabled"
 msgstr "Отключено"
 
-#: ../src/options.c:834
+#: ../src/options.c:835
 msgid "1 sec"
 msgstr "1 секунда"
 
-#: ../src/options.c:835
+#: ../src/options.c:836
 msgid "2 sec"
 msgstr "2 секунды"
 
-#: ../src/options.c:836
+#: ../src/options.c:837
 msgid "3 sec"
 msgstr "3 секунды"
 
-#: ../src/options.c:837
+#: ../src/options.c:838
 msgid "Until any key will be pressed"
 msgstr "До нажатия какой-либо клавиши"
 
-#: ../src/options.c:849
+#: ../src/options.c:850
 msgid "Appearance"
 msgstr "Внешний вид"
 
-#: ../src/options.c:869
+#: ../src/options.c:870
 msgid "Kana color"
 msgstr "Цвет символов каны"
 
-#: ../src/options.c:887
+#: ../src/options.c:888
 msgid "Romaji color"
 msgstr "Цвет киридзи"
 
-#: ../src/options.c:921
+#: ../src/options.c:922
 msgid "Misc options"
 msgstr "Всячина"
 
-#: ../src/options.c:936
+#: ../src/options.c:937
 msgid "Enable tooltips"
 msgstr "Включить подсказки"
 
-#: ../src/options.c:943
+#: ../src/options.c:944
 msgid "Toggle to enable/disable tooltips"
 msgstr "Включить/отключить показ подсказок вроде этой"
 
-#: ../src/options.c:948 ../src/test.c:70
+#: ../src/options.c:949 ../src/test.c:70
 msgid "User-defined lesson"
 msgstr "Самодельные уроки"
 
-#: ../src/options.c:1016
+#: ../src/options.c:1017
 msgid "Select all kanas in row"
 msgstr "Отметить все символы каны в строке"
 
-#: ../src/options.c:1032
+#: ../src/options.c:1033
 msgid "Deselect all kanas in row"
 msgstr "Снять отметку со всей строки"
 
-#: ../src/options.c:1048
+#: ../src/options.c:1049
 msgid "Selected kanas"
 msgstr "Выбрано знаков"
 
-#: ../src/options.c:1071
+#: ../src/options.c:1072
 msgid "Display as"
 msgstr "Показывать как"
 
-#: ../src/options.c:1102
+#: ../src/options.c:1103
 msgid "All"
 msgstr "Все"
 
-#: ../src/options.c:1109
+#: ../src/options.c:1110
 msgid "None"
 msgstr "Ничего"
 
-#: ../src/options.c:1116
+#: ../src/options.c:1117
 msgid "Invert"
 msgstr "Обратить"
 
@@ -377,7 +380,7 @@ msgstr ""
 
 #: ../src/stock_icons.c:42
 msgid "Chart"
-msgstr ""
+msgstr "Таблица"
 
 #: ../src/test.c:44
 msgid "Mixed"
@@ -861,48 +864,48 @@ msgstr "пю"
 msgid "pyo"
 msgstr "пё"
 
-#: ../src/test.c:329
+#: ../src/test.c:333
 msgid "minute and"
 msgid_plural "minutes and"
 msgstr[0] "минута и"
 msgstr[1] "минуты и"
 msgstr[2] "минут и"
 
-#: ../src/test.c:330 ../src/test.c:332
+#: ../src/test.c:334 ../src/test.c:336
 msgid "second"
 msgid_plural "seconds"
 msgstr[0] "секунда"
 msgstr[1] "секунды"
 msgstr[2] "секунд"
 
-#: ../src/test.c:510 ../src/test.c:530
+#: ../src/test.c:515 ../src/test.c:535
 msgid "Test has finished!"
 msgstr "Тест завершён!"
 
-#: ../src/test.c:510 ../src/test.c:530
+#: ../src/test.c:515 ../src/test.c:535
 msgid "Total questions"
 msgstr "Всего вопросов"
 
-#: ../src/test.c:513
+#: ../src/test.c:518
 msgid "unique"
 msgstr "разных"
 
-#: ../src/test.c:514 ../src/test.c:532
+#: ../src/test.c:519 ../src/test.c:537
 msgid "Correct answers"
 msgstr "Правильных ответов"
 
-#: ../src/test.c:516 ../src/test.c:534
+#: ../src/test.c:521 ../src/test.c:539
 msgid "Wrong answers"
 msgstr "Неправильных ответов"
 
-#: ../src/test.c:518 ../src/test.c:536
+#: ../src/test.c:523 ../src/test.c:541
 msgid "Correctness ratio"
 msgstr "Оценка верности"
 
-#: ../src/test.c:520 ../src/test.c:538
+#: ../src/test.c:525 ../src/test.c:543
 msgid "Drilling-time"
 msgstr "Время выполнения"
 
-#: ../src/test.c:546
+#: ../src/test.c:551
 msgid "Information"
 msgstr "Информация"

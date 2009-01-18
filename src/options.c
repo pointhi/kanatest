@@ -418,7 +418,7 @@ gchar buffer[BUFFER_SIZE];
 
     if (n > 0) {
         gtk_widget_set_sensitive (appGUI->opt->select_button, TRUE);
-        g_snprintf (buffer, BUFFER_SIZE, "<i>%d %s</i>", n, _("kanas found"));
+        g_snprintf (buffer, BUFFER_SIZE, "<i>%d %s</i>", n, ngettext("kana found", "kanas found", n));
     } else {
         g_snprintf (buffer, BUFFER_SIZE, "<i>%s</i>", _("no kanas found"));
     }
