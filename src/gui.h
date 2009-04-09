@@ -77,7 +77,6 @@ typedef struct {
     GtkWidget   *rna_radio_button;
     GtkWidget   *rwa_radio_button;
     GtkWidget   *raa_radio_button;
-    GtkWidget   *enable_tooltips_button;
     GtkWidget   *example_label;
 
     GtkWidget   *kana_colorbutton;
@@ -147,8 +146,6 @@ typedef struct {
     GtkWidget       *about_textview;
     gint            about_link_index;
     GSList          about_links_list;
-
-    GtkTooltips     *tooltips;
 
     GdkPixbuf       *icon;
     GdkPixbuf       *logo;

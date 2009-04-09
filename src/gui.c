@@ -445,8 +445,6 @@ GtkWidget       *alignment;
 gint            i;
 gchar           buffer[BUFFER_SIZE];
 
-    appGUI->tooltips = gtk_tooltips_new();
-
     kanatest_register_stock_icons ();
 
     appGUI->main_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
@@ -576,7 +574,7 @@ gchar           buffer[BUFFER_SIZE];
     gtk_widget_show (appGUI->stat_button);
     gtk_box_pack_start (GTK_BOX (hbox2), appGUI->stat_button, FALSE, FALSE, 0);
     gtk_container_set_border_width (GTK_CONTAINER (appGUI->stat_button), 2);
-    gtk_tooltips_set_tip (appGUI->tooltips, appGUI->stat_button, _("Statistics"), NULL);
+    gtk_widget_set_tooltip_text (appGUI->stat_button, _("Statistics"));
 
     appGUI->chart_button = gui_stock_label_button(NULL, KANATEST_STOCK_BUTTON_CHART);
     GTK_WIDGET_UNSET_FLAGS (appGUI->chart_button, GTK_CAN_FOCUS);
@@ -585,7 +583,7 @@ gchar           buffer[BUFFER_SIZE];
     gtk_widget_show (appGUI->chart_button);
     gtk_box_pack_start (GTK_BOX (hbox2), appGUI->chart_button, FALSE, FALSE, 0);
     gtk_container_set_border_width (GTK_CONTAINER (appGUI->chart_button), 2);
-    gtk_tooltips_set_tip (appGUI->tooltips, appGUI->chart_button, _("Kana chart"), NULL);
+    gtk_widget_set_tooltip_text (appGUI->chart_button, _("Kana chart"));
 
     appGUI->prefs_button = gui_stock_label_button(NULL, KANATEST_STOCK_BUTTON_OPTIONS);
     GTK_WIDGET_UNSET_FLAGS (appGUI->prefs_button, GTK_CAN_FOCUS);
@@ -594,7 +592,7 @@ gchar           buffer[BUFFER_SIZE];
     gtk_widget_show (appGUI->prefs_button);
     gtk_box_pack_start (GTK_BOX (hbox2), appGUI->prefs_button, FALSE, FALSE, 0);
     gtk_container_set_border_width (GTK_CONTAINER (appGUI->prefs_button), 2);
-    gtk_tooltips_set_tip (appGUI->tooltips, appGUI->prefs_button, _("Options"), NULL);
+    gtk_widget_set_tooltip_text (appGUI->prefs_button, _("Options"));
 
     appGUI->about_button = gui_stock_label_button(NULL, KANATEST_STOCK_BUTTON_ABOUT);
     GTK_WIDGET_UNSET_FLAGS (appGUI->about_button, GTK_CAN_FOCUS);
@@ -603,7 +601,7 @@ gchar           buffer[BUFFER_SIZE];
     gtk_widget_show (appGUI->about_button);
     gtk_box_pack_start (GTK_BOX (hbox2), appGUI->about_button, TRUE, TRUE, 0);
     gtk_container_set_border_width (GTK_CONTAINER (appGUI->about_button), 2);
-    gtk_tooltips_set_tip (appGUI->tooltips, appGUI->about_button, _("About"), NULL);
+    gtk_widget_set_tooltip_text (appGUI->about_button, _("About"));
 
     hbox1 = gtk_hbox_new (FALSE, 0);
     gtk_widget_show (hbox1);
@@ -676,7 +674,7 @@ gchar           buffer[BUFFER_SIZE];
     gtk_container_add (GTK_CONTAINER (hbuttonbox), appGUI->start_button);
     gtk_container_set_border_width (GTK_CONTAINER (appGUI->start_button), 4);
     GTK_WIDGET_SET_FLAGS (appGUI->start_button, GTK_CAN_DEFAULT);
-    gtk_tooltips_set_tip (appGUI->tooltips, appGUI->start_button, _("Press to begin testing..."), NULL);
+    gtk_widget_set_tooltip_text (appGUI->start_button, _("Press to begin testing..."));
 
     appGUI->stop_button = gui_stock_label_button(_("Stop"), GTK_STOCK_STOP);
     GTK_WIDGET_UNSET_FLAGS (appGUI->stop_button, GTK_CAN_FOCUS);
@@ -686,7 +684,7 @@ gchar           buffer[BUFFER_SIZE];
     gtk_container_add (GTK_CONTAINER (hbuttonbox), appGUI->stop_button);
     gtk_container_set_border_width (GTK_CONTAINER (appGUI->stop_button), 4);
     GTK_WIDGET_SET_FLAGS (appGUI->stop_button, GTK_CAN_DEFAULT);
-    gtk_tooltips_set_tip (appGUI->tooltips, appGUI->stop_button, _("Press to stop testing..."), NULL);
+    gtk_widget_set_tooltip_text (appGUI->stop_button, _("Press to stop testing..."));
 
     appGUI->quit_button = gui_stock_label_button(_("Quit"), GTK_STOCK_QUIT);
     GTK_WIDGET_UNSET_FLAGS (appGUI->quit_button, GTK_CAN_FOCUS);
@@ -696,18 +694,12 @@ gchar           buffer[BUFFER_SIZE];
     gtk_container_add (GTK_CONTAINER (hbuttonbox), appGUI->quit_button);
     gtk_container_set_border_width (GTK_CONTAINER (appGUI->quit_button), 4);
     GTK_WIDGET_SET_FLAGS (appGUI->quit_button, GTK_CAN_DEFAULT);
-    gtk_tooltips_set_tip (appGUI->tooltips, appGUI->quit_button, _("Exit!"), NULL);
+    gtk_widget_set_tooltip_text (appGUI->quit_button, _("Exit!"));
 
     gui_disable_test (appGUI);
 
     gtk_combo_box_set_active (GTK_COMBO_BOX (appGUI->combobox_lesson), config.kana_set);
     gtk_combo_box_set_active (GTK_COMBO_BOX (appGUI->combobox_kana_mode), config.kana_mode - HIRAGANA);
-
-    if (config.enable_tooltips == TRUE) {
-        gtk_tooltips_enable (appGUI->tooltips);
-    } else {
-        gtk_tooltips_disable (appGUI->tooltips);
-    }
 
     gui_url_initialize(appGUI);
 }

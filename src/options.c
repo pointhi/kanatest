@@ -89,14 +89,6 @@ options_repeat_mode_changed_cb (GtkToggleButton *button, gpointer user_data) {
 
 /*--------------------------------------------------------------------*/
 
-void
-options_tooltips_changed_cb (GtkToggleButton *button, gpointer user_data) {
-
-    config.enable_tooltips = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON(button));
-}
-
-/*--------------------------------------------------------------------*/
-
 gint
 update_selected_kanas(GUI *appGUI) {
 
@@ -172,12 +164,6 @@ GdkColor color;
         gtk_color_button_get_color (GTK_COLOR_BUTTON(appGUI->opt->romaji_colorbutton), &color);
         g_snprintf (config.romaji_color, MAX_COLORNAME_LEN, "#%02X%02X%02X",
                     color.red * 256 / 65536, color.green * 256 / 65536, color.blue * 256 / 65536);
-
-        if (config.enable_tooltips == TRUE) {
-            gtk_tooltips_enable (appGUI->tooltips);
-        } else {
-            gtk_tooltips_disable (appGUI->tooltips);
-        }
 
         appGUI->opt->active_tab = gtk_notebook_get_current_page (GTK_NOTEBOOK (appGUI->opt->notebook));
 
@@ -786,8 +772,8 @@ static          MESSAGE msg2[CHART_ROWS];
     gtk_box_pack_start (GTK_BOX (vbox2),appGUI->opt->rna_radio_button, TRUE, TRUE, 0);
     gtk_container_set_border_width (GTK_CONTAINER (appGUI->opt->rna_radio_button), 8);
     gtk_widget_show (appGUI->opt->rna_radio_button);
-    gtk_tooltips_set_tip (appGUI->tooltips, appGUI->opt->rna_radio_button, 
-                          _("When this option is enabled the kanatest will display every question once"), NULL);
+    gtk_widget_set_tooltip_text (appGUI->opt->rna_radio_button, 
+								 _("When this option is enabled the kanatest will display every question once"));
     g_signal_connect (G_OBJECT (appGUI->opt->rna_radio_button), "toggled",
                       G_CALLBACK (options_repeat_mode_changed_cb), appGUI);
 
@@ -796,8 +782,8 @@ static          MESSAGE msg2[CHART_ROWS];
     gtk_box_pack_start (GTK_BOX (vbox2),appGUI->opt->rwa_radio_button, TRUE, TRUE, 0);
     gtk_container_set_border_width (GTK_CONTAINER (appGUI->opt->rwa_radio_button), 8);
     gtk_widget_show (appGUI->opt->rwa_radio_button);
-    gtk_tooltips_set_tip (appGUI->tooltips, appGUI->opt->rwa_radio_button, 
-                          _("When this option is enabled the kanatest will repeat all wrongly answered questions at the end of test"), NULL);
+    gtk_widget_set_tooltip_text (appGUI->opt->rwa_radio_button, 
+								 _("When this option is enabled the kanatest will repeat all wrongly answered questions at the end of test"));
     g_signal_connect (G_OBJECT (appGUI->opt->rwa_radio_button), "toggled",
                       G_CALLBACK (options_repeat_mode_changed_cb), appGUI);
 
@@ -806,8 +792,8 @@ static          MESSAGE msg2[CHART_ROWS];
     gtk_box_pack_start (GTK_BOX (vbox2),appGUI->opt->raa_radio_button, TRUE, TRUE, 0);
     gtk_container_set_border_width (GTK_CONTAINER (appGUI->opt->raa_radio_button), 8);
     gtk_widget_show (appGUI->opt->raa_radio_button);
-    gtk_tooltips_set_tip (appGUI->tooltips, appGUI->opt->raa_radio_button, 
-                          _("When this option is enabled the kanatest will repeat all questions forever"), NULL);
+    gtk_widget_set_tooltip_text (appGUI->opt->raa_radio_button, 
+								 _("When this option is enabled the kanatest will repeat all questions forever"));
     g_signal_connect (G_OBJECT (appGUI->opt->raa_radio_button), "toggled",
                       G_CALLBACK (options_repeat_mode_changed_cb), appGUI);
 
@@ -912,38 +898,6 @@ static          MESSAGE msg2[CHART_ROWS];
                       (GtkAttachOptions) (0), 8, 0);
 
     /*-----------------------------------------------------------------*/
-    /* Misc options */
-
-    frame = gtk_frame_new (NULL);
-    gtk_widget_show (frame);
-    gtk_box_pack_start (GTK_BOX (vbox_n), frame, TRUE, FALSE, 0);
-    gtk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_NONE);
-
-    g_snprintf (buffer, BUFFER_SIZE, "<b>%s:</b>", _("Misc options"));
-    label = gtk_label_new (buffer);
-    gtk_widget_show (label);
-    gtk_frame_set_label_widget (GTK_FRAME (frame), label);
-    gtk_label_set_use_markup (GTK_LABEL (label), TRUE);
-
-    alignment = gtk_alignment_new (0.5, 0.5, 1, 1);
-    gtk_widget_show (alignment);
-    gtk_container_add (GTK_CONTAINER (frame), alignment);
-    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 0, 0, 12, 0);
-
-    vbox2 = gtk_vbox_new (TRUE, 0);
-    gtk_widget_show (vbox2);
-    gtk_container_add (GTK_CONTAINER (alignment), vbox2);
-
-    appGUI->opt->enable_tooltips_button = gtk_check_button_new_with_label(_("Enable tooltips"));
-    gtk_container_set_border_width (GTK_CONTAINER (appGUI->opt->enable_tooltips_button), 8);
-    g_signal_connect (G_OBJECT (appGUI->opt->enable_tooltips_button), "toggled",
-                      G_CALLBACK (options_tooltips_changed_cb), NULL);
-    gtk_box_pack_start (GTK_BOX (vbox2), appGUI->opt->enable_tooltips_button, TRUE, FALSE, 0);
-    gtk_widget_show (appGUI->opt->enable_tooltips_button);
-    gtk_tooltips_set_tip (appGUI->tooltips, appGUI->opt->enable_tooltips_button, 
-                          _("Toggle to enable/disable tooltips"), NULL);
-
-    /*-----------------------------------------------------------------*/
     /* User-defined lesson TAB */
 
     label = gtk_label_new(_("User-defined lesson"));
@@ -1013,8 +967,8 @@ static          MESSAGE msg2[CHART_ROWS];
 
         appGUI->opt->row_button_s[j] = gui_stock_label_button (NULL, GTK_STOCK_APPLY);
         gtk_button_set_relief (GTK_BUTTON (appGUI->opt->row_button_s[j]), GTK_RELIEF_NONE);
-        GTK_WIDGET_UNSET_FLAGS(appGUI->opt->row_button_s[j], GTK_CAN_FOCUS);
-        gtk_tooltips_set_tip (appGUI->tooltips, appGUI->opt->row_button_s[j], _("Select all kanas in row"), NULL);
+        GTK_WIDGET_UNSET_FLAGS (appGUI->opt->row_button_s[j], GTK_CAN_FOCUS);
+        gtk_widget_set_tooltip_text (appGUI->opt->row_button_s[j], _("Select all kanas in row"));
         gtk_widget_show (appGUI->opt->row_button_s[j]);
         gtk_table_attach (GTK_TABLE (table), appGUI->opt->row_button_s[j], i, i+1, j, j+1,
                           (GtkAttachOptions) (GTK_FILL),
@@ -1030,7 +984,7 @@ static          MESSAGE msg2[CHART_ROWS];
         appGUI->opt->row_button_c[j] = gui_stock_label_button (NULL, GTK_STOCK_CLEAR);
         gtk_button_set_relief (GTK_BUTTON (appGUI->opt->row_button_c[j]), GTK_RELIEF_NONE);
         GTK_WIDGET_UNSET_FLAGS (appGUI->opt->row_button_c[j], GTK_CAN_FOCUS);
-        gtk_tooltips_set_tip (appGUI->tooltips, appGUI->opt->row_button_c[j], _("Deselect all kanas in row"), NULL);
+        gtk_widget_set_tooltip_text (appGUI->opt->row_button_c[j], _("Deselect all kanas in row"));
         gtk_widget_show (appGUI->opt->row_button_c[j]);
         gtk_table_attach (GTK_TABLE (table), appGUI->opt->row_button_c[j], i, i+1, j, j+1,
                           (GtkAttachOptions) (GTK_FILL),
@@ -1147,10 +1101,6 @@ static          MESSAGE msg2[CHART_ROWS];
             break;
         default:
             gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(appGUI->opt->rna_radio_button), TRUE);
-    }
-
-    if (config.enable_tooltips == TRUE) {
-        gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(appGUI->opt->enable_tooltips_button), TRUE);
     }
 
     update_selected_kanas (appGUI);

@@ -12,8 +12,8 @@ AC_PROG_CC
 
 # Checks for libraries.
 
-AC_MSG_CHECKING(whether GTK+ version >= 2.6)
-if pkg-config --exists 'gtk+-2.0 >= 2.6'; then
+AC_MSG_CHECKING(whether GTK+ version >= 2.12)
+if pkg-config --exists 'gtk+-2.0 >= 2.12'; then
 
     gtk_CFLAGS=`pkg-config --cflags gtk+-2.0`
 	gtk_LIBS=`pkg-config --libs gtk+-2.0`
@@ -21,7 +21,7 @@ if pkg-config --exists 'gtk+-2.0 >= 2.6'; then
     AC_MSG_RESULT(yes)
 else
 	AC_MSG_RESULT(no)
-	AC_MSG_ERROR(GTK+ not found or too old (version < 2.6))
+	AC_MSG_ERROR(GTK+ not found or too old (version < 2.12))
 fi
 
 

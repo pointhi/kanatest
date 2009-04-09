@@ -60,7 +60,6 @@ prefs_set_default_values (void) {
     config.kana_mode = HIRAGANA;
     config.kana_set = 0;            /* all kanas */
     config.ca_timeout = 1;          /* 1 sec */
-    config.enable_tooltips = TRUE;
     config.stat_window_x = 45;
     config.stat_window_y = 120;
     config.stat_size_x = 760;
@@ -171,13 +170,6 @@ xmlChar *key;
                     key = xmlNodeListGetString (doc, node->xmlChildrenNode, 1);
                     if (key != NULL)
                             sscanf ((gchar *) key, "%d", &config.ca_timeout);
-                    xmlFree (key);
-                }
-
-                if ((!xmlStrcmp (node->name, (const xmlChar *) "enable_tooltips"))) {
-                    key = xmlNodeListGetString (doc, node->xmlChildrenNode, 1);
-                    if (key != NULL)
-                            sscanf ((gchar *) key, "%d", &config.enable_tooltips);
                     xmlFree (key);
                 }
 
@@ -358,8 +350,6 @@ gchar temp[BUFFER_SIZE];
     xmlNewTextChild (node, NULL, (const xmlChar *) "kana_set", (xmlChar *) temp);
     g_snprintf (temp, BUFFER_SIZE, "%d", config.ca_timeout);
     xmlNewTextChild (node, NULL, (const xmlChar *) "ca_timeout", (xmlChar *) temp);
-    g_snprintf (temp, BUFFER_SIZE, "%d", config.enable_tooltips);
-    xmlNewTextChild (node, NULL, (const xmlChar *) "enable_tooltips", (xmlChar *) temp);
     g_snprintf (temp, BUFFER_SIZE, "%d", config.stat_window_x);
     xmlNewTextChild (node, NULL, (const xmlChar *) "stat_window_x", (xmlChar *) temp);
     g_snprintf (temp, BUFFER_SIZE, "%d", config.stat_window_y);

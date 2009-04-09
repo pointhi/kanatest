@@ -44,7 +44,6 @@ struct kanatest_prefs
     gint        kana_mode;
     gint        kana_set;
     gint        ca_timeout;
-    gint        enable_tooltips;
     gint        stat_window_x;
     gint        stat_window_y;
     gint        stat_size_x;
