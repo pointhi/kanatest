@@ -155,6 +155,7 @@ gchar *translators[] = {
     "es",   "Daniel Halens",        "daniel.halens@sabayonlinux.org",
     "fr",   "Adrian Courrèges",     "a.courreges@gmail.com",
     "hu",   "Szigetvári Csaba",     "csaba.szigetvari@informedia.hu",
+	"it",   "Jacopo Farina",        "jacopo.farina@email.it",
     "pl",   "Piotr Mąka",           "sill@ll.pl",
     "pt",   "Bruno Ramos",          "ladrilho@gmail.com",
     "ru",   "Taci Taclipoka",       "taclipoka@gmail.com"

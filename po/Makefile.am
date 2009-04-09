@@ -6,7 +6,7 @@ XGETTEXT = /usr/bin/xgettext
 MSGMERGE = /usr/bin/msgmerge
 
 XGETTEXT_OPTS = --keyword=_ --keyword=N_ --keyword=X_ --add-comments=TRANSLATORS: 
-POFILES = de.po es.po fr.po hu.po pl.po pt.po ru.po
+POFILES = de.po es.po fr.po hu.po it.po pl.po pt.po ru.po
 MOFILES = $(POFILES:.po=.mo)
 
 EXTRA_DIST = $(POFILES) $(MOFILES)
@@ -37,5 +37,8 @@ uninstall-local:
 		lang=`echo $$i | sed 's/\.mo$$//'`; \
 		rm -f ${DESTDIR}${LOCALEDIR}/$$lang/LC_MESSAGES/$(DOMAIN).mo; \
 	done
+
+clean-local:
+	rm -f *.mo
 
 skip:

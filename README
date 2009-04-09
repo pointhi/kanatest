@@ -61,17 +61,6 @@ List of key features:
       and can be viewed in statistics window.
     * Colors and kana font are configurable
 
-The most important thing you need is font supporting kana chars for 
-displaying questions during test. If you don't have japanese-friendly fonts 
-(check kana chart in Kanatest) you can download one of these font packages:
-
-    * FreeSans - http://www.nongnu.org/freefont/
-    * DejaVu - http://dejavu.sourceforge.net/
-
-After download, unpack font archive and copy all *.ttf files to $HOME/.fonts 
-directory. Don't forget to restart Kanatest after font installation.
-
-
 -----> WHERE ?
 
 Homepage: http://clay.ll.pl/kanatest
