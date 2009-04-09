@@ -66,8 +66,14 @@ gui_get_www_browser (void) {
 static gchar browser_cmd[PATH_MAX];
 
 gchar *browsers[] = {
-    "firefox",      "opera",        "x-www-browser",    "htmlview",
-    "epiphany",     "konqueror",    "netscape"
+	"xdg-open",    
+	"firefox",      
+	"opera",        
+	"x-www-browser",    
+	"htmlview",
+    "epiphany",     
+	"konqueror",    
+	"netscape"
 };
 
 gint i;
@@ -97,6 +103,7 @@ gui_get_email_client (void) {
 static gchar client_cmd[PATH_MAX];
 
 gchar *clients[] = {
+	"xdg-email",    "",
     "claws-mail",   "--compose",
     "thunderbird",  "mailto:",
     "sylpheed",     "--compose",

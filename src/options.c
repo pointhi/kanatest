@@ -440,6 +440,21 @@ auto_select_delete_event_cb (GtkWidget *widget, GdkEvent *event, gpointer user_d
 
 /*--------------------------------------------------------------------*/
 
+gint
+auto_select_key_press_cb (GtkWidget *widget, GdkEventKey *event, gpointer user_data) {
+
+    GUI *appGUI = (GUI *)user_data;
+
+    if (event->keyval == GDK_Escape) {
+        auto_select_close_button_cb (widget, appGUI);
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+/*--------------------------------------------------------------------*/
+
 void
 hiragana_mode_changed_cb (GtkToggleButton *button, gpointer user_data) {
 
@@ -480,12 +495,17 @@ gchar buffer[BUFFER_SIZE];
 
     appGUI->opt->auto_selection_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     gtk_window_set_title (GTK_WINDOW (appGUI->opt->auto_selection_window), _("Statistics based selection"));
+    gtk_window_set_resizable (GTK_WINDOW (appGUI->opt->auto_selection_window), TRUE);
     gtk_window_set_transient_for (GTK_WINDOW(appGUI->opt->auto_selection_window), GTK_WINDOW(appGUI->opt->options_window));
     gtk_window_set_modal (GTK_WINDOW(appGUI->opt->auto_selection_window), TRUE);
     gtk_window_set_default_size (GTK_WINDOW(appGUI->opt->auto_selection_window), 300, 400);
+	gtk_window_move (GTK_WINDOW (appGUI->opt->auto_selection_window),
+                                config.options_window_x + 100, config.options_window_y + 80);
 
     g_signal_connect (G_OBJECT (appGUI->opt->auto_selection_window), "delete_event",
                       G_CALLBACK(auto_select_delete_event_cb), appGUI);
+    g_signal_connect (G_OBJECT(appGUI->opt->auto_selection_window), "key_press_event",
+                        G_CALLBACK(auto_select_key_press_cb), appGUI);
 
     vbox1 = gtk_vbox_new (FALSE, 0);
     gtk_widget_show (vbox1);
@@ -550,7 +570,7 @@ gchar buffer[BUFFER_SIZE];
                       (GtkAttachOptions) 0,
                       (GtkAttachOptions) 0, 0, 0);
 
-    appGUI->opt->begin_range_spinbutton_adj = gtk_adjustment_new (config.ratio_begin, 0, 99, 1, 10, 10);
+    appGUI->opt->begin_range_spinbutton_adj = gtk_adjustment_new (config.ratio_begin, 0, 99, 1, 10, 0);
     appGUI->opt->begin_range_spinbutton = gtk_spin_button_new (GTK_ADJUSTMENT (appGUI->opt->begin_range_spinbutton_adj), 1, 0);
     g_signal_connect (appGUI->opt->begin_range_spinbutton, "value-changed", 
                       G_CALLBACK (spinbutton_value_changed_cb), appGUI);
@@ -578,7 +598,7 @@ gchar buffer[BUFFER_SIZE];
                       (GtkAttachOptions) 0,
                       (GtkAttachOptions) 0, 0, 0);
 
-    appGUI->opt->end_range_spinbutton_adj = gtk_adjustment_new (config.ratio_end, 1, 100, 1, 10, 10);
+    appGUI->opt->end_range_spinbutton_adj = gtk_adjustment_new (config.ratio_end, 1, 100, 1, 10, 0);
     appGUI->opt->end_range_spinbutton = gtk_spin_button_new (GTK_ADJUSTMENT (appGUI->opt->end_range_spinbutton_adj), 1, 0);
     g_signal_connect (appGUI->opt->end_range_spinbutton, "value-changed", 
                       G_CALLBACK (spinbutton_value_changed_cb), appGUI);
@@ -749,7 +769,7 @@ static          MESSAGE msg2[CHART_ROWS];
 
     frame = gtk_frame_new (NULL);
     gtk_widget_show (frame);
-    gtk_box_pack_start (GTK_BOX (vbox_n), frame, TRUE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox_n), frame, FALSE, FALSE, 2);
     gtk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_NONE);
 
     g_snprintf (buffer, BUFFER_SIZE, "<b>%s:</b>", _("Drill options"));
@@ -830,7 +850,7 @@ static          MESSAGE msg2[CHART_ROWS];
 
     frame = gtk_frame_new (NULL);
     gtk_widget_show (frame);
-    gtk_box_pack_start (GTK_BOX (vbox_n), frame, TRUE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox_n), frame, FALSE, FALSE, 2);
     gtk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_NONE);
 
     g_snprintf (buffer, BUFFER_SIZE, "<b>%s:</b>", _("Appearance"));
