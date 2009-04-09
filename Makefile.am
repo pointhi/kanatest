@@ -1,11 +1,5 @@
-SUBDIRS = src po
-ACLOCAL_AMFLAGS = -I m4
+SUBDIRS = src po data
+ACLOCAL_AMFLAGS = -I m4 -Wall
 
-pixmapdir = $(datadir)/pixmaps
-pixmap_DATA = kanatest.svg kanatest.png
-
-applicationsdir = $(datadir)/applications
-applications_DATA = kanatest.desktop
-
-EXTRA_DIST = $(pixmap_DATA) $(applications_DATA) README AUTHORS TRANSLATORS COPYING ChangeLog
+EXTRA_DIST = README AUTHORS TRANSLATORS COPYING ChangeLog
 
