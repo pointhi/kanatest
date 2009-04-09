@@ -104,7 +104,7 @@ static gchar buffer[BUFFER_SIZE];
 
     if (appGUI->tst->test_state == FALSE) return;
     
-    g_snprintf (buffer, BUFFER_SIZE, "<big><tt><b>%02d:%02d</b></tt></big>", 
+    g_snprintf (buffer, BUFFER_SIZE, "<span font_desc='16'><tt>%02d:%02d</tt></span>", 
                 appGUI->time_counter / 60, appGUI->time_counter % 60);
     gtk_label_set_markup (GTK_LABEL (appGUI->timer_label), buffer);
 }
@@ -144,7 +144,7 @@ start_test_cb (GtkWidget *widget, gpointer user_data) {
     gui_set_progress (appGUI);
 
     appGUI->time_counter = 0;
-    gtk_label_set_markup (GTK_LABEL (appGUI->timer_label), "<big><tt><b>00:00</b></tt></big>");
+    gtk_label_set_markup (GTK_LABEL (appGUI->timer_label), "<span font_desc='16'><tt>00:00</tt></span>");
 }
 
 /*--------------------------------------------------------------------*/

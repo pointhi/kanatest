@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ(2.59)
-AC_INIT([Kanatest], [0.4.6], [pasp@users.sf.net])
+AC_INIT([Kanatest], [0.4.8], [pasp@users.sf.net])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 AC_CONFIG_SRCDIR([src/about.c])
 AC_CONFIG_HEADER([config.h])
