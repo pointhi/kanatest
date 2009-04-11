@@ -23,6 +23,7 @@
 #include <config.h>
 
 #include <gtk/gtk.h>
+#include <math.h>
 #include <gdk/gdkkeysyms.h>
 #include <libxml/parser.h>
 
@@ -170,11 +171,189 @@ stats_column_clicked_cb (GtkTreeViewColumn *treeviewcolumn, gpointer user_data) 
 /*--------------------------------------------------------------------*/
 
 void
+draw_statistics_graph (GUI *appGUI) {
+
+gint width, height, i, k;
+cairo_t *sts_cr = NULL;
+double minY, maxY, hiragana_value, katakana_value, r;
+double h_real_y_pos, k_real_y_pos, region, stepX, stepY;
+double dash[] = { 1.0 };
+gchar buffer[BUFFER_SIZE];
+
+	width = appGUI->sts->graph_viewport->allocation.width - 4;
+	height = appGUI->sts->graph_viewport->allocation.height - 4;
+
+    sts_cr = gdk_cairo_create (appGUI->sts->graph_drawing_area->window);
+
+    cairo_set_source_rgb (sts_cr, 1.0, 1.0, 1.0);   /* white background */
+    cairo_paint (sts_cr);
+
+    cairo_set_line_width (sts_cr, 1.0);
+	cairo_set_antialias (sts_cr, CAIRO_ANTIALIAS_DEFAULT);
+
+	cairo_select_font_face (sts_cr, "Sans", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_NORMAL);
+	cairo_set_font_size (sts_cr, LEGEND_FONT_SIZE);
+
+	cairo_set_source_rgb (sts_cr, 0.0, 0.0, 0.0);   /* black */
+
+	/* arrows and scale */
+
+	minY = height-Y_AXIS_MARGIN - Y_BORDER;
+	maxY = height / 50.0 + ARROW_L * 2.5;
+	region = fabs(minY - maxY);
+	stepY = region / 4.0;
+
+	/* scale */
+	cairo_move_to (sts_cr, X_BORDER*1.5, minY);
+	cairo_show_text (sts_cr, "0%");
+
+	for (i=0; i < 4; i++) {
+	
+		cairo_set_source_rgb (sts_cr, 0.0, 0.0, 0.0);   /* black */
+
+		g_snprintf (buffer, BUFFER_SIZE, "%d%%", 100/4 * (i+1));
+		cairo_move_to (sts_cr, X_BORDER*1.5, minY+LEGEND_FONT_SIZE/2 - stepY*(i+1));
+		cairo_show_text (sts_cr, buffer);
+
+		cairo_set_dash (sts_cr, NULL, 0, 0);
+		cairo_move_to (sts_cr, X_AXIS_MARGIN+X_BORDER-TICK_WIDTH/2, minY - stepY*(i+1));
+		cairo_line_to (sts_cr, X_AXIS_MARGIN+X_BORDER+TICK_WIDTH/2, minY - stepY*(i+1));
+		cairo_stroke (sts_cr);
+
+		cairo_set_source_rgb (sts_cr, 0.7, 0.7, 0.7);   /* gray */
+		cairo_set_dash (sts_cr, dash, 1, 0);
+		cairo_move_to (sts_cr, X_AXIS_MARGIN+X_BORDER, minY - stepY*(i+1));
+		cairo_line_to (sts_cr, width-X_AXIS_MARGIN, minY - stepY*(i+1));
+
+		cairo_stroke (sts_cr);
+	}
+
+	/* draw graph */
+
+	if (width < height) {       /* radius for a point */
+		r = 5 * ((double)width / height);
+	} else {
+		r = 5 * ((double)height / width);
+	}
+
+	/* hiragana */
+
+	cairo_set_dash (sts_cr, NULL, 0, 0);
+
+	stepX = (width - X_AXIS_MARGIN) / NUMBER_OF_SIGNS;
+
+	for (i = 0; i < NUMBER_OF_SIGNS; i++) {
+
+		if (appGUI->sts->hiragana_counters[i] > 0) {
+			hiragana_value = ((double)appGUI->sts->correct_hiragana_counters[i]/appGUI->sts->hiragana_counters[i])*100.0;
+		} else {
+			hiragana_value = 0;
+		}
+
+		h_real_y_pos = minY - region * hiragana_value / 100.0;
+
+		if (appGUI->sts->katakana_counters[i] > 0) {
+			katakana_value = ((double)appGUI->sts->correct_katakana_counters[i]/appGUI->sts->katakana_counters[i])*100.0;
+		} else {
+			katakana_value = 0;
+		}
+
+		k_real_y_pos = minY - region * katakana_value / 100.0;
+
+		cairo_set_source_rgb (sts_cr, 0.9, 0.4, 0.0);
+		cairo_rectangle (sts_cr, X_AXIS_MARGIN+X_BORDER+stepX*i, h_real_y_pos, 
+						 stepX/2, (region * hiragana_value / 100.0));
+		cairo_fill (sts_cr);
+
+		cairo_set_source_rgb (sts_cr, 0.4, 0.0, 0.7);
+		cairo_rectangle (sts_cr, X_AXIS_MARGIN+X_BORDER+stepX*i+stepX/2, k_real_y_pos, 
+						 stepX/2, (region * katakana_value / 100.0));
+		cairo_fill (sts_cr);
+
+	}
+
+	k = 0;
+
+	cairo_set_source_rgb (sts_cr, 0.0, 0.0, 0.0);   /* black */
+
+	for (i = 0; i < NUMBER_OF_SIGNS; i++) {
+		cairo_move_to (sts_cr, X_AXIS_MARGIN+X_BORDER+stepX*i, minY+LEGEND_FONT_SIZE*(k+1));
+        g_snprintf (buffer, BUFFER_SIZE, "%s", get_kana_sign (i, ROMAJI, FALSE));
+	    if (buffer[2] == ',') buffer[2] = '\0';  /* special case: di,ji */
+		cairo_show_text (sts_cr, buffer);
+		k = (k + 1) % 3;
+	}
+
+	/* legend */
+
+	cairo_set_source_rgb (sts_cr, 0.9, 0.4, 0.0);
+	cairo_rectangle (sts_cr, X_AXIS_MARGIN+X_BORDER+width/1.5, 15, 8*LEGEND_FONT_SIZE, 2*LEGEND_FONT_SIZE);
+	cairo_fill (sts_cr);
+	cairo_set_source_rgb (sts_cr, 0.4, 0.0, 0.7);
+	cairo_rectangle (sts_cr, X_AXIS_MARGIN+X_BORDER+width/1.3, 15, 8*LEGEND_FONT_SIZE, 2*LEGEND_FONT_SIZE);
+	cairo_fill (sts_cr);
+	cairo_set_source_rgb (sts_cr, 1.0, 1.0, 1.0);   /* white */
+	cairo_move_to (sts_cr, X_AXIS_MARGIN+X_BORDER+width/1.5+2, 25+2);
+	cairo_show_text (sts_cr, "Hiragana");
+	cairo_move_to (sts_cr, X_AXIS_MARGIN+X_BORDER+width/1.3+2, 25+2);
+	cairo_show_text (sts_cr, "Katakana");
+
+	/* vertical axis */
+	cairo_set_source_rgb (sts_cr, 0.0, 0.0, 0.0);   /* black */
+	cairo_move_to (sts_cr, X_AXIS_MARGIN+X_BORDER, height-Y_AXIS_MARGIN-Y_BORDER);
+    cairo_line_to (sts_cr, X_AXIS_MARGIN+X_BORDER, Y_AXIS_MARGIN);
+
+	/* arrow */
+	cairo_move_to (sts_cr, X_AXIS_MARGIN+X_BORDER, Y_AXIS_MARGIN);
+    cairo_line_to (sts_cr, X_AXIS_MARGIN+X_BORDER-ARROW_A, Y_AXIS_MARGIN+ARROW_L);
+	cairo_move_to (sts_cr, X_AXIS_MARGIN+X_BORDER, Y_AXIS_MARGIN);
+    cairo_line_to (sts_cr, X_AXIS_MARGIN+X_BORDER+ARROW_A, Y_AXIS_MARGIN+ARROW_L);
+
+	/* horizontal axis */
+	cairo_move_to (sts_cr, X_AXIS_MARGIN+X_BORDER, height-Y_AXIS_MARGIN-Y_BORDER);
+    cairo_line_to (sts_cr, width-X_BORDER, height-Y_AXIS_MARGIN-Y_BORDER);
+
+	/* arrow */
+	cairo_move_to (sts_cr, width-X_BORDER, height-Y_AXIS_MARGIN-Y_BORDER);
+    cairo_line_to (sts_cr, width-X_BORDER-ARROW_L, height-Y_AXIS_MARGIN-Y_BORDER-ARROW_A);
+	cairo_move_to (sts_cr, width-X_BORDER, height-Y_AXIS_MARGIN-Y_BORDER);
+    cairo_line_to (sts_cr, width-X_BORDER-ARROW_L, height-Y_AXIS_MARGIN-Y_BORDER+ARROW_A);
+
+	cairo_stroke (sts_cr);
+
+	/* destroy surface */
+
+    cairo_destroy (sts_cr);
+}
+
+/*--------------------------------------------------------------------*/
+
+gint
+graph_configure_event (GtkWidget *widget, GdkEventConfigure *event, gpointer user_data) {
+
+    GUI *appGUI = (GUI *)user_data;
+
+	draw_statistics_graph (appGUI);
+	return TRUE;
+}
+
+gint
+graph_expose_event (GtkWidget *widget, GdkEventExpose *event, gpointer user_data) {
+
+    GUI *appGUI = (GUI *)user_data;
+
+	draw_statistics_graph (appGUI);
+	return FALSE;
+}
+
+/*--------------------------------------------------------------------*/
+
+void
 stats_create_window (GUI *appGUI) {
 
 GtkWidget       *vbox1, *vbox2;
 GtkWidget       *vbox3, *vbox4;
-GtkWidget       *vbox5, *vbox6;
+GtkWidget       *vbox5, *vbox6, *vbox7;
 GtkWidget       *hbuttonbox;
 GtkWidget       *close_button;
 GtkWidget       *reset_button;
@@ -425,6 +604,25 @@ gchar *column_names[NUMBER_OF_COLUMNS] = {
         }
     }
 
+	/* graph */
+
+    vbox7 = gtk_vbox_new (FALSE, 0);
+    gtk_widget_show (vbox7);
+    label = gtk_label_new (_("Graph"));
+    gtk_notebook_append_page(GTK_NOTEBOOK(appGUI->sts->notebook), vbox7, label);
+
+	appGUI->sts->graph_viewport = gtk_viewport_new (NULL, NULL);
+    gtk_widget_show (appGUI->sts->graph_viewport);
+    gtk_box_pack_start (GTK_BOX (vbox7), appGUI->sts->graph_viewport, TRUE, TRUE, 0);
+	
+	appGUI->sts->graph_drawing_area = gtk_drawing_area_new();
+    gtk_widget_show (appGUI->sts->graph_drawing_area);
+	gtk_container_add (GTK_CONTAINER(appGUI->sts->graph_viewport), appGUI->sts->graph_drawing_area);
+
+	g_signal_connect (G_OBJECT(appGUI->sts->graph_drawing_area), "configure_event",
+					  G_CALLBACK(graph_configure_event), appGUI);
+	g_signal_connect (G_OBJECT(appGUI->sts->graph_drawing_area), "expose_event",
+					  G_CALLBACK(graph_expose_event), appGUI);
 
     /* buttons */
 

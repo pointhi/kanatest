@@ -29,6 +29,15 @@
 #define STATS_FILENAME_OLD  "kanatest-stats.xml"
 #define KANAS_FILENAME      "statistics-kanas.xml"
 
+#define X_AXIS_MARGIN       50
+#define Y_AXIS_MARGIN       10
+#define X_BORDER            8
+#define Y_BORDER            32
+#define ARROW_A             3
+#define ARROW_L             15
+#define LEGEND_FONT_SIZE    9
+#define TICK_WIDTH          6
+
 typedef struct {
     guint date_day;
     guint date_month;

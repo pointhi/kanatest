@@ -1,4 +1,5 @@
 2009-xx-xx: version 0.4.8
+  * Graph for kana sets has been added
   * Several bug fixes and improvements
   * Added translations: es, it
   * Updated translations: hu, ru

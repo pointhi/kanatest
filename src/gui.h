@@ -25,14 +25,14 @@
 #include <gtk/gtk.h>
 #include <time.h>
 
-#define		BUFFER_SIZE		    1024
+#define     BUFFER_SIZE         1024
 
-#define		NUMBER_OF_SIGNS		104
-#define		MIXED_SEPARATOR		1000        /* magic number for mixed mode */
-#define		ANSWER_LEN			8
-#define		KANA_SET_NAMES		15
-#define		KANA_MODE_NAMES		3
-#define		MAX_NUMBER_OF_SIGNS (NUMBER_OF_SIGNS*2)
+#define     NUMBER_OF_SIGNS     104
+#define     MIXED_SEPARATOR     1000        /* magic number for mixed mode */
+#define     ANSWER_LEN          8
+#define     KANA_SET_NAMES      15
+#define     KANA_MODE_NAMES     3
+#define     MAX_NUMBER_OF_SIGNS (NUMBER_OF_SIGNS*2)
 
 #define     ANSWER_DELIMITER    ","
 #define     MAX_RANSWERS        10
@@ -52,6 +52,9 @@ typedef struct {
 
     GtkWidget   *notebook;
     gint        active_tab;
+
+	GtkWidget   *graph_viewport;
+	GtkWidget   *graph_drawing_area;
 
     gint        hiragana_counters[NUMBER_OF_SIGNS];
     gint        correct_hiragana_counters[NUMBER_OF_SIGNS];
@@ -192,13 +195,12 @@ typedef struct {
 } MESSAGE;
 
 
-void			gui_create_window		(GUI *appGUI);
-void            gui_set_widgets_status  (gboolean mode, GUI *appGUI);
-void            gui_display_kana        (gint number, gint mode, GUI *appGUI);
-void            gui_set_progress        (GUI *appGUI);
-void            gui_disable_test        (GUI *appGUI);
-
-void			gui_disable_start		(void);
+void    gui_create_window       (GUI *appGUI);
+void    gui_set_widgets_status  (gboolean mode, GUI *appGUI);
+void    gui_display_kana        (gint number, gint mode, GUI *appGUI);
+void    gui_set_progress        (GUI *appGUI);
+void    gui_disable_test        (GUI *appGUI);
+void    gui_disable_start       (void);
 
 #endif /* _GUI_H */
 
