@@ -19,14 +19,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-
-#include <config.h>
-
-#include <gtk/gtk.h>
-#include <math.h>
-#include <gdk/gdkkeysyms.h>
-#include <libxml/parser.h>
-
+#include "gui.h"
 #include "i18n.h"
 #include "gui_utils.h"
 #include "main.h"
@@ -34,7 +27,6 @@
 #include "chart.h"
 #include "prefs.h"
 #include "stats.h"
-
 
 /*--------------------------------------------------------------------*/
 

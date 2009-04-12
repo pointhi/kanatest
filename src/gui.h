@@ -22,8 +22,18 @@
 #ifndef _GUI_H
 #define _GUI_H
 
-#include <gtk/gtk.h>
+#include <config.h>
+
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
 #include <time.h>
+#include <sys/time.h>
+#include <gtk/gtk.h>
+#include <gdk/gdkkeysyms.h>
+#include <glib/gstdio.h>
+#include <libxml/parser.h>
 
 #define     BUFFER_SIZE         1024
 

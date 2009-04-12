@@ -19,19 +19,11 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-
-#include <config.h>
-
-#include <string.h>
-#include <gtk/gtk.h>
-#include <gdk/gdkkeysyms.h>
-
 #include "i18n.h"
 #include "gui.h"
 #include "main.h"
 #include "test.h"
 #include "prefs.h"
-
 
 /*--------------------------------------------------------------------*/
 

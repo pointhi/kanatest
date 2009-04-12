@@ -19,18 +19,10 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-
-#include <sys/time.h>
-#include <unistd.h>
-#include <stdlib.h>
-
-#include <config.h>
-
 #include "gui.h"
 #include "prefs.h"
 #include "stats.h"
 #include "i18n.h"
-
 
 int main (int argc, char **argv)
 {
@@ -62,7 +54,7 @@ OPTIONS *opt = NULL;
     appGUI->tst = tst;
     appGUI->opt = opt;
 
-    /* default values */   
+    /* default values */
     appGUI->old_kana_type = -1;
     appGUI->chr->chart_window = NULL;
     appGUI->tst->any_key = FALSE;

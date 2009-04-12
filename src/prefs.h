@@ -22,8 +22,6 @@
 #ifndef _PREFS_H
 #define _PREFS_H
 
-#include <gtk/gtk.h>
-
 #define CONFIG_DIRNAME      ".kanatest"
 #define CONFIG_DIRNAME_OLD  ".clay"
 #define CONFIG_FILENAME     "config.xml"

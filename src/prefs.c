@@ -19,9 +19,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include <glib/gstdio.h>
-#include <libxml/parser.h>
-
 #include "main.h"
 #include "gui.h"
 #include "prefs.h"
@@ -34,7 +31,7 @@ gchar*
 prefs_get_config_filename (gchar *config_filename, gchar *config_dirname) {
 
 static gchar filename[PATH_MAX];
-gchar dirname[PATH_MAX]; 
+gchar dirname[PATH_MAX];
 
     g_snprintf (dirname, PATH_MAX, "%s%c%s", g_get_home_dir(), G_DIR_SEPARATOR, config_dirname);
 
@@ -78,7 +75,7 @@ prefs_set_default_values (void) {
     g_strlcpy (config.kana_font_face, "Serif", MAX_FONTNAME_LEN);
     g_strlcpy (config.kana_color, "#000000", MAX_COLORNAME_LEN);
     g_strlcpy (config.romaji_color, "#BB1010", MAX_COLORNAME_LEN);
-    g_strlcpy (config.user_defined_lesson, 
+    g_strlcpy (config.user_defined_lesson,
                "+++++----------------------------------------------------------------------------------------------------", NUMBER_OF_SIGNS);
 }
 

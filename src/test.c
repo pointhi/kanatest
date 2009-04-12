@@ -19,13 +19,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-
-#include <stdlib.h>
-#include <string.h>
-
-#include <gtk/gtk.h>
-#include <config.h>
-
 #include "gui.h"
 #include "main.h"
 #include "test.h"
@@ -33,7 +26,6 @@
 #include "stats.h"
 #include "options.h"
 #include "i18n.h"
-
 
 /*--------------------------------------------------------------------*/
 
@@ -417,7 +409,7 @@ gint n_answ;
                 gtk_entry_set_max_length (GTK_ENTRY(appGUI->romaji_entry), 3);
                 gtk_entry_set_text (GTK_ENTRY(appGUI->romaji_entry), tmp_a);
                 while (g_main_context_iteration (NULL, FALSE));
-    
+
                 if (appGUI->tst->test_state == FALSE) return;
             }
 
@@ -557,7 +549,7 @@ test_info(GUI *appGUI) {
 
     if (entry != NULL) {
 
-        tmm = time (NULL); 
+        tmm = time (NULL);
         timer = localtime (&tmm);
 
         entry->date_day = timer->tm_mday;

@@ -19,18 +19,10 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-
-#include <config.h>
-
-#include <string.h>
-#include <gtk/gtk.h>
-#include <gdk/gdkkeysyms.h>
-
 #include "gui.h"
 #include "gui_utils.h"
 #include "prefs.h"
 #include "i18n.h"
-
 
 /*--------------------------------------------------------------------*/
 
@@ -155,7 +147,7 @@ gchar *translators[] = {
     "es",   "Daniel Halens",        "daniel.halens@sabayonlinux.org",
     "fr",   "Adrian Courrèges",     "a.courreges@gmail.com",
     "hu",   "Szigetvári Csaba",     "csaba.szigetvari@informedia.hu",
-	"it",   "Jacopo Farina",        "jacopo.farina@email.it",
+    "it",   "Jacopo Farina",        "jacopo.farina@email.it",
     "pl",   "Piotr Mąka",           "sill@ll.pl",
     "pt",   "Bruno Ramos",          "ladrilho@gmail.com",
     "ru",   "Taci Taclipoka",       "taclipoka@gmail.com"
@@ -208,15 +200,15 @@ gchar *translators[] = {
     gtk_text_buffer_get_iter_at_offset (entry_buffer, &iter, 0);
 
     gtk_text_buffer_create_tag (entry_buffer, "bold",
-                  "weight", PANGO_WEIGHT_ULTRABOLD, NULL);
+								"weight", PANGO_WEIGHT_ULTRABOLD, NULL);
     gtk_text_buffer_create_tag (entry_buffer, "big",
-                  "size", 16 * PANGO_SCALE, NULL);
+								"size", 16 * PANGO_SCALE, NULL);
     gtk_text_buffer_create_tag (entry_buffer, "italic",
-                  "style", PANGO_STYLE_ITALIC, NULL);
+								"style", PANGO_STYLE_ITALIC, NULL);
     gtk_text_buffer_create_tag (entry_buffer, "center",
-                  "justification", GTK_JUSTIFY_CENTER, NULL);
+								"justification", GTK_JUSTIFY_CENTER, NULL);
     gtk_text_buffer_create_tag (entry_buffer, "fixed",
-			      "family", "monospace", NULL);
+								"family", "monospace", NULL);
 
     gtk_text_buffer_get_iter_at_offset (entry_buffer, &iter, 0);
     appGUI->about_textview = gtk_text_view_new_with_buffer (entry_buffer);
@@ -243,7 +235,7 @@ gchar *translators[] = {
 
     gtk_text_buffer_insert (entry_buffer, &iter, "\n", -1);
     gui_url_insert_link(&appGUI->about_links_list, &appGUI->about_link_index, appGUI->about_textview,
-			&iter, NULL, 0, "http://clay.ll.pl/kanatest", TRUE, appGUI);
+						&iter, NULL, 0, "http://clay.ll.pl/kanatest", TRUE, appGUI);
     gtk_text_buffer_insert (entry_buffer, &iter, "\n", -1);
     g_snprintf (buffer, BUFFER_SIZE, "\n(%s %s, %s)\n\n", _("compiled on"), __DATE__, __TIME__);
     gtk_text_buffer_insert_with_tags_by_name (entry_buffer, &iter, buffer, -1, "center", "italic", NULL);
@@ -252,18 +244,18 @@ gchar *translators[] = {
     gtk_text_buffer_insert_with_tags_by_name (entry_buffer, &iter, buffer, -1, "bold", NULL);
     gtk_text_buffer_insert (entry_buffer, &iter, "     Tomasz Mąka <", -1);
     gui_url_insert_link (&appGUI->about_links_list, &appGUI->about_link_index, appGUI->about_textview,
-			             &iter, NULL, 0, "pasp@ll.pl", TRUE, appGUI);
+						 &iter, NULL, 0, "pasp@ll.pl", TRUE, appGUI);
     gtk_text_buffer_insert (entry_buffer, &iter, ">\n", -1);
 
     g_snprintf (buffer, BUFFER_SIZE, "\n%s:\n", _("Graphics"));
     gtk_text_buffer_insert_with_tags_by_name (entry_buffer, &iter, buffer, -1, "bold", NULL);
     gtk_text_buffer_insert (entry_buffer, &iter, "     Maja Kocoń (", -1);
     gui_url_insert_link (&appGUI->about_links_list, &appGUI->about_link_index, appGUI->about_textview,
-			             &iter, NULL, 0, "http://ironya.ll.pl", TRUE, appGUI);
+						 &iter, NULL, 0, "http://ironya.ll.pl", TRUE, appGUI);
     gtk_text_buffer_insert (entry_buffer, &iter, ")\n", -1);
     gtk_text_buffer_insert (entry_buffer, &iter, "     Piotr Mąka <", -1);
     gui_url_insert_link (&appGUI->about_links_list, &appGUI->about_link_index, appGUI->about_textview,
-			             &iter, NULL, 0, "sill@ll.pl", TRUE, appGUI);
+						 &iter, NULL, 0, "sill@ll.pl", TRUE, appGUI);
     gtk_text_buffer_insert (entry_buffer, &iter, ">\n", -1);
 
     g_snprintf (buffer, BUFFER_SIZE, "\n%s:\n", _("Translators"));
@@ -272,7 +264,7 @@ gchar *translators[] = {
     for (i=0; i < (sizeof(translators) / sizeof(translators[0]) / 3); i++) {
         gtk_text_buffer_insert (entry_buffer, &iter, "     ", -1);
         if (strlen(translators[i*3+0])) {
-            g_snprintf (buffer, BUFFER_SIZE, "[%s]  ", translators[i*3+0]);      
+            g_snprintf (buffer, BUFFER_SIZE, "[%s]  ", translators[i*3+0]);
             gtk_text_buffer_insert_with_tags_by_name (entry_buffer, &iter, buffer, -1, "fixed", NULL);
         } else {
             gtk_text_buffer_insert_with_tags_by_name (entry_buffer, &iter, "      ", -1, "fixed", NULL);
@@ -306,9 +298,9 @@ gchar *translators[] = {
     entry_buffer = gtk_text_buffer_new (NULL);
     gtk_text_buffer_get_iter_at_offset (entry_buffer, &iter, 0);
     gtk_text_buffer_create_tag (entry_buffer, "underline",
-                  "underline", PANGO_UNDERLINE_SINGLE, NULL);
+								"underline", PANGO_UNDERLINE_SINGLE, NULL);
     gtk_text_buffer_create_tag (entry_buffer, "big",
-                  "size", 12 * PANGO_SCALE, NULL);
+								"size", 12 * PANGO_SCALE, NULL);
     gtk_text_buffer_get_iter_at_offset (entry_buffer, &iter, 0);
     text_sheet = gtk_text_view_new_with_buffer (entry_buffer);
     gtk_text_view_set_pixels_above_lines (GTK_TEXT_VIEW(text_sheet), 2);
@@ -320,8 +312,8 @@ gchar *translators[] = {
     gtk_widget_show (text_sheet);
     gtk_container_add (GTK_CONTAINER (viewport), text_sheet);
 
-    g_snprintf (buffer, BUFFER_SIZE, "%s\n\n", 
-                _("We would like to thank the following people for suggestions, bug reports and patches:"));
+    g_snprintf (buffer, BUFFER_SIZE, "%s\n\n",
+				_("We would like to thank the following people for suggestions, bug reports and patches:"));
     gtk_text_buffer_insert (entry_buffer, &iter, buffer, -1);
 
     gtk_text_buffer_insert (entry_buffer, &iter, text_contributors, -1);
@@ -364,19 +356,19 @@ gchar *translators[] = {
     gtk_widget_show (text_sheet);
     gtk_container_add (GTK_CONTAINER (viewport), text_sheet);
 
-    g_snprintf (buffer, BUFFER_SIZE, "%s:\n\n", 
+    g_snprintf (buffer, BUFFER_SIZE, "%s:\n\n",
                 _("If you like our program, send a postcard with a photo of the city where you live to"));
     gtk_text_buffer_insert (entry_buffer, &iter, buffer, -1);
 
     gtk_text_buffer_insert (entry_buffer, &iter, text_postcards_address, -1);
 
-    g_snprintf (buffer, BUFFER_SIZE, "\n\n%s:\n\n", 
+    g_snprintf (buffer, BUFFER_SIZE, "\n\n%s:\n\n",
                 _("We have received several postcards from our happy users"));
     gtk_text_buffer_insert (entry_buffer, &iter, buffer, -1);
 
     gtk_text_buffer_insert (entry_buffer, &iter, text_received_postcards, -1);
 
-    g_snprintf (buffer, BUFFER_SIZE, "\n%s\n", 
+    g_snprintf (buffer, BUFFER_SIZE, "\n%s\n",
                 _("Your postcards are a kind of motivation that encourages us to keep improving Kanatest :)"));
     gtk_text_buffer_insert (entry_buffer, &iter, buffer, -1);
     g_snprintf (buffer, BUFFER_SIZE, "\n%s\n", _("Thank you!"));
@@ -404,9 +396,9 @@ gchar *translators[] = {
     entry_buffer = gtk_text_buffer_new (NULL);
     gtk_text_buffer_get_iter_at_offset (entry_buffer, &iter, 0);
     gtk_text_buffer_create_tag (entry_buffer, "underline",
-                  "underline", PANGO_UNDERLINE_SINGLE, NULL);
+								"underline", PANGO_UNDERLINE_SINGLE, NULL);
     gtk_text_buffer_create_tag (entry_buffer, "big",
-                  "size", 12 * PANGO_SCALE, NULL);
+								"size", 12 * PANGO_SCALE, NULL);
     text_sheet = gtk_text_view_new_with_buffer (entry_buffer);
     gtk_text_view_set_pixels_above_lines (GTK_TEXT_VIEW(text_sheet), 2);
     gtk_text_view_set_left_margin (GTK_TEXT_VIEW(text_sheet), 8);

@@ -19,13 +19,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-
-#include <config.h>
-
-#include <string.h>
-#include <gtk/gtk.h>
-#include <gdk/gdkkeysyms.h>
-
+#include "gui.h"
 #include "i18n.h"
 #include "gui_utils.h"
 #include "chart.h"
@@ -33,7 +27,6 @@
 #include "test.h"
 #include "prefs.h"
 #include "options.h"
-
 
 /*--------------------------------------------------------------------*/
 
@@ -170,7 +163,7 @@ GdkColor color;
         gdk_window_get_root_origin ((appGUI->opt->options_window)->window,
                                     &config.options_window_x, &config.options_window_y);
         gtk_widget_destroy (appGUI->opt->options_window);
-    
+
         prefs_write_config (CONFIG_FILENAME, CONFIG_DIRNAME);
     }
 }
@@ -282,7 +275,7 @@ void
 select_all_action_cb (GtkWidget *widget, gpointer user_data) {
 
     GUI *appGUI = (GUI *)user_data;
-    kana_select_action (SELECT_ALL, appGUI);   
+    kana_select_action (SELECT_ALL, appGUI);
 }
 
 /*--------------------------------------------------------------------*/
@@ -291,7 +284,7 @@ void
 select_none_action_cb (GtkWidget *widget, gpointer user_data) {
 
     GUI *appGUI = (GUI *)user_data;
-    kana_select_action (SELECT_NONE, appGUI);   
+    kana_select_action (SELECT_NONE, appGUI);
 }
 
 /*--------------------------------------------------------------------*/
@@ -300,7 +293,7 @@ void
 select_invert_action_cb (GtkWidget *widget, gpointer user_data) {
 
     GUI *appGUI = (GUI *)user_data;
-    kana_select_action (SELECT_INVERT, appGUI);   
+    kana_select_action (SELECT_INVERT, appGUI);
 }
 
 /*--------------------------------------------------------------------*/
@@ -369,7 +362,7 @@ gchar buffer[BUFFER_SIZE];
     config.hiragana_mode = hiragana_mode;
 
     if (select == TRUE) {
-        kana_select_action (SELECT_NONE, appGUI);   
+        kana_select_action (SELECT_NONE, appGUI);
     }
 
     n = 0;
@@ -394,7 +387,7 @@ gchar buffer[BUFFER_SIZE];
             if (select == TRUE) {
                 gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(appGUI->opt->check_buttons[i]), TRUE);
             } else {
-                g_snprintf (buffer, BUFFER_SIZE, "%s ", 
+                g_snprintf (buffer, BUFFER_SIZE, "%s ",
 							get_kana_sign(i, hiragana_mode == TRUE ? HIRAGANA:KATAKANA, TRUE));
                 gtk_text_buffer_insert (textbuffer, &iter_start, buffer, -1);
                 n++;
@@ -499,8 +492,8 @@ gchar buffer[BUFFER_SIZE];
     gtk_window_set_transient_for (GTK_WINDOW(appGUI->opt->auto_selection_window), GTK_WINDOW(appGUI->opt->options_window));
     gtk_window_set_modal (GTK_WINDOW(appGUI->opt->auto_selection_window), TRUE);
     gtk_window_set_default_size (GTK_WINDOW(appGUI->opt->auto_selection_window), 300, 400);
-	gtk_window_move (GTK_WINDOW (appGUI->opt->auto_selection_window),
-                                config.options_window_x + 100, config.options_window_y + 80);
+    gtk_window_move (GTK_WINDOW (appGUI->opt->auto_selection_window),
+					 config.options_window_x + 100, config.options_window_y + 80);
 
     g_signal_connect (G_OBJECT (appGUI->opt->auto_selection_window), "delete_event",
                       G_CALLBACK(auto_select_delete_event_cb), appGUI);
@@ -802,7 +795,7 @@ static          MESSAGE msg2[CHART_ROWS];
     gtk_box_pack_start (GTK_BOX (vbox2),appGUI->opt->rwa_radio_button, TRUE, TRUE, 0);
     gtk_container_set_border_width (GTK_CONTAINER (appGUI->opt->rwa_radio_button), 8);
     gtk_widget_show (appGUI->opt->rwa_radio_button);
-    gtk_widget_set_tooltip_text (appGUI->opt->rwa_radio_button, 
+    gtk_widget_set_tooltip_text (appGUI->opt->rwa_radio_button,
 								 _("When this option is enabled the kanatest will repeat all wrongly answered questions at the end of test"));
     g_signal_connect (G_OBJECT (appGUI->opt->rwa_radio_button), "toggled",
                       G_CALLBACK (options_repeat_mode_changed_cb), appGUI);
@@ -812,7 +805,7 @@ static          MESSAGE msg2[CHART_ROWS];
     gtk_box_pack_start (GTK_BOX (vbox2),appGUI->opt->raa_radio_button, TRUE, TRUE, 0);
     gtk_container_set_border_width (GTK_CONTAINER (appGUI->opt->raa_radio_button), 8);
     gtk_widget_show (appGUI->opt->raa_radio_button);
-    gtk_widget_set_tooltip_text (appGUI->opt->raa_radio_button, 
+    gtk_widget_set_tooltip_text (appGUI->opt->raa_radio_button,
 								 _("When this option is enabled the kanatest will repeat all questions forever"));
     g_signal_connect (G_OBJECT (appGUI->opt->raa_radio_button), "toggled",
                       G_CALLBACK (options_repeat_mode_changed_cb), appGUI);
@@ -1127,7 +1120,7 @@ static          MESSAGE msg2[CHART_ROWS];
 
     if (appGUI->opt->active_tab != -1) {
         gtk_notebook_set_current_page (GTK_NOTEBOOK (appGUI->opt->notebook), appGUI->opt->active_tab);
-    }  
+	}
 
     gtk_widget_show (appGUI->opt->options_window);
 
