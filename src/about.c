@@ -148,7 +148,7 @@ gchar *translators[] = {
     "fr",   "Adrian Courrèges",     "a.courreges@gmail.com",
     "hu",   "Szigetvári Csaba",     "csaba.szigetvari@informedia.hu",
     "it",   "Jacopo Farina",        "jacopo.farina@email.it",
-    "pl",   "Piotr Mąka",           "sill@ll.pl",
+    "pl",   "Piotr Mąka",           "silloz@users.sourceforge.net",
     "pt",   "Bruno Ramos",          "ladrilho@gmail.com",
     "ru",   "Taci Taclipoka",       "taclipoka@gmail.com"
 };
@@ -235,7 +235,7 @@ gchar *translators[] = {
 
     gtk_text_buffer_insert (entry_buffer, &iter, "\n", -1);
     gui_url_insert_link(&appGUI->about_links_list, &appGUI->about_link_index, appGUI->about_textview,
-						&iter, NULL, 0, "http://clay.ll.pl/kanatest", TRUE, appGUI);
+						&iter, NULL, 0, "http://clayo.org/kanatest", TRUE, appGUI);
     gtk_text_buffer_insert (entry_buffer, &iter, "\n", -1);
     g_snprintf (buffer, BUFFER_SIZE, "\n(%s %s, %s)\n\n", _("compiled on"), __DATE__, __TIME__);
     gtk_text_buffer_insert_with_tags_by_name (entry_buffer, &iter, buffer, -1, "center", "italic", NULL);
@@ -244,18 +244,18 @@ gchar *translators[] = {
     gtk_text_buffer_insert_with_tags_by_name (entry_buffer, &iter, buffer, -1, "bold", NULL);
     gtk_text_buffer_insert (entry_buffer, &iter, "     Tomasz Mąka <", -1);
     gui_url_insert_link (&appGUI->about_links_list, &appGUI->about_link_index, appGUI->about_textview,
-						 &iter, NULL, 0, "pasp@ll.pl", TRUE, appGUI);
+						 &iter, NULL, 0, "pasp@users.sourceforge.net", TRUE, appGUI);
     gtk_text_buffer_insert (entry_buffer, &iter, ">\n", -1);
 
     g_snprintf (buffer, BUFFER_SIZE, "\n%s:\n", _("Graphics"));
     gtk_text_buffer_insert_with_tags_by_name (entry_buffer, &iter, buffer, -1, "bold", NULL);
     gtk_text_buffer_insert (entry_buffer, &iter, "     Maja Kocoń (", -1);
     gui_url_insert_link (&appGUI->about_links_list, &appGUI->about_link_index, appGUI->about_textview,
-						 &iter, NULL, 0, "http://ironya.ll.pl", TRUE, appGUI);
+						 &iter, NULL, 0, "http://pinky-babble.org", TRUE, appGUI);
     gtk_text_buffer_insert (entry_buffer, &iter, ")\n", -1);
     gtk_text_buffer_insert (entry_buffer, &iter, "     Piotr Mąka <", -1);
     gui_url_insert_link (&appGUI->about_links_list, &appGUI->about_link_index, appGUI->about_textview,
-						 &iter, NULL, 0, "sill@ll.pl", TRUE, appGUI);
+						 &iter, NULL, 0, "silloz@users.sourceforge.net", TRUE, appGUI);
     gtk_text_buffer_insert (entry_buffer, &iter, ">\n", -1);
 
     g_snprintf (buffer, BUFFER_SIZE, "\n%s:\n", _("Translators"));
