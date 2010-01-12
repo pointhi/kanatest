@@ -3,21 +3,21 @@
 # Magyar fordítás a Kanatest programhoz.
 # Copyright (C) 2008 Free Software Foundation, Inc.
 # This file is distributed under the same license as the Kanatest package.
-# FIRST AUTHOR: Csaba Szigetvári <csaba.szigetvari@informedia.hu>, 2008.
 #
+# FIRST AUTHOR: Csaba Szigetvári <csaba.szigetvari@informedia.hu>, 2008, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: revision_28__hu\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-12 13:48+0200\n"
-"PO-Revision-Date: 2008-12-01 13:21+0100\n"
+"PO-Revision-Date: 2010-01-12 03:56+0100\n"
 "Last-Translator: \n"
-"Language-Team:  <hu@li.org>\n"
+"Language-Team: American English <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=0;\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 1.0\n"
 
 msgid "About"
 msgstr "Magunkról"
@@ -274,9 +274,8 @@ msgstr "Arány (%)"
 msgid "Lessons"
 msgstr "Leckék"
 
-#, fuzzy
 msgid "Graph"
-msgstr "Grafika"
+msgstr "Görbe"
 
 msgid "Reset"
 msgstr "Visszaállítás"
