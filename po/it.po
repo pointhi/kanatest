@@ -129,10 +129,9 @@ msgstr "Errore"
 msgid "no kanas found"
 msgstr "nessun Kana trovato"
 
-#, fuzzy
 msgid "kana found"
 msgid_plural "kanas found"
-msgstr[0] "kanas trovati"
+msgstr[0] "kana trovato"
 msgstr[1] "kanas trovati"
 
 msgid "Statistics based selection"
@@ -274,9 +273,8 @@ msgstr "Rapporto (%)"
 msgid "Lessons"
 msgstr "Lezioni"
 
-#, fuzzy
 msgid "Graph"
-msgstr "Grafici"
+msgstr "Grafico"
 
 msgid "Reset"
 msgstr "Reimposta"
