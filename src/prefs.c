@@ -48,15 +48,17 @@ gchar dirname[PATH_MAX];
 
 void
 prefs_set_default_values (void) {
-
+#ifndef MAEMO
     config.window_x = 180;
     config.window_y = 120;
     config.window_size_x = 365;
     config.window_size_y = 445;
+#endif    
     config.repeat_mode = REPEAT_NONE;
     config.kana_mode = HIRAGANA;
     config.kana_set = 0;            /* all kanas */
     config.ca_timeout = 1;          /* 1 sec */
+#ifndef MAEMO
     config.stat_window_x = 45;
     config.stat_window_y = 120;
     config.stat_size_x = 760;
@@ -67,13 +69,18 @@ prefs_set_default_values (void) {
     config.about_window_y = 165;
     config.options_window_x = 280;
     config.options_window_y = 150;
+#endif    
     config.stats_sort_column = 0;
     config.stats_sort_column_dir = 1;
     config.hiragana_mode = 1;
     config.ratio_begin = 0;
     config.ratio_end = 50;
     g_strlcpy (config.kana_font_face, "Serif", MAX_FONTNAME_LEN);
+#ifdef MAEMO 
+	g_strlcpy (config.kana_color, "#FFFFFF", MAX_COLORNAME_LEN);
+#else   
     g_strlcpy (config.kana_color, "#000000", MAX_COLORNAME_LEN);
+#endif    
     g_strlcpy (config.romaji_color, "#BB1010", MAX_COLORNAME_LEN);
     g_strlcpy (config.user_defined_lesson,
                "+++++----------------------------------------------------------------------------------------------------", NUMBER_OF_SIGNS);
@@ -113,7 +120,7 @@ xmlChar *key;
         node = node->xmlChildrenNode;
 
         while (node != NULL) {
-
+#ifndef MAEMO
                 if ((!xmlStrcmp (node->name, (const xmlChar *) "window_x"))) {
                     key = xmlNodeListGetString (doc, node->xmlChildrenNode, 1);
                     if (key != NULL)
@@ -141,7 +148,7 @@ xmlChar *key;
                             sscanf ((gchar *) key, "%d", &config.window_size_y);
                     xmlFree (key);
                 }
-
+#endif
                 if ((!xmlStrcmp (node->name, (const xmlChar *) "repeat_mode"))) {
                     key = xmlNodeListGetString (doc, node->xmlChildrenNode, 1);
                     if (key != NULL)
@@ -169,7 +176,7 @@ xmlChar *key;
                             sscanf ((gchar *) key, "%d", &config.ca_timeout);
                     xmlFree (key);
                 }
-
+#ifndef MAEMO
                 if ((!xmlStrcmp (node->name, (const xmlChar *) "stat_window_x"))) {
                     key = xmlNodeListGetString (doc, node->xmlChildrenNode, 1);
                     if (key != NULL)
@@ -239,7 +246,7 @@ xmlChar *key;
                             sscanf ((gchar *) key, "%d", &config.chart_window_y);
                     xmlFree (key);
                 }
-
+#endif
                 if ((!xmlStrcmp (node->name, (const xmlChar *) "stats_sort_column"))) {
                     key = xmlNodeListGetString (doc, node->xmlChildrenNode, 1);
                     if (key != NULL)
@@ -330,7 +337,7 @@ gchar temp[BUFFER_SIZE];
     doc = xmlNewDoc ((const xmlChar *) "1.0");
     node = xmlNewNode (NULL, (const xmlChar *) CONFIG_NAME);
     xmlDocSetRootElement (doc, node);
-
+#ifndef MAEMO
     g_snprintf (temp, BUFFER_SIZE, "%d", config.window_x);
     xmlNewTextChild (node, NULL, (const xmlChar *) "window_x", (xmlChar *) temp);
     g_snprintf (temp, BUFFER_SIZE, "%d", config.window_y);
@@ -339,6 +346,7 @@ gchar temp[BUFFER_SIZE];
     xmlNewTextChild (node, NULL, (const xmlChar *) "window_size_x", (xmlChar *) temp);
     g_snprintf (temp, BUFFER_SIZE, "%d", config.window_size_y);
     xmlNewTextChild (node, NULL, (const xmlChar *) "window_size_y", (xmlChar *) temp);
+#endif    
     g_snprintf (temp, BUFFER_SIZE, "%d", config.repeat_mode);
     xmlNewTextChild (node, NULL, (const xmlChar *) "repeat_mode", (xmlChar *) temp);
     g_snprintf (temp, BUFFER_SIZE, "%d", config.kana_mode);
@@ -347,6 +355,7 @@ gchar temp[BUFFER_SIZE];
     xmlNewTextChild (node, NULL, (const xmlChar *) "kana_set", (xmlChar *) temp);
     g_snprintf (temp, BUFFER_SIZE, "%d", config.ca_timeout);
     xmlNewTextChild (node, NULL, (const xmlChar *) "ca_timeout", (xmlChar *) temp);
+#ifndef MAEMO    
     g_snprintf (temp, BUFFER_SIZE, "%d", config.stat_window_x);
     xmlNewTextChild (node, NULL, (const xmlChar *) "stat_window_x", (xmlChar *) temp);
     g_snprintf (temp, BUFFER_SIZE, "%d", config.stat_window_y);
@@ -367,6 +376,7 @@ gchar temp[BUFFER_SIZE];
     xmlNewTextChild (node, NULL, (const xmlChar *) "chart_window_x", (xmlChar *) temp);
     g_snprintf (temp, BUFFER_SIZE, "%d", config.chart_window_y);
     xmlNewTextChild (node, NULL, (const xmlChar *) "chart_window_y", (xmlChar *) temp);
+#endif    
     g_snprintf (temp, BUFFER_SIZE, "%d", config.stats_sort_column);
     xmlNewTextChild (node, NULL, (const xmlChar *) "stats_sort_column", (xmlChar *) temp);
     g_snprintf (temp, BUFFER_SIZE, "%d", config.stats_sort_column_dir);

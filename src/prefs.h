@@ -34,14 +34,17 @@
 
 struct kanatest_prefs
 {
+#ifndef MAEMO	
     gint        window_x;
     gint        window_y;
     gint        window_size_x;
     gint        window_size_y;
+#endif    
     gint        repeat_mode;
     gint        kana_mode;
     gint        kana_set;
     gint        ca_timeout;
+#ifndef MAEMO	    
     gint        stat_window_x;
     gint        stat_window_y;
     gint        stat_size_x;
@@ -52,6 +55,7 @@ struct kanatest_prefs
     gint        options_window_y;
     gint        chart_window_x;
     gint        chart_window_y;
+#endif    
     gint        stats_sort_column;
     gint        stats_sort_column_dir;
     gint        hiragana_mode;

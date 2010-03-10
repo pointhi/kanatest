@@ -34,6 +34,11 @@
 #include <gdk/gdkkeysyms.h>
 #include <glib/gstdio.h>
 #include <libxml/parser.h>
+#ifdef MAEMO
+#define MAEMO_VERSION "maemo1"
+
+void        show_splash_screen  (void);
+#endif
 
 #define     BUFFER_SIZE         1024
 
@@ -104,7 +109,11 @@ typedef struct {
 
     GtkWidget   *row_button_s[CHART_ROWS];
     GtkWidget   *row_button_c[CHART_ROWS];
+#ifdef MAEMO
+    gint        row_pos[CHART_ROWS][CHART_COLUMNS];
+#else
     gchar       row_pos[CHART_ROWS][CHART_COLUMNS];
+#endif
 
 } OPTIONS;
 
@@ -185,7 +194,9 @@ typedef struct {
     GtkWidget       *romaji_entry;
     GtkProgressBar  *progressbar;
     GtkWidget       *hseparator_up;
+#ifndef MAEMO
     GtkWidget       *logo_area;
+#endif
     GtkWidget       *char_label;
 
     gint            old_kana_type;

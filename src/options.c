@@ -27,7 +27,76 @@
 #include "test.h"
 #include "prefs.h"
 #include "options.h"
+#ifdef MAEMO
+#include <hildon/hildon.h>
+#define MIN_BEGIN_RANGE_VAL 0
+#define MAX_BEGIN_RANGE_VAL 99
 
+#define MIN_END_RANGE_VAL 1
+#define MAX_END_RANGE_VAL 100
+
+void select_all_action_cb (GtkWidget *widget, gpointer user_data);
+void select_none_action_cb (GtkWidget *widget, gpointer user_data);
+void select_invert_action_cb (GtkWidget *widget, gpointer user_data); 
+void create_auto_select_window (GtkWidget *widget, gpointer user_data);
+
+void refresh_select_kanas (gboolean select, GUI *appGUI);
+
+void
+create_options_window_menu (GUI *appGUI){
+
+    HildonAppMenu *menu = HILDON_APP_MENU (hildon_app_menu_new ());
+    GtkWidget *button1 = gtk_button_new_with_label (_("All"));
+    GtkWidget *button2 = gtk_button_new_with_label (_("None"));
+    GtkWidget *button3 = gtk_button_new_with_label (_("Invert"));
+    GtkWidget *button4 = gtk_button_new_with_label (_("Statistics based selection"));
+       
+    g_signal_connect_after (button1, "clicked", G_CALLBACK (select_all_action_cb), appGUI);
+    hildon_app_menu_append (menu, GTK_BUTTON (button1));    
+    
+    g_signal_connect_after (button2, "clicked", G_CALLBACK (select_none_action_cb), appGUI);
+    hildon_app_menu_append (menu, GTK_BUTTON (button2));    
+   
+    g_signal_connect_after (button3, "clicked", G_CALLBACK (select_invert_action_cb), appGUI);
+    hildon_app_menu_append (menu, GTK_BUTTON (button3));    
+   
+    g_signal_connect_after (button4, "clicked", G_CALLBACK (create_auto_select_window), appGUI);
+    hildon_app_menu_append (menu, GTK_BUTTON (button4));    
+    
+    hildon_window_set_app_menu (HILDON_WINDOW (appGUI->opt->options_window), HILDON_APP_MENU (menu));
+    gtk_widget_show_all (GTK_WIDGET (menu));
+}
+
+static void
+show_auto_selection_confirmation_note (GUI *appGUI)
+{
+    GtkWidget *confirmation = NULL;
+    gint response = -1;
+    
+    if(GTK_WIDGET_SENSITIVE(appGUI->opt->select_button))
+    {
+        confirmation = hildon_note_new_confirmation (GTK_WINDOW(appGUI->opt->auto_selection_window),
+                                              _("Select"));
+        response = gtk_dialog_run (GTK_DIALOG (confirmation));
+
+        if (response == GTK_RESPONSE_OK)
+            refresh_select_kanas (TRUE, appGUI);
+    }
+    gtk_widget_destroy (confirmation);    
+}
+
+static void
+toggle_page_menu_cb (GtkNotebook *nb, GtkNotebookPage *page,
+                             gint page_num, gpointer user_data)
+{
+    GUI *appGUI = (GUI *)user_data;
+    
+    if(page_num)
+        create_options_window_menu (appGUI);
+    else    
+        hildon_window_set_app_menu (HILDON_WINDOW (appGUI->opt->options_window), NULL);    
+}
+#endif
 /*--------------------------------------------------------------------*/
 
 void
@@ -89,7 +158,11 @@ gint i, n;
 gchar tmp[MAX_BUFFER_SIZE];
 
     for(i = n = 0; i < NUMBER_OF_SIGNS; i++) {
+#ifdef MAEMO
+        if (hildon_check_button_get_active (HILDON_CHECK_BUTTON (appGUI->opt->check_buttons[i])) == TRUE) {    
+#else
         if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON(appGUI->opt->check_buttons[i])) == TRUE) {
+#endif
             n++;
         }
     }
@@ -112,8 +185,11 @@ gint pos;
     if (msg->appGUI->opt->disable_toggles == FALSE) {
 
         pos = (int) msg->data;
-
+#ifdef MAEMO
+        if (hildon_check_button_get_active (HILDON_CHECK_BUTTON (button)) == TRUE) {
+#else
         if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON(button)) == TRUE) {
+#endif
             config.user_defined_lesson[pos] = '+';
         } else {
             config.user_defined_lesson[pos] = '-';
@@ -159,11 +235,14 @@ GdkColor color;
                     color.red * 256 / 65536, color.green * 256 / 65536, color.blue * 256 / 65536);
 
         appGUI->opt->active_tab = gtk_notebook_get_current_page (GTK_NOTEBOOK (appGUI->opt->notebook));
-
+#ifdef MAEMO
+        hildon_window_stack_pop_1 (hildon_window_stack_get_default());
+        appGUI->opt->options_window = NULL;  
+#else
         gdk_window_get_root_origin ((appGUI->opt->options_window)->window,
                                     &config.options_window_x, &config.options_window_y);
         gtk_widget_destroy (appGUI->opt->options_window);
-
+#endif
         prefs_write_config (CONFIG_FILENAME, CONFIG_DIRNAME);
     }
 }
@@ -179,8 +258,16 @@ delete_event_cb (GtkWidget *widget, GdkEvent *event, gpointer user_data) {
 
 void
 options_combobox_ca_timeout_handler_cb (GtkComboBox *widget, gpointer user_data) {
+#ifdef MAEMO
+gint index;
+HildonTouchSelector *selector;
 
+    selector = hildon_picker_button_get_selector (HILDON_PICKER_BUTTON (widget) );
+    index = hildon_touch_selector_get_active(HILDON_TOUCH_SELECTOR(selector), 0);
+    config.ca_timeout =  index;  
+#else
     config.ca_timeout = gtk_combo_box_get_active (GTK_COMBO_BOX(widget));
+#endif
 }
 
 /*--------------------------------------------------------------------*/
@@ -205,10 +292,16 @@ options_combobox_dtf_handler_cb (GtkComboBox *widget, gpointer user_data) {
 
 gint i, j, n, pos;
 gchar tmp[BUFFER_SIZE];
-
+#ifdef MAEMO
+HildonTouchSelector *selector;
+#endif
     GUI *appGUI = (GUI *)user_data;
-
+#ifdef MAEMO
+    selector = hildon_picker_button_get_selector (HILDON_PICKER_BUTTON (widget) );
+    n = hildon_touch_selector_get_active(HILDON_TOUCH_SELECTOR(selector), 0);
+#else
     n = gtk_combo_box_get_active (GTK_COMBO_BOX(widget));
+#endif
     pos = 0;
 
     for(j=0; j < CHART_ROWS; j++) {
@@ -221,7 +314,12 @@ gchar tmp[BUFFER_SIZE];
                     g_snprintf (tmp, BUFFER_SIZE, "<span font_desc='10' face='%s'>%s</span>",
                                 config.kana_font_face, get_kana_sign(pos, ROMAJI, TRUE));
                 }
+#ifdef MAEMO
+                g_snprintf (tmp, BUFFER_SIZE, "%s", get_kana_sign (pos, n, TRUE));
+                gtk_button_set_label (GTK_BUTTON (appGUI->opt->check_buttons[pos]), tmp);
+#else
                 gtk_label_set_markup (GTK_LABEL(GTK_BIN(GTK_BUTTON(appGUI->opt->check_buttons[pos]))->child), tmp);
+#endif
                 pos++;
             }
         }
@@ -246,16 +344,29 @@ kana_select_action (gint action, GUI *appGUI) {
                 switch(action) {
 
                     case SELECT_ALL:
+#ifdef MAEMO
+                        hildon_check_button_set_active (HILDON_CHECK_BUTTON (appGUI->opt->check_buttons[pos]), TRUE);
+#else
                         gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(appGUI->opt->check_buttons[pos]), TRUE);
+#endif
                         break;
 
                     case SELECT_NONE:
+#ifdef MAEMO
+                        hildon_check_button_set_active (HILDON_CHECK_BUTTON (appGUI->opt->check_buttons[pos]), FALSE);
+#else
                         gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(appGUI->opt->check_buttons[pos]), FALSE);
+#endif
                         break;
 
                     case SELECT_INVERT:
+#ifdef MAEMO
+                        state = hildon_check_button_get_active (HILDON_CHECK_BUTTON(appGUI->opt->check_buttons[pos]));
+                        hildon_check_button_set_active (HILDON_CHECK_BUTTON(appGUI->opt->check_buttons[pos]), !state);
+#else
                         state = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON(appGUI->opt->check_buttons[pos]));
                         gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(appGUI->opt->check_buttons[pos]), !state);
+#endif
                         break;
 
                     default:
@@ -304,7 +415,11 @@ gint i;
 
     for(i=0; i < CHART_COLUMNS; i++) {
         if (appGUI->opt->row_pos[row][i] != -1) {
+#ifdef MAEMO
+            hildon_check_button_set_active (HILDON_CHECK_BUTTON (appGUI->opt->check_buttons[(gint)appGUI->opt->row_pos[row][i]]), state);
+#else
             gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(appGUI->opt->check_buttons[(gint)appGUI->opt->row_pos[row][i]]), state);
+#endif
         }
     }
 }
@@ -338,15 +453,27 @@ gint begin, end, i, n;
 GtkTextBuffer *textbuffer;
 GtkTextIter iter_start, iter_end;
 gchar buffer[BUFFER_SIZE];
+#ifdef MAEMO
+HildonTouchSelector *begin_range_selector;
+HildonTouchSelector *end_range_selector;
 
+    textbuffer = hildon_text_view_get_buffer(HILDON_TEXT_VIEW(appGUI->opt->kanas_textview));
+#else
     textbuffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW(appGUI->opt->kanas_textview));
+#endif    
     gtk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER(textbuffer), &iter_start, 0);
     gtk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER(textbuffer), &iter_end, -1);
     gtk_text_buffer_delete (GTK_TEXT_BUFFER(textbuffer), &iter_start, &iter_end);
-
+#ifdef MAEMO
+    begin_range_selector = hildon_picker_button_get_selector (HILDON_PICKER_BUTTON (appGUI->opt->begin_range_spinbutton));
+    begin = hildon_touch_selector_get_active(HILDON_TOUCH_SELECTOR(begin_range_selector), 0);
+ 
+    end_range_selector = hildon_picker_button_get_selector (HILDON_PICKER_BUTTON (appGUI->opt->end_range_spinbutton));
+    end = hildon_touch_selector_get_active(HILDON_TOUCH_SELECTOR(end_range_selector), 0) + 1;
+#else
     begin = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (appGUI->opt->begin_range_spinbutton));
     end = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (appGUI->opt->end_range_spinbutton));
-
+#endif
     config.ratio_begin = begin;
     config.ratio_end = end;
 
@@ -385,7 +512,11 @@ gchar buffer[BUFFER_SIZE];
 
         if (ratio >= begin && ratio <= end) {
             if (select == TRUE) {
+#ifdef MAEMO
+                hildon_check_button_set_active (HILDON_CHECK_BUTTON (appGUI->opt->check_buttons[i]), TRUE);
+#else
                 gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(appGUI->opt->check_buttons[i]), TRUE);
+#endif
             } else {
                 g_snprintf (buffer, BUFFER_SIZE, "%s ",
 							get_kana_sign(i, hiragana_mode == TRUE ? HIRAGANA:KATAKANA, TRUE));
@@ -421,7 +552,13 @@ void
 auto_select_close_button_cb (GtkWidget *widget, gpointer user_data) {
 
     GUI *appGUI = (GUI *)user_data;
+#ifdef MAEMO
+    show_auto_selection_confirmation_note (appGUI);
+    hildon_window_stack_pop_1 (hildon_window_stack_get_default());
+    appGUI->opt->auto_selection_window = NULL;
+#else    
     gtk_widget_destroy (appGUI->opt->auto_selection_window);
+#endif    
 }
 
 /*--------------------------------------------------------------------*/
@@ -480,12 +617,25 @@ GtkWidget   *label;
 GtkWidget   *scrolledwindow;
 GtkWidget   *table;
 GtkWidget   *hseparator;
+#ifndef MAEMO
 GtkWidget   *hbuttonbox;
 GtkWidget   *cancel_button;
+#endif
 gchar buffer[BUFFER_SIZE];
+#ifdef MAEMO
+gint i;
+gchar buf[10];
+HildonTouchSelector *begin_range_selector;
+HildonTouchSelector *end_range_selector;
+#endif
 
     GUI *appGUI = (GUI *)user_data;
 
+#ifdef MAEMO
+    appGUI->opt->auto_selection_window = hildon_stackable_window_new ();    
+    hildon_window_stack_push_1 (hildon_window_stack_get_default (), HILDON_STACKABLE_WINDOW (appGUI->opt->auto_selection_window));    
+    gtk_window_set_title (GTK_WINDOW (appGUI->opt->auto_selection_window), _("Statistics based selection"));   
+#else 
     appGUI->opt->auto_selection_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     gtk_window_set_title (GTK_WINDOW (appGUI->opt->auto_selection_window), _("Statistics based selection"));
     gtk_window_set_resizable (GTK_WINDOW (appGUI->opt->auto_selection_window), TRUE);
@@ -494,7 +644,7 @@ gchar buffer[BUFFER_SIZE];
     gtk_window_set_default_size (GTK_WINDOW(appGUI->opt->auto_selection_window), 300, 400);
     gtk_window_move (GTK_WINDOW (appGUI->opt->auto_selection_window),
 					 config.options_window_x + 100, config.options_window_y + 80);
-
+#endif
     g_signal_connect (G_OBJECT (appGUI->opt->auto_selection_window), "delete_event",
                       G_CALLBACK(auto_select_delete_event_cb), appGUI);
     g_signal_connect (G_OBJECT(appGUI->opt->auto_selection_window), "key_press_event",
@@ -520,6 +670,9 @@ gchar buffer[BUFFER_SIZE];
     gtk_container_add (GTK_CONTAINER (alignment), hbox1);
 
     appGUI->opt->hiragana_radiobutton = gtk_radio_button_new_with_mnemonic (NULL, _("Hiragana"));
+#ifdef MAEMO
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON (appGUI->opt->hiragana_radiobutton), FALSE);
+#endif
     gtk_widget_show (appGUI->opt->hiragana_radiobutton);
     GTK_WIDGET_UNSET_FLAGS (appGUI->opt->hiragana_radiobutton, GTK_CAN_FOCUS);
     gtk_box_pack_start (GTK_BOX (hbox1), appGUI->opt->hiragana_radiobutton, FALSE, FALSE, 0);
@@ -529,6 +682,9 @@ gchar buffer[BUFFER_SIZE];
                       G_CALLBACK (hiragana_mode_changed_cb), appGUI);
 
     katakana_radiobutton = gtk_radio_button_new_with_mnemonic (NULL, _("Katakana"));
+#ifdef MAEMO
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON (katakana_radiobutton), FALSE); 
+#endif
     gtk_widget_show (katakana_radiobutton);
     GTK_WIDGET_UNSET_FLAGS (katakana_radiobutton, GTK_CAN_FOCUS);
     gtk_box_pack_start (GTK_BOX (hbox1), katakana_radiobutton, FALSE, FALSE, 0);
@@ -551,6 +707,64 @@ gchar buffer[BUFFER_SIZE];
     gtk_container_add (GTK_CONTAINER (frame), alignment);
     gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 8, 4, 12, 0);
 
+#ifdef MAEMO
+    table = gtk_table_new (1, 4, FALSE);
+    gtk_widget_show (table);
+    gtk_container_add (GTK_CONTAINER (alignment), table);
+    gtk_table_set_col_spacings (GTK_TABLE(table), 8);
+
+    appGUI->opt->begin_range_spinbutton = hildon_picker_button_new (HILDON_SIZE_AUTO,
+                                                         HILDON_BUTTON_ARRANGEMENT_HORIZONTAL);
+    hildon_button_set_title (HILDON_BUTTON (appGUI->opt->begin_range_spinbutton), _("From"));
+    begin_range_selector = HILDON_TOUCH_SELECTOR (hildon_touch_selector_new_text ());
+                                
+    for (i = MIN_BEGIN_RANGE_VAL; i <= MAX_BEGIN_RANGE_VAL; i++) {
+        g_snprintf (buf, sizeof(buf), "%d", i);
+        hildon_touch_selector_append_text (begin_range_selector, buf);
+    }
+                                
+    hildon_picker_button_set_selector (HILDON_PICKER_BUTTON (appGUI->opt->begin_range_spinbutton), begin_range_selector);
+    hildon_picker_button_set_active (HILDON_PICKER_BUTTON (appGUI->opt->begin_range_spinbutton), config.ratio_begin);
+
+    gtk_widget_show (appGUI->opt->begin_range_spinbutton);
+    g_signal_connect (G_OBJECT (appGUI->opt->begin_range_spinbutton), "value-changed",
+                                G_CALLBACK (spinbutton_value_changed_cb), appGUI);
+
+    gtk_table_attach_defaults (GTK_TABLE (table), appGUI->opt->begin_range_spinbutton, 0, 1, 0, 1);
+
+    label = gtk_label_new ("%");
+    gtk_widget_show (label);
+
+    gtk_table_attach (GTK_TABLE (table), label, 1, 2, 0, 1,
+                      (GtkAttachOptions) 0,
+                      (GtkAttachOptions) 0, 0, 0);
+
+    appGUI->opt->end_range_spinbutton = hildon_picker_button_new (HILDON_SIZE_AUTO,
+                                            HILDON_BUTTON_ARRANGEMENT_HORIZONTAL);
+    hildon_button_set_title (HILDON_BUTTON (appGUI->opt->end_range_spinbutton), _("To"));
+    end_range_selector = HILDON_TOUCH_SELECTOR (hildon_touch_selector_new_text ());
+
+    for (i = MIN_END_RANGE_VAL; i <= MAX_END_RANGE_VAL; i++) {
+        g_snprintf (buf, sizeof(buf), "%d", i);
+        hildon_touch_selector_append_text (end_range_selector, buf);
+    }
+
+    hildon_picker_button_set_selector (HILDON_PICKER_BUTTON (appGUI->opt->end_range_spinbutton), end_range_selector);
+    hildon_picker_button_set_active (HILDON_PICKER_BUTTON (appGUI->opt->end_range_spinbutton), config.ratio_end-1);
+
+    gtk_widget_show (appGUI->opt->end_range_spinbutton);
+    g_signal_connect (G_OBJECT (appGUI->opt->end_range_spinbutton), "value-changed",
+                                G_CALLBACK (spinbutton_value_changed_cb), appGUI);
+
+    gtk_table_attach_defaults (GTK_TABLE (table), appGUI->opt->end_range_spinbutton, 2, 3, 0, 1);
+
+    label = gtk_label_new ("%");
+    gtk_widget_show (label);
+
+    gtk_table_attach (GTK_TABLE (table), label, 3, 4, 0, 1,
+                      (GtkAttachOptions) 0,
+                      (GtkAttachOptions) 0, 0, 0);
+#else
     table = gtk_table_new (1, 7, FALSE);
     gtk_widget_show (table);
     gtk_container_add (GTK_CONTAINER (alignment), table);
@@ -605,7 +819,7 @@ gchar buffer[BUFFER_SIZE];
     gtk_table_attach (GTK_TABLE (table), label, 6, 7, 0, 1,
                       (GtkAttachOptions) 0,
                       (GtkAttachOptions) 0, 0, 0);
-
+#endif
     g_snprintf (buffer, BUFFER_SIZE, "<b>%s</b>", _("Ratio range"));
     label = gtk_label_new (buffer);
     gtk_widget_show (label);
@@ -622,13 +836,21 @@ gchar buffer[BUFFER_SIZE];
     gtk_container_add (GTK_CONTAINER (frame), alignment);
     gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 4, 0, 12, 0);
 
+#ifdef MAEMO
+    scrolledwindow = hildon_pannable_area_new ();
+#else
     scrolledwindow = gtk_scrolled_window_new (NULL, NULL);
+#endif
     gtk_widget_show (scrolledwindow);
     gtk_container_add (GTK_CONTAINER (alignment), scrolledwindow);
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
     gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolledwindow), GTK_SHADOW_IN);
 
+#ifdef MAEMO
+    appGUI->opt->kanas_textview = hildon_text_view_new ();
+#else
     appGUI->opt->kanas_textview = gtk_text_view_new ();
+#endif    
     gtk_widget_show (appGUI->opt->kanas_textview);
     gtk_container_add (GTK_CONTAINER (scrolledwindow), appGUI->opt->kanas_textview);
     gtk_text_view_set_editable (GTK_TEXT_VIEW (appGUI->opt->kanas_textview), FALSE);
@@ -657,7 +879,7 @@ gchar buffer[BUFFER_SIZE];
     hseparator = gtk_hseparator_new ();
     gtk_widget_show (hseparator);
     gtk_box_pack_start (GTK_BOX (vbox1), hseparator, FALSE, FALSE, 4);
-
+#ifndef MAEMO
     hbuttonbox = gtk_hbutton_box_new ();
     gtk_widget_show (hbuttonbox);
     gtk_box_pack_start (GTK_BOX (vbox1), hbuttonbox, FALSE, FALSE, 0);
@@ -677,11 +899,21 @@ gchar buffer[BUFFER_SIZE];
                         G_CALLBACK (auto_select_select_button_cb), appGUI);
     gtk_container_add (GTK_CONTAINER (hbuttonbox), appGUI->opt->select_button);
     GTK_WIDGET_SET_FLAGS (appGUI->opt->select_button, GTK_CAN_DEFAULT);
-
+#else
+    appGUI->opt->select_button = gtk_button_new_with_label ("dummy");   
+#endif
     if (config.hiragana_mode == TRUE) {
+#ifdef MAEMO
+        hildon_check_button_set_active (HILDON_CHECK_BUTTON (appGUI->opt->hiragana_radiobutton), TRUE);
+#else
         gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(appGUI->opt->hiragana_radiobutton), TRUE);
+#endif
     } else {
+#ifdef MAEMO
+        hildon_check_button_set_active (HILDON_CHECK_BUTTON (katakana_radiobutton), TRUE);
+#else
         gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(katakana_radiobutton), TRUE);
+#endif
     }
 
     refresh_select_kanas (FALSE, appGUI);
@@ -701,11 +933,15 @@ GtkWidget       *vbox2;
 GtkWidget       *vbox_n;
 GtkWidget       *vbox_l;
 GtkWidget       *hbox;
+#ifndef MAEMO
 GtkWidget       *hseparator;
 GtkWidget       *hbuttonbox;
 GtkWidget       *hbuttonbox_s;
+#endif
 GtkWidget       *alignment;
+#ifndef MAEMO
 GtkWidget       *close_button;
+#endif
 GtkWidget       *frame;
 GtkWidget       *label;
 GtkWidget       *combobox_ca_timeout;
@@ -716,15 +952,27 @@ GdkColor        color;
 GtkWidget       *frames[NUMBER_OF_SIGNS];
 GtkWidget       *scrolledwindow;
 GtkWidget       *viewport;
+#ifndef MAEMO
 GtkWidget       *auto_select_button;
 GtkWidget       *select_all_button;
 GtkWidget       *select_none_button;
 GtkWidget       *invert_selection_button;
+#endif
 gint            i, j, pos;
 gchar           buffer[BUFFER_SIZE];
 static          MESSAGE msg[CHART_ROWS*CHART_COLUMNS];
 static          MESSAGE msg2[CHART_ROWS];
 
+#ifdef MAEMO
+    appGUI->opt->options_window = hildon_stackable_window_new ();    
+    hildon_window_stack_push_1 (hildon_window_stack_get_default (), HILDON_STACKABLE_WINDOW (appGUI->opt->options_window));  
+    gtk_window_set_title (GTK_WINDOW (appGUI->opt->options_window), _("Options"));
+
+    g_signal_connect (G_OBJECT (appGUI->opt->options_window), "delete_event",
+                      G_CALLBACK(delete_event_cb), appGUI);
+    g_signal_connect (G_OBJECT(appGUI->opt->options_window), "key_press_event",
+                        G_CALLBACK(options_key_press_cb), appGUI);
+#else
     appGUI->opt->options_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     gtk_window_set_transient_for (GTK_WINDOW(appGUI->opt->options_window),GTK_WINDOW(appGUI->main_window));
     gtk_window_set_resizable (GTK_WINDOW (appGUI->opt->options_window), TRUE);
@@ -740,7 +988,7 @@ static          MESSAGE msg2[CHART_ROWS];
 
     gtk_window_move (GTK_WINDOW (appGUI->opt->options_window),
                                 config.options_window_x, config.options_window_y);
-
+#endif
     vbox1 = gtk_vbox_new (FALSE, 0);
     gtk_widget_show (vbox1);
     gtk_container_add (GTK_CONTAINER (appGUI->opt->options_window), vbox1);
@@ -757,12 +1005,33 @@ static          MESSAGE msg2[CHART_ROWS];
     gtk_container_set_border_width (GTK_CONTAINER (vbox_n), 4);
     gtk_notebook_append_page (GTK_NOTEBOOK(appGUI->opt->notebook), vbox_n, label);
 
+#ifdef MAEMO
+    g_signal_connect (G_OBJECT (appGUI->opt->notebook), "switch-page",
+                      G_CALLBACK (toggle_page_menu_cb), appGUI);
+    scrolledwindow = hildon_pannable_area_new ();
+    gtk_widget_show (scrolledwindow);
+    gtk_box_pack_start (GTK_BOX (vbox_n), scrolledwindow, TRUE, TRUE, 0);
+    gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow), GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
+
+    viewport = gtk_viewport_new (NULL, NULL);
+    gtk_widget_show (viewport);
+    gtk_container_add (GTK_CONTAINER (scrolledwindow), viewport);
+
+    vbox2 = gtk_vbox_new (FALSE, 0);
+    gtk_widget_show (vbox2);
+    gtk_container_add (GTK_CONTAINER (viewport), vbox2);
+#endif
+
     /*-----------------------------------------------------------------*/
     /* Drill options */
 
     frame = gtk_frame_new (NULL);
     gtk_widget_show (frame);
+#ifdef MAEMO
+    gtk_box_pack_start (GTK_BOX (vbox2), frame, FALSE, FALSE, 2);
+#else
     gtk_box_pack_start (GTK_BOX (vbox_n), frame, FALSE, FALSE, 2);
+#endif
     gtk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_NONE);
 
     g_snprintf (buffer, BUFFER_SIZE, "<b>%s:</b>", _("Drill options"));
@@ -783,6 +1052,9 @@ static          MESSAGE msg2[CHART_ROWS];
     appGUI->opt->rna_radio_button = gtk_radio_button_new_with_label(NULL,
                                                                     _("Display each kana once"));
     gtk_box_pack_start (GTK_BOX (vbox2),appGUI->opt->rna_radio_button, TRUE, TRUE, 0);
+#ifdef MAEMO
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON (appGUI->opt->rna_radio_button), FALSE);
+#endif
     gtk_container_set_border_width (GTK_CONTAINER (appGUI->opt->rna_radio_button), 8);
     gtk_widget_show (appGUI->opt->rna_radio_button);
     gtk_widget_set_tooltip_text (appGUI->opt->rna_radio_button, 
@@ -793,6 +1065,9 @@ static          MESSAGE msg2[CHART_ROWS];
     appGUI->opt->rwa_radio_button = gtk_radio_button_new_with_label_from_widget (GTK_RADIO_BUTTON(appGUI->opt->rna_radio_button),
                                                                                  _("Repeat wrongly-answered questions"));
     gtk_box_pack_start (GTK_BOX (vbox2),appGUI->opt->rwa_radio_button, TRUE, TRUE, 0);
+#ifdef MAEMO
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON (appGUI->opt->rwa_radio_button), FALSE);
+#endif
     gtk_container_set_border_width (GTK_CONTAINER (appGUI->opt->rwa_radio_button), 8);
     gtk_widget_show (appGUI->opt->rwa_radio_button);
     gtk_widget_set_tooltip_text (appGUI->opt->rwa_radio_button,
@@ -803,6 +1078,9 @@ static          MESSAGE msg2[CHART_ROWS];
     appGUI->opt->raa_radio_button = gtk_radio_button_new_with_label_from_widget (GTK_RADIO_BUTTON(appGUI->opt->rna_radio_button),
                                                                                  _("Repeat all forever"));
     gtk_box_pack_start (GTK_BOX (vbox2),appGUI->opt->raa_radio_button, TRUE, TRUE, 0);
+#if MAEMO
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON (appGUI->opt->raa_radio_button), FALSE);
+#endif
     gtk_container_set_border_width (GTK_CONTAINER (appGUI->opt->raa_radio_button), 8);
     gtk_widget_show (appGUI->opt->raa_radio_button);
     gtk_widget_set_tooltip_text (appGUI->opt->raa_radio_button,
@@ -810,7 +1088,11 @@ static          MESSAGE msg2[CHART_ROWS];
     g_signal_connect (G_OBJECT (appGUI->opt->raa_radio_button), "toggled",
                       G_CALLBACK (options_repeat_mode_changed_cb), appGUI);
 
+#ifdef MAEMO
+    table = gtk_table_new (1, 2, FALSE);
+#else
     table = gtk_table_new (2, 1, FALSE);
+#endif
     gtk_widget_show (table);
     gtk_container_set_border_width (GTK_CONTAINER (table), 12);
     gtk_box_pack_start (GTK_BOX (vbox2), table, FALSE, FALSE, 0);
@@ -818,6 +1100,32 @@ static          MESSAGE msg2[CHART_ROWS];
     g_snprintf (buffer, BUFFER_SIZE, "%s:", _("Correct answer display timeout"));
     label = gtk_label_new (buffer);
     gtk_widget_show (label);
+#ifdef MAEMO
+    gtk_table_attach_defaults (GTK_TABLE (table), label, 0, 1, 0, 1);
+
+    combobox_ca_timeout = hildon_picker_button_new (HILDON_SIZE_AUTO,
+                                        HILDON_BUTTON_ARRANGEMENT_HORIZONTAL);
+    label = hildon_touch_selector_new_text();
+
+    hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (label),  _("Disabled"));    
+    hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (label),  _("1 sec"));    
+    hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (label),  _("2 sec"));  
+    hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (label),  _("3 sec"));
+    hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (label),  _("Until any key will be pressed"));
+        
+    hildon_picker_button_set_selector (HILDON_PICKER_BUTTON (combobox_ca_timeout),
+                            HILDON_TOUCH_SELECTOR (label));
+    hildon_picker_button_set_active (HILDON_PICKER_BUTTON(combobox_ca_timeout), 0);
+
+    gtk_widget_show (combobox_ca_timeout);
+
+    g_signal_connect (G_OBJECT (combobox_ca_timeout), "value-changed",
+        G_CALLBACK (options_combobox_ca_timeout_handler_cb), NULL);
+
+    gtk_table_attach_defaults (GTK_TABLE (table), combobox_ca_timeout, 1, 2, 0, 1);
+
+    hildon_touch_selector_set_active (HILDON_TOUCH_SELECTOR (label), 0, config.ca_timeout);
+#else
     gtk_table_attach (GTK_TABLE (table), label, 0, 1, 0, 1,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
@@ -837,13 +1145,19 @@ static          MESSAGE msg2[CHART_ROWS];
     gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_ca_timeout), _("Until any key will be pressed"));
 
     gtk_combo_box_set_active (GTK_COMBO_BOX (combobox_ca_timeout), config.ca_timeout);
+#endif
+    
 
     /*-----------------------------------------------------------------*/
     /* Display options */
 
     frame = gtk_frame_new (NULL);
     gtk_widget_show (frame);
+#ifdef MAEMO
+    gtk_box_pack_start (GTK_BOX (vbox2), frame, FALSE, FALSE, 2);
+#else
     gtk_box_pack_start (GTK_BOX (vbox_n), frame, FALSE, FALSE, 2);
+#endif
     gtk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_NONE);
 
     g_snprintf (buffer, BUFFER_SIZE, "<b>%s:</b>", _("Appearance"));
@@ -860,8 +1174,12 @@ static          MESSAGE msg2[CHART_ROWS];
     vbox2 = gtk_vbox_new (FALSE, 0);
     gtk_widget_show (vbox2);
     gtk_container_add (GTK_CONTAINER (alignment), vbox2);
-
+#ifdef MAEMO
+    table = gtk_table_new (3, 2, FALSE);
+#else
     table = gtk_table_new (5, 1, FALSE);
+#endif  
+    
     gtk_widget_show (table);
     gtk_container_set_border_width (GTK_CONTAINER (table), 12);
     gtk_box_pack_start (GTK_BOX (vbox2), table, TRUE, TRUE, 0);
@@ -869,16 +1187,28 @@ static          MESSAGE msg2[CHART_ROWS];
     g_snprintf (buffer, BUFFER_SIZE, "%s:", _("Kana color"));
     label = gtk_label_new (buffer);
     gtk_widget_show (label);
+#ifdef MAEMO
+    gtk_table_attach_defaults(GTK_TABLE (table), label, 0, 1, 0, 1);
+#else
     gtk_table_attach (GTK_TABLE (table), label, 0, 1, 0, 1,
                       (GtkAttachOptions) (GTK_FILL),
                       (GtkAttachOptions) (0), 0, 0);
+#endif
     gtk_misc_set_alignment (GTK_MISC (label), 0, 0.5);
 
     appGUI->opt->kana_colorbutton = gtk_color_button_new ();
+#ifdef MAEMO
+    hildon_gtk_widget_set_theme_size(appGUI->opt->kana_colorbutton, HILDON_SIZE_FINGER_HEIGHT);
+#endif
     gtk_widget_show (appGUI->opt->kana_colorbutton);
+
+#ifdef MAEMO
+    gtk_table_attach_defaults(GTK_TABLE (table), appGUI->opt->kana_colorbutton, 1, 2, 0, 1);
+#else
     gtk_table_attach (GTK_TABLE (table), appGUI->opt->kana_colorbutton, 1, 2, 0, 1,
                       (GtkAttachOptions) (GTK_FILL),
                       (GtkAttachOptions) (0), 6, 0);
+#endif
     gtk_container_set_border_width (GTK_CONTAINER (appGUI->opt->kana_colorbutton), 3);
 
     gdk_color_parse (config.kana_color, &color);
@@ -887,29 +1217,56 @@ static          MESSAGE msg2[CHART_ROWS];
     g_snprintf (buffer, BUFFER_SIZE, "%s:", _("Romaji color"));
     label = gtk_label_new (buffer);
     gtk_widget_show (label);
+#ifdef MAEMO
+    gtk_table_attach_defaults(GTK_TABLE (table), label, 0, 1, 1, 2);
+#else
     gtk_table_attach (GTK_TABLE (table), label, 2, 3, 0, 1,
                       (GtkAttachOptions) (GTK_FILL),
                       (GtkAttachOptions) (0), 0, 0);
+#endif
     gtk_misc_set_alignment (GTK_MISC (label), 0, 0.5);
 
     appGUI->opt->romaji_colorbutton = gtk_color_button_new ();
     gtk_widget_show (appGUI->opt->romaji_colorbutton);
+#ifdef MAEMO
+    hildon_gtk_widget_set_theme_size(appGUI->opt->romaji_colorbutton, HILDON_SIZE_FINGER_HEIGHT);
+    gtk_table_attach_defaults (GTK_TABLE (table), appGUI->opt->romaji_colorbutton, 1, 2, 1, 2);
+#else
     gtk_table_attach (GTK_TABLE (table), appGUI->opt->romaji_colorbutton, 3, 4, 0, 1,
                       (GtkAttachOptions) (GTK_FILL),
                       (GtkAttachOptions) (0), 6, 0);
+#endif
     gtk_container_set_border_width (GTK_CONTAINER (appGUI->opt->romaji_colorbutton), 3);
 
     gdk_color_parse (config.romaji_color, &color);
     gtk_color_button_set_color (GTK_COLOR_BUTTON (appGUI->opt->romaji_colorbutton), &color);
+#ifdef MAEMO
+    g_snprintf (buffer, BUFFER_SIZE, "%s:", _("Select kana font"));
+    label = gtk_label_new (buffer);
+    gtk_widget_show (label);
 
+    gtk_table_attach_defaults(GTK_TABLE (table), label, 0, 1, 2, 3);
+    gtk_misc_set_alignment (GTK_MISC (label), 0, 0.5);
+
+    font_button = hildon_button_new_with_text (HILDON_SIZE_AUTO_WIDTH |
+                                          HILDON_SIZE_FINGER_HEIGHT, HILDON_BUTTON_ARRANGEMENT_VERTICAL,
+                                          "A B C", "");
+    gtk_button_set_alignment (GTK_BUTTON (font_button), 0.5, 0.5);
+    hildon_button_set_title_alignment (HILDON_BUTTON (font_button), 0.5, 0.5);
+    gtk_table_attach_defaults(GTK_TABLE (table), font_button, 1, 2, 2, 3);
+#else
     font_button = gui_stock_label_button(_("Select kana font"), GTK_STOCK_SELECT_FONT);
+#endif
     g_signal_connect (G_OBJECT (font_button), "clicked",
                       G_CALLBACK (options_font_select_handler_cb), appGUI);
     gtk_widget_show (font_button);
+#ifdef MAEMO
+    gtk_table_attach_defaults (GTK_TABLE (table), font_button, 0, 2, 2, 3);
+#else
     gtk_table_attach (GTK_TABLE (table), font_button, 4, 5, 0, 1,
                       (GtkAttachOptions) (GTK_FILL | GTK_EXPAND),
                       (GtkAttachOptions) (0), 8, 0);
-
+#endif
     /*-----------------------------------------------------------------*/
     /* User-defined lesson TAB */
 
@@ -919,7 +1276,11 @@ static          MESSAGE msg2[CHART_ROWS];
     gtk_container_set_border_width (GTK_CONTAINER (vbox_l), 4);
     gtk_notebook_append_page (GTK_NOTEBOOK(appGUI->opt->notebook), vbox_l, label);
 
+#ifdef MAEMO
+    scrolledwindow = hildon_pannable_area_new ();
+#else
     scrolledwindow = gtk_scrolled_window_new (NULL, NULL);
+#endif
     gtk_widget_show (scrolledwindow);
     gtk_box_pack_start (GTK_BOX (vbox_l), scrolledwindow, TRUE, TRUE, 0);
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow), GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
@@ -955,7 +1316,12 @@ static          MESSAGE msg2[CHART_ROWS];
 
                 g_snprintf (buffer, BUFFER_SIZE, "%s", get_kana_sign (pos, ROMAJI, TRUE));
 
+#ifdef MAEMO
+                appGUI->opt->check_buttons[pos] = hildon_check_button_new (HILDON_SIZE_AUTO);        
+                gtk_button_set_label (GTK_BUTTON (appGUI->opt->check_buttons[pos]), buffer);
+#else
                 appGUI->opt->check_buttons[pos] = gtk_check_button_new_with_mnemonic (buffer);
+#endif
 
                 gtk_widget_show (appGUI->opt->check_buttons[pos]);
 
@@ -968,9 +1334,12 @@ static          MESSAGE msg2[CHART_ROWS];
                 gtk_container_add (GTK_CONTAINER (frames[pos]), appGUI->opt->check_buttons[pos]);
 
                 if(config.user_defined_lesson[pos] == '+') {
+#ifdef MAEMO
+                    hildon_check_button_set_active (HILDON_CHECK_BUTTON(appGUI->opt->check_buttons[pos]), TRUE);
+#else
                     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(appGUI->opt->check_buttons[pos]), TRUE);
+#endif
                 }
-
                 appGUI->opt->row_pos[j][i] = pos;
                 pos++;
             }
@@ -1024,7 +1393,29 @@ static          MESSAGE msg2[CHART_ROWS];
     gtk_widget_show (appGUI->opt->number_of_kanas_label);
     gtk_box_pack_start (GTK_BOX (hbox), appGUI->opt->number_of_kanas_label, FALSE, FALSE, 0);
     gtk_misc_set_padding (GTK_MISC (appGUI->opt->number_of_kanas_label), 4, 0);
+#ifdef MAEMO
+    combobox_dtf = hildon_picker_button_new (HILDON_SIZE_AUTO,
+                                        HILDON_BUTTON_ARRANGEMENT_HORIZONTAL);
+    hildon_button_set_title (HILDON_BUTTON (combobox_dtf), _("Display as"));
+    label =  hildon_touch_selector_new_text ();
+    
+    hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (label), _("Romaji"));
+    hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (label), _("Hiragana"));
+    hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (label), _("Katakana"));
+    
+    hildon_picker_button_set_selector (HILDON_PICKER_BUTTON (combobox_dtf),
+                            HILDON_TOUCH_SELECTOR (label));
 
+    hildon_picker_button_set_active (HILDON_PICKER_BUTTON(combobox_dtf), 0);
+
+    g_signal_connect (G_OBJECT (combobox_dtf), "value-changed",
+             G_CALLBACK (options_combobox_dtf_handler_cb), appGUI);
+
+    hildon_touch_selector_set_active (HILDON_TOUCH_SELECTOR (label), 0, 0);
+
+    gtk_widget_show (combobox_dtf);
+    gtk_box_pack_end (GTK_BOX (hbox), combobox_dtf, FALSE, FALSE, 0);
+#else
     auto_select_button = gtk_button_new_with_label (_("Statistics based selection"));
     GTK_WIDGET_UNSET_FLAGS (auto_select_button, GTK_CAN_FOCUS);
     gtk_widget_show (auto_select_button);
@@ -1104,7 +1495,7 @@ static          MESSAGE msg2[CHART_ROWS];
                       G_CALLBACK (options_close_button_cb), appGUI);
     gtk_container_add (GTK_CONTAINER (hbuttonbox), close_button);
     GTK_WIDGET_SET_FLAGS (close_button, GTK_CAN_DEFAULT);
-
+#endif
     switch(config.repeat_mode) {
         case REPEAT_ALL:
             gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(appGUI->opt->raa_radio_button), TRUE);
@@ -1124,7 +1515,13 @@ static          MESSAGE msg2[CHART_ROWS];
 
     gtk_widget_show (appGUI->opt->options_window);
 
+
+#ifdef MAEMO
+    if(gtk_notebook_get_current_page (GTK_NOTEBOOK (appGUI->opt->notebook)))
+        create_options_window_menu (appGUI);
+#else
     gtk_widget_grab_default (close_button);
+#endif
 }
 
 /*--------------------------------------------------------------------*/

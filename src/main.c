@@ -23,6 +23,13 @@
 #include "prefs.h"
 #include "stats.h"
 #include "i18n.h"
+#ifdef MAEMO
+#include <hildon/hildon.h>
+#include <libosso.h>
+
+#define APP_NAME "kanatest"
+#define APP_VER "1.0"
+#endif
 
 int main (int argc, char **argv)
 {
@@ -34,6 +41,17 @@ CHART *chr = NULL;
 STATISTICS *sts = NULL;
 TEST *tst = NULL;
 OPTIONS *opt = NULL;
+#ifdef MAEMO
+osso_context_t *osso_context = NULL;
+
+    /* initialize maemo application */
+    osso_context = osso_initialize(APP_NAME, APP_VER, TRUE, NULL);
+    
+    if (osso_context == NULL) {
+        fprintf (stderr, "osso_initialize failed.\n");
+        exit (1);
+    }
+#endif
 
     appGUI = g_new0 (GUI, 1);
     g_return_val_if_fail (appGUI != NULL, -1);
@@ -77,9 +95,11 @@ OPTIONS *opt = NULL;
     stats_read_list (STATS_FILENAME, CONFIG_DIRNAME, appGUI);
 
     /* init */
-
+#ifdef MAEMO
+    hildon_gtk_init (&argc, &argv);
+#else
     gtk_init (&argc, &argv);
-
+#endif
     setlocale (LC_ALL, "");
     bindtextdomain (PACKAGE, LOCALEDIR);
     bind_textdomain_codeset (PACKAGE, "UTF-8");
@@ -89,6 +109,9 @@ OPTIONS *opt = NULL;
     gettimeofday(&timer, NULL);
     srand48(timer.tv_usec + getpid());
 
+#ifdef MAEMO
+    show_splash_screen ();
+#endif
     gui_create_window (appGUI);
     gtk_main ();
 
@@ -102,7 +125,10 @@ OPTIONS *opt = NULL;
     g_free (sts);
     g_free (chr);
     g_free (appGUI);
-
+#ifdef MAEMO
+    /* deinitialize OSSO */
+    osso_deinitialize (osso_context);
+#endif
     return 0;
 }
 

@@ -23,20 +23,28 @@
 #include "gui_utils.h"
 #include "prefs.h"
 #include "i18n.h"
-
+#ifdef MAEMO
+#include <hildon/hildon.h>
+#endif
 /*--------------------------------------------------------------------*/
 
 void
 about_window_close_cb (GtkWidget *widget, GdkEvent *event, gpointer user_data) {
 
     GUI *appGUI = (GUI *)user_data;
+#ifdef MAEMO
+    gui_url_remove_links (&appGUI->about_links_list, &appGUI->about_link_index);
 
+    hildon_window_stack_pop_1 (hildon_window_stack_get_default());
+    appGUI->about_window = NULL;
+#else
     gdk_window_get_root_origin ((appGUI->about_window)->window,
                                 &config.about_window_x, &config.about_window_y);
 
     gui_url_remove_links (&appGUI->about_links_list, &appGUI->about_link_index);
 
     gtk_widget_destroy (appGUI->about_window);
+#endif
 }
 
 /*--------------------------------------------------------------------*/
@@ -73,7 +81,9 @@ GtkWidget       *vbox1;
 GtkWidget       *vbox2;
 GtkWidget       *hseparator;
 GtkWidget       *hbuttonbox;
+#ifndef MAEMO
 GtkWidget       *close_button;
+#endif
 GtkWidget       *notebook;
 GtkWidget       *label;
 GtkWidget       *scrolled_window;
@@ -98,6 +108,7 @@ gchar text_contributors[] = {
     "                Taci Taclipoka\n"
     "                Marianne Ibbotson\n"
     "                Markus Neteler\n"
+    "                Aki Nyman (Maemo port)\n"
 };
 
 gchar text_postcards_address[] = {
@@ -147,6 +158,7 @@ gchar *translators[] = {
     "de",   "Mathias Brodala",      "info@noctus.net",
     "",     "Frank Polte",          "frederyk@gmx.de",
     "es",   "Daniel Halens",        "daniel.halens@sabayonlinux.org",
+    "fi",   "Aki Nyman",            "aki.nyman@gmail.com",
     "fr",   "Adrian Courrèges",     "a.courreges@gmail.com",
     "hu",   "Szigetvári Csaba",     "csaba.szigetvari@informedia.hu",
     "it",   "Jacopo Farina",        "jacopo.farina@email.it",
@@ -154,7 +166,16 @@ gchar *translators[] = {
     "pt",   "Bruno Ramos",          "ladrilho@gmail.com",
     "ru",   "Taci Taclipoka",       "taclipoka@gmail.com"
 };
+#ifdef MAEMO
+    appGUI->about_window = hildon_stackable_window_new ();    
+    hildon_window_stack_push_1 (hildon_window_stack_get_default (), HILDON_STACKABLE_WINDOW (appGUI->about_window));
+    gtk_window_set_title (GTK_WINDOW (appGUI->about_window), _("About"));  
 
+    g_signal_connect (G_OBJECT (appGUI->about_window), "delete_event",
+                        G_CALLBACK(about_window_close_cb), appGUI);
+    g_signal_connect (G_OBJECT(appGUI->about_window), "key_press_event",
+                        G_CALLBACK(about_key_press_cb), appGUI);  
+#else
     appGUI->about_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     gtk_window_set_transient_for (GTK_WINDOW(appGUI->about_window),GTK_WINDOW(appGUI->main_window));
     gtk_window_set_resizable (GTK_WINDOW (appGUI->about_window), TRUE);
@@ -170,7 +191,7 @@ gchar *translators[] = {
 
     gtk_window_move (GTK_WINDOW (appGUI->about_window),
                                 config.about_window_x, config.about_window_y);
-
+#endif
     gtk_widget_show (appGUI->about_window);
 
     vbox1 = gtk_vbox_new (FALSE, 0);
@@ -187,7 +208,11 @@ gchar *translators[] = {
     vbox2 = gtk_vbox_new (FALSE, 0);
     gtk_widget_show (vbox2);
 
+#ifdef MAEMO
+    scrolled_window = hildon_pannable_area_new ();
+#else
     scrolled_window = gtk_scrolled_window_new (NULL, NULL);
+#endif
     gtk_box_pack_start (GTK_BOX (vbox2), scrolled_window, TRUE, TRUE, 0);
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolled_window),
                                     GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
@@ -213,7 +238,12 @@ gchar *translators[] = {
 								"family", "monospace", NULL);
 
     gtk_text_buffer_get_iter_at_offset (entry_buffer, &iter, 0);
+#ifdef MAEMO
+     appGUI->about_textview = hildon_text_view_new ();
+     hildon_text_view_set_buffer (HILDON_TEXT_VIEW (appGUI->about_textview), entry_buffer);
+#else
     appGUI->about_textview = gtk_text_view_new_with_buffer (entry_buffer);
+#endif
     gtk_text_view_set_pixels_above_lines (GTK_TEXT_VIEW(appGUI->about_textview), 2);
     gtk_text_view_set_left_margin (GTK_TEXT_VIEW(appGUI->about_textview), 8);
     gtk_text_view_set_right_margin (GTK_TEXT_VIEW(appGUI->about_textview), 8);
@@ -226,11 +256,14 @@ gchar *translators[] = {
     gui_url_setup (&appGUI->about_links_list, &appGUI->about_link_index, appGUI->about_textview, appGUI);
 
     gtk_text_buffer_insert (entry_buffer, &iter, "\n", -1);
-
+#ifdef MAEMO
+    sprintf (buffer, "Kanatest-%s%s", VERSION, MAEMO_VERSION);
+#else
 #ifndef REV
     sprintf (buffer, "Kanatest %s\n", VERSION);
 #else
     sprintf (buffer, "Kanatest SVN r%d\n", REV);
+#endif
 #endif
     gtk_text_buffer_insert_with_tags_by_name (entry_buffer, &iter,
                         buffer, -1, "big", "center", NULL);
@@ -285,8 +318,11 @@ gchar *translators[] = {
 
     vbox2 = gtk_vbox_new (FALSE, 0);
     gtk_widget_show (vbox2);
-
+#ifdef MAEMO
+    scrolled_window = hildon_pannable_area_new ();
+#else
     scrolled_window = gtk_scrolled_window_new (NULL, NULL);
+#endif
     gtk_box_pack_start (GTK_BOX (vbox2), scrolled_window, TRUE, TRUE, 0);
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolled_window),
                                     GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
@@ -304,7 +340,12 @@ gchar *translators[] = {
     gtk_text_buffer_create_tag (entry_buffer, "big",
 								"size", 12 * PANGO_SCALE, NULL);
     gtk_text_buffer_get_iter_at_offset (entry_buffer, &iter, 0);
+#ifdef MAEMO
+    text_sheet = hildon_text_view_new ();
+    hildon_text_view_set_buffer (HILDON_TEXT_VIEW (text_sheet), entry_buffer);
+#else
     text_sheet = gtk_text_view_new_with_buffer (entry_buffer);
+#endif
     gtk_text_view_set_pixels_above_lines (GTK_TEXT_VIEW(text_sheet), 2);
     gtk_text_view_set_left_margin (GTK_TEXT_VIEW(text_sheet), 8);
     gtk_text_view_set_right_margin (GTK_TEXT_VIEW(text_sheet), 8);
@@ -327,8 +368,11 @@ gchar *translators[] = {
 
     vbox2 = gtk_vbox_new (FALSE, 0);
     gtk_widget_show (vbox2);
-
+#ifdef MAEMO
+    scrolled_window = hildon_pannable_area_new ();
+#else
     scrolled_window = gtk_scrolled_window_new (NULL, NULL);
+#endif
     gtk_box_pack_start (GTK_BOX (vbox2), scrolled_window, TRUE, TRUE, 0);
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolled_window),
                                     GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
@@ -348,7 +392,12 @@ gchar *translators[] = {
     gtk_text_buffer_create_tag (entry_buffer, "center",
                   "justification", GTK_JUSTIFY_CENTER, NULL);
     gtk_text_buffer_get_iter_at_offset (entry_buffer, &iter, 0);
+#ifdef MAEMO
+    text_sheet = hildon_text_view_new ();
+    hildon_text_view_set_buffer (HILDON_TEXT_VIEW (text_sheet), entry_buffer);
+#else
     text_sheet = gtk_text_view_new_with_buffer (entry_buffer);
+#endif
     gtk_text_view_set_pixels_above_lines (GTK_TEXT_VIEW(text_sheet), 2);
     gtk_text_view_set_left_margin (GTK_TEXT_VIEW(text_sheet), 8);
     gtk_text_view_set_right_margin (GTK_TEXT_VIEW(text_sheet), 8);
@@ -383,8 +432,11 @@ gchar *translators[] = {
 
     vbox2 = gtk_vbox_new (FALSE, 0);
     gtk_widget_show (vbox2);
-
+#ifdef MAEMO
+    scrolled_window = hildon_pannable_area_new ();
+#else
     scrolled_window = gtk_scrolled_window_new (NULL, NULL);
+#endif
     gtk_box_pack_start (GTK_BOX (vbox2), scrolled_window, TRUE, TRUE, 0);
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolled_window),
                                     GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
@@ -401,7 +453,12 @@ gchar *translators[] = {
 								"underline", PANGO_UNDERLINE_SINGLE, NULL);
     gtk_text_buffer_create_tag (entry_buffer, "big",
 								"size", 12 * PANGO_SCALE, NULL);
+#ifdef MAEMO
+    text_sheet = hildon_text_view_new ();
+    hildon_text_view_set_buffer (HILDON_TEXT_VIEW (text_sheet), entry_buffer);
+#else
     text_sheet = gtk_text_view_new_with_buffer (entry_buffer);
+#endif
     gtk_text_view_set_pixels_above_lines (GTK_TEXT_VIEW(text_sheet), 2);
     gtk_text_view_set_left_margin (GTK_TEXT_VIEW(text_sheet), 8);
     gtk_text_view_set_right_margin (GTK_TEXT_VIEW(text_sheet), 8);
@@ -426,7 +483,7 @@ gchar *translators[] = {
     gtk_widget_show (hbuttonbox);
     gtk_button_box_set_layout (GTK_BUTTON_BOX(hbuttonbox), GTK_BUTTONBOX_END);
     gtk_box_pack_start (GTK_BOX (vbox1), hbuttonbox, FALSE, TRUE, 0);
-
+#ifndef MAEMO
     close_button = gtk_button_new_from_stock (GTK_STOCK_CLOSE);
     gtk_widget_show (close_button);
     g_signal_connect (G_OBJECT (close_button), "clicked",
@@ -435,7 +492,7 @@ gchar *translators[] = {
     GTK_WIDGET_SET_FLAGS (close_button, GTK_CAN_DEFAULT);
 
     gtk_widget_grab_default (close_button);
-
+#endif
 }
 
 /*--------------------------------------------------------------------*/

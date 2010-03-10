@@ -38,6 +38,13 @@ AC_CHECK_LIB(xml2,
 	[],
 	[AC_MSG_ERROR(You do not appear to have libxml2 installed.)])
 
+AC_DEFINE_UNQUOTED(CHINOOK, "$CHINOOK", [check the Maemo platform ])
+maemo_support="no"
+if test "x$CHINOOK" = "x1"; then
+	AC_DEFINE([MAEMO], [1], [Maemo platform support])
+	maemo_support="yes"
+fi
+
 CFLAGS="$BUILD_CFLAGS -Wall $PLATFORM_CFLAGS -D_GNU_SOURCE"
 CXXFLAGS="$CFLAGS"
 CPPFLAGS="$gtk_CFLAGS $xml_CFLAGS"
@@ -70,3 +77,9 @@ AC_CONFIG_FILES([
 	data/pixmaps/Makefile
 ])
 AC_OUTPUT
+
+echo "
+Configuration:
+
+    Maemo support:             $maemo_support
+"

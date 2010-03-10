@@ -52,6 +52,9 @@ GtkWidget   *image;
             g_object_new (GTK_TYPE_LABEL, "label", blabel, "use_underline", TRUE, NULL), FALSE, TRUE, 0);
     }
 
+#ifdef MAEMO
+    hildon_gtk_widget_set_theme_size(button, HILDON_SIZE_THUMB_HEIGHT);
+#endif
     gtk_widget_show_all (alignment);
     gtk_container_add (GTK_CONTAINER (button), alignment);
 

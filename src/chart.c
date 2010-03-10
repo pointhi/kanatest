@@ -24,7 +24,9 @@
 #include "main.h"
 #include "test.h"
 #include "prefs.h"
-
+#ifdef MAEMO
+#include <hildon/hildon.h>
+#endif
 /*--------------------------------------------------------------------*/
 
 gint
@@ -102,11 +104,13 @@ void
 chart_window_close_cb (GtkWidget *widget, gpointer user_data) {
 
     GUI *appGUI = (GUI *)user_data;
-
+#ifdef MAEMO
+    hildon_window_stack_pop_1 (hildon_window_stack_get_default());
+#else
     gdk_window_get_root_origin ((appGUI->chr->chart_window)->window,
                                 &config.chart_window_x, &config.chart_window_y);
     gtk_widget_destroy (appGUI->chr->chart_window);
-
+#endif
     appGUI->chr->chart_window = NULL;
 }
 
@@ -148,7 +152,9 @@ GtkWidget   *vbox1;
 GtkWidget   *vbox2;
 GtkWidget   *hbox1;
 GtkWidget   *hbuttonbox;
+#ifndef MAEMO
 GtkWidget   *close_button;
+#endif
 GtkWidget   *hseparator;
 GtkWidget   *table;
 GtkWidget   *scrolledwindow;
@@ -159,7 +165,16 @@ GtkWidget   *katakana_radiobutton;
 GSList      *radiobutton_group = NULL;
 gint        i, j, pos;
 
+#ifdef MAEMO
+    appGUI->chr->chart_window = hildon_stackable_window_new ();
+    hildon_window_stack_push_1 (hildon_window_stack_get_default (), HILDON_STACKABLE_WINDOW (appGUI->chr->chart_window));  
+    gtk_window_set_title (GTK_WINDOW (appGUI->chr->chart_window), _("Kana chart"));
 
+    g_signal_connect (G_OBJECT (appGUI->chr->chart_window), "delete_event",
+                        G_CALLBACK(chart_delete_event_cb), appGUI);
+    g_signal_connect (G_OBJECT(appGUI->chr->chart_window), "key_press_event",
+                        G_CALLBACK(chart_key_press_cb), appGUI);
+#else
     if (appGUI->chr->chart_window) return;
 
     appGUI->chr->chart_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
@@ -176,12 +191,15 @@ gint        i, j, pos;
 
     gtk_window_move (GTK_WINDOW (appGUI->chr->chart_window),
                                 config.chart_window_x, config.chart_window_y);
-
+#endif
     vbox2 = gtk_vbox_new (FALSE, 0);
     gtk_widget_show (vbox2);
     gtk_container_add (GTK_CONTAINER (appGUI->chr->chart_window), vbox2);
-
+#ifdef MAEMO
+    scrolledwindow = hildon_pannable_area_new ();
+#else
     scrolledwindow = gtk_scrolled_window_new (NULL, NULL);
+#endif
     gtk_widget_show (scrolledwindow);
     gtk_box_pack_start (GTK_BOX (vbox2), scrolledwindow, TRUE, TRUE, 0);
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow), GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
@@ -228,6 +246,9 @@ gint        i, j, pos;
     gtk_box_pack_start (GTK_BOX (vbox2), hbox1, FALSE, TRUE, 4);
 
     hiragana_radiobutton = gtk_radio_button_new_with_mnemonic (NULL, _("Hiragana"));
+#ifdef MAEMO
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON (hiragana_radiobutton ), FALSE);
+#endif
     gtk_widget_show (hiragana_radiobutton);
     g_signal_connect (G_OBJECT (hiragana_radiobutton), "clicked",
                       G_CALLBACK (chart_displaymode_hiragana_selected_cb), appGUI);
@@ -238,6 +259,9 @@ gint        i, j, pos;
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (hiragana_radiobutton), TRUE);
 
     katakana_radiobutton = gtk_radio_button_new_with_mnemonic (NULL, _("Katakana"));
+#ifdef MAEMO
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON (katakana_radiobutton ), FALSE);
+#endif
     gtk_widget_show (katakana_radiobutton);
     g_signal_connect (G_OBJECT (katakana_radiobutton), "clicked",
                       G_CALLBACK (chart_displaymode_katakana_selected_cb), appGUI);
@@ -254,7 +278,10 @@ gint        i, j, pos;
     hseparator = gtk_hseparator_new ();
     gtk_widget_show (hseparator);
     gtk_box_pack_end (GTK_BOX (vbox2), hseparator, FALSE, TRUE, 8);
-
+#ifdef MAEMO
+    gtk_widget_show (appGUI->chr->chart_window);
+    chart_display_kanas(HIRAGANA, appGUI);
+#else
     close_button = gtk_button_new_from_stock (GTK_STOCK_CLOSE);
     gtk_widget_show (close_button);
     g_signal_connect (G_OBJECT (close_button), "clicked",
@@ -266,7 +293,7 @@ gint        i, j, pos;
 
     gtk_widget_show (appGUI->chr->chart_window);
     gtk_widget_grab_default (close_button);
-
+#endif
 }
 
 /*--------------------------------------------------------------------*/

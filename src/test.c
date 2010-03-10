@@ -26,7 +26,9 @@
 #include "stats.h"
 #include "options.h"
 #include "i18n.h"
-
+#ifdef MAEMO
+#include <hildon/hildon.h>
+#endif
 /*--------------------------------------------------------------------*/
 
 gchar *
@@ -391,7 +393,11 @@ gint n_answ;
             } else {    /* waiting for any key */
 
                 g_strlcpy (tmp_a, gtk_entry_get_text (GTK_ENTRY(appGUI->romaji_entry)), BUFFER_SIZE);
+#ifdef MAEMO
+				g_snprintf (tmp_b, BUFFER_SIZE, "%s <-", tmp_a);
+#else                
                 g_snprintf (tmp_b, BUFFER_SIZE, "%s (Press any key)", tmp_a);
+#endif                                
                 gtk_entry_set_max_length (GTK_ENTRY(appGUI->romaji_entry), 32);
 
                 while (appGUI->tst->any_key != TRUE && appGUI->tst->test_state != FALSE) {
@@ -495,7 +501,49 @@ test_info(GUI *appGUI) {
     gui_disable_test (appGUI);
 
     if (answer_counter == 0) return;
+#ifdef MAEMO
+	if (config.repeat_mode == REPEAT_ALL) {
 
+        g_snprintf (message, BUFFER_SIZE,
+                    "%s\n\n"
+                    "%s: %d (%d %s)\n"
+                    "%s: %d\n%s: %d\n"
+                    "\n%s: %.f %%\n"
+                    "\n%s: %s\n",
+                    _("Test has finished!"), _("Total questions"),
+                    answer_counter,
+                    appGUI->tst->max_entries_in_test,
+                    _("unique"),
+                    _("Correct answers"),
+                    appGUI->tst->right_answer_counter,
+                    _("Wrong answers"),
+                    appGUI->tst->wrong_answer_counter,
+                    _("Correctness ratio"),
+                    (gfloat)(appGUI->tst->right_answer_counter) / answer_counter * 100.0,
+                    _("Drilling-time"),
+                    test_sec2str (appGUI->time_counter, FALSE));
+    } else {
+
+        g_snprintf (message, BUFFER_SIZE,
+                    "%s\n\n"
+                    "%s: %d\n"
+                    "%s: %d\n%s: %d\n"
+                    "\n%s: %.f %%\n"
+                    "\n%s: %s\n",
+                    _("Test has finished!"), _("Total questions"),
+                    answer_counter,
+                    _("Correct answers"),
+                    appGUI->tst->right_answer_counter,
+                    _("Wrong answers"),
+                    appGUI->tst->wrong_answer_counter,
+                    _("Correctness ratio"),
+                    (gfloat)(appGUI->tst->right_answer_counter) / answer_counter * 100.0,
+                    _("Drilling-time"),
+                    test_sec2str (appGUI->time_counter, FALSE));
+    }
+    
+   info_dialog = hildon_note_new_information  (GTK_WINDOW(appGUI->main_window), message);  
+#else
     if (config.repeat_mode == REPEAT_ALL) {
 
         g_snprintf (message, BUFFER_SIZE,
@@ -542,6 +590,7 @@ test_info(GUI *appGUI) {
 
     gtk_window_set_title (GTK_WINDOW(info_dialog), _("Information"));
     gtk_widget_show (info_dialog);
+#endif
     gtk_dialog_run (GTK_DIALOG(info_dialog));
     gtk_widget_destroy (info_dialog);
 

@@ -1,0 +1,676 @@
+# Finnish translation of Kanatest.
+# Copyright (C) 2010 Tomasz Mąka <pasp@users.sorceforge.net>
+# This file is distributed under the same license as the Kanatest package.
+# Aki Nyman <aki.nyman@gmail.com>, 2010.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Kanatest 0.4.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-04-12 13:48+0200\n"
+"PO-Revision-Date: 2010-01-25 23:20+0000\n"
+"Last-Translator: Aki Nyman <aki.nyman@gmail.com>\n"
+"Language-Team: Finnish \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "About"
+msgstr "Tietoja"
+
+msgid "compiled on"
+msgstr "käännetty"
+
+msgid "Programming"
+msgstr "Ohjelmointi"
+
+msgid "Graphics"
+msgstr "Grafiikka"
+
+msgid "Translators"
+msgstr "Kielenkääntäjät"
+
+msgid ""
+"We would like to thank the following people for suggestions, bug reports and "
+"patches:"
+msgstr "Haluaisimme kiittää seuraavia henkilöitä ehdotuksista, bugiraporteista ja patch-tiedostoista:"
+
+msgid "Contributors"
+msgstr "Avustajat"
+
+msgid ""
+"If you like our program, send a postcard with a photo of the city where you "
+"live to"
+msgstr "Jos pidät ohjelmastamme, lähetä meille postikortti, jossa on valokuva kotikaupungistasi osoitteeseen"
+
+msgid "We have received several postcards from our happy users"
+msgstr "Olemme saaneet useita postikortteja tyytyväísiltä ohjelman käyttäjiltä"
+
+msgid ""
+"Your postcards are a kind of motivation that encourages us to keep improving "
+"Kanatest :)"
+msgstr "Lähettämänne postikortit toimivat motivaation lähteenä ja rohkaisevat meitä edelleen parantamaan Kanatest-ohjelmaa :)"
+
+msgid "Thank you!"
+msgstr "Kiitos!"
+
+msgid "Postcards"
+msgstr "Postikortit"
+
+msgid "License"
+msgstr "Lisenssi"
+
+msgid "Kana chart"
+msgstr "Kana-taulukko"
+
+msgid "Hiragana"
+msgstr "Hiragana"
+
+msgid "Katakana"
+msgstr "Katakana"
+
+msgid "Test is in progress... Abort?"
+msgstr "Testi on käynnissä...Keskeytä?"
+
+msgid "Question"
+msgstr "Kysymys"
+
+msgid "Select test mode, kana set and press START"
+msgstr "Valitse testimoodi, kana-ryhmä ja paina ALOITA "
+
+msgid "Romaji"
+msgstr "Romaji"
+
+msgid "Statistics"
+msgstr "Tilasto"
+
+msgid "Options"
+msgstr "Valinnat"
+
+msgid "Test mode"
+msgstr "Testimoodi"
+
+msgid "Kana set"
+msgstr "Kana-ryhmä"
+
+msgid "Start"
+msgstr "Aloita"
+
+msgid "Press to begin testing..."
+msgstr "Paina aloittaaksesi testi..."
+
+msgid "Stop"
+msgstr "Lopeta"
+
+msgid "Press to stop testing..."
+msgstr "Paina lopettaaksesi testi..."
+
+msgid "Quit"
+msgstr "Poistu"
+
+msgid "Exit!"
+msgstr "Poistu!"
+
+msgid "Select kana font"
+msgstr "Valittu kirjasin"
+
+msgid "Please select at least two kanas to test."
+msgstr "Valitse vähintään kaksi kanaa testattavaksi"
+
+msgid "Error"
+msgstr "Virhe"
+
+msgid "no kanas found"
+msgstr "kanoja ei löydy"
+
+msgid "kana found"
+msgid_plural "kanas found"
+msgstr[0] "kana löytyi"
+msgstr[1] "kanaa löytyi"
+
+msgid "Statistics based selection"
+msgstr "Tilastopohjainen valinta"
+
+msgid "From"
+msgstr "Alkaen"
+
+msgid "To"
+msgstr "Loppuen"
+
+msgid "Ratio range"
+msgstr "Suhdeväli"
+
+msgid "Kanas"
+msgstr "Kanat"
+
+msgid "Select"
+msgstr "Valitse"
+
+msgid "General"
+msgstr "Yleiset"
+
+msgid "Drill options"
+msgstr "Testausvaihtoehdot"
+
+msgid "Display each kana once"
+msgstr "Näytä jokainen kana vain kerran"
+
+msgid ""
+"When this option is enabled the kanatest will display every question once"
+msgstr "Kun tämä vaihtoehto on valittu kanatest näyttää joka kysymyksen kerran"
+
+msgid "Repeat wrongly-answered questions"
+msgstr "Toista väärin vastatut kanat lopuksi"
+
+msgid ""
+"When this option is enabled the kanatest will repeat all wrongly answered "
+"questions at the end of test"
+msgstr "Kun tämä vaihtoehto on valittuna kanatest toistaa kaikki väärin vastatut kysymykset testin lopuksi"
+
+msgid "Repeat all forever"
+msgstr "Toista jokaista kanaa loputtomiin"
+
+msgid ""
+"When this option is enabled the kanatest will repeat all questions forever"
+msgstr "Kun tämä vaihtoehto on valittuna kanatest toistaa jokaista loputtomiin"
+
+msgid "Correct answer display timeout"
+msgstr "Oikean vastauksen näyttöaika"
+
+msgid "Disabled"
+msgstr "Ei näytetä"
+
+msgid "1 sec"
+msgstr "1 sekunti"
+
+msgid "2 sec"
+msgstr "2 sekuntia"
+
+msgid "3 sec"
+msgstr "3 sekuntia"
+
+msgid "Until any key will be pressed"
+msgstr "Kunnes jotain näppäintä painetaan"
+
+msgid "Appearance"
+msgstr "Ulkoasu"
+
+msgid "Kana color"
+msgstr "Kanan väri"
+
+msgid "Romaji color"
+msgstr "Romajin väri"
+
+msgid "User-defined lesson"
+msgstr "Räätälöity oppitunti"
+
+msgid "Select all kanas in row"
+msgstr "Valitse kaikki kanat"
+
+msgid "Deselect all kanas in row"
+msgstr "Poista kanavalinnat riviltä"
+
+msgid "Selected kanas"
+msgstr "Valitut kanat"
+
+msgid "Display as"
+msgstr "Näytä"
+
+msgid "All"
+msgstr "Kaikki"
+
+msgid "None"
+msgstr "Ei mitään"
+
+msgid "Invert"
+msgstr "Käänteinen"
+
+msgid "Please select options"
+msgstr "Valitse vaihtoehdoista"
+
+msgid "Remove lessons list"
+msgstr "Poista oppituntilista"
+
+msgid "Remove Hiragana statistics"
+msgstr "Poista Hiragana-tilasto"
+
+msgid "Remove Katakana statistics"
+msgstr "Poista Katakana-tilasto"
+
+msgid "No further recovery will be possible. Continue ?"
+msgstr "Tiedot menetetään pysyvästi, Jatketaanko ?"
+
+msgid "Date"
+msgstr "Päivämäärä"
+
+msgid "Test time"
+msgstr "Testiaika"
+
+msgid "Questions"
+msgstr "Kysymykset"
+
+msgid "Correct"
+msgstr "Oikein"
+
+msgid "Wrong"
+msgstr "Väärin"
+
+msgid "Ratio (%)"
+msgstr "Suhde (%)"
+
+msgid "Lessons"
+msgstr "Oppitunnit"
+
+msgid "Graph"
+msgstr "Kaavio"
+
+msgid "Reset"
+msgstr "Resetoi"
+
+msgid "RW"
+msgstr "RW"
+
+msgid "RA"
+msgstr "RA"
+
+msgid "Chart"
+msgstr "Taulukko"
+
+msgid "Mixed"
+msgstr "Sekoitus"
+
+msgid "All kanas"
+msgstr "Kaikki kanat"
+
+msgid "Basic kanas"
+msgstr "Peruskanat"
+
+msgid "A-I-U-E-O"
+msgstr "A-I-U-E-O"
+
+msgid "KA-KI-KU-KE-KO"
+msgstr "KA-KI-KU-KE-KO"
+
+msgid "SA-SHI-SU-SE-SO"
+msgstr "SA-SHI-SU-SE-SO"
+
+msgid "TA-CHI-TSU-TE-TO"
+msgstr "TA-CHI-TSU-TE-TO"
+
+msgid "NA-NI-NU-NE-NO"
+msgstr "NA-NI-NU-NE-NO"
+
+msgid "HA-HI-FU-HE-HO"
+msgstr "HA-HI-FU-HE-HO"
+
+msgid "MA-MI-MU-ME-MO"
+msgstr "MA-MI-MU-ME-MO"
+
+msgid "YA-YU-YO"
+msgstr "YA-YU-YO"
+
+msgid "RA-RI-RU-RE-RO"
+msgstr "RA-RI-RU-RE-RO"
+
+msgid "WA-WO-N"
+msgstr "WA-WO-N"
+
+msgid "Combo letters (part 1)"
+msgstr "Yhdistelmätavut (osa 1) "
+
+msgid "Combo letters (part 2)"
+msgstr "Yhdistelmätavut (osa 2)"
+
+#. TRANSLATORS: if there exist several possible transliterations for kanas, they must be separated by comma
+#. 0
+#. 1
+#. 2
+#. 3
+#. 4
+msgid "a"
+msgstr "a"
+
+msgid "i"
+msgstr "i"
+
+msgid "u"
+msgstr "u"
+
+msgid "e"
+msgstr "e"
+
+msgid "o"
+msgstr "o"
+
+msgid "ka"
+msgstr "ka"
+
+msgid "ki"
+msgstr "ki"
+
+msgid "ku"
+msgstr "ku"
+
+msgid "ke"
+msgstr "ke"
+
+msgid "ko"
+msgstr "ko"
+
+msgid "sa"
+msgstr "sa"
+
+msgid "shi"
+msgstr "shi"
+
+msgid "su"
+msgstr "su"
+
+msgid "se"
+msgstr "se"
+
+msgid "so"
+msgstr "so"
+
+msgid "ta"
+msgstr "ta"
+
+msgid "chi"
+msgstr "chi"
+
+msgid "tsu"
+msgstr "tsu"
+
+msgid "te"
+msgstr "te"
+
+msgid "to"
+msgstr "to"
+
+msgid "na"
+msgstr "na"
+
+msgid "ni"
+msgstr "ni"
+
+msgid "nu"
+msgstr "nu"
+
+msgid "ne"
+msgstr "ne"
+
+msgid "no"
+msgstr "no"
+
+msgid "ha"
+msgstr "ha"
+
+msgid "hi"
+msgstr "hi"
+
+msgid "fu"
+msgstr "fu"
+
+msgid "he"
+msgstr "he"
+
+msgid "ho"
+msgstr "ho"
+
+msgid "ma"
+msgstr "ma"
+
+msgid "mi"
+msgstr "mi"
+
+msgid "mu"
+msgstr "mu"
+
+msgid "me"
+msgstr "me"
+
+msgid "mo"
+msgstr "mo"
+
+msgid "ya"
+msgstr "ya"
+
+msgid "yu"
+msgstr "yu"
+
+msgid "yo"
+msgstr "yo"
+
+msgid "ra"
+msgstr "ra"
+
+msgid "ri"
+msgstr "ri"
+
+msgid "ru"
+msgstr "ru"
+
+msgid "re"
+msgstr "re"
+
+msgid "ro"
+msgstr "ro"
+
+msgid "wa"
+msgstr "wa"
+
+msgid "wo"
+msgstr "wo"
+
+msgid "n"
+msgstr "n"
+
+msgid "ga"
+msgstr "ga"
+
+msgid "gi"
+msgstr "gi"
+
+msgid "gu"
+msgstr "gu"
+
+msgid "ge"
+msgstr "ge"
+
+msgid "go"
+msgstr "go"
+
+msgid "za"
+msgstr "za"
+
+msgid "ji"
+msgstr "ji"
+
+msgid "zu"
+msgstr "zu"
+
+msgid "ze"
+msgstr "ze"
+
+msgid "zo"
+msgstr "zo"
+
+msgid "da"
+msgstr "da"
+
+msgid "di,ji"
+msgstr "di,ji"
+
+msgid "du,zu"
+msgstr "du,zu"
+
+msgid "de"
+msgstr "de"
+
+msgid "do"
+msgstr "do"
+
+msgid "ba"
+msgstr "ba"
+
+msgid "bi"
+msgstr "bi"
+
+msgid "bu"
+msgstr "bu"
+
+msgid "be"
+msgstr "be"
+
+msgid "bo"
+msgstr "bo"
+
+msgid "pa"
+msgstr "pa"
+
+msgid "pi"
+msgstr "pi"
+
+msgid "pu"
+msgstr "pu"
+
+msgid "pe"
+msgstr "pe"
+
+msgid "po"
+msgstr "po"
+
+msgid "kya"
+msgstr "kya"
+
+msgid "kyu"
+msgstr "kyu"
+
+msgid "kyo"
+msgstr "kyo"
+
+msgid "sha"
+msgstr "sha"
+
+msgid "shu"
+msgstr "shu"
+
+msgid "sho"
+msgstr "sho"
+
+msgid "cha"
+msgstr "cha"
+
+msgid "chu"
+msgstr "chu"
+
+msgid "cho"
+msgstr "cho"
+
+msgid "nya"
+msgstr "nya"
+
+msgid "nyu"
+msgstr "nyu"
+
+msgid "nyo"
+msgstr "nyo"
+
+msgid "hya"
+msgstr "hya"
+
+msgid "hyu"
+msgstr "hyu"
+
+msgid "hyo"
+msgstr "hyo"
+
+msgid "mya"
+msgstr "mya"
+
+msgid "myu"
+msgstr "myu"
+
+msgid "myo"
+msgstr "myo"
+
+msgid "rya"
+msgstr "rya"
+
+msgid "ryu"
+msgstr "ryu"
+
+msgid "ryo"
+msgstr "ryo"
+
+msgid "gya"
+msgstr "gya"
+
+msgid "gyu"
+msgstr "gyu"
+
+msgid "gyo"
+msgstr "gyo"
+
+msgid "ja"
+msgstr "ja"
+
+msgid "ju"
+msgstr "ju"
+
+msgid "jo"
+msgstr "jo"
+
+msgid "bya"
+msgstr "bya"
+
+msgid "byu"
+msgstr "byu"
+
+msgid "byo"
+msgstr "byo"
+
+msgid "pya"
+msgstr "pya"
+
+msgid "pyu"
+msgstr "pyu"
+
+msgid "pyo"
+msgstr "pyo"
+
+msgid "minute and"
+msgid_plural "minutes and"
+msgstr[0] "minuutti ja"
+msgstr[1] "minuuttia ja"
+
+msgid "second"
+msgid_plural "seconds"
+msgstr[0] "sekunti"
+msgstr[1] "sekuntia"
+
+msgid "Test has finished!"
+msgstr "Testi on päättynyt"
+
+msgid "Total questions"
+msgstr "Kysymyksiä yhteensä"
+
+msgid "unique"
+msgstr "erilaista"
+
+msgid "Correct answers"
+msgstr "Oikeita vastauksia"
+
+msgid "Wrong answers"
+msgstr "Vääriä vastauksia"
+
+msgid "Correctness ratio"
+msgstr "Virheettömyys"
+
+msgid "Drilling-time"
+msgstr "Testausaika"
+
+msgid "Information"
+msgstr "Yhteenveto"
+
