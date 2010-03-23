@@ -35,7 +35,7 @@
 #include <glib/gstdio.h>
 #include <libxml/parser.h>
 #ifdef MAEMO
-#define MAEMO_VERSION "maemo1"
+#define MAEMO_VERSION "maemo2"
 
 void        show_splash_screen  (void);
 #endif
