@@ -1,0 +1,12 @@
+# List of kanatest source files to be localized
+
+src/main.c
+src/chart.c
+src/gui.c
+src/gui_utils.c
+src/main.c
+src/options.c
+src/prefs.c
+src/stats.c
+src/stock_icons.c
+src/test.c

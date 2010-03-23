@@ -27,7 +27,7 @@
 #include <hildon/hildon.h>
 #include <libosso.h>
 
-#define APP_NAME "kanatest"
+#define APP_NAME "org.clayo.kanatest"
 #define APP_VER "1.0"
 #endif
 

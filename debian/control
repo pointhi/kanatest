@@ -1,0 +1,68 @@
+Source: kanatest
+Section: user/education
+Priority: extra
+Maintainer: Aki Nyman <aki.nyman@gmail.com>
+XSBC-Original-Maintainer: Tomasz Maka <pasp@users.sourceforge.net>, Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
+Build-Depends: debhelper (>= 5.0), libgtk2.0-dev (>= 2.0), libxml2-dev, gettext, autotools-dev,
+ conbtdialogs-dev, libgconf2-dev, libosso-gnomevfs2-dev, libglib2.0-dev, osso-af-settings, libhildon1-dev, 
+ libcairo2-dev, libosso-dev, libhildonfm2-dev
+Standards-Version: 3.7.2
+Homepage: http://clayo.org/kanatest/
+
+Package: kanatest
+Architecture: any
+Depends: ${shlibs:Depends}
+Description: beginner's drill game to learn Japanese kana characters
+ Kanatest is a simple hiragana and katakana drill game. It checks your
+ knowledge of Japanese kana characters.
+ .
+ There are three drill modes: hiragana mode (hiragana charset only), katakana
+ mode (katakana charset only) and mixed mode (both charsets). The tester shows
+ random kana characters and waits until you enter the romaji equivalent in an
+ entry field. At the end, statistics are provided.
+XB-Maemo-Display-Name: kanatest
+XSBC-Bugtracker: mailto:aki.nyman@gmail.com
+XB-Maemo-Icon-26:
+ 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
+ HMOy05zqBwAAAABJRU5ErkJggg==
+ ====

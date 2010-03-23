@@ -1,6 +1,6 @@
 #!/bin/sh
 AUTOCONF_VERSION=2.61
-AUTOMAKE_VERSION=1.10
+AUTOMAKE_VERSION=1.8.5
 
 echo -n "checking for autoconf >= $AUTOCONF_VERSION... "
 if (autoconf --version) < /dev/null > /dev/null 2>&1; then
