@@ -9,14 +9,13 @@ msgstr ""
 "Project-Id-Version: Kanatest 0.4.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-12 13:48+0200\n"
-"PO-Revision-Date: 2007-09-16 00:28+0200\n"
-"Last-Translator:  <taclipoka@gmail.com>\n"
+"PO-Revision-Date: 2010-05-27 16:29+0300\n"
+"Last-Translator: Igor Urazov <z0rc3r@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 msgid "About"
 msgstr "О программе"
@@ -33,30 +32,20 @@ msgstr "Рисунки"
 msgid "Translators"
 msgstr "Переводчики"
 
-msgid ""
-"We would like to thank the following people for suggestions, bug reports and "
-"patches:"
+msgid "We would like to thank the following people for suggestions, bug reports and patches:"
 msgstr "Мы благодарим за предложения, отчёты об ошибках и патчи:"
 
 msgid "Contributors"
 msgstr "Помощники"
 
-msgid ""
-"If you like our program, send a postcard with a photo of the city where you "
-"live to"
-msgstr ""
-"Если вам понравилась наша программа, пошлите нам открытку с видом Вашего "
-"города"
+msgid "If you like our program, send a postcard with a photo of the city where you live to"
+msgstr "Если вам понравилась наша программа, пошлите нам открытку с видом Вашего города"
 
 msgid "We have received several postcards from our happy users"
 msgstr "Кое-какие города мы уже видели"
 
-msgid ""
-"Your postcards are a kind of motivation that encourages us to keep improving "
-"Kanatest :)"
-msgstr ""
-"Ваши открытки поддерживают нас в стремлении развивать Канатест. Наше вам с "
-"кисточкой!"
+msgid "Your postcards are a kind of motivation that encourages us to keep improving Kanatest :)"
+msgstr "Ваши открытки поддерживают нас в стремлении развивать Канатест :)"
 
 msgid "Thank you!"
 msgstr "Спасибо!"
@@ -67,7 +56,6 @@ msgstr "Открытки"
 msgid "License"
 msgstr "Лицензия"
 
-# Кто б сказал, как "кана" склоняется? Отсюда и далее - символы вместо кан
 msgid "Kana chart"
 msgstr "Таблица символов каны"
 
@@ -164,25 +152,19 @@ msgstr "Варианты прохождения"
 msgid "Display each kana once"
 msgstr "Показывать каждый символ по одному разу"
 
-msgid ""
-"When this option is enabled the kanatest will display every question once"
+msgid "When this option is enabled the kanatest will display every question once"
 msgstr "Символы будут показаны один и только один раз за проход"
 
 msgid "Repeat wrongly-answered questions"
 msgstr "Повторять вопросы с неверными ответами"
 
-msgid ""
-"When this option is enabled the kanatest will repeat all wrongly answered "
-"questions at the end of test"
-msgstr ""
-"Повторять вопросы с неверными ответами в конце теста до тех пор, пока они не "
-"станут верными"
+msgid "When this option is enabled the kanatest will repeat all wrongly answered questions at the end of test"
+msgstr "Повторять вопросы с неверными ответами в конце теста до тех пор, пока они не станут верными"
 
 msgid "Repeat all forever"
 msgstr "Повторять бесконечно"
 
-msgid ""
-"When this option is enabled the kanatest will repeat all questions forever"
+msgid "When this option is enabled the kanatest will repeat all questions forever"
 msgstr "Повторять до ручной остановки"
 
 msgid "Correct answer display timeout"
@@ -272,18 +254,17 @@ msgstr "Оценка (%)"
 msgid "Lessons"
 msgstr "Вопросов"
 
-#, fuzzy
 msgid "Graph"
-msgstr "Рисунки"
+msgstr "График"
 
 msgid "Reset"
 msgstr "Сбросить"
 
 msgid "RW"
-msgstr ""
+msgstr "ПО"
 
 msgid "RA"
-msgstr ""
+msgstr "ПБ"
 
 msgid "Chart"
 msgstr "Таблица"
@@ -304,10 +285,10 @@ msgid "KA-KI-KU-KE-KO"
 msgstr "КА-КИ-КУ-КЭ-КО"
 
 msgid "SA-SHI-SU-SE-SO"
-msgstr "СА-ШИ-СУ-СЭ-СО"
+msgstr "СА-CИ-СУ-СЭ-СО"
 
 msgid "TA-CHI-TSU-TE-TO"
-msgstr "ТА-ЧИ-ЦУ-ТЭ-ТО"
+msgstr "ТА-TИ-ЦУ-ТЭ-ТО"
 
 msgid "NA-NI-NU-NE-NO"
 msgstr "НА-НИ-НУ-НЭ-НО"
@@ -373,7 +354,7 @@ msgid "sa"
 msgstr "са"
 
 msgid "shi"
-msgstr "ши"
+msgstr "cи"
 
 msgid "su"
 msgstr "су"
@@ -388,7 +369,7 @@ msgid "ta"
 msgstr "та"
 
 msgid "chi"
-msgstr "чи"
+msgstr "ти"
 
 msgid "tsu"
 msgstr "цу"
@@ -565,19 +546,19 @@ msgid "sha"
 msgstr "ся"
 
 msgid "shu"
-msgstr "шю"
+msgstr "сю"
 
 msgid "sho"
 msgstr "сё"
 
 msgid "cha"
-msgstr "ча"
+msgstr "тя"
 
 msgid "chu"
-msgstr "чю"
+msgstr "тю"
 
 msgid "cho"
-msgstr "чё"
+msgstr "тё"
 
 msgid "nya"
 msgstr "ня"
@@ -687,11 +668,3 @@ msgstr "Время выполнения"
 msgid "Information"
 msgstr "Информация"
 
-#~ msgid "Misc options"
-#~ msgstr "Всячина"
-
-#~ msgid "Enable tooltips"
-#~ msgstr "Включить подсказки"
-
-#~ msgid "Toggle to enable/disable tooltips"
-#~ msgstr "Включить/отключить показ подсказок вроде этой"

@@ -164,7 +164,8 @@ gchar *translators[] = {
     "it",   "Jacopo Farina",        "jacopo.farina@email.it",
     "pl",   "Piotr Mąka",           "silloz@users.sourceforge.net",
     "pt",   "Bruno Ramos",          "ladrilho@gmail.com",
-    "ru",   "Taci Taclipoka",       "taclipoka@gmail.com"
+    "ru",   "Taci Taclipoka",       "taclipoka@gmail.com",
+    "",     "Igor Urazov",          "z0rc3r@gmail.com"
 };
 #ifdef MAEMO
     appGUI->about_window = hildon_stackable_window_new ();    
