@@ -307,7 +307,13 @@ HildonTouchSelector *selector;
     for(j=0; j < CHART_ROWS; j++) {
         for(i=0; i < CHART_COLUMNS; i++) {
             if(get_kana_sign_mask(j, i)) {
-                if (n != 0) {
+                if (n == 3) {
+                    g_snprintf (tmp, BUFFER_SIZE, "<span font_desc='12' face='%s'>%s</span><span font_desc='10' face='%s'>(%s)</span>",
+                                config.kana_font_face, get_kana_sign(pos, HIRAGANA, TRUE), config.kana_font_face, get_kana_sign(pos, ROMAJI, TRUE));
+                } else if (n == 4) {
+                    g_snprintf (tmp, BUFFER_SIZE, "<span font_desc='12' face='%s'>%s</span><span font_desc='10' face='%s'>(%s)</span>",
+                                config.kana_font_face, get_kana_sign(pos, KATAKANA, TRUE), config.kana_font_face, get_kana_sign(pos, ROMAJI, TRUE));
+                } else if (n != 0) {
                     g_snprintf (tmp, BUFFER_SIZE, "<span font_desc='12' face='%s'>%s</span>",
                                 config.kana_font_face, get_kana_sign(pos, n, TRUE));
                 } else {
@@ -1402,6 +1408,8 @@ static          MESSAGE msg2[CHART_ROWS];
     hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (label), _("Romaji"));
     hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (label), _("Hiragana"));
     hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (label), _("Katakana"));
+    hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (label), _("Hiragana + Romaji"));
+    hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (label), _("Katakana + Romaji"));
     
     hildon_picker_button_set_selector (HILDON_PICKER_BUTTON (combobox_dtf),
                             HILDON_TOUCH_SELECTOR (label));
@@ -1443,6 +1451,8 @@ static          MESSAGE msg2[CHART_ROWS];
     gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_dtf), _("Romaji"));
     gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_dtf), _("Hiragana"));
     gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_dtf), _("Katakana"));
+    gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_dtf), _("Hiragana + Romaji"));
+    gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_dtf), _("Katakana + Romaji"));
     gtk_combo_box_set_active (GTK_COMBO_BOX (combobox_dtf), 0);
 
     hbuttonbox_s = gtk_hbutton_box_new ();

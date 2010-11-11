@@ -109,6 +109,7 @@ gchar text_contributors[] = {
     "                Marianne Ibbotson\n"
     "                Markus Neteler\n"
     "                Aki Nyman (Maemo port)\n"
+	"                Tommy Carlsson\n"
 };
 
 gchar text_postcards_address[] = {
@@ -136,6 +137,7 @@ gchar text_received_postcards[] = {
     "  * Csaba, Brendon and Xenia from Budapest (Hungary)\n"
     "  * Kate from Upholland (UK)\n"
     "  * Moritz from Karlsruhe (Germany)\n"
+	"  * Gert from Essen (Germany)\n"
 };
 
 gchar text_license[] = {

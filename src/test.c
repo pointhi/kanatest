@@ -586,7 +586,7 @@ test_info(GUI *appGUI) {
 
     info_dialog = gtk_message_dialog_new_with_markup (GTK_WINDOW(appGUI->main_window),
                                                       GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_MODAL,
-                                                      GTK_MESSAGE_INFO, GTK_BUTTONS_CLOSE, message);
+                                                      GTK_MESSAGE_INFO, GTK_BUTTONS_CLOSE, message, NULL);
 
     gtk_window_set_title (GTK_WINDOW(info_dialog), _("Information"));
     gtk_widget_show (info_dialog);

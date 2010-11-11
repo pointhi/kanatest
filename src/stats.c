@@ -100,15 +100,13 @@ gint i, response;
 GtkWidget *remove_lessons_check_button;
 GtkWidget *remove_hiragana_stats_check_button;
 GtkWidget *remove_katakana_stats_check_button;
-gchar buffer[BUFFER_SIZE];
 
     GUI *appGUI = (GUI *)user_data;
 
-    g_snprintf (buffer, BUFFER_SIZE, "\n%s:", _("Please select options"));
-
     info_dialog = gtk_message_dialog_new (GTK_WINDOW(appGUI->sts->stat_window),
                                           GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_MODAL,
-                                          GTK_MESSAGE_QUESTION, GTK_BUTTONS_YES_NO, buffer);
+                                          GTK_MESSAGE_QUESTION, GTK_BUTTONS_YES_NO, 
+										  "\n%s:", _("Please select options"));
 
     gtk_window_set_title(GTK_WINDOW(info_dialog), _("Question"));
     gtk_widget_show (info_dialog);
