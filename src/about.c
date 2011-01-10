@@ -109,7 +109,8 @@ gchar text_contributors[] = {
     "                Marianne Ibbotson\n"
     "                Markus Neteler\n"
     "                Aki Nyman (Maemo port)\n"
-	"                Tommy Carlsson\n"
+    "                Tommy Carlsson\n"
+    "                Miyako Miyamura\n"
 };
 
 gchar text_postcards_address[] = {
@@ -137,7 +138,9 @@ gchar text_received_postcards[] = {
     "  * Csaba, Brendon and Xenia from Budapest (Hungary)\n"
     "  * Kate from Upholland (UK)\n"
     "  * Moritz from Karlsruhe (Germany)\n"
-	"  * Gert from Essen (Germany)\n"
+    "  * Gert from Essen (Germany)\n"
+    "  * Perrine from Savoie (France)\n"
+    "  * Katya and Dima from St Petersburg (Russia)\n"
 };
 
 gchar text_license[] = {
@@ -230,15 +233,15 @@ gchar *translators[] = {
     gtk_text_buffer_get_iter_at_offset (entry_buffer, &iter, 0);
 
     gtk_text_buffer_create_tag (entry_buffer, "bold",
-								"weight", PANGO_WEIGHT_ULTRABOLD, NULL);
+                                "weight", PANGO_WEIGHT_ULTRABOLD, NULL);
     gtk_text_buffer_create_tag (entry_buffer, "big",
-								"size", 16 * PANGO_SCALE, NULL);
+                                "size", 16 * PANGO_SCALE, NULL);
     gtk_text_buffer_create_tag (entry_buffer, "italic",
-								"style", PANGO_STYLE_ITALIC, NULL);
+                                "style", PANGO_STYLE_ITALIC, NULL);
     gtk_text_buffer_create_tag (entry_buffer, "center",
-								"justification", GTK_JUSTIFY_CENTER, NULL);
+                                "justification", GTK_JUSTIFY_CENTER, NULL);
     gtk_text_buffer_create_tag (entry_buffer, "fixed",
-								"family", "monospace", NULL);
+                                "family", "monospace", NULL);
 
     gtk_text_buffer_get_iter_at_offset (entry_buffer, &iter, 0);
 #ifdef MAEMO
@@ -273,7 +276,7 @@ gchar *translators[] = {
 
     gtk_text_buffer_insert (entry_buffer, &iter, "\n", -1);
     gui_url_insert_link(&appGUI->about_links_list, &appGUI->about_link_index, appGUI->about_textview,
-						&iter, NULL, 0, "http://clayo.org/kanatest", TRUE, appGUI);
+                        &iter, NULL, 0, "http://clayo.org/kanatest", TRUE, appGUI);
     gtk_text_buffer_insert (entry_buffer, &iter, "\n", -1);
     g_snprintf (buffer, BUFFER_SIZE, "\n(%s %s, %s)\n\n", _("compiled on"), __DATE__, __TIME__);
     gtk_text_buffer_insert_with_tags_by_name (entry_buffer, &iter, buffer, -1, "center", "italic", NULL);
@@ -282,18 +285,18 @@ gchar *translators[] = {
     gtk_text_buffer_insert_with_tags_by_name (entry_buffer, &iter, buffer, -1, "bold", NULL);
     gtk_text_buffer_insert (entry_buffer, &iter, "     Tomasz Mąka <", -1);
     gui_url_insert_link (&appGUI->about_links_list, &appGUI->about_link_index, appGUI->about_textview,
-						 &iter, NULL, 0, "pasp@users.sourceforge.net", TRUE, appGUI);
+                         &iter, NULL, 0, "pasp@users.sourceforge.net", TRUE, appGUI);
     gtk_text_buffer_insert (entry_buffer, &iter, ">\n", -1);
 
     g_snprintf (buffer, BUFFER_SIZE, "\n%s:\n", _("Graphics"));
     gtk_text_buffer_insert_with_tags_by_name (entry_buffer, &iter, buffer, -1, "bold", NULL);
     gtk_text_buffer_insert (entry_buffer, &iter, "     Maja Kocoń (", -1);
     gui_url_insert_link (&appGUI->about_links_list, &appGUI->about_link_index, appGUI->about_textview,
-						 &iter, NULL, 0, "http://pinky-babble.org", TRUE, appGUI);
+                         &iter, NULL, 0, "http://pinky-babble.org", TRUE, appGUI);
     gtk_text_buffer_insert (entry_buffer, &iter, ")\n", -1);
     gtk_text_buffer_insert (entry_buffer, &iter, "     Piotr Mąka <", -1);
     gui_url_insert_link (&appGUI->about_links_list, &appGUI->about_link_index, appGUI->about_textview,
-						 &iter, NULL, 0, "silloz@users.sourceforge.net", TRUE, appGUI);
+                         &iter, NULL, 0, "silloz@users.sourceforge.net", TRUE, appGUI);
     gtk_text_buffer_insert (entry_buffer, &iter, ">\n", -1);
 
     g_snprintf (buffer, BUFFER_SIZE, "\n%s:\n", _("Translators"));
@@ -339,9 +342,9 @@ gchar *translators[] = {
     entry_buffer = gtk_text_buffer_new (NULL);
     gtk_text_buffer_get_iter_at_offset (entry_buffer, &iter, 0);
     gtk_text_buffer_create_tag (entry_buffer, "underline",
-								"underline", PANGO_UNDERLINE_SINGLE, NULL);
+                                "underline", PANGO_UNDERLINE_SINGLE, NULL);
     gtk_text_buffer_create_tag (entry_buffer, "big",
-								"size", 12 * PANGO_SCALE, NULL);
+                                "size", 12 * PANGO_SCALE, NULL);
     gtk_text_buffer_get_iter_at_offset (entry_buffer, &iter, 0);
 #ifdef MAEMO
     text_sheet = hildon_text_view_new ();
@@ -359,7 +362,7 @@ gchar *translators[] = {
     gtk_container_add (GTK_CONTAINER (viewport), text_sheet);
 
     g_snprintf (buffer, BUFFER_SIZE, "%s\n\n",
-				_("We would like to thank the following people for suggestions, bug reports and patches:"));
+                _("We would like to thank the following people for suggestions, bug reports and patches:"));
     gtk_text_buffer_insert (entry_buffer, &iter, buffer, -1);
 
     gtk_text_buffer_insert (entry_buffer, &iter, text_contributors, -1);
@@ -453,9 +456,9 @@ gchar *translators[] = {
     entry_buffer = gtk_text_buffer_new (NULL);
     gtk_text_buffer_get_iter_at_offset (entry_buffer, &iter, 0);
     gtk_text_buffer_create_tag (entry_buffer, "underline",
-								"underline", PANGO_UNDERLINE_SINGLE, NULL);
+                                "underline", PANGO_UNDERLINE_SINGLE, NULL);
     gtk_text_buffer_create_tag (entry_buffer, "big",
-								"size", 12 * PANGO_SCALE, NULL);
+                                "size", 12 * PANGO_SCALE, NULL);
 #ifdef MAEMO
     text_sheet = hildon_text_view_new ();
     hildon_text_view_set_buffer (HILDON_TEXT_VIEW (text_sheet), entry_buffer);
@@ -492,7 +495,12 @@ gchar *translators[] = {
     g_signal_connect (G_OBJECT (close_button), "clicked",
                         G_CALLBACK (about_close_button_cb), appGUI);
     gtk_container_add (GTK_CONTAINER (hbuttonbox), close_button);
+
+#if (GTK_MINOR_VERSION >= 22)
+    gtk_widget_set_can_default (close_button, TRUE);
+#else
     GTK_WIDGET_SET_FLAGS (close_button, GTK_CAN_DEFAULT);
+#endif 
 
     gtk_widget_grab_default (close_button);
 #endif

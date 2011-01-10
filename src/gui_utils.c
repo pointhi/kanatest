@@ -69,14 +69,14 @@ gui_get_www_browser (void) {
 static gchar browser_cmd[PATH_MAX];
 
 gchar *browsers[] = {
-	"xdg-open",    
-	"firefox",      
-	"opera",        
-	"x-www-browser",    
-	"htmlview",
+    "xdg-open",    
+    "firefox",      
+    "opera",        
+    "x-www-browser",    
+    "htmlview",
     "epiphany",     
-	"konqueror",    
-	"netscape"
+    "konqueror",    
+    "netscape"
 };
 
 gint i;
@@ -106,7 +106,7 @@ gui_get_email_client (void) {
 static gchar client_cmd[PATH_MAX];
 
 gchar *clients[] = {
-	"xdg-email",    "",
+    "xdg-email",    "",
     "claws-mail",   "--compose",
     "thunderbird",  "mailto:",
     "sylpheed",     "--compose",
@@ -297,7 +297,7 @@ gint x, y;
 GSList *tags = NULL, *tagp = NULL;
 GtkTextTag *tag;
 gchar *link;
-gint slink;
+size_t slink;
 
     if (ev->type != GDK_BUTTON_RELEASE) {
         return FALSE;
@@ -325,7 +325,7 @@ gint slink;
     for (tagp = tags;  tagp != NULL;  tagp = tagp->next) {
 
         tag = tagp->data;
-        slink = (gint) g_object_get_data (G_OBJECT (tag), "link");
+        slink = (size_t)g_object_get_data (G_OBJECT (tag), "link");
 
         if (slink != 0) {
             link = g_slist_nth_data (links_list, slink);

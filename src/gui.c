@@ -686,7 +686,11 @@ HildonGtkInputMode input_mode;
     gtk_box_pack_start (GTK_BOX (hbox2), appGUI->timer_label, TRUE, TRUE, 0);
 #ifndef MAEMO
     appGUI->stat_button = gui_stock_label_button(NULL, KANATEST_STOCK_BUTTON_STATISTICS);
+#if (GTK_MINOR_VERSION >= 22)
+    gtk_widget_set_can_focus (appGUI->stat_button, FALSE);
+#else
     GTK_WIDGET_UNSET_FLAGS (appGUI->stat_button, GTK_CAN_FOCUS);
+#endif 
     g_signal_connect (G_OBJECT (appGUI->stat_button), "clicked",
                         G_CALLBACK (show_statistics_window_cb), appGUI);
     gtk_widget_show (appGUI->stat_button);
@@ -695,7 +699,11 @@ HildonGtkInputMode input_mode;
     gtk_widget_set_tooltip_text (appGUI->stat_button, _("Statistics"));
 
     appGUI->chart_button = gui_stock_label_button(NULL, KANATEST_STOCK_BUTTON_CHART);
+#if (GTK_MINOR_VERSION >= 22)
+    gtk_widget_set_can_focus (appGUI->chart_button, FALSE);
+#else
     GTK_WIDGET_UNSET_FLAGS (appGUI->chart_button, GTK_CAN_FOCUS);
+#endif 
     g_signal_connect (G_OBJECT (appGUI->chart_button), "clicked",
                         G_CALLBACK (show_chart_window_cb), appGUI);
     gtk_widget_show (appGUI->chart_button);
@@ -704,7 +712,11 @@ HildonGtkInputMode input_mode;
     gtk_widget_set_tooltip_text (appGUI->chart_button, _("Kana chart"));
 
     appGUI->prefs_button = gui_stock_label_button(NULL, KANATEST_STOCK_BUTTON_OPTIONS);
+#if (GTK_MINOR_VERSION >= 22)
+    gtk_widget_set_can_focus (appGUI->prefs_button, FALSE);
+#else
     GTK_WIDGET_UNSET_FLAGS (appGUI->prefs_button, GTK_CAN_FOCUS);
+#endif 
     g_signal_connect (G_OBJECT (appGUI->prefs_button), "clicked",
                         G_CALLBACK (show_options_window_cb), appGUI);
     gtk_widget_show (appGUI->prefs_button);
@@ -713,7 +725,11 @@ HildonGtkInputMode input_mode;
     gtk_widget_set_tooltip_text (appGUI->prefs_button, _("Options"));
 
     appGUI->about_button = gui_stock_label_button(NULL, KANATEST_STOCK_BUTTON_ABOUT);
+#if (GTK_MINOR_VERSION >= 22)
+    gtk_widget_set_can_focus (appGUI->about_button, FALSE);
+#else
     GTK_WIDGET_UNSET_FLAGS (appGUI->about_button, GTK_CAN_FOCUS);
+#endif 
     g_signal_connect (G_OBJECT (appGUI->about_button), "clicked",
                         G_CALLBACK (show_about_window_cb), appGUI);
     gtk_widget_show (appGUI->about_button);
@@ -829,13 +845,21 @@ HildonGtkInputMode input_mode;
     gtk_box_set_spacing (GTK_BOX (hbuttonbox), 5);
 
     appGUI->start_button = gui_stock_label_button(_("Start"), GTK_STOCK_EXECUTE);
+#if (GTK_MINOR_VERSION >= 22)
+    gtk_widget_set_can_focus (appGUI->start_button, FALSE);
+#else
     GTK_WIDGET_UNSET_FLAGS (appGUI->start_button, GTK_CAN_FOCUS);
+#endif
     g_signal_connect (G_OBJECT (appGUI->start_button), "clicked",
                         G_CALLBACK (start_test_cb), appGUI);
     gtk_widget_show (appGUI->start_button);
     gtk_container_add (GTK_CONTAINER (hbuttonbox), appGUI->start_button);
     gtk_container_set_border_width (GTK_CONTAINER (appGUI->start_button), 4);
+#if (GTK_MINOR_VERSION >= 22)
+    gtk_widget_set_can_default (appGUI->start_button, TRUE);
+#else
     GTK_WIDGET_SET_FLAGS (appGUI->start_button, GTK_CAN_DEFAULT);
+#endif
     gtk_widget_set_tooltip_text (appGUI->start_button, _("Press to begin testing..."));
 #ifdef MAEMO
      appGUI->stat_button = gui_stock_label_button(NULL, KANATEST_STOCK_BUTTON_STATISTICS);
@@ -881,23 +905,39 @@ HildonGtkInputMode input_mode;
      gtk_widget_set_tooltip_text (appGUI->about_button, _("About"));
 #endif
     appGUI->stop_button = gui_stock_label_button(_("Stop"), GTK_STOCK_STOP);
+#if (GTK_MINOR_VERSION >= 22)
+    gtk_widget_set_can_focus (appGUI->stop_button, FALSE);
+#else
     GTK_WIDGET_UNSET_FLAGS (appGUI->stop_button, GTK_CAN_FOCUS);
+#endif
     g_signal_connect (G_OBJECT (appGUI->stop_button), "clicked",
                         G_CALLBACK (stop_test_cb), appGUI);
     gtk_widget_show (appGUI->stop_button);
     gtk_container_add (GTK_CONTAINER (hbuttonbox), appGUI->stop_button);
     gtk_container_set_border_width (GTK_CONTAINER (appGUI->stop_button), 4);
+#if (GTK_MINOR_VERSION >= 22)
+    gtk_widget_set_can_default (appGUI->stop_button, TRUE);
+#else
     GTK_WIDGET_SET_FLAGS (appGUI->stop_button, GTK_CAN_DEFAULT);
+#endif
     gtk_widget_set_tooltip_text (appGUI->stop_button, _("Press to stop testing..."));
 
     appGUI->quit_button = gui_stock_label_button(_("Quit"), GTK_STOCK_QUIT);
+#if (GTK_MINOR_VERSION >= 22)
+    gtk_widget_set_can_focus (appGUI->quit_button, FALSE);
+#else
     GTK_WIDGET_UNSET_FLAGS (appGUI->quit_button, GTK_CAN_FOCUS);
+#endif
     g_signal_connect (G_OBJECT (appGUI->quit_button), "clicked",
                         G_CALLBACK (gui_close_window_cb), appGUI);
     gtk_widget_show (appGUI->quit_button);
     gtk_container_add (GTK_CONTAINER (hbuttonbox), appGUI->quit_button);
     gtk_container_set_border_width (GTK_CONTAINER (appGUI->quit_button), 4);
+#if (GTK_MINOR_VERSION >= 22)
+    gtk_widget_set_can_default (appGUI->quit_button, TRUE);
+#else
     GTK_WIDGET_SET_FLAGS (appGUI->quit_button, GTK_CAN_DEFAULT);
+#endif
     gtk_widget_set_tooltip_text (appGUI->quit_button, _("Exit!"));
 
     gui_disable_test (appGUI);

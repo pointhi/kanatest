@@ -106,7 +106,7 @@ GtkWidget *remove_katakana_stats_check_button;
     info_dialog = gtk_message_dialog_new (GTK_WINDOW(appGUI->sts->stat_window),
                                           GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_MODAL,
                                           GTK_MESSAGE_QUESTION, GTK_BUTTONS_YES_NO, 
-										  "\n%s:", _("Please select options"));
+                                          "\n%s:", _("Please select options"));
 
     gtk_window_set_title(GTK_WINDOW(info_dialog), _("Question"));
     gtk_widget_show (info_dialog);
@@ -214,7 +214,7 @@ stats_column_clicked_cb (GtkTreeViewColumn *treeviewcolumn, gpointer user_data) 
     MESSAGE *msg = (MESSAGE *)user_data;
 
     msg->appGUI->sts->old_column = config.stats_sort_column;
-    config.stats_sort_column = (gint) msg->data;
+    config.stats_sort_column = (size_t) msg->data;
 
     if (msg->appGUI->sts->disable_dir == FALSE) {
 
@@ -484,7 +484,11 @@ gchar *column_names[NUMBER_OF_COLUMNS] = {
     gtk_container_add (GTK_CONTAINER (appGUI->sts->stat_window), vbox1);
 
     appGUI->sts->notebook = gtk_notebook_new ();
+#if (GTK_MINOR_VERSION >= 22)
+    gtk_widget_set_can_focus(appGUI->sts->notebook, FALSE);
+#else
     GTK_WIDGET_UNSET_FLAGS(appGUI->sts->notebook, GTK_CAN_FOCUS);
+#endif
     gtk_widget_show (appGUI->sts->notebook);
     gtk_box_pack_start (GTK_BOX (vbox1), appGUI->sts->notebook, TRUE, TRUE, 4);
 
@@ -537,7 +541,7 @@ gchar *column_names[NUMBER_OF_COLUMNS] = {
                                 stats_renderer, "text", i, NULL);
         gtk_tree_view_column_set_sort_column_id (stats_column[i], i);
         gtk_tree_view_append_column (GTK_TREE_VIEW(stats_treeview), stats_column[i]);
-        msg[i].data = (gpointer)i;
+        msg[i].data = (gpointer)((size_t)i);
         msg[i].appGUI = appGUI;
         g_signal_connect (G_OBJECT(stats_column[i]), "clicked",
                           G_CALLBACK(stats_column_clicked_cb), &msg[i]);
@@ -746,7 +750,11 @@ gchar *column_names[NUMBER_OF_COLUMNS] = {
     g_signal_connect (G_OBJECT (close_button), "clicked",
                         G_CALLBACK (stats_window_close_cb), appGUI);
     gtk_container_add (GTK_CONTAINER (hbuttonbox), close_button);
+#if (GTK_MINOR_VERSION >= 22)
+    gtk_widget_set_can_default (close_button, TRUE);
+#else
     GTK_WIDGET_SET_FLAGS (close_button, GTK_CAN_DEFAULT);
+#endif
 #endif
     if (appGUI->sts->active_tab != -1) {
         gtk_notebook_set_current_page (GTK_NOTEBOOK (appGUI->sts->notebook), appGUI->sts->active_tab);

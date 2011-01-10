@@ -287,7 +287,12 @@ gint        i, j, pos;
     g_signal_connect (G_OBJECT (close_button), "clicked",
                         G_CALLBACK (chart_close_button_cb), appGUI);
     gtk_container_add (GTK_CONTAINER (hbuttonbox), close_button);
+
+#if (GTK_MINOR_VERSION >= 22)
+    gtk_widget_set_can_default (close_button, TRUE);
+#else
     GTK_WIDGET_SET_FLAGS (close_button, GTK_CAN_DEFAULT);
+#endif 
 
     chart_display_kanas(HIRAGANA, appGUI);
 
