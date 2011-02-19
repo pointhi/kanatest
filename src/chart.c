@@ -107,7 +107,7 @@ chart_window_close_cb (GtkWidget *widget, gpointer user_data) {
 #ifdef MAEMO
     hildon_window_stack_pop_1 (hildon_window_stack_get_default());
 #else
-    gdk_window_get_root_origin ((appGUI->chr->chart_window)->window,
+    gdk_window_get_root_origin (gtk_widget_get_window(appGUI->chr->chart_window),
                                 &config.chart_window_x, &config.chart_window_y);
     gtk_widget_destroy (appGUI->chr->chart_window);
 #endif
@@ -288,7 +288,7 @@ gint        i, j, pos;
                         G_CALLBACK (chart_close_button_cb), appGUI);
     gtk_container_add (GTK_CONTAINER (hbuttonbox), close_button);
 
-#if (GTK_MINOR_VERSION >= 22)
+#if GTK_CHECK_VERSION(2,17,5)
     gtk_widget_set_can_default (close_button, TRUE);
 #else
     GTK_WIDGET_SET_FLAGS (close_button, GTK_CAN_DEFAULT);

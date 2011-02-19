@@ -61,7 +61,7 @@ stats_window_close_cb (GtkWidget *widget, gpointer user_data) {
 #else
     gtk_window_get_size (GTK_WINDOW((appGUI->sts)->stat_window),
                         &config.stat_size_x, &config.stat_size_y);
-    gdk_window_get_root_origin (appGUI->sts->stat_window->window,
+    gdk_window_get_root_origin (gtk_widget_get_window(appGUI->sts->stat_window),
                                 &config.stat_window_x, &config.stat_window_y);
 
     gtk_widget_destroy (appGUI->sts->stat_window);
@@ -121,7 +121,7 @@ GtkWidget *remove_katakana_stats_check_button;
 #else
         remove_lessons_check_button = gtk_check_button_new_with_mnemonic (_("Remove lessons list"));
         gtk_widget_show (remove_lessons_check_button);
-        gtk_box_pack_start (GTK_BOX(GTK_DIALOG(info_dialog)->vbox), remove_lessons_check_button, FALSE, TRUE, 2);
+        gtk_box_pack_start (GTK_BOX(gtk_dialog_get_content_area(GTK_DIALOG(info_dialog))), remove_lessons_check_button, FALSE, TRUE, 2);
         gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(remove_lessons_check_button ), TRUE);
 #endif
     }
@@ -135,7 +135,7 @@ GtkWidget *remove_katakana_stats_check_button;
 #else
     remove_hiragana_stats_check_button = gtk_check_button_new_with_mnemonic (_("Remove Hiragana statistics"));
     gtk_widget_show (remove_hiragana_stats_check_button);
-    gtk_box_pack_start (GTK_BOX(GTK_DIALOG(info_dialog)->vbox), remove_hiragana_stats_check_button, FALSE, TRUE, 2);
+    gtk_box_pack_start (GTK_BOX(gtk_dialog_get_content_area(GTK_DIALOG(info_dialog))), remove_hiragana_stats_check_button, FALSE, TRUE, 2);
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(remove_hiragana_stats_check_button ), TRUE);
 #endif
     
@@ -149,13 +149,13 @@ GtkWidget *remove_katakana_stats_check_button;
 #else
     remove_katakana_stats_check_button = gtk_check_button_new_with_mnemonic (_("Remove Katakana statistics"));
     gtk_widget_show (remove_katakana_stats_check_button);
-    gtk_box_pack_start (GTK_BOX(GTK_DIALOG(info_dialog)->vbox), remove_katakana_stats_check_button, FALSE, TRUE, 2);
+    gtk_box_pack_start (GTK_BOX(gtk_dialog_get_content_area(GTK_DIALOG(info_dialog))), remove_katakana_stats_check_button, FALSE, TRUE, 2);
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(remove_katakana_stats_check_button ), TRUE);
 #endif
 
     label = gtk_label_new (_("No further recovery will be possible. Continue ?"));
     gtk_widget_show (label);
-    gtk_box_pack_start (GTK_BOX(GTK_DIALOG(info_dialog)->vbox), label, TRUE, TRUE, 6);
+    gtk_box_pack_start (GTK_BOX(gtk_dialog_get_content_area(GTK_DIALOG(info_dialog))), label, TRUE, TRUE, 6);
 
     response = gtk_dialog_run(GTK_DIALOG(info_dialog));
 
@@ -238,10 +238,17 @@ double h_real_y_pos, k_real_y_pos, region, stepX, stepY;
 double dash[] = { 1.0 };
 gchar buffer[BUFFER_SIZE];
 
+#if GTK_CHECK_VERSION(2,17,7)
+    GtkAllocation dwdh;
+    gtk_widget_get_allocation(appGUI->sts->graph_viewport, &dwdh);
+    width = dwdh.width - 4;
+    height = dwdh.height - 4;
+#else
     width = appGUI->sts->graph_viewport->allocation.width - 4;
     height = appGUI->sts->graph_viewport->allocation.height - 4;
+#endif
 
-    sts_cr = gdk_cairo_create (appGUI->sts->graph_drawing_area->window);
+    sts_cr = gdk_cairo_create (gtk_widget_get_window(appGUI->sts->graph_drawing_area));
 
     cairo_set_source_rgb (sts_cr, 1.0, 1.0, 1.0);   /* white background */
     cairo_paint (sts_cr);
@@ -484,7 +491,7 @@ gchar *column_names[NUMBER_OF_COLUMNS] = {
     gtk_container_add (GTK_CONTAINER (appGUI->sts->stat_window), vbox1);
 
     appGUI->sts->notebook = gtk_notebook_new ();
-#if (GTK_MINOR_VERSION >= 22)
+#if GTK_CHECK_VERSION(2,17,5)
     gtk_widget_set_can_focus(appGUI->sts->notebook, FALSE);
 #else
     GTK_WIDGET_UNSET_FLAGS(appGUI->sts->notebook, GTK_CAN_FOCUS);
@@ -750,7 +757,7 @@ gchar *column_names[NUMBER_OF_COLUMNS] = {
     g_signal_connect (G_OBJECT (close_button), "clicked",
                         G_CALLBACK (stats_window_close_cb), appGUI);
     gtk_container_add (GTK_CONTAINER (hbuttonbox), close_button);
-#if (GTK_MINOR_VERSION >= 22)
+#if GTK_CHECK_VERSION(2,17,5)
     gtk_widget_set_can_default (close_button, TRUE);
 #else
     GTK_WIDGET_SET_FLAGS (close_button, GTK_CAN_DEFAULT);

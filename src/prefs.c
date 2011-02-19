@@ -77,7 +77,7 @@ prefs_set_default_values (void) {
     config.ratio_end = 50;
     g_strlcpy (config.kana_font_face, "Serif", MAX_FONTNAME_LEN);
 #ifdef MAEMO 
-	g_strlcpy (config.kana_color, "#FFFFFF", MAX_COLORNAME_LEN);
+    g_strlcpy (config.kana_color, "#FFFFFF", MAX_COLORNAME_LEN);
 #else   
     g_strlcpy (config.kana_color, "#000000", MAX_COLORNAME_LEN);
 #endif    

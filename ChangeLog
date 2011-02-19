@@ -1,4 +1,5 @@
 2011-xx-xx: version 0.5.0
+  * Ported to GTK+ 3.0 (Wen-Yen Chuang)
   * Maemo port (Aki Nyman)
   * Some GUI improvements
   * Added translations: fi
@@ -34,7 +35,7 @@
 
 2007-03-27: version 0.4.2
   * Characters "di, du" and "ji, zu" are both accepted during the test
-  * Auxilary buttons for lesson customization dialog 
+  * Auxilary buttons for lesson customization dialog
     (select all / select none / invert selection)
   * A few minor gui tweaks
   * Statistics window size is now remembered

@@ -76,7 +76,7 @@ get_kana_sign (gint index, gint kana_type, gboolean translated) {
 
 gchar *kana_signs[] = {
 
-	/* TRANSLATORS: if there exist several possible transliterations for kanas, they must be separated by comma */
+    /* TRANSLATORS: if there exist several possible transliterations for kanas, they must be separated by comma */
 
     /* 0 */                 /* 1 */                     /* 2 */                     /* 3 */                 /* 4 */
     N_("a"),  "あ", "ア",   N_("i"),   "い", "イ",      N_("u"),   "う", "ウ",      N_("e"),  "え", "エ",   N_("o"),  "お", "オ",
@@ -140,11 +140,11 @@ gchar *kana_signs[] = {
 
 };
 
-	if (translated == TRUE) {
-	    return gettext(kana_signs[3 * index + kana_type]);
-	} else {
+    if (translated == TRUE) {
+        return gettext(kana_signs[3 * index + kana_type]);
+    } else {
         return kana_signs[3 * index + kana_type];
-	}
+    }
 }
 
 /*--------------------------------------------------------------------*/
@@ -347,16 +347,16 @@ gint n_answ;
 
     kana_number = appGUI->tst->questions_table[appGUI->tst->question_counter] % MIXED_SEPARATOR;
     r_answers = g_strsplit (get_kana_sign (kana_number, ROMAJI, TRUE), ANSWER_DELIMITER, MAX_RANSWERS);
-	n_answ = 0;
-	correct_answer = FALSE;
+    n_answ = 0;
+    correct_answer = FALSE;
 
     while (r_answers[n_answ]) {
-		if (strcmp (r_answers[n_answ], user_answer)==0) {
-			correct_answer = TRUE;
-			break;
-		}
-		n_answ++;
-	}
+        if (strcmp (r_answers[n_answ], user_answer)==0) {
+            correct_answer = TRUE;
+            break;
+        }
+        n_answ++;
+    }
 
     g_strfreev (r_answers);
 
@@ -394,7 +394,7 @@ gint n_answ;
 
                 g_strlcpy (tmp_a, gtk_entry_get_text (GTK_ENTRY(appGUI->romaji_entry)), BUFFER_SIZE);
 #ifdef MAEMO
-				g_snprintf (tmp_b, BUFFER_SIZE, "%s <-", tmp_a);
+                g_snprintf (tmp_b, BUFFER_SIZE, "%s <-", tmp_a);
 #else                
                 g_snprintf (tmp_b, BUFFER_SIZE, "%s (Press any key)", tmp_a);
 #endif                                
@@ -502,7 +502,7 @@ test_info(GUI *appGUI) {
 
     if (answer_counter == 0) return;
 #ifdef MAEMO
-	if (config.repeat_mode == REPEAT_ALL) {
+    if (config.repeat_mode == REPEAT_ALL) {
 
         g_snprintf (message, BUFFER_SIZE,
                     "%s\n\n"

@@ -32,6 +32,9 @@
 #include <sys/time.h>
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
+#if GTK_CHECK_VERSION(2,90,7)
+#include <gdk/gdkkeysyms-compat.h>
+#endif
 #include <glib/gstdio.h>
 #include <libxml/parser.h>
 #ifdef MAEMO
@@ -57,6 +60,24 @@ void        show_splash_screen  (void);
 
 #define     TRANSLATION_DOMAIN  "kanatest"
 
+#if !GTK_CHECK_VERSION(2,13,4)
+#define     gtk_widget_get_window(x) (x)->window
+#endif
+
+#if !GTK_CHECK_VERSION(2,90,0)
+#define     gtk_bin_get_child(x)          (x)->child
+#define     gtk_dialog_get_content_area(x) (x)->vbox
+#endif
+
+#if GTK_CHECK_VERSION(2,91,0)
+#define     GtkObject GtkWidget
+#endif
+
+#if GTK_CHECK_VERSION(2,91,2)
+#define     gtk_combo_box_new_text    gtk_combo_box_text_new
+#define     gtk_combo_box_append_text gtk_combo_box_text_append_text
+#endif
+
 typedef struct {
 
     GtkWidget   *stat_window;
@@ -68,8 +89,8 @@ typedef struct {
     GtkWidget   *notebook;
     gint        active_tab;
 
-	GtkWidget   *graph_viewport;
-	GtkWidget   *graph_drawing_area;
+    GtkWidget   *graph_viewport;
+    GtkWidget   *graph_drawing_area;
 
     gint        hiragana_counters[NUMBER_OF_SIGNS];
     gint        correct_hiragana_counters[NUMBER_OF_SIGNS];

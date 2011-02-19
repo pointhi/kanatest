@@ -38,7 +38,7 @@ about_window_close_cb (GtkWidget *widget, GdkEvent *event, gpointer user_data) {
     hildon_window_stack_pop_1 (hildon_window_stack_get_default());
     appGUI->about_window = NULL;
 #else
-    gdk_window_get_root_origin ((appGUI->about_window)->window,
+    gdk_window_get_root_origin (gtk_widget_get_window(appGUI->about_window),
                                 &config.about_window_x, &config.about_window_y);
 
     gui_url_remove_links (&appGUI->about_links_list, &appGUI->about_link_index);
@@ -111,6 +111,7 @@ gchar text_contributors[] = {
     "                Aki Nyman (Maemo port)\n"
     "                Tommy Carlsson\n"
     "                Miyako Miyamura\n"
+    "                Wen-Yen Chuang\n"
 };
 
 gchar text_postcards_address[] = {
@@ -141,6 +142,7 @@ gchar text_received_postcards[] = {
     "  * Gert from Essen (Germany)\n"
     "  * Perrine from Savoie (France)\n"
     "  * Katya and Dima from St Petersburg (Russia)\n"
+    "  * Caleb from Taichung (Taiwan)\n"
 };
 
 gchar text_license[] = {
@@ -496,7 +498,7 @@ gchar *translators[] = {
                         G_CALLBACK (about_close_button_cb), appGUI);
     gtk_container_add (GTK_CONTAINER (hbuttonbox), close_button);
 
-#if (GTK_MINOR_VERSION >= 22)
+#if GTK_CHECK_VERSION(2,17,5)
     gtk_widget_set_can_default (close_button, TRUE);
 #else
     GTK_WIDGET_SET_FLAGS (close_button, GTK_CAN_DEFAULT);

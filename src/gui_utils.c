@@ -354,7 +354,7 @@ gint x, y;
     gtk_text_view_window_to_buffer_coords (GTK_TEXT_VIEW (textview), GTK_TEXT_WINDOW_WIDGET, 
                                            event->x, event->y, &x, &y);
     gui_url_set_cursor_if_appropriate (GTK_TEXT_VIEW (textview), x, y, appGUI);
-    gdk_window_get_pointer (textview->window, NULL, NULL, NULL);
+    gdk_window_get_pointer (gtk_widget_get_window(textview), NULL, NULL, NULL);
     return FALSE;
 }
 
@@ -367,7 +367,7 @@ gint wx, wy, bx, by;
 
     GUI *appGUI = (GUI *)data;
 
-    gdk_window_get_pointer (textview->window, &wx, &wy, NULL);
+    gdk_window_get_pointer (gtk_widget_get_window(textview), &wx, &wy, NULL);
     gtk_text_view_window_to_buffer_coords (GTK_TEXT_VIEW (textview), GTK_TEXT_WINDOW_WIDGET, wx, wy, &bx, &by);
     gui_url_set_cursor_if_appropriate (GTK_TEXT_VIEW (textview), bx, by, appGUI);
     return FALSE;

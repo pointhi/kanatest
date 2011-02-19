@@ -30,7 +30,7 @@ enum helpers {
     EMAIL
 };
 
-GtkWidget *	gui_stock_label_button              (gchar *blabel, const gchar *bstock);
+GtkWidget * gui_stock_label_button              (gchar *blabel, const gchar *bstock);
 gint        gui_get_link_type                   (gchar *link);
 void        gui_url_initialize                  (GUI *appGUI);
 void        gui_url_setup                       (GSList *links_list, gint *link_index, GtkWidget *textview, GUI *appGUI);

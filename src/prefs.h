@@ -34,7 +34,7 @@
 
 struct kanatest_prefs
 {
-#ifndef MAEMO	
+#ifndef MAEMO   
     gint        window_x;
     gint        window_y;
     gint        window_size_x;
@@ -44,7 +44,7 @@ struct kanatest_prefs
     gint        kana_mode;
     gint        kana_set;
     gint        ca_timeout;
-#ifndef MAEMO	    
+#ifndef MAEMO       
     gint        stat_window_x;
     gint        stat_window_y;
     gint        stat_size_x;
