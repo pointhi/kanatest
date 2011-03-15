@@ -1,0 +1,687 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-04-12 13:48+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Zeray Rice <fanzeyi1994@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "About"
+msgstr "关于"
+
+msgid "compiled on"
+msgstr "编译于"
+
+msgid "Programming"
+msgstr "程序"
+
+msgid "Graphics"
+msgstr "图像"
+
+msgid "Translators"
+msgstr "译者"
+
+msgid ""
+"We would like to thank the following people for suggestions, bug reports and "
+"patches:"
+msgstr ""
+"我们对以下给程序提供建议，汇报BUG和提交补丁的人表示"
+"感谢："
+
+msgid "Contributors"
+msgstr "贡献者"
+
+msgid ""
+"If you like our program, send a postcard with a photo of the city where you "
+"live to"
+msgstr ""
+"如果你喜欢我们的程序，请给我寄一张有你所在城市照片的明信片"
+
+msgid "We have received several postcards from our happy users"
+msgstr "我们已经收到了很多喜欢我们的程序的用户的寄的明信片"
+
+msgid ""
+"Your postcards are a kind of motivation that encourages us to keep improving "
+"Kanatest :)"
+msgstr ""
+"你的明信片会给Kanatest的开发提供一个莫大的鼓励 :)"
+
+msgid "Thank you!"
+msgstr ""
+"谢谢你"
+
+msgid "Postcards"
+msgstr "明信片"
+
+msgid "License"
+msgstr "使用协议"
+
+
+msgid "Kana chart"
+msgstr "假名表"
+
+msgid "Hiragana"
+msgstr "平假名"
+
+msgid "Katakana"
+msgstr "片假名"
+
+msgid "Test is in progress... Abort?"
+msgstr "正在测验中...确定要放弃？"
+
+msgid "Question"
+msgstr "问题"
+
+msgid "Select test mode, kana set and press START"
+msgstr "选择测验模式，要测验的假名，然后点击开始"
+
+msgid "Romaji"
+msgstr "罗马音"
+
+msgid "Statistics"
+msgstr "统计报告"
+
+msgid "Options"
+msgstr "选项"
+
+msgid "Test mode"
+msgstr "测验模式"
+
+msgid "Kana set"
+msgstr "测验内容"
+
+msgid "Start"
+msgstr "开始"
+
+msgid "Press to begin testing..."
+msgstr "按任意键开始测试"
+
+msgid "Stop"
+msgstr "停止"
+
+msgid "Press to stop testing..."
+msgstr "按任意键停止测试"
+
+msgid "Quit"
+msgstr "退出"
+
+msgid "Exit!"
+msgstr "退出"
+
+msgid "Select kana font"
+msgstr "选择假名字体"
+
+msgid "Please select at least two kanas to test."
+msgstr "请至少选择两个假名去测验"
+
+msgid "Error"
+msgstr "错误"
+
+msgid "no kanas found"
+msgstr "假名未找到"
+
+msgid "kana found"
+msgid_plural "kanas found"
+msgstr[0] "个找到的假名"
+msgstr[1] "个找到的假名"
+
+msgid "Statistics based selection"
+msgstr "统计基础"
+
+msgid "From"
+msgstr "从"
+
+msgid "To"
+msgstr "到"
+
+msgid "Ratio range"
+msgstr "百分比范围"
+
+msgid "Kanas"
+msgstr "假名"
+
+msgid "Select"
+msgstr "选择"
+
+msgid "General"
+msgstr "常规"
+
+msgid "Drill options"
+msgstr "提问模式"
+
+msgid "Display each kana once"
+msgstr "每个假名只显示一次"
+
+msgid ""
+"When this option is enabled the kanatest will display every question once"
+msgstr ""
+"当这个选项被选中的时候，kanatest只会将每个问题重复一遍"
+
+msgid "Repeat wrongly-answered questions"
+msgstr ""
+"重复回答错误的问题"
+
+msgid ""
+"When this option is enabled the kanatest will repeat all wrongly answered "
+"questions at the end of test"
+msgstr ""
+"当这个选项被选中的时候，Kanatest 将会在结束的时候重复所有回答"
+"错误的问题"
+
+msgid "Repeat all forever"
+msgstr "一直重复所有的问题"
+
+msgid ""
+"When this option is enabled the kanatest will repeat all questions forever"
+msgstr ""
+"当这个选项被选中的时候，Kanatest 将会一直重复所有的问题"
+
+msgid "Correct answer display timeout"
+msgstr "正确的答案显示时间"
+
+msgid "Disabled"
+msgstr "禁用"
+
+msgid "1 sec"
+msgstr "1秒"
+
+msgid "2 sec"
+msgstr "2秒"
+
+msgid "3 sec"
+msgstr "3秒"
+
+msgid "Until any key will be pressed"
+msgstr "直到按下任意键"
+
+msgid "Appearance"
+msgstr "外观"
+
+msgid "Kana color"
+msgstr "假名颜色"
+
+msgid "Romaji color"
+msgstr "罗马音颜色"
+
+msgid "User-defined lesson"
+msgstr "自定义内容"
+
+msgid "Select all kanas in row"
+msgstr "选择这一行的所有假名"
+
+msgid "Deselect all kanas in row"
+msgstr "取消选择这一行的所有假名"
+
+msgid "Selected kanas"
+msgstr "选择所有"
+
+msgid "Display as"
+msgstr "显示"
+
+msgid "All"
+msgstr "所有"
+
+msgid "None"
+msgstr "无"
+
+msgid "Invert"
+msgstr "反选"
+
+msgid "Please select options"
+msgstr "请选择一个选项"
+
+msgid "Remove lessons list"
+msgstr "重置测试记录"
+
+msgid "Remove Hiragana statistics"
+msgstr "重置平假名统计报告"
+
+msgid "Remove Katakana statistics"
+msgstr "重置片假名统计报告"
+
+msgid "No further recovery will be possible. Continue ?"
+msgstr "此操作不可恢复，你确定吗？"
+
+msgid "Date"
+msgstr "时间"
+
+msgid "Test time"
+msgstr "测试时长"
+
+msgid "Questions"
+msgstr "总问题数"
+
+msgid "Correct"
+msgstr "正确数目"
+
+msgid "Wrong"
+msgstr "错误数目"
+
+msgid "Ratio (%)"
+msgstr "百分比"
+
+msgid "Lessons"
+msgstr "测试记录"
+
+msgid "Graph"
+msgstr "图像"
+
+msgid "Reset"
+msgstr "重置"
+
+msgid "RW"
+msgstr "RW"
+
+msgid "RA"
+msgstr "RA"
+
+msgid "Chart"
+msgstr "表格"
+
+msgid "Mixed"
+msgstr "混合"
+
+msgid "All kanas"
+msgstr "所有假名"
+
+msgid "Basic kanas"
+msgstr "基本假名"
+
+msgid "A-I-U-E-O"
+msgstr "A-I-U-E-O"
+
+msgid "KA-KI-KU-KE-KO"
+msgstr "KA-KI-KU-KE-KO"
+
+msgid "SA-SHI-SU-SE-SO"
+msgstr "SA-SHI-SU-SE-SO"
+
+msgid "TA-CHI-TSU-TE-TO"
+msgstr "TA-CHI-TSU-TE-TO"
+
+msgid "NA-NI-NU-NE-NO"
+msgstr "NA-NI-NU-NE-NO"
+
+msgid "HA-HI-FU-HE-HO"
+msgstr "HA-HI-FU-HE-HO"
+
+msgid "MA-MI-MU-ME-MO"
+msgstr "MA-MI-MU-ME-MO"
+
+msgid "YA-YU-YO"
+msgstr "YA-YU-YO"
+
+msgid "RA-RI-RU-RE-RO"
+msgstr "RA-RI-RU-RE-RO"
+
+msgid "WA-WO-N"
+msgstr "WA-WO-N"
+
+msgid "Combo letters (part 1)"
+msgstr "字母组合（第一部分）"
+
+msgid "Combo letters (part 2)"
+msgstr "字母组合（第二部分）"
+
+#. TRANSLATORS: if there exist several possible transliterations for kanas, they must be separated by comma
+#. 0
+#. 1
+#. 2
+#. 3
+#. 4
+msgid "a"
+msgstr "a"
+
+msgid "i"
+msgstr "i"
+
+msgid "u"
+msgstr "u"
+
+msgid "e"
+msgstr "e"
+
+msgid "o"
+msgstr "o"
+
+msgid "ka"
+msgstr "ka"
+
+msgid "ki"
+msgstr "ki"
+
+msgid "ku"
+msgstr "ku"
+
+msgid "ke"
+msgstr "ke"
+
+msgid "ko"
+msgstr "ko"
+
+msgid "sa"
+msgstr "sa"
+
+msgid "shi"
+msgstr "shi"
+
+msgid "su"
+msgstr "su"
+
+msgid "se"
+msgstr "se"
+
+msgid "so"
+msgstr "so"
+
+msgid "ta"
+msgstr "ta"
+
+msgid "chi"
+msgstr "chi"
+
+msgid "tsu"
+msgstr "tsu"
+
+msgid "te"
+msgstr "te"
+
+msgid "to"
+msgstr "to"
+
+msgid "na"
+msgstr "na"
+
+msgid "ni"
+msgstr "ni"
+
+msgid "nu"
+msgstr "nu"
+
+msgid "ne"
+msgstr "ne"
+
+msgid "no"
+msgstr "no"
+
+msgid "ha"
+msgstr "ha"
+
+msgid "hi"
+msgstr "hi"
+
+msgid "fu"
+msgstr "fu"
+
+msgid "he"
+msgstr "he"
+
+msgid "ho"
+msgstr "ho"
+
+msgid "ma"
+msgstr "ma"
+
+msgid "mi"
+msgstr "mi"
+
+msgid "mu"
+msgstr "mu"
+
+msgid "me"
+msgstr "me"
+
+msgid "mo"
+msgstr "mo"
+
+msgid "ya"
+msgstr "ya"
+
+msgid "yu"
+msgstr "yu"
+
+msgid "yo"
+msgstr "yo"
+
+msgid "ra"
+msgstr "ra"
+
+msgid "ri"
+msgstr "ri"
+
+msgid "ru"
+msgstr "ru"
+
+msgid "re"
+msgstr "re"
+
+msgid "ro"
+msgstr "ro"
+
+msgid "wa"
+msgstr "wa"
+
+msgid "wo"
+msgstr "wo"
+
+msgid "n"
+msgstr "n"
+
+msgid "ga"
+msgstr "ga"
+
+msgid "gi"
+msgstr "gi"
+
+msgid "gu"
+msgstr "gu"
+
+msgid "ge"
+msgstr "ge"
+
+msgid "go"
+msgstr "go"
+
+msgid "za"
+msgstr "za"
+
+msgid "ji"
+msgstr "ji"
+
+msgid "zu"
+msgstr "zu"
+
+msgid "ze"
+msgstr "ze"
+
+msgid "zo"
+msgstr "zo"
+
+msgid "da"
+msgstr "da"
+
+msgid "di,ji"
+msgstr "di,ji"
+
+msgid "du,zu"
+msgstr "du,zu"
+
+msgid "de"
+msgstr "de"
+
+msgid "do"
+msgstr "do"
+
+msgid "ba"
+msgstr "ba"
+
+msgid "bi"
+msgstr "bi"
+
+msgid "bu"
+msgstr "bu"
+
+msgid "be"
+msgstr "be"
+
+msgid "bo"
+msgstr "bo"
+
+msgid "pa"
+msgstr "pa"
+
+msgid "pi"
+msgstr "pi"
+
+msgid "pu"
+msgstr "pu"
+
+msgid "pe"
+msgstr "pe"
+
+msgid "po"
+msgstr "po"
+
+msgid "kya"
+msgstr "kya"
+
+msgid "kyu"
+msgstr "kyu"
+
+msgid "kyo"
+msgstr "kyo"
+
+msgid "sha"
+msgstr "sha"
+
+msgid "shu"
+msgstr "shu"
+
+msgid "sho"
+msgstr "sho"
+
+msgid "cha"
+msgstr "cha"
+
+msgid "chu"
+msgstr "chu"
+
+msgid "cho"
+msgstr "cho"
+
+msgid "nya"
+msgstr "nya"
+
+msgid "nyu"
+msgstr "nyu"
+
+msgid "nyo"
+msgstr "nyo"
+
+msgid "hya"
+msgstr "hya"
+
+msgid "hyu"
+msgstr "hyu"
+
+msgid "hyo"
+msgstr "hyo"
+
+msgid "mya"
+msgstr "mya"
+
+msgid "myu"
+msgstr "myu"
+
+msgid "myo"
+msgstr "myo"
+
+msgid "rya"
+msgstr "rya"
+
+msgid "ryu"
+msgstr "ryu"
+
+msgid "ryo"
+msgstr "ryo"
+
+msgid "gya"
+msgstr "gya"
+
+msgid "gyu"
+msgstr "gyu"
+
+msgid "gyo"
+msgstr "gyo"
+
+msgid "ja"
+msgstr "ja"
+
+msgid "ju"
+msgstr "ju"
+
+msgid "jo"
+msgstr "jo"
+
+msgid "bya"
+msgstr "bya"
+
+msgid "byu"
+msgstr "byu"
+
+msgid "byo"
+msgstr "byo"
+
+msgid "pya"
+msgstr "pya"
+
+msgid "pyu"
+msgstr "pyu"
+
+msgid "pyo"
+msgstr "pyo"
+
+msgid "minute and"
+msgid_plural "minutes and"
+msgstr[0] "分钟"
+msgstr[1] "分钟"
+
+msgid "second"
+msgid_plural "seconds"
+msgstr[0] "秒"
+msgstr[1] "秒"
+
+msgid "Test has finished!"
+msgstr "测验完成"
+
+msgid "Total questions"
+msgstr "问题数目"
+
+msgid "unique"
+msgstr "特别"
+
+msgid "Correct answers"
+msgstr "正确数目"
+
+msgid "Wrong answers"
+msgstr "错误数目"
+
+msgid "Correctness ratio"
+msgstr "正确率"
+
+msgid "Drilling-time"
+msgstr "花费时间"
+
+msgid "Information"
+msgstr "信息"

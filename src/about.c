@@ -143,6 +143,7 @@ gchar text_received_postcards[] = {
     "  * Perrine from Savoie (France)\n"
     "  * Katya and Dima from St Petersburg (Russia)\n"
     "  * Caleb from Taichung (Taiwan)\n"
+    "  * Eero from Lahti (Finland)\n"
 };
 
 gchar text_license[] = {
@@ -162,27 +163,28 @@ gchar text_license[] = {
 };
 
 gchar *translators[] = {
-    "de",   "Mathias Brodala",      "info@noctus.net",
-    "",     "Frank Polte",          "frederyk@gmx.de",
-    "es",   "Daniel Halens",        "daniel.halens@sabayonlinux.org",
-    "fi",   "Aki Nyman",            "aki.nyman@gmail.com",
-    "fr",   "Adrian Courrèges",     "a.courreges@gmail.com",
-    "hu",   "Szigetvári Csaba",     "csaba.szigetvari@informedia.hu",
-    "it",   "Jacopo Farina",        "jacopo.farina@email.it",
-    "pl",   "Piotr Mąka",           "silloz@users.sourceforge.net",
-    "pt",   "Bruno Ramos",          "ladrilho@gmail.com",
-    "ru",   "Taci Taclipoka",       "taclipoka@gmail.com",
-    "",     "Igor Urazov",          "z0rc3r@gmail.com"
+    "de",    "Mathias Brodala",      "info@noctus.net",
+    "",      "Frank Polte",          "frederyk@gmx.de",
+    "es",    "Daniel Halens",        "daniel.halens@sabayonlinux.org",
+    "fi",    "Aki Nyman",            "aki.nyman@gmail.com",
+    "fr",    "Adrian Courrèges",     "a.courreges@gmail.com",
+    "hu",    "Szigetvári Csaba",     "csaba.szigetvari@informedia.hu",
+    "it",    "Jacopo Farina",        "jacopo.farina@email.it",
+    "pl",    "Piotr Mąka",           "silloz@users.sourceforge.net",
+    "pt",    "Bruno Ramos",          "ladrilho@gmail.com",
+    "ru",    "Taci Taclipoka",       "taclipoka@gmail.com",
+    "",      "Igor Urazov",          "z0rc3r@gmail.com",
+    "zh_CN", "Zeray Rice",           "fanzeyi1994@gmail.com"
 };
 #ifdef MAEMO
-    appGUI->about_window = hildon_stackable_window_new ();    
+    appGUI->about_window = hildon_stackable_window_new ();
     hildon_window_stack_push_1 (hildon_window_stack_get_default (), HILDON_STACKABLE_WINDOW (appGUI->about_window));
-    gtk_window_set_title (GTK_WINDOW (appGUI->about_window), _("About"));  
+    gtk_window_set_title (GTK_WINDOW (appGUI->about_window), _("About"));
 
     g_signal_connect (G_OBJECT (appGUI->about_window), "delete_event",
                         G_CALLBACK(about_window_close_cb), appGUI);
     g_signal_connect (G_OBJECT(appGUI->about_window), "key_press_event",
-                        G_CALLBACK(about_key_press_cb), appGUI);  
+                        G_CALLBACK(about_key_press_cb), appGUI);
 #else
     appGUI->about_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     gtk_window_set_transient_for (GTK_WINDOW(appGUI->about_window),GTK_WINDOW(appGUI->main_window));
@@ -305,12 +307,17 @@ gchar *translators[] = {
     gtk_text_buffer_insert_with_tags_by_name (entry_buffer, &iter, buffer, -1, "bold", NULL);
 
     for (i=0; i < (sizeof(translators) / sizeof(translators[0]) / 3); i++) {
-        gtk_text_buffer_insert (entry_buffer, &iter, "     ", -1);
-        if (strlen(translators[i*3+0])) {
-            g_snprintf (buffer, BUFFER_SIZE, "[%s]  ", translators[i*3+0]);
+        gtk_text_buffer_insert (entry_buffer, &iter, "    ", -1);
+        gint n = strlen(translators[i*3+0]);
+        if (n) {
+            if (n == 2) {
+                g_snprintf (buffer, BUFFER_SIZE, "[%s]    ", translators[i*3+0]);
+            } else {
+                g_snprintf (buffer, BUFFER_SIZE, "[%s] ", translators[i*3+0]);
+            }
             gtk_text_buffer_insert_with_tags_by_name (entry_buffer, &iter, buffer, -1, "fixed", NULL);
         } else {
-            gtk_text_buffer_insert_with_tags_by_name (entry_buffer, &iter, "      ", -1, "fixed", NULL);
+            gtk_text_buffer_insert_with_tags_by_name (entry_buffer, &iter, "        ", -1, "fixed", NULL);
         }
         g_snprintf (buffer, BUFFER_SIZE, "%s <", translators[i*3+1]);
         gtk_text_buffer_insert (entry_buffer, &iter, buffer, -1);
