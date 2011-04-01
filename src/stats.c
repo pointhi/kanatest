@@ -402,8 +402,13 @@ graph_configure_event (GtkWidget *widget, GdkEventConfigure *event, gpointer use
     return TRUE;
 }
 
+#if !GTK_CHECK_VERSION(2,91,0)
 gint
 graph_expose_event (GtkWidget *widget, GdkEventExpose *event, gpointer user_data) {
+#else
+gint
+graph_expose_event (GtkWidget *widget, cairo_t *event, gpointer user_data) {
+#endif
 
     GUI *appGUI = (GUI *)user_data;
 
@@ -732,8 +737,13 @@ gchar *column_names[NUMBER_OF_COLUMNS] = {
 
     g_signal_connect (G_OBJECT(appGUI->sts->graph_drawing_area), "configure_event",
                       G_CALLBACK(graph_configure_event), appGUI);
+#if !GTK_CHECK_VERSION(2,91,0)
     g_signal_connect (G_OBJECT(appGUI->sts->graph_drawing_area), "expose_event",
                       G_CALLBACK(graph_expose_event), appGUI);
+#else
+    g_signal_connect (G_OBJECT(appGUI->sts->graph_drawing_area), "draw",
+                      G_CALLBACK(graph_expose_event), appGUI);
+#endif
 
     /* buttons */
 
