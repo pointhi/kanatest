@@ -112,6 +112,7 @@ gchar text_contributors[] = {
     "                Tommy Carlsson\n"
     "                Miyako Miyamura\n"
     "                Wen-Yen Chuang\n"
+    "                Jakub Zawadzki\n"
 };
 
 gchar text_postcards_address[] = {
@@ -144,6 +145,7 @@ gchar text_received_postcards[] = {
     "  * Katya and Dima from St Petersburg (Russia)\n"
     "  * Caleb from Taichung (Taiwan)\n"
     "  * Eero from Lahti (Finland)\n"
+    "  * A.K. from Marburg (Germany)\n"
 };
 
 gchar text_license[] = {

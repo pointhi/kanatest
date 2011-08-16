@@ -305,10 +305,8 @@ xmlChar *key;
 
                 if ((!xmlStrcmp (node->name, (const xmlChar *)"user_defined_lesson"))) {
                     key = xmlNodeListGetString (doc, node->xmlChildrenNode, 1);
-                    if (key != NULL) {
-                            g_strlcpy (config.user_defined_lesson, (gchar *) key, NUMBER_OF_SIGNS);
-                            config.user_defined_lesson[NUMBER_OF_SIGNS+1] = '\0';
-                    }
+                    if (key != NULL) 
+                            g_strlcpy (config.user_defined_lesson, (gchar *) key, sizeof(config.user_defined_lesson));
                     xmlFree (key);
                 }
 
