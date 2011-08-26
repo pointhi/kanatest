@@ -264,6 +264,9 @@ gui_disable_test (GUI *appGUI) {
 
     gtk_progress_bar_set_text (GTK_PROGRESS_BAR (appGUI->progressbar),
                                 _("Select test mode, kana set and press START"));
+#if GTK_CHECK_VERSION(2,90,3)
+    gtk_progress_bar_set_show_text (GTK_PROGRESS_BAR (appGUI->progressbar), TRUE);
+#endif
 }
 
 /*--------------------------------------------------------------------*/

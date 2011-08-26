@@ -78,6 +78,14 @@ void        show_splash_screen  (void);
 #define     gtk_combo_box_append_text gtk_combo_box_text_append_text
 #endif
 
+#if GTK_CHECK_VERSION(3,1,12)
+#define     GTK_FONT_SELECTION_DIALOG                  GTK_FONT_CHOOSER_DIALOG
+#define     gtk_font_selection_dialog_new(x)           gtk_font_chooser_dialog_new(x, NULL)
+#define     gtk_font_selection_dialog_get_font_name    gtk_font_chooser_dialog_get_font_name
+#define     gtk_font_selection_dialog_set_font_name    gtk_font_chooser_dialog_set_font_name
+#define     gtk_font_selection_dialog_set_preview_text gtk_font_chooser_dialog_set_preview_text
+#endif
+
 typedef struct {
 
     GtkWidget   *stat_window;
