@@ -50,7 +50,9 @@ void        show_splash_screen  (void);
 #define     ANSWER_LEN          8
 #define     KANA_SET_NAMES      15
 #define     KANA_MODE_NAMES     3
+#define     MODE_NAMES          2
 #define     MAX_NUMBER_OF_SIGNS (NUMBER_OF_SIGNS*2)
+#define     KANA_MAX_CHOICES    6
 
 #define     ANSWER_DELIMITER    ","
 #define     MAX_RANSWERS        10
@@ -180,7 +182,8 @@ typedef struct {
     gboolean    any_key;
     gboolean    test_state;
 
-    gint        questions_table[MAX_NUMBER_OF_SIGNS];
+    gint        questions_table[MAX_NUMBER_OF_SIGNS]; // questions in order of asking
+    gint        kana_set_table[MAX_NUMBER_OF_SIGNS]; // possible answers
     gint        kana_set_len[USER_DEFINED_LEN_OFFSET + 1];
 
     gint        kana_signs_set_0_idx[NUMBER_OF_SIGNS];      /* all kanas */
@@ -208,6 +211,7 @@ typedef struct {
 
     GtkWidget       *stop_button;
     GtkWidget       *start_button;
+    GtkWidget       *reverse_button;
     GtkWidget       *stat_button;
     GtkWidget       *chart_button;
     GtkWidget       *quit_button;
@@ -220,9 +224,13 @@ typedef struct {
     GtkWidget       *combobox_kana_mode;
     GtkWidget       *label_ka;
     GtkWidget       *label_le;
+    GtkWidget       *label_tm;
     GtkWidget       *romaji_entry;
     GtkProgressBar  *progressbar;
     GtkWidget       *hseparator_up;
+    GtkWidget       *vseparator_r;
+    GtkWidget       *kana_choices_area;
+    GtkWidget       *kana_choices[KANA_MAX_CHOICES];
 #ifndef MAEMO
     GtkWidget       *logo_area;
 #endif
@@ -247,10 +255,15 @@ typedef struct {
 
 void    gui_create_window       (GUI *appGUI);
 void    gui_set_widgets_status  (gboolean mode, GUI *appGUI);
+void    gui_next_text_question  (gint number, gint mode, GUI *appGUI);
 void    gui_display_kana        (gint number, gint mode, GUI *appGUI);
+void    gui_display_kana_choices(gint number, gint mode, GUI *appGUI);
 void    gui_set_progress        (GUI *appGUI);
 void    gui_disable_test        (GUI *appGUI);
 void    gui_disable_start       (void);
+void    gui_set_button_kana     (gint button_number, gint kana_number, gint mode, GUI *appGUI);
+void    gui_disable_buttons     (gint first_button, GUI *appGUI);
+void    gui_show_correct_answer (gint number, GUI *appGUI);
 
 #endif /* _GUI_H */
 

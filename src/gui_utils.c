@@ -27,15 +27,12 @@
 
 /*------------------------------------------------------------------------------*/
 
-GtkWidget*
-gui_stock_label_button (gchar *blabel, const gchar *bstock) {
+void
+gui_stock (GtkWidget *button, gchar *blabel, const gchar *bstock) {
 
-GtkWidget   *button;
 GtkWidget   *alignment;
 GtkWidget   *hbox;
 GtkWidget   *image;
-
-    button = g_object_new (GTK_TYPE_BUTTON, "visible", TRUE, NULL);
 
     alignment = gtk_alignment_new (0.5, 0.5, 0.0, 0.0);
     hbox = gtk_hbox_new (FALSE, 2);
@@ -57,6 +54,29 @@ GtkWidget   *image;
 #endif
     gtk_widget_show_all (alignment);
     gtk_container_add (GTK_CONTAINER (button), alignment);
+}
+
+
+GtkWidget*
+gui_stock_label_button (gchar *blabel, const gchar *bstock) {
+
+GtkWidget   *button;
+
+    button = g_object_new (GTK_TYPE_BUTTON, "visible", TRUE, NULL);
+    gui_stock (button, blabel, bstock);
+
+    return button;
+}
+
+/*------------------------------------------------------------------------------*/
+
+GtkWidget*
+gui_stock_label_togglebutton (gchar *blabel, const gchar *bstock) {
+
+GtkWidget   *button;
+
+    button = gtk_toggle_button_new ();
+    gui_stock (button, blabel, bstock);
 
     return button;
 }

@@ -36,6 +36,11 @@ enum {
   REPEAT_ALL
 };
 
+typedef enum {
+    NORMAL = 0,
+    REVERSE,
+} mode;
+
 #endif /* _MAIN_H */
 
 

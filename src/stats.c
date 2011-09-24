@@ -456,7 +456,7 @@ stats_entry     *entry;
 GtkTreeViewColumn   *stats_column[NUMBER_OF_COLUMNS];
 
 gchar *column_names[NUMBER_OF_COLUMNS] = {
-    _("Date"), _("Test mode"), _("Test time"), _("Questions"),
+    _("Date"), _("Test type"), _("Test mode"), _("Test time"), _("Questions"),
     _("Correct"), _("Wrong"), _("Ratio (%)"), _("Kana set")
 };
 
@@ -526,6 +526,7 @@ gchar *column_names[NUMBER_OF_COLUMNS] = {
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (stats_scrolledwindow), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
 
     stats_store = gtk_list_store_new (NUMBER_OF_COLUMNS,
+                                      G_TYPE_STRING,
                                       G_TYPE_STRING,
                                       G_TYPE_STRING,
                                       G_TYPE_STRING,
@@ -807,10 +808,11 @@ gchar *column_names[NUMBER_OF_COLUMNS] = {
             }
 
             gtk_list_store_set (stats_store, &stats_iter, 1, buffer,
-                                2, test_sec2str(entry->test_time, TRUE), 3, entry->test_questions,
-                                4, entry->test_correct_answers, 5, entry->test_questions-entry->test_correct_answers,
-                                6, (gint)((gfloat)(entry->test_correct_answers)/entry->test_questions*100.0),
-                                7, get_kana_set_name(entry->test_kana_set), -1);
+                                2, get_mode_name(entry->test_type),
+                                3, test_sec2str(entry->test_time, TRUE), 4, entry->test_questions,
+                                5, entry->test_correct_answers, 6, entry->test_questions-entry->test_correct_answers,
+                                7, (gint)((gfloat)(entry->test_correct_answers)/entry->test_questions*100.0),
+                                8, get_kana_set_name(entry->test_kana_set), -1);
         }
 
     }
@@ -941,7 +943,7 @@ stats_entry *entry = NULL;
 
                     entry->date_day = entry->date_month = entry->date_year = 0;
                     entry->date_hour = entry->date_minute = entry->test_time = 0;
-                    entry->test_mode = entry->test_kana_set = entry->test_questions = 0;
+                    entry->test_type = entry->test_mode = entry->test_kana_set = entry->test_questions = 0;
                     entry->test_correct_answers = entry->test_repeat_mode = 0;
 
                     while (cnode != NULL) {
@@ -980,6 +982,12 @@ stats_entry *entry = NULL;
                             key = xmlNodeListGetString (doc, cnode->xmlChildrenNode, 1);
                             if (key != NULL)
                                     entry->test_time = atoi ((gchar *) key);
+                            xmlFree (key);
+                        }
+                        if ((!xmlStrcmp (cnode->name, (const xmlChar *) "test_type"))) {
+                            key = xmlNodeListGetString (doc, cnode->xmlChildrenNode, 1);
+                            if (key != NULL)
+                                    entry->test_type = atoi ((gchar *) key);
                             xmlFree (key);
                         }
                         if ((!xmlStrcmp (cnode->name, (const xmlChar *) "test_mode"))) {
@@ -1156,6 +1164,8 @@ gchar temp[BUFFER_SIZE];
         xmlNewChild (stats_node, NULL, (const xmlChar *) "date_minute", (xmlChar *) temp);
         g_snprintf (temp, BUFFER_SIZE, "%d", entry->test_time);
         xmlNewChild (stats_node, NULL, (const xmlChar *) "test_time", (xmlChar *) temp);
+        g_snprintf (temp, BUFFER_SIZE, "%d", entry->test_type);
+        xmlNewChild (stats_node, NULL, (const xmlChar *) "test_type", (xmlChar *) temp);
         g_snprintf (temp, BUFFER_SIZE, "%d", entry->test_mode);
         xmlNewChild (stats_node, NULL, (const xmlChar *) "test_mode", (xmlChar *) temp);
         g_snprintf (temp, BUFFER_SIZE, "%d", entry->test_kana_set);

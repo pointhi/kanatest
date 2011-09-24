@@ -44,6 +44,18 @@ gchar *test_mode_name[] = {
 /*--------------------------------------------------------------------*/
 
 gchar *
+get_mode_name (gint mode) {
+
+gchar *mode_name[] = {
+    N_("Normal"), N_("Reverse")
+};
+
+    return gettext(mode_name[mode]);
+}
+
+/*--------------------------------------------------------------------*/
+
+gchar *
 get_kana_set_name (gint set) {
 
 gchar *kana_set_name[] = {
@@ -290,13 +302,13 @@ gint *table;
 
     /* fill questions and answers tables */
     for (i = 0; i < number_of_questions; i++) {
-
+        gint kana_number;
         if (i >= appGUI->tst->kana_set_len[config.kana_set]) {
-            appGUI->tst->questions_table[i] = table[i-appGUI->tst->kana_set_len[config.kana_set]] + MIXED_SEPARATOR;
+            kana_number = table[i-appGUI->tst->kana_set_len[config.kana_set]] + MIXED_SEPARATOR;
         } else {
-            appGUI->tst->questions_table[i] = table[i];
+            kana_number = table[i];
         }
-
+        appGUI->tst->questions_table[i] = appGUI->tst->kana_set_table[i] = kana_number;
     }
 
     /* do a decent random permutation */
@@ -306,6 +318,59 @@ gint *table;
         appGUI->tst->questions_table[i] = appGUI->tst->questions_table[pos];
         appGUI->tst->questions_table[pos] = tmp;
     }
+}
+
+/*--------------------------------------------------------------------*/
+
+void 
+test_generate_choices(gint kana_number, GUI *appGUI) {
+    gint i, tmp, pos;
+    gint num_choices;
+    gint num_answers;
+    gint *table;
+    gint answers_table[MAX_NUMBER_OF_SIGNS];
+    gboolean done;
+    
+    table = appGUI->tst->kana_set_table;
+    
+    num_answers = appGUI->tst->max_entries_in_test;
+    num_choices = num_answers;
+    if (num_choices > KANA_MAX_CHOICES) {
+        num_choices = KANA_MAX_CHOICES;
+    }
+
+    /* fill answers table */
+    for (i = 0; i < num_answers; i++) {
+        answers_table[i] = table[i];
+    }
+
+    /* do a decent random permutation */
+    for(i = num_answers-1; i > 0; --i) {
+        pos = lrand48() % (i+1);
+        tmp = answers_table[i];
+        answers_table[i] = answers_table[pos];
+        answers_table[pos] = tmp;
+    }
+    
+    done = FALSE;
+    /* if target kana is in the answers, do nothing */
+    for (i = 0; i < num_choices; i++) {
+        if (answers_table[i] == kana_number) {
+            done = TRUE;
+        }
+    }
+    
+    /* otherwise, insert correct answer */
+    if (done == FALSE) {
+        answers_table[lrand48() % num_choices] = kana_number;
+    }
+    
+    /* render all buttons */
+    for (i = 0; i < num_choices; i++) {
+        gui_set_button_kana(i, answers_table[i], config.kana_mode, appGUI);
+    }
+
+    gui_disable_buttons(num_choices, appGUI);
 }
 
 /*--------------------------------------------------------------------*/
@@ -336,118 +401,10 @@ guint minutes;
 
 /*--------------------------------------------------------------------*/
 
-void
-test_check_answer (gchar *user_answer, GUI *appGUI) {
-
-gchar tmp_a[BUFFER_SIZE], tmp_b[BUFFER_SIZE];
-gint kana_number, old_counter;
-gboolean correct_answer, end;
-gchar **r_answers;
-gint n_answ;
-
-    kana_number = appGUI->tst->questions_table[appGUI->tst->question_counter] % MIXED_SEPARATOR;
-    r_answers = g_strsplit (get_kana_sign (kana_number, ROMAJI, TRUE), ANSWER_DELIMITER, MAX_RANSWERS);
-    n_answ = 0;
-    correct_answer = FALSE;
-
-    while (r_answers[n_answ]) {
-        if (strcmp (r_answers[n_answ], user_answer)==0) {
-            correct_answer = TRUE;
-            break;
-        }
-        n_answ++;
-    }
-
-    g_strfreev (r_answers);
-
-    if (config.kana_mode == HIRAGANA) {
-        appGUI->sts->hiragana_counters[kana_number]++;
-    } else if (config.kana_mode == KATAKANA) {
-        appGUI->sts->katakana_counters[kana_number]++;
-    } else if (config.kana_mode == MIXED) {
-        if (appGUI->tst->questions_table[appGUI->tst->question_counter] >= MIXED_SEPARATOR) {
-            appGUI->sts->katakana_counters[kana_number]++;
-        } else {
-            appGUI->sts->hiragana_counters[kana_number]++;
-        }
-    }
-
-    if (correct_answer == FALSE) {
-
-        /* WRONG ANSWER */
-
-        if (config.ca_timeout != TO_DISABLED) {
-
-            appGUI->tst->any_key = FALSE;
-
-            gtk_widget_set_sensitive (appGUI->romaji_entry, FALSE);
-            gtk_widget_set_sensitive (appGUI->stop_button, FALSE);
-
-            gui_display_kana (appGUI->tst->questions_table[appGUI->tst->question_counter], ROMAJI, appGUI);
-            while (g_main_context_iteration (NULL, FALSE));
-
-            if (config.ca_timeout != TO_ANYKEY) {
-
-                g_usleep (config.ca_timeout * 1000000);
-
-            } else {    /* waiting for any key */
-
-                g_strlcpy (tmp_a, gtk_entry_get_text (GTK_ENTRY(appGUI->romaji_entry)), BUFFER_SIZE);
-#ifdef MAEMO
-                g_snprintf (tmp_b, BUFFER_SIZE, "%s <-", tmp_a);
-#else                
-                g_snprintf (tmp_b, BUFFER_SIZE, "%s (Press any key)", tmp_a);
-#endif                                
-                gtk_entry_set_max_length (GTK_ENTRY(appGUI->romaji_entry), 32);
-
-                while (appGUI->tst->any_key != TRUE && appGUI->tst->test_state != FALSE) {
-                    gtk_entry_set_text (GTK_ENTRY(appGUI->romaji_entry), tmp_b);
-                    while (g_main_context_iteration (NULL, FALSE));
-                    g_usleep (250000);
-                    if (appGUI->tst->any_key) {
-                        break;
-                    }
-                    gtk_entry_set_text (GTK_ENTRY(appGUI->romaji_entry), tmp_a);
-                    while (g_main_context_iteration (NULL, FALSE));
-                    g_usleep (200000);
-                }
-
-                gtk_entry_set_max_length (GTK_ENTRY(appGUI->romaji_entry), 3);
-                gtk_entry_set_text (GTK_ENTRY(appGUI->romaji_entry), tmp_a);
-                while (g_main_context_iteration (NULL, FALSE));
-
-                if (appGUI->tst->test_state == FALSE) return;
-            }
-
-            gtk_widget_set_sensitive (appGUI->romaji_entry, TRUE);
-            gtk_widget_set_sensitive (appGUI->stop_button, TRUE);
-
-            gtk_widget_grab_focus (appGUI->romaji_entry);
-
-        }
-
-        appGUI->tst->wrong_answer_counter++;
-
-    } else {
-
-        if (config.kana_mode == HIRAGANA) {
-            appGUI->sts->correct_hiragana_counters[kana_number]++;
-        } else if (config.kana_mode == KATAKANA) {
-            appGUI->sts->correct_katakana_counters[kana_number]++;
-        } else if (config.kana_mode == MIXED) {
-            if (appGUI->tst->questions_table[appGUI->tst->question_counter] >= MIXED_SEPARATOR) {
-                appGUI->sts->correct_katakana_counters[kana_number]++;
-            } else {
-                appGUI->sts->correct_hiragana_counters[kana_number]++;
-            }
-        }
-
-        appGUI->tst->questions_table[appGUI->tst->question_counter] = -1;
-        appGUI->tst->right_answer_counter++;
-    }
-
-    old_counter = appGUI->tst->question_counter;
-    end = FALSE;
+gboolean 
+test_check_end(GUI *appGUI) {
+    gint old_counter = appGUI->tst->question_counter;
+    gboolean end = FALSE;
 
     while (!end) {
 
@@ -475,12 +432,128 @@ gint n_answ;
             break;
         }
     }
+    return end;
+}
 
-    if (end) {
+/*--------------------------------------------------------------------*/
+
+void 
+test_update_answer_stats(gint kana_number, gboolean is_correct, GUI *appGUI) {
+    if (config.kana_mode == HIRAGANA) {
+        appGUI->sts->hiragana_counters[kana_number]++;
+    } else if (config.kana_mode == KATAKANA) {
+        appGUI->sts->katakana_counters[kana_number]++;
+    } else if (config.kana_mode == MIXED) {
+        if (appGUI->tst->questions_table[appGUI->tst->question_counter] >= MIXED_SEPARATOR) {
+            appGUI->sts->katakana_counters[kana_number]++;
+        } else {
+            appGUI->sts->hiragana_counters[kana_number]++;
+        }
+    }
+    
+    if (is_correct) {
+        if (config.kana_mode == HIRAGANA) {
+            appGUI->sts->correct_hiragana_counters[kana_number]++;
+        } else if (config.kana_mode == KATAKANA) {
+            appGUI->sts->correct_katakana_counters[kana_number]++;
+        } else if (config.kana_mode == MIXED) {
+            if (appGUI->tst->questions_table[appGUI->tst->question_counter] >= MIXED_SEPARATOR) {
+                appGUI->sts->correct_katakana_counters[kana_number]++;
+            } else {
+                appGUI->sts->correct_hiragana_counters[kana_number]++;
+            }
+        }
+        appGUI->tst->right_answer_counter++;
+    } else {
+        appGUI->tst->wrong_answer_counter++;
+    }
+}
+
+/*--------------------------------------------------------------------*/
+
+void 
+test_check_choice(gint selected_number, GUI *appGUI) {
+    gint kana_number = appGUI->tst->questions_table[appGUI->tst->question_counter];
+    gboolean correct_answer;
+    correct_answer = FALSE;
+
+    if (kana_number == selected_number) {
+        correct_answer = TRUE;
+    }
+    
+    test_update_answer_stats(kana_number, correct_answer, appGUI);
+    
+    if (correct_answer == FALSE) {
+        if (config.ca_timeout != TO_DISABLED) {
+            gtk_widget_set_sensitive (appGUI->stop_button, FALSE);
+            gui_show_correct_answer(appGUI->tst->questions_table[appGUI->tst->question_counter], appGUI);
+            gtk_widget_set_sensitive (appGUI->stop_button, TRUE);
+        }
+    } else {
+
+        appGUI->tst->questions_table[appGUI->tst->question_counter] = -1;
+    }
+    if (test_check_end(appGUI) == TRUE) {
         test_info (appGUI); /* finish! */
     } else {
         gui_set_progress (appGUI);
-        gui_display_kana (appGUI->tst->questions_table[appGUI->tst->question_counter], config.kana_mode, appGUI);
+        gui_display_kana_choices (appGUI->tst->questions_table[appGUI->tst->question_counter], config.kana_mode, appGUI);
+    }
+}
+
+/*--------------------------------------------------------------------*/
+
+void
+test_check_answer (gchar *user_answer, GUI *appGUI) {
+gint kana_number;
+gboolean correct_answer;
+gchar **r_answers;
+gint n_answ;
+
+    kana_number = appGUI->tst->questions_table[appGUI->tst->question_counter] % MIXED_SEPARATOR;
+    r_answers = g_strsplit (get_kana_sign (kana_number, ROMAJI, TRUE), ANSWER_DELIMITER, MAX_RANSWERS);
+    n_answ = 0;
+    correct_answer = FALSE;
+
+    while (r_answers[n_answ]) {
+        if (strcmp (r_answers[n_answ], user_answer)==0) {
+            correct_answer = TRUE;
+            break;
+        }
+        n_answ++;
+    }
+
+    g_strfreev (r_answers);
+
+    test_update_answer_stats(kana_number, correct_answer, appGUI);
+
+    if (correct_answer == FALSE) {
+
+        /* WRONG ANSWER */
+
+        if (config.ca_timeout != TO_DISABLED) {
+            gtk_widget_set_sensitive (appGUI->romaji_entry, FALSE);
+            gtk_widget_set_sensitive (appGUI->stop_button, FALSE);
+        
+            gui_show_correct_answer(appGUI->tst->questions_table[appGUI->tst->question_counter], appGUI);
+            
+            if (appGUI->tst->test_state == FALSE) return;
+
+            gtk_widget_set_sensitive (appGUI->romaji_entry, TRUE);
+            gtk_widget_set_sensitive (appGUI->stop_button, TRUE);
+
+            gtk_widget_grab_focus (appGUI->romaji_entry);
+
+        }
+    } else {
+        appGUI->tst->questions_table[appGUI->tst->question_counter] = -1;
+    }
+
+    if (test_check_end(appGUI) == TRUE) {
+        test_info (appGUI); /* finish! */
+    } else {
+        gui_set_progress (appGUI);
+        gui_next_text_question (appGUI->tst->questions_table[appGUI->tst->question_counter], config.kana_mode, appGUI);
     }
 }
 
@@ -607,6 +680,7 @@ test_info(GUI *appGUI) {
         entry->date_hour = timer->tm_hour;
         entry->date_minute = timer->tm_min;
         entry->test_time = appGUI->time_counter;
+        entry->test_type = config.test_mode;
         entry->test_mode = config.kana_mode;
         entry->test_kana_set = config.kana_set;
         entry->test_questions = answer_counter;

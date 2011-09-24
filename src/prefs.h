@@ -43,6 +43,7 @@ struct kanatest_prefs
     gint        repeat_mode;
     gint        kana_mode;
     gint        kana_set;
+    gint        test_mode;
     gint        ca_timeout;
 #ifndef MAEMO       
     gint        stat_window_x;

@@ -107,6 +107,13 @@ gchar buffer[BUFFER_SIZE];
 /*--------------------------------------------------------------------*/
 
 void
+toggle_reverse_mode_cb (GtkToggleButton *togglebutton, gpointer user_data) {
+    config.test_mode = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (togglebutton));
+}
+
+/*--------------------------------------------------------------------*/
+
+void
 show_statistics_window_cb (GtkWidget *widget, gpointer user_data) {
 
     GUI *appGUI = (GUI *)user_data;
@@ -177,7 +184,7 @@ start_test_cb (GtkWidget *widget, gpointer user_data) {
     GUI *appGUI = (GUI *)user_data;
 
     appGUI->tst->test_state = TRUE;
-    g_timeout_add (1000, time_handler, appGUI);
+    g_timeout_add (1000, (GSourceFunc)time_handler, appGUI);
 
     gtk_widget_show (appGUI->char_label);
 #ifdef MAEMO
@@ -186,6 +193,7 @@ start_test_cb (GtkWidget *widget, gpointer user_data) {
     gtk_widget_hide (appGUI->label_ka);
     gtk_widget_hide (appGUI->combobox_lesson);
     gtk_widget_hide (appGUI->label_le);
+    gtk_widget_hide (appGUI->combobox_test_mode);
 #else
    gtk_widget_hide (appGUI->logo_area);
 #endif
@@ -195,8 +203,11 @@ start_test_cb (GtkWidget *widget, gpointer user_data) {
 
     test_init (appGUI);
     test_generate_tables (appGUI->tst->max_entries_in_test, appGUI);
-
-    gui_display_kana (appGUI->tst->questions_table[appGUI->tst->question_counter], config.kana_mode, appGUI);
+    if (config.test_mode == NORMAL) {
+        gui_next_text_question (appGUI->tst->questions_table[appGUI->tst->question_counter], config.kana_mode, appGUI);
+    } else {
+        gui_display_kana_choices (appGUI->tst->questions_table[appGUI->tst->question_counter], config.kana_mode, appGUI);
+    }
     gui_set_progress (appGUI);
 
     appGUI->time_counter = 0;
@@ -250,10 +261,12 @@ gui_disable_test (GUI *appGUI) {
     gtk_widget_show (appGUI->label_ka);
     gtk_widget_show (appGUI->combobox_lesson);
     gtk_widget_show (appGUI->label_le);
+    gtk_widget_show (appGUI->combobox_test_mode);
 #else
     gtk_widget_show (appGUI->logo_area);
 #endif
     gtk_widget_hide (appGUI->char_label);
+    gtk_widget_hide (appGUI->kana_choices_area);
 
     gui_set_widgets_status (TRUE, appGUI);
 
@@ -276,12 +289,15 @@ gui_set_widgets_status (gboolean mode, GUI *appGUI) {
 
     gtk_widget_set_sensitive (appGUI->romaji_entry, !mode);
     gtk_widget_set_sensitive (appGUI->frame_ro, !mode);
+    gtk_widget_show (appGUI->frame_ro);
 
     if (mode) {
         gtk_widget_show (appGUI->start_button);
         gtk_widget_show (appGUI->quit_button);
         gtk_widget_hide (appGUI->stop_button);
 
+        gtk_widget_show (appGUI->reverse_button);
+        gtk_widget_show (appGUI->vseparator_r);
         gtk_widget_show (appGUI->stat_button);
         gtk_widget_show (appGUI->about_button);
         gtk_widget_show (appGUI->prefs_button);
@@ -294,6 +310,8 @@ gui_set_widgets_status (gboolean mode, GUI *appGUI) {
         gtk_widget_hide (appGUI->quit_button);
         gtk_widget_show (appGUI->stop_button);
 
+        gtk_widget_hide (appGUI->reverse_button);
+        gtk_widget_hide (appGUI->vseparator_r);
         gtk_widget_hide (appGUI->stat_button);
         gtk_widget_hide (appGUI->about_button);
         gtk_widget_hide (appGUI->prefs_button);
@@ -310,10 +328,165 @@ gui_set_widgets_status (gboolean mode, GUI *appGUI) {
 
 /*--------------------------------------------------------------------*/
 
+void 
+gui_show_correct_answer(gint number, GUI *appGUI) {
+    gchar tmp_a[BUFFER_SIZE], tmp_b[BUFFER_SIZE];
+    appGUI->tst->any_key = FALSE;
+
+    gui_display_kana (number, ROMAJI, appGUI);
+    while (g_main_context_iteration (NULL, FALSE));
+
+    if (config.ca_timeout != TO_ANYKEY) {
+
+        g_usleep (config.ca_timeout * 1000000);
+
+    } else {    /* waiting for any key */
+
+        g_strlcpy (tmp_a, gtk_entry_get_text (GTK_ENTRY(appGUI->romaji_entry)), BUFFER_SIZE);
+#ifdef MAEMO
+        g_snprintf (tmp_b, BUFFER_SIZE, "%s <-", tmp_a);
+#else                
+        g_snprintf (tmp_b, BUFFER_SIZE, "%s (Press any key)", tmp_a);
+#endif                                
+        gtk_entry_set_max_length (GTK_ENTRY(appGUI->romaji_entry), 32);
+
+        while (appGUI->tst->any_key != TRUE && appGUI->tst->test_state != FALSE) {
+            gtk_entry_set_text (GTK_ENTRY(appGUI->romaji_entry), tmp_b);
+            while (g_main_context_iteration (NULL, FALSE));
+            g_usleep (250000);
+            if (appGUI->tst->any_key) {
+                break;
+            }
+            gtk_entry_set_text (GTK_ENTRY(appGUI->romaji_entry), tmp_a);
+            while (g_main_context_iteration (NULL, FALSE));
+            g_usleep (200000);
+        }
+
+        gtk_entry_set_max_length (GTK_ENTRY(appGUI->romaji_entry), 3);
+        gtk_entry_set_text (GTK_ENTRY(appGUI->romaji_entry), tmp_a);
+        while (g_main_context_iteration (NULL, FALSE));
+    }
+}
+
+
+/*--------------------------------------------------------------------*/
+
+void 
+gui_set_button_kana (gint button_number, gint kana_number, gint mode, GUI *appGUI) {
+    gchar *character;
+    GtkWidget *button;
+    gint *number_ptr;
+    GtkWidget *label;
+    gchar tmpbuf[BUFFER_SIZE];
+    
+    switch (mode) {
+        case HIRAGANA:
+            if (kana_number >= MIXED_SEPARATOR) {
+                kana_number -= MIXED_SEPARATOR;
+            }
+            character = get_kana_sign(kana_number, HIRAGANA, TRUE);
+            appGUI->old_kana_type = HIRAGANA;
+            break;
+        case KATAKANA:
+            if (kana_number >= MIXED_SEPARATOR) {
+                kana_number -= MIXED_SEPARATOR;
+            }
+            character = get_kana_sign(kana_number, KATAKANA, TRUE);
+            appGUI->old_kana_type = KATAKANA;
+            break;
+        case MIXED:
+            if (kana_number >= MIXED_SEPARATOR) {
+                character = get_kana_sign((kana_number-MIXED_SEPARATOR), KATAKANA, TRUE);
+                appGUI->old_kana_type = KATAKANA;
+            } else {
+                character = get_kana_sign(kana_number, HIRAGANA, TRUE);
+                appGUI->old_kana_type = HIRAGANA;
+            }
+            break;
+        default:
+            g_warning ("Invalid mode selected.");
+            break;
+    }
+
+    button = appGUI->kana_choices[button_number];
+    number_ptr = (gint*)g_malloc(sizeof(gint));
+    *number_ptr = kana_number;
+    
+    g_object_set_data_full(G_OBJECT(button), "kana_number", number_ptr, (GDestroyNotify)g_free);
+    
+    switch (mode) {
+        case HIRAGANA:
+            if (kana_number >= MIXED_SEPARATOR) {
+                kana_number -= MIXED_SEPARATOR;
+            }
+            g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='25' face='%s' color='%s'>%s</span>",
+                        config.kana_font_face,
+                        config.kana_color,
+                        get_kana_sign(kana_number, HIRAGANA, TRUE));
+            appGUI->old_kana_type = HIRAGANA;
+            break;
+        case KATAKANA:
+            if (kana_number >= MIXED_SEPARATOR) {
+                kana_number -= MIXED_SEPARATOR;
+            }
+            g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='25' face='%s' color='%s'>%s</span>",
+                        config.kana_font_face,
+                        config.kana_color,
+                        get_kana_sign(kana_number, KATAKANA, TRUE));
+            appGUI->old_kana_type = KATAKANA;
+            break;
+       case MIXED:
+            if (kana_number >= MIXED_SEPARATOR) {
+                g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='25' face='%s' color='%s'>%s</span>",
+                                                 config.kana_font_face,
+                                                 config.kana_color,
+                                                 get_kana_sign((kana_number-MIXED_SEPARATOR), KATAKANA, TRUE));
+                appGUI->old_kana_type = KATAKANA;
+            } else {
+                g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='25' face='%s' color='%s'>%s</span>",
+                                                 config.kana_font_face,
+                                                 config.kana_color,
+                                                 get_kana_sign(kana_number, HIRAGANA, TRUE));
+                appGUI->old_kana_type = HIRAGANA;
+            }
+            break;
+        default:
+            g_warning ("Invalid mode selected.");
+            break;
+    }
+    
+    gtk_button_set_label(GTK_BUTTON(button), character);
+    label = gtk_bin_get_child(GTK_BIN(button));
+    gtk_label_set_markup (GTK_LABEL (label), tmpbuf);
+    
+    gtk_widget_show(appGUI->kana_choices[button_number]);
+}
+
+/*--------------------------------------------------------------------*/
+
+void 
+gui_disable_buttons(gint first_button, GUI *appGUI) {
+    gint i;
+    for (i = first_button; i < KANA_MAX_CHOICES; i++) {
+        gtk_widget_hide(appGUI->kana_choices[i]);
+    }
+}
+
+/*--------------------------------------------------------------------*/
+
+void
+gui_next_text_question (gint number, gint mode, GUI *appGUI) {
+    gui_display_kana (number, mode, appGUI);
+    gtk_widget_show (GTK_WIDGET (appGUI->frame_ro) );
+}
+
+/*--------------------------------------------------------------------*/
+
 void
 gui_display_kana (gint number, gint mode, GUI *appGUI) {
 
 gchar tmpbuf[BUFFER_SIZE], letbuf[BUFFER_SIZE];
+gint kh_romaji;
 
     switch (mode) {
         case HIRAGANA:
@@ -339,25 +512,28 @@ gchar tmpbuf[BUFFER_SIZE], letbuf[BUFFER_SIZE];
         case ROMAJI:
             if (number >= MIXED_SEPARATOR) {
                 number -= MIXED_SEPARATOR;
+                kh_romaji = KATAKANA;
+            } else {
+                kh_romaji = HIRAGANA;
             }
 
             g_snprintf (letbuf, BUFFER_SIZE, "%s", get_kana_sign(number, ROMAJI, TRUE));
 
-            if (appGUI->old_kana_type == HIRAGANA) {
-                g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='60' face='%s' color='%s'>%s</span>"
+            if (config.test_mode == TRUE && config.kana_mode == MIXED) {
+                g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='60' face='%s' color='%s'>%s </span>"
                                                  "<span font_desc='40' face='%s' color='%s'>(%s)</span>",
                                                  config.kana_font_face,
                                                  config.kana_color,
-                                                 get_kana_sign(number, HIRAGANA, TRUE),
+                                                 get_kana_sign(number, kh_romaji, TRUE),
                                                  config.kana_font_face,
                                                  config.romaji_color,
                                                  letbuf);
-            } else if (appGUI->old_kana_type == KATAKANA) {
-                g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='60' face='%s' color='%s'>%s</span>"
+            } else if (appGUI->old_kana_type == HIRAGANA || appGUI->old_kana_type == KATAKANA) {
+                g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='60' face='%s' color='%s'>%s </span>"
                                                  "<span font_desc='40' face='%s' color='%s'>(%s)</span>",
                                                  config.kana_font_face,
                                                  config.kana_color,
-                                                 get_kana_sign(number, KATAKANA, TRUE),
+                                                 get_kana_sign(number, appGUI->old_kana_type, TRUE),
                                                  config.kana_font_face,
                                                  config.romaji_color,
                                                  letbuf);
@@ -387,9 +563,43 @@ gchar tmpbuf[BUFFER_SIZE], letbuf[BUFFER_SIZE];
             g_warning ("Invalid mode selected.");
             break;
     }
-
+    gtk_widget_set_sensitive (appGUI->kana_choices_area, FALSE);
     gtk_label_set_markup (GTK_LABEL (appGUI->char_label), tmpbuf);
 }
+
+/*--------------------------------------------------------------------*/
+
+void
+gui_display_kana_choices (gint number, gint mode, GUI *appGUI) {
+    gchar tmpbuf[BUFFER_SIZE];
+    gchar kana_char;
+
+    if (mode != MIXED) {
+        kana_char = (mode == HIRAGANA) ? 'H' : 'K';
+    } else {
+        kana_char = (number >= MIXED_SEPARATOR) ? 'K' : 'H';
+    }
+
+    if (number >= MIXED_SEPARATOR) {
+        g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='50' face='%s' color='%s'>%s (%c)</span>",
+                                         config.kana_font_face,
+                                         config.kana_color,
+                                         get_kana_sign(number - MIXED_SEPARATOR, ROMAJI, TRUE), kana_char);
+    } else {
+        g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='50' face='%s' color='%s'>%s (%c)</span>",
+                                         config.kana_font_face,
+                                         config.kana_color,
+                                         get_kana_sign(number, ROMAJI, TRUE), kana_char);
+    }
+    
+    test_generate_choices(number, appGUI);
+    
+    gtk_widget_hide(GTK_WIDGET(appGUI->frame_ro));
+    gtk_widget_show(appGUI->kana_choices_area);
+    gtk_widget_set_sensitive (appGUI->kana_choices_area, TRUE);
+    gtk_label_set_markup (GTK_LABEL (appGUI->char_label), tmpbuf);
+}
+
 
 /*--------------------------------------------------------------------*/
 
@@ -488,7 +698,16 @@ gui_mw_key_press_cb (GtkWidget *widget, GdkEventKey *event, gpointer user_data) 
     appGUI->tst->any_key = TRUE;
     return FALSE;
 }
+/*--------------------------------------------------------------------*/
 
+void gui_kana_choice_cb(GtkWidget *widget, gpointer user_data) {
+    GUI *appGUI = (GUI *)user_data;
+    gint *number = (gint*)g_object_get_data(G_OBJECT(widget), "kana_number");
+
+    if (number) {
+        test_check_choice(*number, appGUI);
+    }
+}
 /*--------------------------------------------------------------------*/
 
 void
@@ -536,10 +755,12 @@ GtkWidget       *hbox1;
 GtkWidget       *hbox2;
 GtkWidget       *empty_hbox;
 GtkWidget       *hbuttonbox;
+GtkWidget       *hbuttonbox2;
 GtkWidget       *label;
 GtkWidget       *alignment;
 gint            i;
 gchar           buffer[BUFFER_SIZE];
+GtkWidget       *button;
 #ifdef MAEMO
 HildonGtkInputMode input_mode;
 
@@ -601,17 +822,40 @@ HildonGtkInputMode input_mode;
     appGUI->logo = gdk_pixbuf_new_from_inline (-1, kanatest_logo, FALSE, NULL);
     gtk_widget_show(appGUI->logo_area);
     gtk_widget_set_size_request (appGUI->logo_area, -1, 255);  /* logo height */
-    gtk_box_pack_start (GTK_BOX (vbox1), appGUI->logo_area, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox1), appGUI->logo_area, TRUE, FALSE, 0);
     gtk_image_set_from_pixbuf (GTK_IMAGE (appGUI->logo_area), appGUI->logo);
 
     appGUI->char_label = gtk_label_new (NULL);
     gtk_widget_set_size_request (appGUI->char_label, -1, 255);  /* logo height */
-    gtk_box_pack_start (GTK_BOX (vbox1), appGUI->char_label, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox1), appGUI->char_label, TRUE, FALSE, 0);
 #else
     appGUI->char_label = gtk_label_new (NULL);
     gtk_widget_set_size_request (appGUI->char_label, -1, 150);
     gtk_box_pack_start (GTK_BOX (vbox1), appGUI->char_label, FALSE, FALSE, 0);
 #endif
+
+    appGUI->kana_choices_area = gtk_vbox_new(TRUE, 0);
+    
+    hbuttonbox = gtk_hbox_new(TRUE, 0);
+    gtk_widget_show(GTK_WIDGET(hbuttonbox));
+    gtk_box_pack_start(GTK_BOX(appGUI->kana_choices_area), hbuttonbox, TRUE, TRUE, 0);
+
+    for (i = 0; i < KANA_MAX_CHOICES; i++) {
+        button = gtk_button_new();
+#if GTK_CHECK_VERSION(2,17,5)
+        gtk_widget_set_can_focus (button, FALSE);
+#else
+        GTK_WIDGET_UNSET_FLAGS (button, GTK_CAN_FOCUS);
+#endif 
+        gtk_widget_show(GTK_WIDGET(button));
+        appGUI->kana_choices[i] = button;
+        g_signal_connect(G_OBJECT(button), "clicked",
+                         G_CALLBACK(gui_kana_choice_cb), appGUI);
+        gtk_box_pack_start(GTK_BOX(hbuttonbox), button, TRUE, TRUE, 0);
+    }
+
+    gtk_box_pack_start (GTK_BOX (vbox1), appGUI->kana_choices_area, FALSE, FALSE, 0);
+
     appGUI->hseparator_up = gtk_hseparator_new ();
     gtk_widget_show (appGUI->hseparator_up);
     gtk_box_pack_start (GTK_BOX (vbox1), appGUI->hseparator_up, FALSE, TRUE, 0);
@@ -687,7 +931,25 @@ HildonGtkInputMode input_mode;
     appGUI->timer_label = gtk_label_new (NULL);
     gtk_widget_set_size_request (appGUI->timer_label, -1, 34);  /* icon height */
     gtk_box_pack_start (GTK_BOX (hbox2), appGUI->timer_label, TRUE, TRUE, 0);
+
 #ifndef MAEMO
+    appGUI->reverse_button = gui_stock_label_togglebutton(NULL, GTK_STOCK_REFRESH);
+#if GTK_CHECK_VERSION(2,17,5)
+    gtk_widget_set_can_focus (appGUI->reverse_button, FALSE);
+#else
+    GTK_WIDGET_UNSET_FLAGS (appGUI->reverse_button, GTK_CAN_FOCUS);
+#endif 
+    g_signal_connect (G_OBJECT (appGUI->reverse_button), "toggled",
+                        G_CALLBACK (toggle_reverse_mode_cb), appGUI);
+    gtk_widget_show (appGUI->reverse_button);
+    gtk_box_pack_start (GTK_BOX (hbox2), appGUI->reverse_button, FALSE, FALSE, 0);
+    gtk_container_set_border_width (GTK_CONTAINER (appGUI->reverse_button), 2);
+    gtk_widget_set_tooltip_text (appGUI->reverse_button, _("Reverse mode"));
+
+    appGUI->vseparator_r = gtk_vseparator_new ();
+    gtk_widget_show (appGUI->vseparator_r);
+    gtk_box_pack_start (GTK_BOX (hbox2), appGUI->vseparator_r, FALSE, FALSE, 4);
+
     appGUI->stat_button = gui_stock_label_button(NULL, KANATEST_STOCK_BUTTON_STATISTICS);
 #if GTK_CHECK_VERSION(2,17,5)
     gtk_widget_set_can_focus (appGUI->stat_button, FALSE);
@@ -792,6 +1054,7 @@ HildonGtkInputMode input_mode;
                          G_CALLBACK (gui_combobox_kana_handler_cb), NULL);
      hildon_touch_selector_set_active (HILDON_TOUCH_SELECTOR (appGUI->label_ka), 0, config.kana_mode - HIRAGANA);
 #endif
+
     frame = gtk_frame_new (NULL);
     gtk_widget_show (frame);
     gtk_box_pack_end (GTK_BOX (hbox1), frame, FALSE, FALSE, 8);
@@ -801,6 +1064,7 @@ HildonGtkInputMode input_mode;
     gtk_widget_show (alignment);
     gtk_container_add (GTK_CONTAINER (frame), alignment);
     gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 0, 0, 12, 0);
+    
 #ifndef MAEMO
     appGUI->combobox_lesson = gtk_combo_box_new_text ();
     gtk_widget_show (appGUI->combobox_lesson);
@@ -842,6 +1106,17 @@ HildonGtkInputMode input_mode;
 
      hildon_touch_selector_set_active (HILDON_TOUCH_SELECTOR (appGUI->label_le), 0, config.kana_set);
 #endif
+
+    frame = gtk_frame_new (NULL);
+    gtk_widget_show (frame);
+    gtk_box_pack_end (GTK_BOX (hbox1), frame, FALSE, FALSE, 8);
+    gtk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_NONE);
+
+    alignment = gtk_alignment_new (0.5, 0.5, 1, 1);
+    gtk_widget_show (alignment);
+    gtk_container_add (GTK_CONTAINER (frame), alignment);
+    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 0, 0, 12, 0);
+
     hbuttonbox = gtk_hbutton_box_new ();
     gtk_widget_show (hbuttonbox);
     gtk_box_pack_start (GTK_BOX (vbox0), hbuttonbox, FALSE, TRUE, 0);
@@ -947,6 +1222,7 @@ HildonGtkInputMode input_mode;
 #ifndef MAEMO
     gtk_combo_box_set_active (GTK_COMBO_BOX (appGUI->combobox_lesson), config.kana_set);
     gtk_combo_box_set_active (GTK_COMBO_BOX (appGUI->combobox_kana_mode), config.kana_mode - HIRAGANA);
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (appGUI->reverse_button), config.test_mode);
 #endif
     gui_url_initialize(appGUI);
 }

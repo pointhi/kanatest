@@ -22,7 +22,7 @@
 #ifndef _STATS_H
 #define _STATS_H
 
-#define NUMBER_OF_COLUMNS   8
+#define NUMBER_OF_COLUMNS   9
 
 #define STATS_NAME          "kanatest_stats"
 #define STATS_FILENAME      "statistics.xml"
@@ -44,6 +44,7 @@ typedef struct {
     guint date_year;
     guint date_hour;
     guint date_minute;
+    guint test_type;
     guint test_mode;
     guint test_time;
     guint test_kana_set;

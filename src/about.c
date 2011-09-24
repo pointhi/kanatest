@@ -113,6 +113,7 @@ gchar text_contributors[] = {
     "                Miyako Miyamura\n"
     "                Wen-Yen Chuang\n"
     "                Jakub Zawadzki\n"
+	"                rhn (Reverse mode)\n"
 };
 
 gchar text_postcards_address[] = {

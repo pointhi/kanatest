@@ -56,6 +56,7 @@ prefs_set_default_values (void) {
 #endif    
     config.repeat_mode = REPEAT_NONE;
     config.kana_mode = HIRAGANA;
+    config.test_mode = NORMAL;
     config.kana_set = 0;            /* all kanas */
     config.ca_timeout = 1;          /* 1 sec */
 #ifndef MAEMO
@@ -160,6 +161,13 @@ xmlChar *key;
                     key = xmlNodeListGetString (doc, node->xmlChildrenNode, 1);
                     if (key != NULL)
                             sscanf ((gchar *) key, "%d", &config.kana_mode);
+                    xmlFree (key);
+                }
+
+				if ((!xmlStrcmp (node->name, (const xmlChar *) "test_mode"))) {
+                    key = xmlNodeListGetString (doc, node->xmlChildrenNode, 1);
+                    if (key != NULL)
+                            sscanf ((gchar *) key, "%d", &config.test_mode);
                     xmlFree (key);
                 }
 
@@ -349,6 +357,8 @@ gchar temp[BUFFER_SIZE];
     xmlNewTextChild (node, NULL, (const xmlChar *) "repeat_mode", (xmlChar *) temp);
     g_snprintf (temp, BUFFER_SIZE, "%d", config.kana_mode);
     xmlNewTextChild (node, NULL, (const xmlChar *) "kana_mode", (xmlChar *) temp);
+    g_snprintf (temp, BUFFER_SIZE, "%d", config.test_mode);
+    xmlNewTextChild (node, NULL, (const xmlChar *) "test_mode", (xmlChar *) temp);
     g_snprintf (temp, BUFFER_SIZE, "%d", config.kana_set);
     xmlNewTextChild (node, NULL, (const xmlChar *) "kana_set", (xmlChar *) temp);
     g_snprintf (temp, BUFFER_SIZE, "%d", config.ca_timeout);
