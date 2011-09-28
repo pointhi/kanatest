@@ -33,7 +33,8 @@ about_window_close_cb (GtkWidget *widget, GdkEvent *event, gpointer user_data) {
 
     GUI *appGUI = (GUI *)user_data;
 #ifdef MAEMO
-    gui_url_remove_links (&appGUI->about_links_list, &appGUI->about_link_index);
+    gui_url_remove_links (&appGUI->about_links_list_main, &appGUI->about_link_index_main);
+    gui_url_remove_links (&appGUI->about_links_list_postcards, &appGUI->about_link_index_postcards);
 
     hildon_window_stack_pop_1 (hildon_window_stack_get_default());
     appGUI->about_window = NULL;
@@ -41,7 +42,8 @@ about_window_close_cb (GtkWidget *widget, GdkEvent *event, gpointer user_data) {
     gdk_window_get_root_origin (gtk_widget_get_window(appGUI->about_window),
                                 &config.about_window_x, &config.about_window_y);
 
-    gui_url_remove_links (&appGUI->about_links_list, &appGUI->about_link_index);
+    gui_url_remove_links (&appGUI->about_links_list_main, &appGUI->about_link_index_main);
+    gui_url_remove_links (&appGUI->about_links_list_postcards, &appGUI->about_link_index_postcards);
 
     gtk_widget_destroy (appGUI->about_window);
 #endif
@@ -113,7 +115,7 @@ gchar text_contributors[] = {
     "                Miyako Miyamura\n"
     "                Wen-Yen Chuang\n"
     "                Jakub Zawadzki\n"
-	"                rhn (Reverse mode)\n"
+    "                rhn (Reverse mode)\n"
 };
 
 gchar text_postcards_address[] = {
@@ -266,7 +268,7 @@ gchar *translators[] = {
     gtk_widget_show (appGUI->about_textview);
     gtk_container_add (GTK_CONTAINER (viewport), appGUI->about_textview);
 
-    gui_url_setup (&appGUI->about_links_list, &appGUI->about_link_index, appGUI->about_textview, appGUI);
+    gui_url_setup (&appGUI->about_links_list_main, &appGUI->about_link_index_main, appGUI->about_textview, appGUI);
 
     gtk_text_buffer_insert (entry_buffer, &iter, "\n", -1);
 #ifdef MAEMO
@@ -282,7 +284,7 @@ gchar *translators[] = {
                         buffer, -1, "big", "center", NULL);
 
     gtk_text_buffer_insert (entry_buffer, &iter, "\n", -1);
-    gui_url_insert_link(&appGUI->about_links_list, &appGUI->about_link_index, appGUI->about_textview,
+    gui_url_insert_link(&appGUI->about_links_list_main, &appGUI->about_link_index_main, appGUI->about_textview,
                         &iter, NULL, 0, "http://clayo.org/kanatest", TRUE, appGUI);
     gtk_text_buffer_insert (entry_buffer, &iter, "\n", -1);
     g_snprintf (buffer, BUFFER_SIZE, "\n(%s %s, %s)\n\n", _("compiled on"), __DATE__, __TIME__);
@@ -291,18 +293,18 @@ gchar *translators[] = {
     g_snprintf (buffer, BUFFER_SIZE, "\n%s:\n", _("Programming"));
     gtk_text_buffer_insert_with_tags_by_name (entry_buffer, &iter, buffer, -1, "bold", NULL);
     gtk_text_buffer_insert (entry_buffer, &iter, "     Tomasz Mąka <", -1);
-    gui_url_insert_link (&appGUI->about_links_list, &appGUI->about_link_index, appGUI->about_textview,
+    gui_url_insert_link (&appGUI->about_links_list_main, &appGUI->about_link_index_main, appGUI->about_textview,
                          &iter, NULL, 0, "pasp@users.sourceforge.net", TRUE, appGUI);
     gtk_text_buffer_insert (entry_buffer, &iter, ">\n", -1);
 
     g_snprintf (buffer, BUFFER_SIZE, "\n%s:\n", _("Graphics"));
     gtk_text_buffer_insert_with_tags_by_name (entry_buffer, &iter, buffer, -1, "bold", NULL);
     gtk_text_buffer_insert (entry_buffer, &iter, "     Maja Kocoń (", -1);
-    gui_url_insert_link (&appGUI->about_links_list, &appGUI->about_link_index, appGUI->about_textview,
+    gui_url_insert_link (&appGUI->about_links_list_main, &appGUI->about_link_index_main, appGUI->about_textview,
                          &iter, NULL, 0, "http://pinky-babble.org", TRUE, appGUI);
     gtk_text_buffer_insert (entry_buffer, &iter, ")\n", -1);
     gtk_text_buffer_insert (entry_buffer, &iter, "     Piotr Mąka <", -1);
-    gui_url_insert_link (&appGUI->about_links_list, &appGUI->about_link_index, appGUI->about_textview,
+    gui_url_insert_link (&appGUI->about_links_list_main, &appGUI->about_link_index_main, appGUI->about_textview,
                          &iter, NULL, 0, "silloz@users.sourceforge.net", TRUE, appGUI);
     gtk_text_buffer_insert (entry_buffer, &iter, ">\n", -1);
 
@@ -324,7 +326,7 @@ gchar *translators[] = {
         }
         g_snprintf (buffer, BUFFER_SIZE, "%s <", translators[i*3+1]);
         gtk_text_buffer_insert (entry_buffer, &iter, buffer, -1);
-        gui_url_insert_link (&appGUI->about_links_list, &appGUI->about_link_index, appGUI->about_textview,
+        gui_url_insert_link (&appGUI->about_links_list_main, &appGUI->about_link_index_main, appGUI->about_textview,
                              &iter, NULL, 0, translators[i*3+2], TRUE, appGUI);
         gtk_text_buffer_insert (entry_buffer, &iter, ">\n", -1);
     }
@@ -425,6 +427,9 @@ gchar *translators[] = {
     gtk_widget_show (text_sheet);
     gtk_container_add (GTK_CONTAINER (viewport), text_sheet);
 
+    gui_url_setup (&appGUI->about_links_list_postcards, &appGUI->about_link_index_postcards, 
+                   text_sheet, appGUI);
+
     g_snprintf (buffer, BUFFER_SIZE, "%s:\n\n",
                 _("If you like our program, send a postcard with a photo of the city where you live to"));
     gtk_text_buffer_insert (entry_buffer, &iter, buffer, -1);
@@ -436,6 +441,11 @@ gchar *translators[] = {
     gtk_text_buffer_insert (entry_buffer, &iter, buffer, -1);
 
     gtk_text_buffer_insert (entry_buffer, &iter, text_received_postcards, -1);
+
+    gtk_text_buffer_insert (entry_buffer, &iter, "\n", -1);
+    gui_url_insert_link(&appGUI->about_links_list_postcards, &appGUI->about_link_index_postcards, text_sheet,
+                        &iter, NULL, 0, "http://clayo.org/kanatest/postcards", TRUE, appGUI);
+    gtk_text_buffer_insert (entry_buffer, &iter, "\n", -1);
 
     g_snprintf (buffer, BUFFER_SIZE, "\n%s\n",
                 _("Your postcards are a kind of motivation that encourages us to keep improving Kanatest :)"));

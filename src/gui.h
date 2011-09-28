@@ -198,8 +198,10 @@ typedef struct {
 
     GtkWidget       *about_window;
     GtkWidget       *about_textview;
-    gint            about_link_index;
-    GSList          about_links_list;
+    gint            about_link_index_main;
+    GSList          about_links_list_main;
+    gint            about_link_index_postcards;
+    GSList          about_links_list_postcards;
 
     GdkPixbuf       *icon;
     GdkPixbuf       *logo;
