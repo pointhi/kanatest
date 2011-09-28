@@ -6,10 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kanatest 0.4.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-12 13:48+0200\n"
+"POT-Creation-Date: 2011-09-28 10:06+0200\n"
 "PO-Revision-Date: 2009-04-05 17:07-0000\n"
 "Last-Translator: Jacopo Farina <jacopo.farina@email.it>\n"
 "Language-Team: Italian\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -87,6 +88,10 @@ msgstr "Seleziona il tipo di test, il set di Kana e premi START"
 msgid "Romaji"
 msgstr "Romaji"
 
+#, fuzzy
+msgid "Reverse mode"
+msgstr "Tipo di test"
+
 msgid "Statistics"
 msgstr "Statistiche"
 
@@ -117,6 +122,21 @@ msgstr "Esci"
 msgid "Exit!"
 msgstr "Esci!"
 
+msgid "All"
+msgstr "Tutti"
+
+msgid "None"
+msgstr "Nessuno"
+
+msgid "Invert"
+msgstr "Inverti"
+
+msgid "Statistics based selection"
+msgstr "Selezione basata sulle statistiche"
+
+msgid "Select"
+msgstr "Selezionare"
+
 msgid "Select kana font"
 msgstr "Scegli font per i Kana"
 
@@ -134,9 +154,6 @@ msgid_plural "kanas found"
 msgstr[0] "kana trovato"
 msgstr[1] "kanas trovati"
 
-msgid "Statistics based selection"
-msgstr "Selezione basata sulle statistiche"
-
 msgid "From"
 msgstr "Da"
 
@@ -148,9 +165,6 @@ msgstr "fascia percentuale"
 
 msgid "Kanas"
 msgstr "Kana"
-
-msgid "Select"
-msgstr "Selezionare"
 
 msgid "General"
 msgstr "Generale"
@@ -228,14 +242,16 @@ msgstr "Kana selezionati"
 msgid "Display as"
 msgstr "Mostra come"
 
-msgid "All"
-msgstr "Tutti"
+#, fuzzy
+msgid "Hiragana + Romaji"
+msgstr "Hiragana"
 
-msgid "None"
-msgstr "Nessuno"
+#, fuzzy
+msgid "Katakana + Romaji"
+msgstr "Katakana"
 
-msgid "Invert"
-msgstr "Inverti"
+msgid "Reset"
+msgstr "Reimposta"
 
 msgid "Please select options"
 msgstr "Seleziona le opzioni"
@@ -254,6 +270,10 @@ msgstr "I dati non possono essere recuperati. Continuare ?"
 
 msgid "Date"
 msgstr "imposta"
+
+#, fuzzy
+msgid "Test type"
+msgstr "Durata"
 
 msgid "Test time"
 msgstr "Durata"
@@ -276,9 +296,6 @@ msgstr "Lezioni"
 msgid "Graph"
 msgstr "Grafico"
 
-msgid "Reset"
-msgstr "Reimposta"
-
 msgid "RW"
 msgstr "RS"
 
@@ -290,6 +307,12 @@ msgstr "Tabella"
 
 msgid "Mixed"
 msgstr "Mescolati"
+
+msgid "Normal"
+msgstr ""
+
+msgid "Reverse"
+msgstr ""
 
 msgid "All kanas"
 msgstr "Tutti i kana"

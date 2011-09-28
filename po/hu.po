@@ -9,10 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: revision_28__hu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-12 13:48+0200\n"
+"POT-Creation-Date: 2011-09-28 10:06+0200\n"
 "PO-Revision-Date: 2010-01-12 03:56+0100\n"
 "Last-Translator: \n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -91,6 +92,10 @@ msgstr "Válassz teszt üzemmódot, kana készletet és indíts a START-tal"
 msgid "Romaji"
 msgstr "Romaji"
 
+#, fuzzy
+msgid "Reverse mode"
+msgstr "Teszt üzemmód"
+
 msgid "Statistics"
 msgstr "Statisztikák"
 
@@ -121,6 +126,21 @@ msgstr "Kilépés"
 msgid "Exit!"
 msgstr "Exit!"
 
+msgid "All"
+msgstr "Összes"
+
+msgid "None"
+msgstr "Egy sem"
+
+msgid "Invert"
+msgstr "Invertálás"
+
+msgid "Statistics based selection"
+msgstr "Statisztika-alapú kiválasztás"
+
+msgid "Select"
+msgstr "Kijelölés"
+
 msgid "Select kana font"
 msgstr "Válassz kana betűkészletet"
 
@@ -139,9 +159,6 @@ msgid_plural "kanas found"
 msgstr[0] "kana megtalálva"
 msgstr[1] "kana megtalálva"
 
-msgid "Statistics based selection"
-msgstr "Statisztika-alapú kiválasztás"
-
 msgid "From"
 msgstr "Kezdés"
 
@@ -153,9 +170,6 @@ msgstr "Arány tartomány"
 
 msgid "Kanas"
 msgstr "Kanák"
-
-msgid "Select"
-msgstr "Kijelölés"
 
 msgid "General"
 msgstr "Általános"
@@ -229,14 +243,16 @@ msgstr "Kijelölt kana jelek"
 msgid "Display as"
 msgstr "Ábrázolásmód"
 
-msgid "All"
-msgstr "Összes"
+#, fuzzy
+msgid "Hiragana + Romaji"
+msgstr "Hiragana"
 
-msgid "None"
-msgstr "Egy sem"
+#, fuzzy
+msgid "Katakana + Romaji"
+msgstr "Katakana"
 
-msgid "Invert"
-msgstr "Invertálás"
+msgid "Reset"
+msgstr "Visszaállítás"
 
 msgid "Please select options"
 msgstr "Válassz opciót"
@@ -255,6 +271,10 @@ msgstr "Egyéb javításra nincsen mód. Folytassam ?"
 
 msgid "Date"
 msgstr "Dátum"
+
+#, fuzzy
+msgid "Test type"
+msgstr "Teszt időtartam"
 
 msgid "Test time"
 msgstr "Teszt időtartam"
@@ -277,9 +297,6 @@ msgstr "Leckék"
 msgid "Graph"
 msgstr "Görbe"
 
-msgid "Reset"
-msgstr "Visszaállítás"
-
 msgid "RW"
 msgstr "RW"
 
@@ -291,6 +308,12 @@ msgstr "Grafikon"
 
 msgid "Mixed"
 msgstr "Keverve"
+
+msgid "Normal"
+msgstr ""
+
+msgid "Reverse"
+msgstr ""
 
 msgid "All kanas"
 msgstr "Minden kana jel"

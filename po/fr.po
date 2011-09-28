@@ -9,10 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kanatest 0.4.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-12 13:48+0200\n"
+"POT-Creation-Date: 2011-09-28 10:06+0200\n"
 "PO-Revision-Date: 2008-11-29 18:13+0100\n"
 "Last-Translator: Adrian Courrèges <a.courreges@gmail.com>\n"
 "Language-Team: French\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -90,6 +91,10 @@ msgstr "Sélectionnez le mode, la série de kanas et appuyez sur DÉMARRER"
 msgid "Romaji"
 msgstr "Rōmaji "
 
+#, fuzzy
+msgid "Reverse mode"
+msgstr "Mode de test "
+
 msgid "Statistics"
 msgstr "Statistiques"
 
@@ -120,6 +125,21 @@ msgstr "Quitter"
 msgid "Exit!"
 msgstr "Sortie !"
 
+msgid "All"
+msgstr "Tout"
+
+msgid "None"
+msgstr "Aucun"
+
+msgid "Invert"
+msgstr "Inverser"
+
+msgid "Statistics based selection"
+msgstr "Sélection basée sur les statistiques"
+
+msgid "Select"
+msgstr "Sélectionner "
+
 msgid "Select kana font"
 msgstr "Choisir la police des kanas"
 
@@ -138,9 +158,6 @@ msgid_plural "kanas found"
 msgstr[0] "kanas trouvés"
 msgstr[1] "kanas trouvés"
 
-msgid "Statistics based selection"
-msgstr "Sélection basée sur les statistiques"
-
 msgid "From"
 msgstr "De"
 
@@ -152,9 +169,6 @@ msgstr "Taux de réussite"
 
 msgid "Kanas"
 msgstr "Kanas"
-
-msgid "Select"
-msgstr "Sélectionner "
 
 msgid "General"
 msgstr "Général"
@@ -231,14 +245,16 @@ msgstr "Kanas sélectionnés "
 msgid "Display as"
 msgstr "Afficher sous forme de "
 
-msgid "All"
-msgstr "Tout"
+#, fuzzy
+msgid "Hiragana + Romaji"
+msgstr "Hiragana"
 
-msgid "None"
-msgstr "Aucun"
+#, fuzzy
+msgid "Katakana + Romaji"
+msgstr "Katakana"
 
-msgid "Invert"
-msgstr "Inverser"
+msgid "Reset"
+msgstr "Effacer"
 
 msgid "Please select options"
 msgstr "Veuillez sélectionner vos choix "
@@ -257,6 +273,10 @@ msgstr "La suppression sera définitive. Continuer ?"
 
 msgid "Date"
 msgstr "Date"
+
+#, fuzzy
+msgid "Test type"
+msgstr "Durée du test"
 
 msgid "Test time"
 msgstr "Durée du test"
@@ -280,9 +300,6 @@ msgstr "Leçons"
 msgid "Graph"
 msgstr "Graphiques "
 
-msgid "Reset"
-msgstr "Effacer"
-
 msgid "RW"
 msgstr "Rép. F"
 
@@ -294,6 +311,12 @@ msgstr "Table"
 
 msgid "Mixed"
 msgstr "Mixte"
+
+msgid "Normal"
+msgstr ""
+
+msgid "Reverse"
+msgstr ""
 
 msgid "All kanas"
 msgstr "Tous les kanas"

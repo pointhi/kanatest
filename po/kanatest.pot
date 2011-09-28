@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-12 13:48+0200\n"
+"POT-Creation-Date: 2011-09-28 10:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -83,6 +84,9 @@ msgstr ""
 msgid "Romaji"
 msgstr ""
 
+msgid "Reverse mode"
+msgstr ""
+
 msgid "Statistics"
 msgstr ""
 
@@ -113,6 +117,21 @@ msgstr ""
 msgid "Exit!"
 msgstr ""
 
+msgid "All"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Invert"
+msgstr ""
+
+msgid "Statistics based selection"
+msgstr ""
+
+msgid "Select"
+msgstr ""
+
 msgid "Select kana font"
 msgstr ""
 
@@ -130,9 +149,6 @@ msgid_plural "kanas found"
 msgstr[0] ""
 msgstr[1] ""
 
-msgid "Statistics based selection"
-msgstr ""
-
 msgid "From"
 msgstr ""
 
@@ -143,9 +159,6 @@ msgid "Ratio range"
 msgstr ""
 
 msgid "Kanas"
-msgstr ""
-
-msgid "Select"
 msgstr ""
 
 msgid "General"
@@ -218,13 +231,13 @@ msgstr ""
 msgid "Display as"
 msgstr ""
 
-msgid "All"
+msgid "Hiragana + Romaji"
 msgstr ""
 
-msgid "None"
+msgid "Katakana + Romaji"
 msgstr ""
 
-msgid "Invert"
+msgid "Reset"
 msgstr ""
 
 msgid "Please select options"
@@ -243,6 +256,9 @@ msgid "No further recovery will be possible. Continue ?"
 msgstr ""
 
 msgid "Date"
+msgstr ""
+
+msgid "Test type"
 msgstr ""
 
 msgid "Test time"
@@ -266,9 +282,6 @@ msgstr ""
 msgid "Graph"
 msgstr ""
 
-msgid "Reset"
-msgstr ""
-
 msgid "RW"
 msgstr ""
 
@@ -279,6 +292,12 @@ msgid "Chart"
 msgstr ""
 
 msgid "Mixed"
+msgstr ""
+
+msgid "Normal"
+msgstr ""
+
+msgid "Reverse"
 msgstr ""
 
 msgid "All kanas"

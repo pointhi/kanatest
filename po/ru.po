@@ -8,14 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kanatest 0.4.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-12 13:48+0200\n"
+"POT-Creation-Date: 2011-09-28 10:06+0200\n"
 "PO-Revision-Date: 2011-06-01 12:02+0300\n"
 "Last-Translator: Igor Urazov <z0rc3r@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 msgid "About"
 msgstr "О программе"
@@ -32,19 +34,27 @@ msgstr "Рисунки"
 msgid "Translators"
 msgstr "Переводчики"
 
-msgid "We would like to thank the following people for suggestions, bug reports and patches:"
+msgid ""
+"We would like to thank the following people for suggestions, bug reports and "
+"patches:"
 msgstr "Мы благодарим за предложения, отчёты об ошибках и патчи:"
 
 msgid "Contributors"
 msgstr "Помощники"
 
-msgid "If you like our program, send a postcard with a photo of the city where you live to"
-msgstr "Если вам понравилась наша программа, пошлите нам открытку с видом Вашего города"
+msgid ""
+"If you like our program, send a postcard with a photo of the city where you "
+"live to"
+msgstr ""
+"Если вам понравилась наша программа, пошлите нам открытку с видом Вашего "
+"города"
 
 msgid "We have received several postcards from our happy users"
 msgstr "Кое-какие города мы уже видели"
 
-msgid "Your postcards are a kind of motivation that encourages us to keep improving Kanatest :)"
+msgid ""
+"Your postcards are a kind of motivation that encourages us to keep improving "
+"Kanatest :)"
 msgstr "Ваши открытки поддерживают нас в стремлении развивать Канатест :)"
 
 msgid "Thank you!"
@@ -77,6 +87,10 @@ msgstr "Выберите режим тестирования, набор сим�
 msgid "Romaji"
 msgstr "Киридзи"
 
+#, fuzzy
+msgid "Reverse mode"
+msgstr "Режим"
+
 msgid "Statistics"
 msgstr "Статистика"
 
@@ -107,6 +121,21 @@ msgstr "Выход"
 msgid "Exit!"
 msgstr "Выход именно здесь"
 
+msgid "All"
+msgstr "Все"
+
+msgid "None"
+msgstr "Ничего"
+
+msgid "Invert"
+msgstr "Обратить"
+
+msgid "Statistics based selection"
+msgstr "Подборка на основе статистики"
+
+msgid "Select"
+msgstr "Выбрать"
+
 msgid "Select kana font"
 msgstr "Шрифт каны"
 
@@ -125,9 +154,6 @@ msgstr[0] "символ найден"
 msgstr[1] "символа найдено"
 msgstr[2] "символов найдено"
 
-msgid "Statistics based selection"
-msgstr "Подборка на основе статистики"
-
 msgid "From"
 msgstr "От"
 
@@ -140,9 +166,6 @@ msgstr "Правильность"
 msgid "Kanas"
 msgstr "Набор"
 
-msgid "Select"
-msgstr "Выбрать"
-
 msgid "General"
 msgstr "Общие"
 
@@ -152,19 +175,25 @@ msgstr "Варианты прохождения"
 msgid "Display each kana once"
 msgstr "Показывать каждый символ по одному разу"
 
-msgid "When this option is enabled the kanatest will display every question once"
+msgid ""
+"When this option is enabled the kanatest will display every question once"
 msgstr "Символы будут показаны один и только один раз за проход"
 
 msgid "Repeat wrongly-answered questions"
 msgstr "Повторять вопросы с неверными ответами"
 
-msgid "When this option is enabled the kanatest will repeat all wrongly answered questions at the end of test"
-msgstr "Повторять вопросы с неверными ответами в конце теста до тех пор, пока они не станут верными"
+msgid ""
+"When this option is enabled the kanatest will repeat all wrongly answered "
+"questions at the end of test"
+msgstr ""
+"Повторять вопросы с неверными ответами в конце теста до тех пор, пока они не "
+"станут верными"
 
 msgid "Repeat all forever"
 msgstr "Повторять бесконечно"
 
-msgid "When this option is enabled the kanatest will repeat all questions forever"
+msgid ""
+"When this option is enabled the kanatest will repeat all questions forever"
 msgstr "Повторять до ручной остановки"
 
 msgid "Correct answer display timeout"
@@ -209,14 +238,16 @@ msgstr "Выбрано знаков"
 msgid "Display as"
 msgstr "Показывать как"
 
-msgid "All"
-msgstr "Все"
+#, fuzzy
+msgid "Hiragana + Romaji"
+msgstr "Хирагана"
 
-msgid "None"
-msgstr "Ничего"
+#, fuzzy
+msgid "Katakana + Romaji"
+msgstr "Катакана"
 
-msgid "Invert"
-msgstr "Обратить"
+msgid "Reset"
+msgstr "Сбросить"
 
 msgid "Please select options"
 msgstr "Выберите настройки"
@@ -235,6 +266,10 @@ msgstr "Восстановление будет невозможно. Продо
 
 msgid "Date"
 msgstr "Дата"
+
+#, fuzzy
+msgid "Test type"
+msgstr "Время"
 
 msgid "Test time"
 msgstr "Время"
@@ -257,9 +292,6 @@ msgstr "Вопросов"
 msgid "Graph"
 msgstr "График"
 
-msgid "Reset"
-msgstr "Сбросить"
-
 msgid "RW"
 msgstr "ПО"
 
@@ -271,6 +303,12 @@ msgstr "Таблица"
 
 msgid "Mixed"
 msgstr "Все"
+
+msgid "Normal"
+msgstr ""
+
+msgid "Reverse"
+msgstr ""
 
 msgid "All kanas"
 msgstr "Все символы"
@@ -667,4 +705,3 @@ msgstr "Время выполнения"
 
 msgid "Information"
 msgstr "Информация"
-

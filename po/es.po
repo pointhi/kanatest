@@ -6,10 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kanatest 0.4.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-12 13:48+0200\n"
+"POT-Creation-Date: 2011-09-28 10:06+0200\n"
 "PO-Revision-Date: 2009-07-10 17:20-0000\n"
 "Last-Translator: Daniel Halens Rodriguez <daniel.halens@sabayonlinux.org>\n"
 "Language-Team: Spanish\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -30,20 +31,32 @@ msgstr "Gráficos"
 msgid "Translators"
 msgstr "Traductores"
 
-msgid "We would like to thank the following people for suggestions, bug reports and patches:"
-msgstr "Nos gustarí­a dar nuestro agradecimiento a las siguientes personas por sus sugerencias, reportes de bugs y parches:"
+msgid ""
+"We would like to thank the following people for suggestions, bug reports and "
+"patches:"
+msgstr ""
+"Nos gustarí­a dar nuestro agradecimiento a las siguientes personas por sus "
+"sugerencias, reportes de bugs y parches:"
 
 msgid "Contributors"
 msgstr "Colaboradores"
 
-msgid "If you like our program, send a postcard with a photo of the city where you live to"
-msgstr "Si te gusta el programa, enví­a una postal con una foto de la ciudad en donde vives a"
+msgid ""
+"If you like our program, send a postcard with a photo of the city where you "
+"live to"
+msgstr ""
+"Si te gusta el programa, enví­a una postal con una foto de la ciudad en donde "
+"vives a"
 
 msgid "We have received several postcards from our happy users"
 msgstr "Hemos recibido varias postales de usuarios felices"
 
-msgid "Your postcards are a kind of motivation that encourages us to keep improving Kanatest :)"
-msgstr "Las postales son una forma de motivación que nos ayuda a seguir mejorando Kanatest :)"
+msgid ""
+"Your postcards are a kind of motivation that encourages us to keep improving "
+"Kanatest :)"
+msgstr ""
+"Las postales son una forma de motivación que nos ayuda a seguir mejorando "
+"Kanatest :)"
 
 msgid "Thank you!"
 msgstr "¡Gracias!"
@@ -70,10 +83,15 @@ msgid "Question"
 msgstr "Pregunta"
 
 msgid "Select test mode, kana set and press START"
-msgstr "Selecciona el tipo de test, el conjunto de kanas y haz click en COMENZAR"
+msgstr ""
+"Selecciona el tipo de test, el conjunto de kanas y haz click en COMENZAR"
 
 msgid "Romaji"
 msgstr "Romaji"
+
+#, fuzzy
+msgid "Reverse mode"
+msgstr "Tipo de test"
 
 msgid "Statistics"
 msgstr "Estadí­sticas"
@@ -105,6 +123,21 @@ msgstr "Salir"
 msgid "Exit!"
 msgstr "Salir"
 
+msgid "All"
+msgstr "Todos"
+
+msgid "None"
+msgstr "Ninguno"
+
+msgid "Invert"
+msgstr "Invertir"
+
+msgid "Statistics based selection"
+msgstr "Basándose en las estadí­sticas"
+
+msgid "Select"
+msgstr "Seleccionar"
+
 msgid "Select kana font"
 msgstr "Elegir fuente"
 
@@ -122,9 +155,6 @@ msgid_plural "kanas found"
 msgstr[0] "kana encontrado"
 msgstr[1] "kanas encontrados"
 
-msgid "Statistics based selection"
-msgstr "Basándose en las estadí­sticas"
-
 msgid "From"
 msgstr "Desde"
 
@@ -137,9 +167,6 @@ msgstr "Porcentaje de acierto"
 msgid "Kanas"
 msgstr "Kanas"
 
-msgid "Select"
-msgstr "Seleccionar"
-
 msgid "General"
 msgstr "General"
 
@@ -149,20 +176,30 @@ msgstr "Opciones del test"
 msgid "Display each kana once"
 msgstr "Mostrar cada kana una sola vez"
 
-msgid "When this option is enabled the kanatest will display every question once"
-msgstr "Cuando esta opción está seleccionada, kanatest mostrará cada pregunta una sola vez"
+msgid ""
+"When this option is enabled the kanatest will display every question once"
+msgstr ""
+"Cuando esta opción está seleccionada, kanatest mostrará cada pregunta una "
+"sola vez"
 
 msgid "Repeat wrongly-answered questions"
 msgstr "Repetir los kanas fallados"
 
-msgid "When this option is enabled the kanatest will repeat all wrongly answered questions at the end of test"
-msgstr "Cuando esta opción está seleccionada, kanatest repetirá las preguntas falladas"
+msgid ""
+"When this option is enabled the kanatest will repeat all wrongly answered "
+"questions at the end of test"
+msgstr ""
+"Cuando esta opción está seleccionada, kanatest repetirá las preguntas "
+"falladas"
 
 msgid "Repeat all forever"
 msgstr "Repetir todos continuamente"
 
-msgid "When this option is enabled the kanatest will repeat all questions forever"
-msgstr "Cuando esta opción está seleccionada, kanatest repetirá todas las preguntas continuamente"
+msgid ""
+"When this option is enabled the kanatest will repeat all questions forever"
+msgstr ""
+"Cuando esta opción está seleccionada, kanatest repetirá todas las preguntas "
+"continuamente"
 
 msgid "Correct answer display timeout"
 msgstr "Pausa despues de pregunta acertada"
@@ -206,14 +243,16 @@ msgstr "Kanas seleccionados"
 msgid "Display as"
 msgstr "Mostrar en"
 
-msgid "All"
-msgstr "Todos"
+#, fuzzy
+msgid "Hiragana + Romaji"
+msgstr "Hiragana"
 
-msgid "None"
-msgstr "Ninguno"
+#, fuzzy
+msgid "Katakana + Romaji"
+msgstr "Katakana"
 
-msgid "Invert"
-msgstr "Invertir"
+msgid "Reset"
+msgstr "Limpiar"
 
 msgid "Please select options"
 msgstr "Selecciona las opciones"
@@ -232,6 +271,10 @@ msgstr "Los datos no se podrán recuperar. ¿Continuar?"
 
 msgid "Date"
 msgstr "Fecha"
+
+#, fuzzy
+msgid "Test type"
+msgstr "Duración"
 
 msgid "Test time"
 msgstr "Duración"
@@ -254,9 +297,6 @@ msgstr "Lecciones"
 msgid "Graph"
 msgstr "Gráfica"
 
-msgid "Reset"
-msgstr "Limpiar"
-
 msgid "RW"
 msgstr "RF"
 
@@ -268,6 +308,12 @@ msgstr "Tabla"
 
 msgid "Mixed"
 msgstr "Mezclado"
+
+msgid "Normal"
+msgstr ""
+
+msgid "Reverse"
+msgstr ""
 
 msgid "All kanas"
 msgstr "Todos los kanas"
@@ -665,8 +711,9 @@ msgstr "Información"
 
 #~ msgid "Misc options"
 #~ msgstr "Otras opciones"
+
 #~ msgid "Enable tooltips"
 #~ msgstr "Habilitar tooltips"
+
 #~ msgid "Toggle to enable/disable tooltips"
 #~ msgstr "Habilita/deshabilita los tooltips"
-

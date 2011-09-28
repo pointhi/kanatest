@@ -7,10 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kanatest 0.4.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-12 13:48+0200\n"
+"POT-Creation-Date: 2011-09-28 10:06+0200\n"
 "PO-Revision-Date: 2007-09-16 00:16+0200\n"
 "Last-Translator: Bruno Ramos <ladrilho@gmail.com>\n"
 "Language-Team: Portuguese\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -88,6 +89,10 @@ msgstr "Escolha o tipo de teste, o grupo de kanas e carregue em START"
 msgid "Romaji"
 msgstr "Romaji"
 
+#, fuzzy
+msgid "Reverse mode"
+msgstr "Tipo de teste"
+
 msgid "Statistics"
 msgstr "Estatísticas"
 
@@ -118,6 +123,21 @@ msgstr "Terminar"
 msgid "Exit!"
 msgstr "Sair!"
 
+msgid "All"
+msgstr "Todos"
+
+msgid "None"
+msgstr "Nenhum"
+
+msgid "Invert"
+msgstr "Inverter"
+
+msgid "Statistics based selection"
+msgstr ""
+
+msgid "Select"
+msgstr "Escolher"
+
 msgid "Select kana font"
 msgstr "Escolha a fonte para os kanas"
 
@@ -137,9 +157,6 @@ msgid_plural "kanas found"
 msgstr[0] "Escolha a fonte para os kanas"
 msgstr[1] "Escolha a fonte para os kanas"
 
-msgid "Statistics based selection"
-msgstr ""
-
 #, fuzzy
 msgid "From"
 msgstr "ro"
@@ -155,9 +172,6 @@ msgstr "Percentagem (%)"
 #, fuzzy
 msgid "Kanas"
 msgstr "Kana set"
-
-msgid "Select"
-msgstr "Escolher"
 
 msgid "General"
 msgstr "Geral"
@@ -232,14 +246,17 @@ msgstr "Kanas escolhidos"
 msgid "Display as"
 msgstr "Mostrar como"
 
-msgid "All"
-msgstr "Todos"
+#, fuzzy
+msgid "Hiragana + Romaji"
+msgstr "Hiragana"
 
-msgid "None"
-msgstr "Nenhum"
+#, fuzzy
+msgid "Katakana + Romaji"
+msgstr "Katakana"
 
-msgid "Invert"
-msgstr "Inverter"
+#, fuzzy
+msgid "Reset"
+msgstr "Apagar estatísticas"
 
 #, fuzzy
 msgid "Please select options"
@@ -259,6 +276,10 @@ msgstr ""
 
 msgid "Date"
 msgstr "Data"
+
+#, fuzzy
+msgid "Test type"
+msgstr "Tempo do teste"
 
 msgid "Test time"
 msgstr "Tempo do teste"
@@ -283,10 +304,6 @@ msgstr "Perguntas"
 msgid "Graph"
 msgstr "Gráficos"
 
-#, fuzzy
-msgid "Reset"
-msgstr "Apagar estatísticas"
-
 msgid "RW"
 msgstr "RW"
 
@@ -298,6 +315,12 @@ msgstr ""
 
 msgid "Mixed"
 msgstr "Mixed"
+
+msgid "Normal"
+msgstr ""
+
+msgid "Reverse"
+msgstr ""
 
 msgid "All kanas"
 msgstr "Todos os kanas"

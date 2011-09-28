@@ -7,10 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kanatest 0.4.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-12 13:48+0200\n"
+"POT-Creation-Date: 2011-09-28 10:06+0200\n"
 "PO-Revision-Date: 2007-09-16 00:16+0200\n"
 "Last-Translator: Piotr Mąka <sill@ll.pl>\n"
 "Language-Team: Polish\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -87,6 +88,10 @@ msgstr "Wybierz typ testu, zestaw znaków i naciśnij START"
 msgid "Romaji"
 msgstr "Romaji"
 
+#, fuzzy
+msgid "Reverse mode"
+msgstr "Typ testu"
+
 msgid "Statistics"
 msgstr "Statystyki"
 
@@ -117,6 +122,21 @@ msgstr "Wyjście"
 msgid "Exit!"
 msgstr "Wyjście!"
 
+msgid "All"
+msgstr "Wszystko"
+
+msgid "None"
+msgstr "Brak"
+
+msgid "Invert"
+msgstr "Odwróć"
+
+msgid "Statistics based selection"
+msgstr "Zaznacz według statystyk"
+
+msgid "Select"
+msgstr "Zaznacz"
+
 msgid "Select kana font"
 msgstr "Wybierz czcionkę"
 
@@ -135,9 +155,6 @@ msgstr[0] "znak znaleziono"
 msgstr[1] "znaki znaleziono"
 msgstr[2] "znaków znaleziono"
 
-msgid "Statistics based selection"
-msgstr "Zaznacz według statystyk"
-
 msgid "From"
 msgstr "Od"
 
@@ -149,9 +166,6 @@ msgstr "Przedział (%)"
 
 msgid "Kanas"
 msgstr "Kana"
-
-msgid "Select"
-msgstr "Zaznacz"
 
 msgid "General"
 msgstr "Ogólne"
@@ -229,14 +243,16 @@ msgstr "Wybrane znaki"
 msgid "Display as"
 msgstr "Wyświetl jako"
 
-msgid "All"
-msgstr "Wszystko"
+#, fuzzy
+msgid "Hiragana + Romaji"
+msgstr "Hiragana"
 
-msgid "None"
-msgstr "Brak"
+#, fuzzy
+msgid "Katakana + Romaji"
+msgstr "Katakana"
 
-msgid "Invert"
-msgstr "Odwróć"
+msgid "Reset"
+msgstr "Resetuj"
 
 msgid "Please select options"
 msgstr "Proszę wybrać opcje"
@@ -255,6 +271,10 @@ msgstr "Odzyskanie danych nie będzie możliwe. Kontynuować?"
 
 msgid "Date"
 msgstr "Data"
+
+#, fuzzy
+msgid "Test type"
+msgstr "Czas trwania testu"
 
 msgid "Test time"
 msgstr "Czas trwania testu"
@@ -277,9 +297,6 @@ msgstr "Lekcje"
 msgid "Graph"
 msgstr "Wykres"
 
-msgid "Reset"
-msgstr "Resetuj"
-
 msgid "RW"
 msgstr "RW"
 
@@ -291,6 +308,12 @@ msgstr "Wykres"
 
 msgid "Mixed"
 msgstr "Mieszany"
+
+msgid "Normal"
+msgstr ""
+
+msgid "Reverse"
+msgstr ""
 
 msgid "All kanas"
 msgstr "Wszystkie znaki"

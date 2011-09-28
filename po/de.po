@@ -7,10 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kanatest 0.4.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-12 13:48+0200\n"
+"POT-Creation-Date: 2011-09-28 10:06+0200\n"
 "PO-Revision-Date: 2008-11-27 18:17+0900\n"
 "Last-Translator: Mathias Brodala <info@noctus.net>\n"
 "Language-Team: German <info@noctus.net>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -90,6 +91,10 @@ msgstr "Wähle einen Testmodus, ein Kana-Set und drücke auf START."
 msgid "Romaji"
 msgstr "Romaji"
 
+#, fuzzy
+msgid "Reverse mode"
+msgstr "Testmodus"
+
 msgid "Statistics"
 msgstr "Statistiken"
 
@@ -120,6 +125,21 @@ msgstr "Beenden"
 msgid "Exit!"
 msgstr "Verlassen"
 
+msgid "All"
+msgstr "Alle"
+
+msgid "None"
+msgstr "Keine"
+
+msgid "Invert"
+msgstr "Invertiert"
+
+msgid "Statistics based selection"
+msgstr "Statistik-basierte Auswahl"
+
+msgid "Select"
+msgstr "Wähle"
+
 msgid "Select kana font"
 msgstr "Kana-Schriftart auswählen"
 
@@ -137,9 +157,6 @@ msgid_plural "kanas found"
 msgstr[0] "Kana gefunden"
 msgstr[1] "Kanas gefunden"
 
-msgid "Statistics based selection"
-msgstr "Statistik-basierte Auswahl"
-
 msgid "From"
 msgstr "Von"
 
@@ -151,9 +168,6 @@ msgstr "Verhältnis-Bereich"
 
 msgid "Kanas"
 msgstr "Kana"
-
-msgid "Select"
-msgstr "Wähle"
 
 msgid "General"
 msgstr "Allgemein"
@@ -229,14 +243,16 @@ msgstr "Ausgewählte Kana"
 msgid "Display as"
 msgstr "Anzeigen als"
 
-msgid "All"
-msgstr "Alle"
+#, fuzzy
+msgid "Hiragana + Romaji"
+msgstr "Hiragana"
 
-msgid "None"
-msgstr "Keine"
+#, fuzzy
+msgid "Katakana + Romaji"
+msgstr "Katakana"
 
-msgid "Invert"
-msgstr "Invertiert"
+msgid "Reset"
+msgstr "Zurücksetzen"
 
 msgid "Please select options"
 msgstr "Bitte auswählen"
@@ -255,6 +271,10 @@ msgstr "Eine Wiederherstellung ist nicht möglich, fortfahren?"
 
 msgid "Date"
 msgstr "Datum"
+
+#, fuzzy
+msgid "Test type"
+msgstr "Testzeit"
 
 msgid "Test time"
 msgstr "Testzeit"
@@ -277,9 +297,6 @@ msgstr "Übungen"
 msgid "Graph"
 msgstr "Graphik"
 
-msgid "Reset"
-msgstr "Zurücksetzen"
-
 msgid "RW"
 msgstr "FW"
 
@@ -291,6 +308,12 @@ msgstr "Tabelle"
 
 msgid "Mixed"
 msgstr "Gemischt"
+
+msgid "Normal"
+msgstr ""
+
+msgid "Reverse"
+msgstr ""
 
 msgid "All kanas"
 msgstr "Alle Kana"
