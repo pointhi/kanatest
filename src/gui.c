@@ -156,11 +156,11 @@ static gchar buffer[BUFFER_SIZE];
 
     if (appGUI->tst->test_state == FALSE) return;
 #ifdef MAEMO
-    g_snprintf (buffer, BUFFER_SIZE, "<span font_desc='20'><tt>%02d:%02d</tt></span>", 
-                appGUI->time_counter / 60, appGUI->time_counter % 60);
+    g_snprintf (buffer, BUFFER_SIZE, "<span font_desc='20' color='%s'><tt>%02d:%02d</tt></span>", 
+                TIMER_COLOR, appGUI->time_counter / 60, appGUI->time_counter % 60);
 #else    
-    g_snprintf (buffer, BUFFER_SIZE, "<span font_desc='16'><tt>%02d:%02d</tt></span>", 
-                appGUI->time_counter / 60, appGUI->time_counter % 60);
+    g_snprintf (buffer, BUFFER_SIZE, "<span font_desc='16' color='%s'><tt>%02d:%02d</tt></span>", 
+                TIMER_COLOR, appGUI->time_counter / 60, appGUI->time_counter % 60);
 #endif                
     gtk_label_set_markup (GTK_LABEL (appGUI->timer_label), buffer);
 }
@@ -173,13 +173,15 @@ time_handler (GUI *appGUI) {
     appGUI->time_counter++;
     update_timer (appGUI);
 
-       return appGUI->tst->test_state;
+    return appGUI->tst->test_state;
 }
 
 /*--------------------------------------------------------------------*/
 
 void
 start_test_cb (GtkWidget *widget, gpointer user_data) {
+
+gchar buffer[BUFFER_SIZE];
 
     GUI *appGUI = (GUI *)user_data;
 
@@ -212,9 +214,11 @@ start_test_cb (GtkWidget *widget, gpointer user_data) {
 
     appGUI->time_counter = 0;
 #ifdef MAEMO
-    gtk_label_set_markup (GTK_LABEL (appGUI->timer_label), "<span font_desc='20'><tt>00:00</tt></span>");
+    g_snprintf (buffer, BUFFER_SIZE, "<span font_desc='20' color='%s'><tt>00:00</tt></span>", TIMER_COLOR);
+    gtk_label_set_markup (GTK_LABEL (appGUI->timer_label), buffer);
 #else    
-    gtk_label_set_markup (GTK_LABEL (appGUI->timer_label), "<span font_desc='16'><tt>00:00</tt></span>");
+    g_snprintf (buffer, BUFFER_SIZE, "<span font_desc='16' color='%s'><tt>00:00</tt></span>", TIMER_COLOR);
+    gtk_label_set_markup (GTK_LABEL (appGUI->timer_label), buffer);
 #endif    
 }
 
@@ -572,24 +576,27 @@ gint kh_romaji;
 void
 gui_display_kana_choices (gint number, gint mode, GUI *appGUI) {
     gchar tmpbuf[BUFFER_SIZE];
-    gchar kana_char;
+    gchar set1[] = { "hiragana" }, set2[] = { "katakana" };
+    gchar *kana_str = NULL;
 
     if (mode != MIXED) {
-        kana_char = (mode == HIRAGANA) ? 'H' : 'K';
+        kana_str = (mode == HIRAGANA) ? set1 : set2;
     } else {
-        kana_char = (number >= MIXED_SEPARATOR) ? 'K' : 'H';
+        kana_str = (number >= MIXED_SEPARATOR) ? set2 : set1;
     }
 
     if (number >= MIXED_SEPARATOR) {
-        g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='50' face='%s' color='%s'>%s (%c)</span>",
+        g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='60' face='%s' color='%s'>%s"
+                                         "\n<span font_desc='15'>(%s)</span></span>",
                                          config.kana_font_face,
                                          config.kana_color,
-                                         get_kana_sign(number - MIXED_SEPARATOR, ROMAJI, TRUE), kana_char);
+                                         get_kana_sign(number - MIXED_SEPARATOR, ROMAJI, TRUE), kana_str);
     } else {
-        g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='50' face='%s' color='%s'>%s (%c)</span>",
+        g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='60' face='%s' color='%s'>%s"
+                                         "\n<span font_desc='15'>(%s)</span></span>",
                                          config.kana_font_face,
                                          config.kana_color,
-                                         get_kana_sign(number, ROMAJI, TRUE), kana_char);
+                                         get_kana_sign(number, ROMAJI, TRUE), kana_str);
     }
     
     test_generate_choices(number, appGUI);
@@ -745,17 +752,13 @@ HildonTouchSelector *selector;
 void
 gui_create_window (GUI *appGUI) {
 
-GtkWidget       *frame1;
-GtkWidget       *vbox0;
-GtkWidget       *vbox1;
+GtkWidget       *vbox0, *vbox1;
 GtkWidget       *hseparator_down;
-GtkWidget       *frame2;
-GtkWidget       *frame;
-GtkWidget       *hbox1;
+GtkWidget       *frame, *frame1, *frame2;
+GtkWidget       *hbox1, *hbox1a;
 GtkWidget       *hbox2;
 GtkWidget       *empty_hbox;
 GtkWidget       *hbuttonbox;
-GtkWidget       *hbuttonbox2;
 GtkWidget       *label;
 GtkWidget       *alignment;
 gint            i;
@@ -909,28 +912,33 @@ HildonGtkInputMode input_mode;
     gtk_widget_show (empty_hbox);
     gtk_box_pack_start (GTK_BOX (hbox1), empty_hbox, TRUE, TRUE, 0);
 
+    hbox1a = gtk_hbox_new (FALSE, 0);
+    gtk_widget_show (hbox1a);
+    gtk_box_pack_end (GTK_BOX (hbox1), hbox1a, FALSE, FALSE, 12);
+
     frame2 = gtk_frame_new (NULL);
     gtk_widget_show (frame2);
-    gtk_box_pack_end (GTK_BOX (hbox1), frame2, TRUE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (hbox1a), frame2, FALSE, FALSE, 0);
     gtk_frame_set_shadow_type (GTK_FRAME (frame2), GTK_SHADOW_NONE);
 
     alignment = gtk_alignment_new (0.5, 0.5, 1, 1);
     gtk_widget_show (alignment);
     gtk_container_add (GTK_CONTAINER (frame2), alignment);
     gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 0, 0, 12, 0);
+
 #ifndef MAEMO
     label = gtk_label_new (NULL);
     gtk_widget_show (label);
     gtk_frame_set_label_widget (GTK_FRAME(frame2), label);
-    gtk_label_set_markup (GTK_LABEL (label), NULL);
 #endif
+
     hbox2 = gtk_hbox_new (FALSE, 0);
     gtk_widget_show (hbox2);
     gtk_container_add (GTK_CONTAINER (alignment), hbox2);
 
     appGUI->timer_label = gtk_label_new (NULL);
     gtk_widget_set_size_request (appGUI->timer_label, -1, 34);  /* icon height */
-    gtk_box_pack_start (GTK_BOX (hbox2), appGUI->timer_label, TRUE, TRUE, 0);
+    gtk_box_pack_start (GTK_BOX (hbox2), appGUI->timer_label, FALSE, FALSE, 0);
 
 #ifndef MAEMO
     appGUI->reverse_button = gui_stock_label_togglebutton(NULL, GTK_STOCK_REFRESH);
