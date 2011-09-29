@@ -43,16 +43,26 @@ gtk_LIBS=$(pkg-config --libs gtk+-$GTK_API_VERSION)
 
 AC_CHECK_PROG([var], [xml2-config], [yes], [no])
 if test ! "$var" = "yes"; then
-	AC_MSG_ERROR(You do not appear to have xml2-config installed.)
+    AC_MSG_ERROR(You do not appear to have xml2-config installed.)
 fi
 
 xml_CFLAGS=`xml2-config --cflags`
 xml_LIBS=`xml2-config --libs`
 
 AC_CHECK_LIB(xml2,
-	xmlNewDoc,
-	[],
-	[AC_MSG_ERROR(You do not appear to have libxml2 installed.)])
+    xmlNewDoc,
+    [],
+    [AC_MSG_ERROR(You do not appear to have libxml2 installed.)])
+
+AC_ARG_ENABLE(
+    debug,
+    [  --enable-debug=yes,no   compile with debugging support (default: no)],
+    debug="$enableval",
+    debug="no")
+if test "x$debug" = "xyes"; then
+    BUILD_CFLAGS="-rdynamic -ggdb -g -O0"
+    AC_DEFINE([DEBUG_BUILD], [1], [Defined if doing a debug build])
+fi
 
 CFLAGS="$BUILD_CFLAGS -Wall $PLATFORM_CFLAGS -D_GNU_SOURCE"
 CXXFLAGS="$CFLAGS"
@@ -129,20 +139,21 @@ AC_CONFIG_FILES([
     Makefile
     src/Makefile
     po/Makefile
-	data/Makefile
-	data/icons/Makefile
-	data/icons/16x16/Makefile
-	data/icons/22x22/Makefile
-	data/icons/24x24/Makefile
-	data/icons/32x32/Makefile
-	data/icons/48x48/Makefile
-	data/icons/scalable/Makefile
-	data/pixmaps/Makefile
+    data/Makefile
+    data/icons/Makefile
+    data/icons/16x16/Makefile
+    data/icons/22x22/Makefile
+    data/icons/24x24/Makefile
+    data/icons/32x32/Makefile
+    data/icons/48x48/Makefile
+    data/icons/scalable/Makefile
+    data/pixmaps/Makefile
 ])
 AC_OUTPUT
 
 echo "
 Configuration:
 
-    Maemo support:             $enable_maemo
+    Maemo support:      $enable_maemo
+    Debug enabled:      $debug
 "
