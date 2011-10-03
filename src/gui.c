@@ -707,6 +707,20 @@ gui_mw_key_press_cb (GtkWidget *widget, GdkEventKey *event, gpointer user_data) 
 }
 /*--------------------------------------------------------------------*/
 
+gint
+gui_mw_button_press_cb (GtkWidget *widget, GdkEventButton *event, gpointer user_data) {
+
+    GUI *appGUI = (GUI *)user_data;
+
+    if ((appGUI->tst->test_state == TRUE) && (appGUI->tst->any_key == FALSE)) {
+        appGUI->tst->any_key = TRUE;
+        return TRUE;
+    }
+
+    return FALSE;
+}
+/*--------------------------------------------------------------------*/
+
 void gui_kana_choice_cb(GtkWidget *widget, gpointer user_data) {
     GUI *appGUI = (GUI *)user_data;
     gint *number = (gint*)g_object_get_data(G_OBJECT(widget), "kana_number");
@@ -794,11 +808,15 @@ HildonGtkInputMode input_mode;
 
     gtk_window_move (GTK_WINDOW (appGUI->main_window),
                                  config.window_x, config.window_y);
+    gtk_widget_add_events (GTK_WINDOW (appGUI->main_window),
+                                 GDK_BUTTON_PRESS_MASK);
 #endif
     g_signal_connect (G_OBJECT (appGUI->main_window), "delete_event",
                         G_CALLBACK(gui_delete_event_cb), appGUI);
     g_signal_connect (G_OBJECT(appGUI->main_window), "key_press_event",
                         G_CALLBACK(gui_mw_key_press_cb), appGUI);
+    g_signal_connect (G_OBJECT(appGUI->main_window), "button-press-event",
+                        G_CALLBACK(gui_mw_button_press_cb), appGUI);
 
     gtk_widget_show (appGUI->main_window);
 
