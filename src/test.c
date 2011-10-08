@@ -80,7 +80,7 @@ gchar *kana_set_name[] = {
 }
 
 /*--------------------------------------------------------------------*/
-
+/* index is the number of kana (index of the character within its set) */
 gchar *
 get_kana_sign (gint index, gint kana_type, gboolean translated) {
 
@@ -321,7 +321,7 @@ gint *table;
 }
 
 /*--------------------------------------------------------------------*/
-
+/* kana_number is the globa character ID */
 void 
 test_generate_choices(gint kana_number, GUI *appGUI) {
     gint i, tmp, pos;
@@ -436,7 +436,7 @@ test_check_end(GUI *appGUI) {
 }
 
 /*--------------------------------------------------------------------*/
-
+/* kana_number is the unique identifier of the character in this function. */
 void 
 test_update_answer_stats(gint kana_number, gboolean is_correct, GUI *appGUI) {
     if (config.kana_mode == HIRAGANA) {
@@ -444,8 +444,8 @@ test_update_answer_stats(gint kana_number, gboolean is_correct, GUI *appGUI) {
     } else if (config.kana_mode == KATAKANA) {
         appGUI->sts->katakana_counters[kana_number]++;
     } else if (config.kana_mode == MIXED) {
-        if (appGUI->tst->questions_table[appGUI->tst->question_counter] >= MIXED_SEPARATOR) {
-            appGUI->sts->katakana_counters[kana_number]++;
+        if (kana_number >= MIXED_SEPARATOR) {
+            appGUI->sts->katakana_counters[kana_number-MIXED_SEPARATOR]++;
         } else {
             appGUI->sts->hiragana_counters[kana_number]++;
         }
@@ -457,8 +457,8 @@ test_update_answer_stats(gint kana_number, gboolean is_correct, GUI *appGUI) {
         } else if (config.kana_mode == KATAKANA) {
             appGUI->sts->correct_katakana_counters[kana_number]++;
         } else if (config.kana_mode == MIXED) {
-            if (appGUI->tst->questions_table[appGUI->tst->question_counter] >= MIXED_SEPARATOR) {
-                appGUI->sts->correct_katakana_counters[kana_number]++;
+            if (kana_number >= MIXED_SEPARATOR) {
+                appGUI->sts->correct_katakana_counters[kana_number-MIXED_SEPARATOR]++;
             } else {
                 appGUI->sts->correct_hiragana_counters[kana_number]++;
             }
@@ -470,7 +470,7 @@ test_update_answer_stats(gint kana_number, gboolean is_correct, GUI *appGUI) {
 }
 
 /*--------------------------------------------------------------------*/
-
+/* selected_number is the unique identifier of the character user selected */
 void 
 test_check_choice(gint selected_number, GUI *appGUI) {
     gint kana_number = appGUI->tst->questions_table[appGUI->tst->question_counter];
@@ -485,8 +485,8 @@ test_check_choice(gint selected_number, GUI *appGUI) {
     
     if (correct_answer == FALSE) {
         if (config.ca_timeout != TO_DISABLED) {
+            gui_show_correct_answer(kana_number, appGUI);
             gtk_widget_set_sensitive (appGUI->stop_button, FALSE);
-            gui_show_correct_answer(appGUI->tst->questions_table[appGUI->tst->question_counter], appGUI);
             gtk_widget_set_sensitive (appGUI->stop_button, TRUE);
         }
     } else {
@@ -510,8 +510,8 @@ gboolean correct_answer;
 gchar **r_answers;
 gint n_answ;
 
-    kana_number = appGUI->tst->questions_table[appGUI->tst->question_counter] % MIXED_SEPARATOR;
-    r_answers = g_strsplit (get_kana_sign (kana_number, ROMAJI, TRUE), ANSWER_DELIMITER, MAX_RANSWERS);
+    kana_number = appGUI->tst->questions_table[appGUI->tst->question_counter]; // unique identifier of the character
+    r_answers = g_strsplit (get_kana_sign (kana_number % MIXED_SEPARATOR, ROMAJI, TRUE), ANSWER_DELIMITER, MAX_RANSWERS);
     n_answ = 0;
     correct_answer = FALSE;
 

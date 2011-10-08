@@ -197,7 +197,7 @@ gchar buffer[BUFFER_SIZE];
     gtk_widget_hide (appGUI->label_le);
     gtk_widget_hide (appGUI->combobox_test_mode);
 #else
-   gtk_widget_hide (appGUI->logo_area);
+    gtk_widget_hide (appGUI->logo_area);
 #endif
     gui_set_widgets_status (FALSE, appGUI);
 
@@ -331,7 +331,7 @@ gui_set_widgets_status (gboolean mode, GUI *appGUI) {
 }
 
 /*--------------------------------------------------------------------*/
-
+/* number is the character number */
 void 
 gui_show_correct_answer(gint number, GUI *appGUI) {
     gchar tmp_a[BUFFER_SIZE], tmp_b[BUFFER_SIZE];
@@ -476,92 +476,55 @@ gui_disable_buttons(gint first_button, GUI *appGUI) {
     }
 }
 
-/*--------------------------------------------------------------------*/
-
-void
-gui_next_text_question (gint number, gint mode, GUI *appGUI) {
-    gui_display_kana (number, mode, appGUI);
-    gtk_widget_show (GTK_WIDGET (appGUI->frame_ro) );
-}
 
 /*--------------------------------------------------------------------*/
-
+/* number is the global character number */
 void
 gui_display_kana (gint number, gint mode, GUI *appGUI) {
 
 gchar tmpbuf[BUFFER_SIZE], letbuf[BUFFER_SIZE];
-gint kh_romaji;
+gint original_kana_set;
+
+    if (number >= MIXED_SEPARATOR) {
+        number -= MIXED_SEPARATOR;
+        original_kana_set = KATAKANA;
+    } else {
+        original_kana_set = HIRAGANA;
+    }
 
     switch (mode) {
         case HIRAGANA:
-            if (number >= MIXED_SEPARATOR) {
-                number -= MIXED_SEPARATOR;
-            }
             g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='80' face='%s' color='%s'>%s</span>",
                         config.kana_font_face,
                         config.kana_color,
-                        get_kana_sign(number, HIRAGANA, TRUE));
+                        get_kana_sign(number, original_kana_set, TRUE));
             appGUI->old_kana_type = HIRAGANA;
             break;
         case KATAKANA:
-            if (number >= MIXED_SEPARATOR) {
-                number -= MIXED_SEPARATOR;
-            }
             g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='80' face='%s' color='%s'>%s</span>",
                         config.kana_font_face,
                         config.kana_color,
-                        get_kana_sign(number, KATAKANA, TRUE));
+                        get_kana_sign(number, original_kana_set, TRUE));
             appGUI->old_kana_type = KATAKANA;
             break;
         case ROMAJI:
-            if (number >= MIXED_SEPARATOR) {
-                number -= MIXED_SEPARATOR;
-                kh_romaji = KATAKANA;
-            } else {
-                kh_romaji = HIRAGANA;
-            }
-
             g_snprintf (letbuf, BUFFER_SIZE, "%s", get_kana_sign(number, ROMAJI, TRUE));
 
-            if (config.test_mode == TRUE && config.kana_mode == MIXED) {
-                g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='60' face='%s' color='%s'>%s </span>"
-                                                 "<span font_desc='40' face='%s' color='%s'>(%s)</span>",
-                                                 config.kana_font_face,
-                                                 config.kana_color,
-                                                 get_kana_sign(number, kh_romaji, TRUE),
-                                                 config.kana_font_face,
-                                                 config.romaji_color,
-                                                 letbuf);
-            } else if (appGUI->old_kana_type == HIRAGANA || appGUI->old_kana_type == KATAKANA) {
-                g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='60' face='%s' color='%s'>%s </span>"
-                                                 "<span font_desc='40' face='%s' color='%s'>(%s)</span>",
-                                                 config.kana_font_face,
-                                                 config.kana_color,
-                                                 get_kana_sign(number, appGUI->old_kana_type, TRUE),
-                                                 config.kana_font_face,
-                                                 config.romaji_color,
-                                                 letbuf);
-            } else {
-                g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='80' face='%s' color='%s'>%s</span>",
-                                                 config.kana_font_face,
-                                                 config.romaji_color,
-                                                 get_kana_sign(number, ROMAJI, TRUE));
-            }
+            g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='60' face='%s' color='%s'>%s </span>"
+                                             "<span font_desc='40' face='%s' color='%s'>(%s)</span>",
+                                             config.kana_font_face,
+                                             config.kana_color,
+                                             get_kana_sign(number, original_kana_set, TRUE),
+                                             config.kana_font_face,
+                                             config.romaji_color,
+                                             letbuf);
             break;
         case MIXED:
-            if (number >= MIXED_SEPARATOR) {
-                g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='80' face='%s' color='%s'>%s</span>",
-                                                 config.kana_font_face,
-                                                 config.kana_color,
-                                                 get_kana_sign((number-MIXED_SEPARATOR), KATAKANA, TRUE));
-                appGUI->old_kana_type = KATAKANA;
-            } else {
-                g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='80' face='%s' color='%s'>%s</span>",
-                                                 config.kana_font_face,
-                                                 config.kana_color,
-                                                 get_kana_sign(number, HIRAGANA, TRUE));
-                appGUI->old_kana_type = HIRAGANA;
-            }
+            g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='80' face='%s' color='%s'>%s</span>",
+                                             config.kana_font_face,
+                                             config.kana_color,
+                                             get_kana_sign(number, original_kana_set, TRUE));
+            appGUI->old_kana_type = HIRAGANA;
             break;
         default:
             g_warning ("Invalid mode selected.");
@@ -607,6 +570,15 @@ gui_display_kana_choices (gint number, gint mode, GUI *appGUI) {
     gtk_label_set_markup (GTK_LABEL (appGUI->char_label), tmpbuf);
 }
 
+
+/*--------------------------------------------------------------------*/
+
+void
+gui_next_text_question (gint number, gint mode, GUI *appGUI) {
+    gui_display_kana (number, mode, appGUI);
+    gtk_widget_show (GTK_WIDGET (appGUI->frame_ro) );
+    gtk_widget_hide(appGUI->kana_choices_area);   
+}
 
 /*--------------------------------------------------------------------*/
 
