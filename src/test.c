@@ -84,7 +84,7 @@ gchar *kana_set_name[] = {
 gchar *
 get_kana_sign (gint index, gint kana_type, gboolean translated) {
 
-/* romanji | hiragana | katakana */
+/* romaji | hiragana | katakana */
 
 gchar *kana_signs[] = {
 
@@ -304,9 +304,10 @@ gint *table;
     for (i = 0; i < number_of_questions; i++) {
         gint kana_number;
         if (i >= appGUI->tst->kana_set_len[config.kana_set]) {
-            kana_number = table[i-appGUI->tst->kana_set_len[config.kana_set]] + MIXED_SEPARATOR;
+            kana_number = table[i - appGUI->tst->kana_set_len[config.kana_set]] + MIXED_SEPARATOR;
         } else {
             kana_number = table[i];
+            if (config.kana_mode == KATAKANA) kana_number += MIXED_SEPARATOR;
         }
         appGUI->tst->questions_table[i] = appGUI->tst->kana_set_table[i] = kana_number;
     }
@@ -321,7 +322,7 @@ gint *table;
 }
 
 /*--------------------------------------------------------------------*/
-/* kana_number is the globa character ID */
+/* kana_number is the global character ID */
 void 
 test_generate_choices(gint kana_number, GUI *appGUI) {
     gint i, tmp, pos;
@@ -357,6 +358,7 @@ test_generate_choices(gint kana_number, GUI *appGUI) {
     for (i = 0; i < num_choices; i++) {
         if (answers_table[i] == kana_number) {
             done = TRUE;
+            break;
         }
     }
     
@@ -472,12 +474,12 @@ test_update_answer_stats(gint kana_number, gboolean is_correct, GUI *appGUI) {
 /*--------------------------------------------------------------------*/
 /* selected_number is the unique identifier of the character user selected */
 void 
-test_check_choice(gint selected_number, GUI *appGUI) {
+test_check_choice (gint selected_number, GUI *appGUI) {
     gint kana_number = appGUI->tst->questions_table[appGUI->tst->question_counter];
     gboolean correct_answer;
     correct_answer = FALSE;
 
-    if (kana_number == selected_number) {
+    if ((kana_number % MIXED_SEPARATOR) == (selected_number % MIXED_SEPARATOR)) {
         correct_answer = TRUE;
     }
     

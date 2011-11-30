@@ -497,14 +497,14 @@ gint original_kana_set;
             g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='80' face='%s' color='%s'>%s</span>",
                         config.kana_font_face,
                         config.kana_color,
-                        get_kana_sign(number, original_kana_set, TRUE));
+                        get_kana_sign(number, HIRAGANA, TRUE));
             appGUI->old_kana_type = HIRAGANA;
             break;
         case KATAKANA:
             g_snprintf (tmpbuf, BUFFER_SIZE, "<span font_desc='80' face='%s' color='%s'>%s</span>",
                         config.kana_font_face,
                         config.kana_color,
-                        get_kana_sign(number, original_kana_set, TRUE));
+                        get_kana_sign(number, KATAKANA, TRUE));
             appGUI->old_kana_type = KATAKANA;
             break;
         case ROMAJI:

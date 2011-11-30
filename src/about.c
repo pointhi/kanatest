@@ -116,6 +116,7 @@ gchar text_contributors[] = {
     "                Wen-Yen Chuang\n"
     "                Jakub Zawadzki\n"
     "                rhn (Reverse mode)\n"
+    "                Andrey Tikhonov\n"
 };
 
 gchar text_postcards_address[] = {
@@ -179,7 +180,7 @@ gchar *translators[] = {
     "pt",    "Bruno Ramos",          "ladrilho@gmail.com",
     "ru",    "Taci Taclipoka",       "taclipoka@gmail.com",
     "",      "Igor Urazov",          "z0rc3r@gmail.com",
-	"",      "Andrey Tikhonov",      "tiacorpo@gmail.com",
+    "",      "Andrey Tikhonov",      "tiacorpo@gmail.com",
     "zh_CN", "Zeray Rice",           "fanzeyi1994@gmail.com"
 };
 #ifdef MAEMO
