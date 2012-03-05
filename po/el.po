@@ -1,0 +1,705 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <univ@lavabit.com>, 2012.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Kanatest 0.4.10\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-10-09 00:37+0200\n"
+"PO-Revision-Date: 2012-3-4 10:50+0200\n"
+"Last-Translator: Spyro Papanastasiou <univ@lavabit.com>\n"
+"Language-Team: Greek <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "About"
+msgstr "Περί"
+
+msgid "compiled on"
+msgstr "μεταγλωττίστηκε στις"
+
+msgid "Programming"
+msgstr "Προγραμματισμό"
+
+msgid "Graphics"
+msgstr "Γραφικά"
+
+msgid "Translators"
+msgstr "Μεταφραστές"
+
+msgid ""
+"We would like to thank the following people for suggestions, bug reports and "
+"patches:"
+msgstr ""
+"Θα θέλαμε να ευχαριστήσουμε τους ακόλουθους ανθρώπους για τις συμβουλές, τις "
+"αναφορές αποσφαλμάτωσης και τις διορθώσεις:"
+
+msgid "Contributors"
+msgstr "Συντελεστές"
+
+msgid ""
+"If you like our program, send a postcard with a photo of the city where you "
+"live to"
+msgstr ""
+"Αν σας αρέσει το πρόγραμμά μας, στείλτε μία καρτ-ποστάλ με μια φωτογραφία της "
+"πόλης όπου μένετε"
+
+msgid "We have received several postcards from our happy users"
+msgstr "Παραλήψαμε πολλές καρτ-ποστάλ από τους χαρούμενους χρήστες μας"
+
+msgid ""
+"Your postcards are a kind of motivation that encourages us to keep improving "
+"Kanatest :)"
+msgstr "Οι καρτ-ποστάλ σας είναι ένα είδος κινήτρου που μας ενθαρρύνει να "
+"βελτιώνουμε συνέχεια το Kanatest :)"
+
+msgid "Thank you!"
+msgstr "Ευχαριστούμε"
+
+msgid "Postcards"
+msgstr "Καρτ-ποστάλ"
+
+msgid "License"
+msgstr "Έκδοση"
+
+msgid "Kana chart"
+msgstr "Χάρτης Κάνα"
+
+msgid "Hiragana"
+msgstr "Χιραγκάνα"
+
+msgid "Katakana"
+msgstr "Κατακάνα"
+
+msgid "Test is in progress... Abort?"
+msgstr "Τεστ σε εξέλιξη.. Ματαίωση?"
+
+msgid "Question"
+msgstr "Ερώτηση"
+
+msgid "Select test mode, kana set and press START"
+msgstr "Επιλέξτε είδος τεστ, σύνολο κάνα και πατήστε ΕΚΚΊΝΗΣΗ"
+
+msgid "Romaji"
+msgstr "Ρομάτζι"
+
+msgid "Reverse mode"
+msgstr "Αντίστροφη λειτουργία"
+
+msgid "Statistics"
+msgstr "Στατιστικά"
+
+msgid "Options"
+msgstr "Επιλογές"
+
+msgid "Test mode"
+msgstr "Είδος τεστ"
+
+msgid "Kana set"
+msgstr "Σύνολο κάνα"
+
+msgid "Start"
+msgstr "Εκκίνηση"
+
+msgid "Press to begin testing..."
+msgstr "Πατήστε για την εκκίνηση του τεστ..."
+
+msgid "Stop"
+msgstr "Σταμάτα"
+
+msgid "Press to stop testing..."
+msgstr "Πατήστε για παύση του τεστ..."
+
+msgid "Quit"
+msgstr "Έξοδος"
+
+msgid "Exit!"
+msgstr "Έξοδος!"
+
+msgid "All"
+msgstr "Όλα"
+
+msgid "None"
+msgstr "Κανένα"
+
+msgid "Invert"
+msgstr "Ανέστρεψε"
+
+msgid "Statistics based selection"
+msgstr "Επιλογή βάση στατιστικών"
+
+msgid "Select"
+msgstr "Επέλεξε"
+
+msgid "Select kana font"
+msgstr "Επέλεξε γραμματοσειρά κάνα"
+
+msgid "Please select at least two kanas to test."
+msgstr "Παρακαλώ επιλέξτε τουλάχιστον δύο κάνα για το τεστ."
+
+msgid "Error"
+msgstr "Σφάλμα"
+
+msgid "no kanas found"
+msgstr "δε βρέθηκαν κάνα"
+
+msgid "kana found"
+msgid_plural "βρέθηκαν κάνα"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "From"
+msgstr "Από"
+
+msgid "To"
+msgstr "Προς"
+
+msgid "Ratio range"
+msgstr "Εύρος ποσοστού"
+
+msgid "Kanas"
+msgstr "Κάνα"
+
+msgid "General"
+msgstr "Γενικά"
+
+msgid "Drill options"
+msgstr ""
+
+msgid "Display each kana once"
+msgstr "Εμφάνισε μία φορά το κάθε κάνα"
+
+msgid ""
+"When this option is enabled the kanatest will display every question once"
+msgstr ""
+"Όταν ενεργοποιηθεί το kanatest θα εμφανίσει μία φορά την κάθε ερώτηση"
+
+msgid "Repeat wrongly-answered questions"
+msgstr "Επανέλαβε τις λάθος απαντημένες ερωτήσεις"
+
+msgid ""
+"When this option is enabled the kanatest will repeat all wrongly answered "
+"questions at the end of test"
+msgstr ""
+"Όταν ενεργοποιηθεί, το kanatest θα επαναλάβει όλες τις λάθος απαντημένες "
+"ερωτήσεις στο τέλος του τεστ"
+
+msgid "Repeat all forever"
+msgstr "Επανέλαβε τα όλα, για πάντα"
+
+msgid ""
+"When this option is enabled the kanatest will repeat all questions forever"
+msgstr ""
+"Όταν ενεργοποιηθεί, to kanatest θα επαναλαμβάνει όλες τις ερωτήσεις για "
+"πάντα"
+
+msgid "Correct answer display timeout"
+msgstr "Χρόνος εμφάνισης σωστής απάντησης"
+
+msgid "Disabled"
+msgstr "Απενεργοποιημένο"
+
+msgid "1 sec"
+msgstr "1 δευτ"
+
+msgid "2 sec"
+msgstr "2 δευτ"
+
+msgid "3 sec"
+msgstr "3 δευτ"
+
+msgid "Until any key will be pressed"
+msgstr "Μέχρι να πατηθεί οποιοδήποτε πλήκτρο"
+
+msgid "Appearance"
+msgstr "Εμφάνιση"
+
+msgid "Kana color"
+msgstr "Χρώμα κάνα"
+
+msgid "Romaji color"
+msgstr "Χρώμα ρομάτζι"
+
+msgid "User-defined lesson"
+msgstr "Προσωπικά ορισμένο μάθημα"
+
+msgid "Select all kanas in row"
+msgstr "Επέλεξε όλα τα κάνα στη σειρά"
+
+msgid "Deselect all kanas in row"
+msgstr "Αποεπίλεξε όλα τα κάνα στη σειρά"
+
+msgid "Selected kanas"
+msgstr "Επιλεγμένα κάνα"
+
+msgid "Display as"
+msgstr "Εμφάνισε ως"
+
+msgid "Hiragana + Romaji"
+msgstr "Χιραγκάνα + Ρομάτζι"
+
+msgid "Katakana + Romaji"
+msgstr "Κατακάνα + Ρομάτζι"
+
+msgid "Reset"
+msgstr "Μηδενισμός"
+
+msgid "Please select options"
+msgstr "Παρακαλώ επιλέξτε προτιμήσεις"
+
+msgid "Remove lessons list"
+msgstr "Αφαίρεσε τη λίστα με τα μαθήματα"
+
+msgid "Remove Hiragana statistics"
+msgstr "Αφαίρεσε τα στατιστικά της Χιραγκάνα"
+
+msgid "Remove Katakana statistics"
+msgstr "Αφαίρεσε τα στατιστικά της Κατακάνα"
+
+msgid "No further recovery will be possible. Continue ?"
+msgstr "Η ανάκτηση δεν θα είναι πλέον δυνατή. Συνέχισε ?"
+
+msgid "Date"
+msgstr "Ημερομηνία"
+
+msgid "Test type"
+msgstr "Είδος τεστ"
+
+msgid "Test time"
+msgstr "Χρόνος τεστ"
+
+msgid "Questions"
+msgstr "Ερωτήσεις"
+
+msgid "Correct"
+msgstr "Σωστά"
+
+msgid "Wrong"
+msgstr "Λάθος"
+
+msgid "Ratio (%)"
+msgstr "Ποσοστό (%)"
+
+msgid "Lessons"
+msgstr "Μαθήματα"
+
+msgid "Graph"
+msgstr "Γράφημα"
+
+msgid "RW"
+msgstr ""
+
+msgid "RA"
+msgstr ""
+
+msgid "Chart"
+msgstr "Διάγραμμα"
+
+msgid "Mixed"
+msgstr "Μικτά"
+
+msgid "Normal"
+msgstr "Κανονικά"
+
+msgid "Reverse"
+msgstr "Αντίστροφα"
+
+msgid "All kanas"
+msgstr "Όλα τα κάνα"
+
+msgid "Basic kanas"
+msgstr "Τα βασικά κάνα"
+
+msgid "A-I-U-E-O"
+msgstr "Α-Ι-ΟΥ-Ε-Ο"
+
+msgid "KA-KI-KU-KE-KO"
+msgstr "ΚΑ-ΚΙ-ΚΟΥ-ΚΕ-ΚΟ"
+
+msgid "SA-SHI-SU-SE-SO"
+msgstr "ΣΑ-ΣΙ-ΣΟΥ-ΣΕ-ΣΟ"
+
+msgid "TA-CHI-TSU-TE-TO"
+msgstr "ΤΑ-ΤΣΙ-ΤΣΟΥ-ΤΕ-ΤΟ"
+
+msgid "NA-NI-NU-NE-NO"
+msgstr "ΝΑ-ΝΙ-ΝΟΥ-ΝΕ-ΝΟ"
+
+msgid "HA-HI-FU-HE-HO"
+msgstr "ΧΑ-ΧΙ-ΦΟΥ-ΧΕ-ΧΟ"
+
+msgid "MA-MI-MU-ME-MO"
+msgstr "ΜΑ-ΜΙ-ΜΟΥ-ΜΕ-ΜΟ"
+
+msgid "YA-YU-YO"
+msgstr "ΓΙΑ-ΓΙΟΥ-ΓΙΟ"
+
+msgid "RA-RI-RU-RE-RO"
+msgstr "ΡΑ-ΡΙ-ΡΟΥ-ΡΕ-ΡΟ"
+
+msgid "WA-WO-N"
+msgstr "ΒΑ-ΒΟ-Ν"
+
+msgid "Combo letters (part 1)"
+msgstr "Σύνθετα γράμματα (μέρος 1)"
+
+msgid "Combo letters (part 2)"
+msgstr "Σύνθετα γράμματα (μέρος 2)"
+
+#. TRANSLATORS: if there exist several possible transliterations for kanas, they must be separated by comma
+#. 0
+#. 1
+#. 2
+#. 3
+#. 4
+msgid "a"
+msgstr "α"
+
+msgid "i"
+msgstr "ι"
+
+msgid "u"
+msgstr "ου"
+
+msgid "e"
+msgstr "ε"
+
+msgid "o"
+msgstr "ο"
+
+msgid "ka"
+msgstr "κα"
+
+msgid "ki"
+msgstr "κι"
+
+msgid "ku"
+msgstr "κου"
+
+msgid "ke"
+msgstr "κε"
+
+msgid "ko"
+msgstr "κο"
+
+msgid "sa"
+msgstr "σα"
+
+msgid "shi"
+msgstr "σι"
+
+msgid "su"
+msgstr "σου"
+
+msgid "se"
+msgstr "σε"
+
+msgid "so"
+msgstr "σο"
+
+msgid "ta"
+msgstr "τα"
+
+msgid "chi"
+msgstr "τσι"
+
+msgid "tsu"
+msgstr "τσου"
+
+msgid "te"
+msgstr "τε"
+
+msgid "to"
+msgstr "το"
+
+msgid "na"
+msgstr "να"
+
+msgid "ni"
+msgstr "νι"
+
+msgid "nu"
+msgstr "νου"
+
+msgid "ne"
+msgstr "νε"
+
+msgid "no"
+msgstr "νο"
+
+msgid "ha"
+msgstr "χα"
+
+msgid "hi"
+msgstr "χι"
+
+msgid "fu"
+msgstr "φου"
+
+msgid "he"
+msgstr "χε"
+
+msgid "ho"
+msgstr "χο"
+
+msgid "ma"
+msgstr "μα"
+
+msgid "mi"
+msgstr "μι"
+
+msgid "mu"
+msgstr "μου"
+
+msgid "me"
+msgstr "με"
+
+msgid "mo"
+msgstr "μο"
+
+msgid "ya"
+msgstr "για"
+
+msgid "yu"
+msgstr "γιου"
+
+msgid "yo"
+msgstr "γιο"
+
+msgid "ra"
+msgstr "ρα"
+
+msgid "ri"
+msgstr "ρι"
+
+msgid "ru"
+msgstr "ρου"
+
+msgid "re"
+msgstr "ρε"
+
+msgid "ro"
+msgstr "ρο"
+
+msgid "wa"
+msgstr "βα"
+
+msgid "wo"
+msgstr "βο"
+
+msgid "n"
+msgstr "ν"
+
+msgid "ga"
+msgstr "γκα"
+
+msgid "gi"
+msgstr "γκι"
+
+msgid "gu"
+msgstr "γκου"
+
+msgid "ge"
+msgstr "γκε"
+
+msgid "go"
+msgstr "γκο"
+
+msgid "za"
+msgstr "ζα"
+
+msgid "ji"
+msgstr "τζι"
+
+msgid "zu"
+msgstr "ζου"
+
+msgid "ze"
+msgstr "ζε"
+
+msgid "zo"
+msgstr "ζο"
+
+msgid "da"
+msgstr "νδα"
+
+msgid "di,ji"
+msgstr "τζ'ι"
+
+msgid "du,zu"
+msgstr "ζ'ου"
+
+msgid "de"
+msgstr "ντε"
+
+msgid "do"
+msgstr "ντο"
+
+msgid "ba"
+msgstr "μπα"
+
+msgid "bi"
+msgstr "μπι"
+
+msgid "bu"
+msgstr "μπου"
+
+msgid "be"
+msgstr "μπε"
+
+msgid "bo"
+msgstr "μπο"
+
+msgid "pa"
+msgstr "πα"
+
+msgid "pi"
+msgstr "πι"
+
+msgid "pu"
+msgstr "που"
+
+msgid "pe"
+msgstr "πε"
+
+msgid "po"
+msgstr "πο"
+
+msgid "kya"
+msgstr "κυα"
+
+msgid "kyu"
+msgstr "κυου"
+
+msgid "kyo"
+msgstr "κυο"
+
+msgid "sha"
+msgstr "σ'a"
+
+msgid "shu"
+msgstr "σ'ου"
+
+msgid "sho"
+msgstr "σ'ο"
+
+msgid "cha"
+msgstr "τσα"
+
+msgid "chu"
+msgstr "τσ'ου"
+
+msgid "cho"
+msgstr "τσο"
+
+msgid "nya"
+msgstr "νυα"
+
+msgid "nyu"
+msgstr "νυου"
+
+msgid "nyo"
+msgstr "νυο"
+
+msgid "hya"
+msgstr "χυα"
+
+msgid "hyu"
+msgstr "χυου"
+
+msgid "hyo"
+msgstr "χυο"
+
+msgid "mya"
+msgstr "μυα"
+
+msgid "myu"
+msgstr "μυου"
+
+msgid "myo"
+msgstr "μυο"
+
+msgid "rya"
+msgstr "ρυα"
+
+msgid "ryu"
+msgstr "ρυου"
+
+msgid "ryo"
+msgstr "ρυο"
+
+msgid "gya"
+msgstr "γκυα"
+
+msgid "gyu"
+msgstr "γκυου"
+
+msgid "gyo"
+msgstr "γκυο"
+
+msgid "ja"
+msgstr "τζ'α"
+
+msgid "ju"
+msgstr "τζ'ου"
+
+msgid "jo"
+msgstr "τζ'ο"
+
+msgid "bya"
+msgstr "μπυα"
+
+msgid "byu"
+msgstr "μπυου"
+
+msgid "byo"
+msgstr "μπυο"
+
+msgid "pya"
+msgstr "πυα"
+
+msgid "pyu"
+msgstr "πυου"
+
+msgid "pyo"
+msgstr "πυο"
+
+msgid "minute and"
+msgid_plural "minutes and"
+msgstr[0] "λεπτό και"
+msgstr[1] "λεπτά και"
+
+msgid "second"
+msgid_plural "seconds"
+msgstr[0] "δευτερόλεπτο"
+msgstr[1] "δευτερόλεπτα"
+
+msgid "Test has finished!"
+msgstr "Το τεστ τελείωσε!"
+
+msgid "Total questions"
+msgstr "Ερωτήσεις συνολικά"
+
+msgid "unique"
+msgstr "μοναδικό"
+
+msgid "Correct answers"
+msgstr "Σωστές απαντήσεις"
+
+msgid "Wrong answers"
+msgstr "Λάθος απαντήσεις"
+
+msgid "Correctness ratio"
+msgstr "Ποσοστό ορθότητας"
+
+msgid "Drilling-time"
+msgstr "Χρόνος εξάσκησης"
+
+msgid "Information"
+msgstr "Πληροφορία"

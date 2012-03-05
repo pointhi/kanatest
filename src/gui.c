@@ -366,7 +366,7 @@ gui_show_correct_answer(gint number, GUI *appGUI) {
             g_usleep (200000);
         }
 
-        gtk_entry_set_max_length (GTK_ENTRY(appGUI->romaji_entry), 3);
+        gtk_entry_set_max_length (GTK_ENTRY(appGUI->romaji_entry), 5);
         gtk_entry_set_text (GTK_ENTRY(appGUI->romaji_entry), tmp_a);
         while (g_main_context_iteration (NULL, FALSE));
     }
@@ -891,10 +891,10 @@ HildonGtkInputMode input_mode;
 #else
     appGUI->romaji_entry = gtk_entry_new();
 #endif
-    gtk_entry_set_max_length (GTK_ENTRY(appGUI->romaji_entry), 3);
+    gtk_entry_set_max_length (GTK_ENTRY(appGUI->romaji_entry), 5);
     g_signal_connect (G_OBJECT(appGUI->romaji_entry), "key_press_event",
                         G_CALLBACK(gui_rm_key_press_cb), appGUI);
-    gtk_widget_set_size_request (appGUI->romaji_entry, 130, -1);
+    gtk_widget_set_size_request (appGUI->romaji_entry, 140, -1);
     gtk_widget_show (appGUI->romaji_entry);
     gtk_container_add (GTK_CONTAINER (alignment), appGUI->romaji_entry);
 

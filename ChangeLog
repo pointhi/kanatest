@@ -3,7 +3,7 @@
   * Ported to GTK+ 3.0 (Wen-Yen Chuang)
   * Maemo port (Aki Nyman)
   * Some GUI improvements
-  * Added translations: fi, zh_CN
+  * Added translations: fi, zh_CN, el
   * Updated translations: es, hu, ru
 
 2009-04-12: version 0.4.8

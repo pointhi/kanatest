@@ -6,7 +6,8 @@ XGETTEXT = /usr/bin/xgettext
 MSGMERGE = /usr/bin/msgmerge
 
 XGETTEXT_OPTS = --keyword=_ --keyword=N_ --keyword=X_ --add-comments=TRANSLATORS: --no-location
-POFILES = de.po es.po fi.po fr.po hu.po it.po pl.po pt.po ru.po zh_CN.po
+POFILES = de.po el.po es.po fi.po fr.po hu.po it.po pl.po \
+		  pt.po ru.po zh_CN.po
 MOFILES = $(POFILES:.po=.mo)
 
 EXTRA_DIST = $(POFILES) $(MOFILES)

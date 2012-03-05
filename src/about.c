@@ -150,6 +150,8 @@ gchar text_received_postcards[] = {
     "  * Caleb from Taichung (Taiwan)\n"
     "  * Eero from Lahti (Finland)\n"
     "  * A.K. from Marburg (Germany)\n"
+    "  * Michael from Veitshöchheim (Germany)\n"
+    "  * Unknown from Albacete (Spain)\n"
 };
 
 gchar text_license[] = {
@@ -171,6 +173,7 @@ gchar text_license[] = {
 gchar *translators[] = {
     "de",    "Mathias Brodala",      "info@noctus.net",
     "",      "Frank Polte",          "frederyk@gmx.de",
+    "el",    "Spyro Papanastasiou",  "univ@lavabit.com",
     "es",    "Daniel Halens",        "daniel.halens@sabayonlinux.org",
     "fi",    "Aki Nyman",            "aki.nyman@gmail.com",
     "fr",    "Adrian Courrèges",     "a.courreges@gmail.com",
