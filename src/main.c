@@ -87,7 +87,9 @@ osso_context_t *osso_context = NULL;
     if (g_file_test(buffer, G_FILE_TEST_EXISTS | G_FILE_TEST_IS_DIR) != TRUE) {
         prefs_read_config (CONFIG_FILENAME_OLD, CONFIG_DIRNAME_OLD);
         prefs_write_config (CONFIG_FILENAME, CONFIG_DIRNAME);
-        stats_read_list (STATS_FILENAME_OLD, CONFIG_DIRNAME_OLD, appGUI);
+        if (g_file_test(prefs_get_config_filename (STATS_FILENAME_OLD, CONFIG_DIRNAME_OLD), G_FILE_TEST_EXISTS | G_FILE_TEST_IS_DIR) == TRUE) {
+            stats_read_list (STATS_FILENAME_OLD, CONFIG_DIRNAME_OLD, appGUI);
+        }
         stats_write_list (STATS_FILENAME, CONFIG_DIRNAME, appGUI);
     }
 

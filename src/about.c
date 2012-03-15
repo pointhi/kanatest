@@ -117,6 +117,7 @@ gchar text_contributors[] = {
     "                Jakub Zawadzki\n"
     "                rhn (Reverse mode)\n"
     "                Andrey Tikhonov\n"
+    "                Takahide Nojima\n"
 };
 
 gchar text_postcards_address[] = {

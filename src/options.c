@@ -1173,11 +1173,19 @@ static          MESSAGE msg2[CHART_ROWS];
     gtk_table_attach (GTK_TABLE (table), combobox_ca_timeout, 1, 2, 0, 1,
                       (GtkAttachOptions) (GTK_FILL | GTK_EXPAND),
                       (GtkAttachOptions) (0), 8, 0);
+#if GTK_CHECK_VERSION(2,24,0)
+    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox_ca_timeout), _("Disabled"));
+    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox_ca_timeout), _("1 sec"));
+    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox_ca_timeout), _("2 sec"));
+    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox_ca_timeout), _("3 sec"));
+    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox_ca_timeout), _("Until any key will be pressed"));
+#else
     gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_ca_timeout), _("Disabled"));
     gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_ca_timeout), _("1 sec"));
     gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_ca_timeout), _("2 sec"));
     gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_ca_timeout), _("3 sec"));
     gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_ca_timeout), _("Until any key will be pressed"));
+#endif /*GTK_CHECK_VERSION(2,24,0)*/
 
     gtk_combo_box_set_active (GTK_COMBO_BOX (combobox_ca_timeout), config.ca_timeout);
 #endif
@@ -1502,12 +1510,21 @@ static          MESSAGE msg2[CHART_ROWS];
     gtk_box_pack_start (GTK_BOX (hbox), combobox_dtf, FALSE, FALSE, 0);
     g_signal_connect (G_OBJECT (combobox_dtf), "changed",
                       G_CALLBACK (options_combobox_dtf_handler_cb), appGUI);
+
+#if GTK_CHECK_VERSION(2,24,0)
+    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox_dtf), _("Romaji"));
+    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox_dtf), _("Hiragana"));
+    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox_dtf), _("Katakana"));
+    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox_dtf), _("Hiragana + Romaji"));
+    gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combobox_dtf), _("Katakana + Romaji"));
+#else
     gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_dtf), _("Romaji"));
     gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_dtf), _("Hiragana"));
     gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_dtf), _("Katakana"));
     gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_dtf), _("Hiragana + Romaji"));
     gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_dtf), _("Katakana + Romaji"));
     gtk_combo_box_set_active (GTK_COMBO_BOX (combobox_dtf), 0);
+#endif /*GTK_CHECK_VERSION(2,24,0)*/
 
     hbuttonbox_s = gtk_hbutton_box_new ();
     gtk_widget_show (hbuttonbox_s);

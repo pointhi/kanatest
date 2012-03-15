@@ -780,8 +780,15 @@ HildonGtkInputMode input_mode;
 
     gtk_window_move (GTK_WINDOW (appGUI->main_window),
                                  config.window_x, config.window_y);
+
+#if GTK_CHECK_VERSION(2,24,0)
+    gtk_widget_add_events (GTK_WIDGET (appGUI->main_window),
+                                 GDK_BUTTON_PRESS_MASK);
+#else
     gtk_widget_add_events (GTK_WINDOW (appGUI->main_window),
                                  GDK_BUTTON_PRESS_MASK);
+#endif /*GTK_CHECK_VERSION(2,24,0) */
+
 #endif
     g_signal_connect (G_OBJECT (appGUI->main_window), "delete_event",
                         G_CALLBACK(gui_delete_event_cb), appGUI);
@@ -1014,7 +1021,13 @@ HildonGtkInputMode input_mode;
     gtk_container_add (GTK_CONTAINER (frame), alignment);
     gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 0, 0, 12, 0);
 #ifndef MAEMO
-    appGUI->combobox_kana_mode = gtk_combo_box_new_text ();
+
+#if GTK_CHECK_VERSION(2,24,0)
+    appGUI->combobox_kana_mode = gtk_combo_box_text_new ();
+#else
+     appGUI->combobox_kana_mode = gtk_combo_box_new_text ();
+#endif
+
     gtk_widget_show (appGUI->combobox_kana_mode);
     g_signal_connect (G_OBJECT (appGUI->combobox_kana_mode), "changed",
                       G_CALLBACK (gui_combobox_kana_handler_cb), NULL);
@@ -1022,7 +1035,11 @@ HildonGtkInputMode input_mode;
     gtk_container_set_border_width (GTK_CONTAINER (alignment), 4);
 
     for(i=0; i < KANA_MODE_NAMES; i++) {
+#if GTK_CHECK_VERSION(2,24,0)
+        gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT(appGUI->combobox_kana_mode), get_test_mode_name(i+1));
+#else
         gtk_combo_box_append_text (GTK_COMBO_BOX (appGUI->combobox_kana_mode), get_test_mode_name(i+1));
+#endif
     }
 
     appGUI->label_ka = gtk_label_new (NULL);
@@ -1064,7 +1081,13 @@ HildonGtkInputMode input_mode;
     gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 0, 0, 12, 0);
     
 #ifndef MAEMO
+
+#if GTK_CHECK_VERSION(2,24,0)
+    appGUI->combobox_lesson = gtk_combo_box_text_new ();
+#else
     appGUI->combobox_lesson = gtk_combo_box_new_text ();
+#endif
+
     gtk_widget_show (appGUI->combobox_lesson);
     g_signal_connect (G_OBJECT (appGUI->combobox_lesson), "changed",
                       G_CALLBACK (gui_combobox_kana_set_handler_cb), NULL);
@@ -1072,7 +1095,11 @@ HildonGtkInputMode input_mode;
     gtk_container_set_border_width (GTK_CONTAINER (alignment), 4);
 
     for(i=0; i < KANA_SET_NAMES; i++) {
+#if GTK_CHECK_VERSION(2,24,0)
+        gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (appGUI->combobox_lesson), get_kana_set_name(i));
+#else
         gtk_combo_box_append_text (GTK_COMBO_BOX (appGUI->combobox_lesson), get_kana_set_name(i));
+#endif
     }
 
     appGUI->label_le = gtk_label_new (NULL);
