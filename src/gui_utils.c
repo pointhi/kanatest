@@ -268,13 +268,10 @@ void
 gui_url_set_cursor_if_appropriate (GtkTextView *textview, gint x, gint y, GUI *appGUI) {
 
 GSList *tags = NULL, *tagp = NULL;
-GtkTextBuffer *buffer;
 GtkTextIter iter;
 gboolean hovering = FALSE;
 GtkTextTag *tag;
 int *slink;
-
-    buffer = gtk_text_view_get_buffer (textview);
 
     gtk_text_view_get_iter_at_location (textview, &iter, x, y);
 

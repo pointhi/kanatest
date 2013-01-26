@@ -233,7 +233,7 @@ draw_statistics_graph (GUI *appGUI) {
 
 gint width, height, i, k;
 cairo_t *sts_cr = NULL;
-double minY, maxY, hiragana_value, katakana_value, r;
+double minY, maxY, hiragana_value, katakana_value;
 double h_real_y_pos, k_real_y_pos, region, stepX, stepY;
 double dash[] = { 1.0 };
 gchar buffer[BUFFER_SIZE];
@@ -294,12 +294,6 @@ gchar buffer[BUFFER_SIZE];
     }
 
     /* draw graph */
-
-    if (width < height) {       /* radius for a point */
-        r = 5 * ((double)width / height);
-    } else {
-        r = 5 * ((double)height / width);
-    }
 
     /* hiragana */
 
@@ -595,7 +589,7 @@ gchar *column_names[NUMBER_OF_COLUMNS] = {
     for(j=0; j < CHART_ROWS; j++) {
         for(i=0; i < CHART_COLUMNS; i++) {
 
-            if(get_kana_sign_mask(j, i)) {
+            if (get_kana_sign_mask(j, i)) {
 
                 frames_hiragana[pos] = gtk_frame_new (NULL);
                 gtk_widget_show (frames_hiragana[pos]);
@@ -628,9 +622,9 @@ gchar *column_names[NUMBER_OF_COLUMNS] = {
 #else
                 g_snprintf (buffer, BUFFER_SIZE, "<span face='%s'>%s/%s</span>: <span color='%s'>%d/%d</span> (%.f %%)",
 #endif
-                            config.kana_font_face,
-                            get_kana_sign(cpos, HIRAGANA, TRUE), get_kana_sign(cpos, ROMAJI, TRUE), color_str, 
-                            appGUI->sts->correct_hiragana_counters[cpos], appGUI->sts->hiragana_counters[cpos], ratio);
+				config.kana_font_face,
+				get_kana_sign(cpos, HIRAGANA, TRUE), get_kana_sign(cpos, ROMAJI, TRUE), color_str, 
+				appGUI->sts->correct_hiragana_counters[cpos], appGUI->sts->hiragana_counters[cpos], ratio);
 
                 gtk_label_set_markup (GTK_LABEL (appGUI->chr->labels[pos]), buffer);
                 cpos++;
@@ -709,9 +703,9 @@ gchar *column_names[NUMBER_OF_COLUMNS] = {
 #else
                 g_snprintf (buffer, BUFFER_SIZE, "<span face='%s'>%s/%s</span>: <span color='%s'>%d/%d</span> (%.f %%)",
 #endif
-                            config.kana_font_face,
-                            get_kana_sign(cpos, KATAKANA, TRUE), get_kana_sign(cpos, ROMAJI, TRUE), color_str, 
-                            appGUI->sts->correct_katakana_counters[cpos], appGUI->sts->katakana_counters[cpos], ratio);
+				config.kana_font_face,
+				get_kana_sign(cpos, KATAKANA, TRUE), get_kana_sign(cpos, ROMAJI, TRUE), color_str, 
+				appGUI->sts->correct_katakana_counters[cpos], appGUI->sts->katakana_counters[cpos], ratio);
 
                 gtk_label_set_markup (GTK_LABEL (appGUI->chr->labels[pos]), buffer);
                 cpos++;

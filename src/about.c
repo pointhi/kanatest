@@ -153,6 +153,10 @@ gchar text_received_postcards[] = {
     "  * A.K. from Marburg (Germany)\n"
     "  * Michael from Veitshöchheim (Germany)\n"
     "  * Unknown from Albacete (Spain)\n"
+    "  * M. Kramer from Stadskanaal (Netherlands)\n"
+    "  * Alexander from Düsseldorf (Germany)\n"
+    "  * Victor from Salvador (Brazil)\n"
+    "  * Dante from Buenos Aires (Argentina)\n"
 };
 
 gchar text_license[] = {
