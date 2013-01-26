@@ -195,7 +195,6 @@ gchar buffer[BUFFER_SIZE];
     gtk_widget_hide (appGUI->label_ka);
     gtk_widget_hide (appGUI->combobox_lesson);
     gtk_widget_hide (appGUI->label_le);
-    gtk_widget_hide (appGUI->combobox_test_mode);
 #else
     gtk_widget_hide (appGUI->logo_area);
 #endif
@@ -265,7 +264,6 @@ gui_disable_test (GUI *appGUI) {
     gtk_widget_show (appGUI->label_ka);
     gtk_widget_show (appGUI->combobox_lesson);
     gtk_widget_show (appGUI->label_le);
-    gtk_widget_show (appGUI->combobox_test_mode);
 #else
     gtk_widget_show (appGUI->logo_area);
 #endif
@@ -293,9 +291,9 @@ gui_set_widgets_status (gboolean mode, GUI *appGUI) {
 
     gtk_widget_set_sensitive (appGUI->romaji_entry, !mode);
     gtk_widget_set_sensitive (appGUI->frame_ro, !mode);
-    gtk_widget_show (appGUI->frame_ro);
-
+    
     if (mode) {
+        gtk_widget_hide (appGUI->frame_ro);
         gtk_widget_show (appGUI->start_button);
         gtk_widget_show (appGUI->quit_button);
         gtk_widget_hide (appGUI->stop_button);
@@ -310,6 +308,7 @@ gui_set_widgets_status (gboolean mode, GUI *appGUI) {
         gtk_widget_hide (appGUI->timer_label);
 
     } else {
+        gtk_widget_show (appGUI->frame_ro);
         gtk_widget_hide (appGUI->start_button);
         gtk_widget_hide (appGUI->quit_button);
         gtk_widget_show (appGUI->stop_button);
@@ -937,23 +936,18 @@ HildonGtkInputMode input_mode;
     gtk_widget_set_size_request (appGUI->timer_label, -1, 34);  /* icon height */
     gtk_box_pack_start (GTK_BOX (hbox2), appGUI->timer_label, FALSE, FALSE, 0);
 
-#ifndef MAEMO
+    /* Create interface buttons, but not put them inside layouts yet. */
+
     appGUI->reverse_button = gui_stock_label_togglebutton(NULL, GTK_STOCK_REFRESH);
 #if GTK_CHECK_VERSION(2,17,5)
     gtk_widget_set_can_focus (appGUI->reverse_button, FALSE);
 #else
     GTK_WIDGET_UNSET_FLAGS (appGUI->reverse_button, GTK_CAN_FOCUS);
-#endif 
+#endif
+    gtk_widget_set_tooltip_text (appGUI->reverse_button, _("Reverse mode"));
     g_signal_connect (G_OBJECT (appGUI->reverse_button), "toggled",
                         G_CALLBACK (toggle_reverse_mode_cb), appGUI);
     gtk_widget_show (appGUI->reverse_button);
-    gtk_box_pack_start (GTK_BOX (hbox2), appGUI->reverse_button, FALSE, FALSE, 0);
-    gtk_container_set_border_width (GTK_CONTAINER (appGUI->reverse_button), 2);
-    gtk_widget_set_tooltip_text (appGUI->reverse_button, _("Reverse mode"));
-
-    appGUI->vseparator_r = gtk_vseparator_new ();
-    gtk_widget_show (appGUI->vseparator_r);
-    gtk_box_pack_start (GTK_BOX (hbox2), appGUI->vseparator_r, FALSE, FALSE, 4);
 
     appGUI->stat_button = gui_stock_label_button(NULL, KANATEST_STOCK_BUTTON_STATISTICS);
 #if GTK_CHECK_VERSION(2,17,5)
@@ -961,12 +955,22 @@ HildonGtkInputMode input_mode;
 #else
     GTK_WIDGET_UNSET_FLAGS (appGUI->stat_button, GTK_CAN_FOCUS);
 #endif 
+    gtk_widget_set_tooltip_text (appGUI->stat_button, _("Statistics"));
     g_signal_connect (G_OBJECT (appGUI->stat_button), "clicked",
                         G_CALLBACK (show_statistics_window_cb), appGUI);
     gtk_widget_show (appGUI->stat_button);
+
+
+#ifndef MAEMO
+    gtk_box_pack_start (GTK_BOX (hbox2), appGUI->reverse_button, FALSE, FALSE, 0);
+    gtk_container_set_border_width (GTK_CONTAINER (appGUI->reverse_button), 2);
+
+    appGUI->vseparator_r = gtk_vseparator_new ();
+    gtk_widget_show (appGUI->vseparator_r);
+    gtk_box_pack_start (GTK_BOX (hbox2), appGUI->vseparator_r, FALSE, FALSE, 4);
+
     gtk_box_pack_start (GTK_BOX (hbox2), appGUI->stat_button, FALSE, FALSE, 0);
     gtk_container_set_border_width (GTK_CONTAINER (appGUI->stat_button), 2);
-    gtk_widget_set_tooltip_text (appGUI->stat_button, _("Statistics"));
 
     appGUI->chart_button = gui_stock_label_button(NULL, KANATEST_STOCK_BUTTON_CHART);
 #if GTK_CHECK_VERSION(2,17,5)
@@ -1165,16 +1169,13 @@ HildonGtkInputMode input_mode;
 #endif
     gtk_widget_set_tooltip_text (appGUI->start_button, _("Press to begin testing..."));
 #ifdef MAEMO
-     appGUI->stat_button = gui_stock_label_button(NULL, KANATEST_STOCK_BUTTON_STATISTICS);
-     GTK_WIDGET_UNSET_FLAGS (appGUI->stat_button, GTK_CAN_FOCUS);
-     g_signal_connect (G_OBJECT (appGUI->stat_button), "clicked",
-                         G_CALLBACK (show_statistics_window_cb), appGUI);
-     gtk_widget_show (appGUI->stat_button);
+     gtk_container_add (GTK_CONTAINER (hbuttonbox), appGUI->reverse_button);
+     gtk_container_set_border_width (GTK_CONTAINER (appGUI->reverse_button), 4);
+     GTK_WIDGET_SET_FLAGS (appGUI->reverse_button, GTK_CAN_DEFAULT);
+    
      gtk_container_add (GTK_CONTAINER (hbuttonbox), appGUI->stat_button);
      gtk_container_set_border_width (GTK_CONTAINER (appGUI->stat_button), 4);
      GTK_WIDGET_SET_FLAGS (appGUI->stat_button, GTK_CAN_DEFAULT);
-
-     gtk_widget_set_tooltip_text (appGUI->stat_button, _("Statistics"));
 
      appGUI->chart_button = gui_stock_label_button(NULL, KANATEST_STOCK_BUTTON_CHART);
      GTK_WIDGET_UNSET_FLAGS (appGUI->chart_button, GTK_CAN_FOCUS);

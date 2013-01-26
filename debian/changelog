@@ -1,3 +1,9 @@
+kanatest (0.4.10maemo1) fremantle; urgency=low
+
+  * Updated to rev 81
+
+ -- rhn <kate.rhn@porcupinefactory.org>  Thu, 11 Oct 2012 01:10:32 +0200
+
 kanatest (0.4.8maemo1) fremantle; urgency=low
 
   * Initial maemo port
