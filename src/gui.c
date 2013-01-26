@@ -331,10 +331,18 @@ gui_set_widgets_status (gboolean mode, GUI *appGUI) {
 
 /*--------------------------------------------------------------------*/
 /* number is the character number */
+
 void 
 gui_show_correct_answer(gint number, GUI *appGUI) {
-    gchar tmp_a[BUFFER_SIZE], tmp_b[BUFFER_SIZE];
+
+gchar tmp_a[BUFFER_SIZE], tmp_b[BUFFER_SIZE];
+
     appGUI->tst->any_key = FALSE;
+    gtk_widget_set_sensitive(GTK_WIDGET(appGUI->stop_button), FALSE);
+
+    if (config.test_mode != NORMAL) {
+        gtk_widget_show (appGUI->info_label);
+    }
 
     gui_display_kana (number, ROMAJI, appGUI);
     while (g_main_context_iteration (NULL, FALSE));
@@ -369,8 +377,13 @@ gui_show_correct_answer(gint number, GUI *appGUI) {
         gtk_entry_set_text (GTK_ENTRY(appGUI->romaji_entry), tmp_a);
         while (g_main_context_iteration (NULL, FALSE));
     }
-}
 
+    gtk_widget_set_sensitive(GTK_WIDGET(appGUI->stop_button), TRUE);
+
+    if (config.test_mode != NORMAL) {
+        gtk_widget_hide (appGUI->info_label);
+    }
+}
 
 /*--------------------------------------------------------------------*/
 
@@ -529,7 +542,7 @@ gint original_kana_set;
             g_warning ("Invalid mode selected.");
             break;
     }
-    gtk_widget_set_sensitive (appGUI->kana_choices_area, FALSE);
+    gtk_widget_hide (appGUI->kana_choices_area);
     gtk_label_set_markup (GTK_LABEL (appGUI->char_label), tmpbuf);
 }
 
@@ -565,7 +578,6 @@ gui_display_kana_choices (gint number, gint mode, GUI *appGUI) {
     
     gtk_widget_hide(GTK_WIDGET(appGUI->frame_ro));
     gtk_widget_show(appGUI->kana_choices_area);
-    gtk_widget_set_sensitive (appGUI->kana_choices_area, TRUE);
     gtk_label_set_markup (GTK_LABEL (appGUI->char_label), tmpbuf);
 }
 
@@ -832,6 +844,9 @@ HildonGtkInputMode input_mode;
     gtk_widget_set_size_request (appGUI->char_label, -1, 150);
     gtk_box_pack_start (GTK_BOX (vbox1), appGUI->char_label, FALSE, FALSE, 0);
 #endif
+
+    appGUI->info_label = gtk_label_new (_("Press any key or mouse button to continue..."));
+    gtk_box_pack_start(GTK_BOX(vbox1), appGUI->info_label, TRUE, TRUE, 0);
 
     appGUI->kana_choices_area = gtk_vbox_new(TRUE, 0);
     

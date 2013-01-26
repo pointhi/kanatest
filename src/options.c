@@ -1556,8 +1556,9 @@ static          MESSAGE msg2[CHART_ROWS];
     gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_dtf), _("Katakana"));
     gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_dtf), _("Hiragana + Romaji"));
     gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_dtf), _("Katakana + Romaji"));
-    gtk_combo_box_set_active (GTK_COMBO_BOX (combobox_dtf), 0);
 #endif /*GTK_CHECK_VERSION(2,24,0)*/
+
+    gtk_combo_box_set_active (GTK_COMBO_BOX (combobox_dtf), 0);
 
     hbuttonbox_s = gtk_hbutton_box_new ();
     gtk_widget_show (hbuttonbox_s);
@@ -1650,7 +1651,7 @@ static          MESSAGE msg2[CHART_ROWS];
     if(gtk_notebook_get_current_page (GTK_NOTEBOOK (appGUI->opt->notebook)))
         create_options_window_menu (appGUI);
 #else
-    gtk_widget_grab_default (close_button);
+    gtk_widget_grab_focus (close_button);
 #endif
 }
 

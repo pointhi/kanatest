@@ -243,6 +243,7 @@ typedef struct {
     GtkProgressBar  *progressbar;
     GtkWidget       *hseparator_up;
     GtkWidget       *vseparator_r;
+    GtkWidget       *info_label;
     GtkWidget       *kana_choices_area;
     GtkWidget       *kana_choices[KANA_MAX_CHOICES];
 #ifndef MAEMO

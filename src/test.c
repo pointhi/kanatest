@@ -664,6 +664,7 @@ test_info(GUI *appGUI) {
                                                       GTK_MESSAGE_INFO, GTK_BUTTONS_CLOSE, message, NULL);
 
     gtk_window_set_title (GTK_WINDOW(info_dialog), _("Information"));
+    gtk_window_set_position (GTK_WINDOW(info_dialog), GTK_WIN_POS_MOUSE);
     gtk_widget_show (info_dialog);
 #endif
     gtk_dialog_run (GTK_DIALOG(info_dialog));
