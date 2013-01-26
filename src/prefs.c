@@ -83,6 +83,7 @@ prefs_set_default_values (void) {
     g_strlcpy (config.kana_color, "#000000", MAX_COLORNAME_LEN);
 #endif    
     g_strlcpy (config.romaji_color, "#BB1010", MAX_COLORNAME_LEN);
+    g_strlcpy (config.timer_color, "#202080", MAX_COLORNAME_LEN);
     g_strlcpy (config.user_defined_lesson,
                "+++++----------------------------------------------------------------------------------------------------", NUMBER_OF_SIGNS);
 }
@@ -164,7 +165,7 @@ xmlChar *key;
                     xmlFree (key);
                 }
 
-				if ((!xmlStrcmp (node->name, (const xmlChar *) "test_mode"))) {
+                if ((!xmlStrcmp (node->name, (const xmlChar *) "test_mode"))) {
                     key = xmlNodeListGetString (doc, node->xmlChildrenNode, 1);
                     if (key != NULL)
                             sscanf ((gchar *) key, "%d", &config.test_mode);
@@ -311,6 +312,13 @@ xmlChar *key;
                     xmlFree (key);
                 }
 
+                if ((!xmlStrcmp (node->name, (const xmlChar *)"timer_color"))) {
+                    key = xmlNodeListGetString (doc, node->xmlChildrenNode, 1);
+                    if (key != NULL)
+                            g_strlcpy (config.timer_color, (gchar *) key, MAX_COLORNAME_LEN);
+                    xmlFree (key);
+                }
+
                 if ((!xmlStrcmp (node->name, (const xmlChar *)"user_defined_lesson"))) {
                     key = xmlNodeListGetString (doc, node->xmlChildrenNode, 1);
                     if (key != NULL) 
@@ -401,6 +409,8 @@ gchar temp[BUFFER_SIZE];
     xmlNewTextChild (node, NULL, (const xmlChar *) "kana_color", (xmlChar *) temp);
     g_snprintf (temp, MAX_COLORNAME_LEN, "%s", config.romaji_color);
     xmlNewTextChild (node, NULL, (const xmlChar *) "romaji_color", (xmlChar *) temp);
+    g_snprintf (temp, MAX_COLORNAME_LEN, "%s", config.timer_color);
+    xmlNewTextChild (node, NULL, (const xmlChar *) "timer_color", (xmlChar *) temp);
     g_snprintf (temp, NUMBER_OF_SIGNS+1, "%s", config.user_defined_lesson);
     xmlNewTextChild (node, NULL, (const xmlChar *) "user_defined_lesson", (xmlChar *) temp);
 

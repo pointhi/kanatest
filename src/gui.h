@@ -44,7 +44,6 @@ void        show_splash_screen  (void);
 #endif
 
 #define     BUFFER_SIZE         1024
-#define     TIMER_COLOR         "#202080"
 
 #define     NUMBER_OF_SIGNS     104
 #define     MIXED_SEPARATOR     1000        /* magic number for mixed mode */
@@ -142,6 +141,7 @@ typedef struct {
 
     GtkWidget   *kana_colorbutton;
     GtkWidget   *romaji_colorbutton;
+    GtkWidget   *timer_colorbutton;
 
     GtkWidget   *notebook;
     gint        active_tab;

@@ -234,6 +234,10 @@ GdkColor color;
         g_snprintf (config.romaji_color, MAX_COLORNAME_LEN, "#%02X%02X%02X",
                     color.red * 256 / 65536, color.green * 256 / 65536, color.blue * 256 / 65536);
 
+        gtk_color_button_get_color (GTK_COLOR_BUTTON(appGUI->opt->timer_colorbutton), &color);
+        g_snprintf (config.timer_color, MAX_COLORNAME_LEN, "#%02X%02X%02X",
+                    color.red * 256 / 65536, color.green * 256 / 65536, color.blue * 256 / 65536);
+
         appGUI->opt->active_tab = gtk_notebook_get_current_page (GTK_NOTEBOOK (appGUI->opt->notebook));
 #ifdef MAEMO
         hildon_window_stack_pop_1 (hildon_window_stack_get_default());
@@ -1220,7 +1224,7 @@ static          MESSAGE msg2[CHART_ROWS];
 #ifdef MAEMO
     table = gtk_table_new (3, 2, FALSE);
 #else
-    table = gtk_table_new (5, 1, FALSE);
+    table = gtk_table_new (6, 1, FALSE);
 #endif  
     
     gtk_widget_show (table);
@@ -1283,6 +1287,34 @@ static          MESSAGE msg2[CHART_ROWS];
 
     gdk_color_parse (config.romaji_color, &color);
     gtk_color_button_set_color (GTK_COLOR_BUTTON (appGUI->opt->romaji_colorbutton), &color);
+
+    g_snprintf (buffer, BUFFER_SIZE, "%s:", _("Timer color"));
+    label = gtk_label_new (buffer);
+    gtk_widget_show (label);
+#ifdef MAEMO
+    gtk_table_attach_defaults(GTK_TABLE (table), label, 1, 2, 1, 2);
+#else
+    gtk_table_attach (GTK_TABLE (table), label, 4, 5, 0, 1,
+                      (GtkAttachOptions) (GTK_FILL),
+                      (GtkAttachOptions) (0), 0, 0);
+#endif
+    gtk_misc_set_alignment (GTK_MISC (label), 0, 0.5);
+
+    appGUI->opt->timer_colorbutton = gtk_color_button_new ();
+    gtk_widget_show (appGUI->opt->timer_colorbutton);
+#ifdef MAEMO
+    hildon_gtk_widget_set_theme_size(appGUI->opt->timer_colorbutton, HILDON_SIZE_FINGER_HEIGHT);
+    gtk_table_attach_defaults (GTK_TABLE (table), appGUI->opt->timer_colorbutton, 2, 3, 1, 2);
+#else
+    gtk_table_attach (GTK_TABLE (table), appGUI->opt->timer_colorbutton, 5, 6, 0, 1,
+                      (GtkAttachOptions) (GTK_FILL),
+                      (GtkAttachOptions) (0), 6, 0);
+#endif
+    gtk_container_set_border_width (GTK_CONTAINER (appGUI->opt->timer_colorbutton), 3);
+
+    gdk_color_parse (config.timer_color, &color);
+    gtk_color_button_set_color (GTK_COLOR_BUTTON (appGUI->opt->timer_colorbutton), &color);
+
 #ifdef MAEMO
     g_snprintf (buffer, BUFFER_SIZE, "%s:", _("Select kana font"));
     label = gtk_label_new (buffer);
@@ -1303,12 +1335,13 @@ static          MESSAGE msg2[CHART_ROWS];
     g_signal_connect (G_OBJECT (font_button), "clicked",
                       G_CALLBACK (options_font_select_handler_cb), appGUI);
     gtk_widget_show (font_button);
+
 #ifdef MAEMO
     gtk_table_attach_defaults (GTK_TABLE (table), font_button, 0, 2, 2, 3);
 #else
-    gtk_table_attach (GTK_TABLE (table), font_button, 4, 5, 0, 1,
-                      (GtkAttachOptions) (GTK_FILL | GTK_EXPAND),
-                      (GtkAttachOptions) (0), 8, 0);
+    gtk_table_attach (GTK_TABLE (table), font_button, 0, 2, 1, 2,
+                      (GtkAttachOptions) (GTK_FILL),
+                      (GtkAttachOptions) (0), 0, 8);
 #endif
     /*-----------------------------------------------------------------*/
     /* User-defined lesson TAB */

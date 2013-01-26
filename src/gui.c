@@ -157,10 +157,10 @@ static gchar buffer[BUFFER_SIZE];
     if (appGUI->tst->test_state == FALSE) return;
 #ifdef MAEMO
     g_snprintf (buffer, BUFFER_SIZE, "<span font_desc='20' color='%s'><tt>%02d:%02d</tt></span>", 
-                TIMER_COLOR, appGUI->time_counter / 60, appGUI->time_counter % 60);
+                config.timer_color, appGUI->time_counter / 60, appGUI->time_counter % 60);
 #else    
     g_snprintf (buffer, BUFFER_SIZE, "<span font_desc='16' color='%s'><tt>%02d:%02d</tt></span>", 
-                TIMER_COLOR, appGUI->time_counter / 60, appGUI->time_counter % 60);
+                config.timer_color, appGUI->time_counter / 60, appGUI->time_counter % 60);
 #endif                
     gtk_label_set_markup (GTK_LABEL (appGUI->timer_label), buffer);
 }
@@ -213,10 +213,10 @@ gchar buffer[BUFFER_SIZE];
 
     appGUI->time_counter = 0;
 #ifdef MAEMO
-    g_snprintf (buffer, BUFFER_SIZE, "<span font_desc='20' color='%s'><tt>00:00</tt></span>", TIMER_COLOR);
+    g_snprintf (buffer, BUFFER_SIZE, "<span font_desc='20' color='%s'><tt>00:00</tt></span>", config.timer_color);
     gtk_label_set_markup (GTK_LABEL (appGUI->timer_label), buffer);
 #else    
-    g_snprintf (buffer, BUFFER_SIZE, "<span font_desc='16' color='%s'><tt>00:00</tt></span>", TIMER_COLOR);
+    g_snprintf (buffer, BUFFER_SIZE, "<span font_desc='16' color='%s'><tt>00:00</tt></span>", config.timer_color);
     gtk_label_set_markup (GTK_LABEL (appGUI->timer_label), buffer);
 #endif    
 }

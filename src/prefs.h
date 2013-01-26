@@ -65,6 +65,7 @@ struct kanatest_prefs
     gchar       kana_font_face[MAX_FONTNAME_LEN];
     gchar       kana_color[MAX_COLORNAME_LEN];
     gchar       romaji_color[MAX_COLORNAME_LEN];
+    gchar       timer_color[MAX_COLORNAME_LEN];
     gchar       user_defined_lesson[NUMBER_OF_SIGNS+1];
 };
 
