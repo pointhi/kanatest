@@ -27,6 +27,10 @@
 #include <hildon/hildon.h>
 #include <libosso.h>
 
+#if defined(WIN32) || defined(WIN64)
+#include "glib.h" /* g_path_get_dirname() */
+#endif
+
 #define APP_NAME "org.clayo.kanatest"
 #define APP_VER "1.0"
 #endif
@@ -103,13 +107,28 @@ osso_context_t *osso_context = NULL;
     gtk_init (&argc, &argv);
 #endif
     setlocale (LC_ALL, "");
+
+#if defined(WIN32) || defined(WIN64)
+    /* Set the locale directory as subdirectory of application path */
+    char WINLOCALEDIR[MAX_PATH];
+    strcpy(WINLOCALEDIR, g_path_get_dirname(argv[0]));
+    strcat(WINLOCALEDIR, "\\share\\locale");
+
+    bindtextdomain (PACKAGE, WINLOCALEDIR);
+#else
     bindtextdomain (PACKAGE, LOCALEDIR);
+#endif
     bind_textdomain_codeset (PACKAGE, "UTF-8");
     textdomain (PACKAGE);
 
     /* set seed */
     gettimeofday(&timer, NULL);
+
+#if defined(WIN32) || defined(WIN64)
+    srand((long)time(NULL));
+#else
     srand48(timer.tv_usec + getpid());
+#endif
 
 #ifdef MAEMO
     show_splash_screen ();

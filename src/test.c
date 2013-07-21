@@ -29,6 +29,13 @@
 #ifdef MAEMO
 #include <hildon/hildon.h>
 #endif
+
+#if defined(WIN32) || defined(WIN64)
+#define _LRAND48(x) rand() % (x)
+#else
+#define _LRAND48(x) lrand48() % (x)
+#endif
+
 /*--------------------------------------------------------------------*/
 
 gchar *
@@ -314,7 +321,7 @@ gint *table;
 
     /* do a decent random permutation */
     for(i = number_of_questions-1; i > 0; --i) {
-        pos = lrand48() % (i+1);
+        pos = _LRAND48(i+1);
         tmp = appGUI->tst->questions_table[i];
         appGUI->tst->questions_table[i] = appGUI->tst->questions_table[pos];
         appGUI->tst->questions_table[pos] = tmp;
@@ -347,7 +354,7 @@ test_generate_choices(gint kana_number, GUI *appGUI) {
 
     /* do a decent random permutation */
     for(i = num_answers-1; i > 0; --i) {
-        pos = lrand48() % (i+1);
+        pos = _LRAND48(i+1);
         tmp = answers_table[i];
         answers_table[i] = answers_table[pos];
         answers_table[pos] = tmp;
@@ -364,7 +371,7 @@ test_generate_choices(gint kana_number, GUI *appGUI) {
     
     /* otherwise, insert correct answer */
     if (done == FALSE) {
-        answers_table[lrand48() % num_choices] = kana_number;
+        answers_table[_LRAND48(num_choices)] = kana_number;
     }
     
     /* render all buttons */

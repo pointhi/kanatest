@@ -2,6 +2,7 @@
   * Reverse test mode (rhn)
   * Ported to GTK+ 3.0 (Wen-Yen Chuang)
   * Maemo port (Aki Nyman)
+  * Win32 fixes (Jordan Irwin)
   * Some GUI improvements
   * Added translations: fi, zh_CN, el
   * Updated translations: es, hu, ru
