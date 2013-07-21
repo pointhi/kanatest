@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kanatest 0.4.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-09 00:37+0200\n"
+"POT-Creation-Date: 2013-01-26 21:02+0100\n"
 "PO-Revision-Date: 2008-11-29 18:13+0100\n"
 "Last-Translator: Adrian Courrèges <a.courreges@gmail.com>\n"
 "Language-Team: French\n"
@@ -87,6 +87,9 @@ msgstr "Question"
 
 msgid "Select test mode, kana set and press START"
 msgstr "Sélectionnez le mode, la série de kanas et appuyez sur DÉMARRER"
+
+msgid "Press any key or mouse button to continue..."
+msgstr ""
 
 msgid "Romaji"
 msgstr "Rōmaji "
@@ -228,6 +231,10 @@ msgid "Kana color"
 msgstr "Couleur des kanas "
 
 msgid "Romaji color"
+msgstr "Couleur du rōmaji "
+
+#, fuzzy
+msgid "Timer color"
 msgstr "Couleur du rōmaji "
 
 msgid "User-defined lesson"

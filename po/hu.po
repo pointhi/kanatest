@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: revision_28__hu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-09 00:37+0200\n"
+"POT-Creation-Date: 2013-01-26 21:02+0100\n"
 "PO-Revision-Date: 2010-01-12 03:56+0100\n"
 "Last-Translator: \n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
@@ -88,6 +88,9 @@ msgstr "Kérdés"
 
 msgid "Select test mode, kana set and press START"
 msgstr "Válassz teszt üzemmódot, kana készletet és indíts a START-tal"
+
+msgid "Press any key or mouse button to continue..."
+msgstr ""
 
 msgid "Romaji"
 msgstr "Romaji"
@@ -226,6 +229,10 @@ msgid "Kana color"
 msgstr "Kana szín"
 
 msgid "Romaji color"
+msgstr "Romaji szín"
+
+#, fuzzy
+msgid "Timer color"
 msgstr "Romaji szín"
 
 msgid "User-defined lesson"

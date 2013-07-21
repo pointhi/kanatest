@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kanatest 0.4.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-09 00:37+0200\n"
+"POT-Creation-Date: 2013-01-26 21:02+0100\n"
 "PO-Revision-Date: 2009-04-12 13:48+0200\n"
 "Last-Translator: Zeray Rice <fanzeyi1994@gmail.com>\n"
 "Language-Team: znCN <LL@li.org>\n"
@@ -77,6 +77,9 @@ msgstr "问题"
 
 msgid "Select test mode, kana set and press START"
 msgstr "选择测验模式，要测验的假名，然后点击开始"
+
+msgid "Press any key or mouse button to continue..."
+msgstr ""
 
 msgid "Romaji"
 msgstr "罗马音"
@@ -213,6 +216,10 @@ msgid "Kana color"
 msgstr "假名颜色"
 
 msgid "Romaji color"
+msgstr "罗马音颜色"
+
+#, fuzzy
+msgid "Timer color"
 msgstr "罗马音颜色"
 
 msgid "User-defined lesson"

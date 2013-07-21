@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kanatest 0.4.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-09 00:37+0200\n"
+"POT-Creation-Date: 2013-01-26 21:02+0100\n"
 "PO-Revision-Date: 2008-11-27 18:17+0900\n"
 "Last-Translator: Mathias Brodala <info@noctus.net>\n"
 "Language-Team: German <info@noctus.net>\n"
@@ -87,6 +87,9 @@ msgstr "Frage"
 
 msgid "Select test mode, kana set and press START"
 msgstr "Wähle einen Testmodus, ein Kana-Set und drücke auf START."
+
+msgid "Press any key or mouse button to continue..."
+msgstr ""
 
 msgid "Romaji"
 msgstr "Romaji"
@@ -226,6 +229,10 @@ msgid "Kana color"
 msgstr "Kana-Farbe"
 
 msgid "Romaji color"
+msgstr "Romaji-Farbe"
+
+#, fuzzy
+msgid "Timer color"
 msgstr "Romaji-Farbe"
 
 msgid "User-defined lesson"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kanatest 0.4.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-09 00:37+0200\n"
+"POT-Creation-Date: 2013-01-26 21:02+0100\n"
 "PO-Revision-Date: 2010-01-25 23:20+0000\n"
 "Last-Translator: Aki Nyman <aki.nyman@gmail.com>\n"
 "Language-Team: Finnish \n"
@@ -85,6 +85,9 @@ msgstr "Kysymys"
 
 msgid "Select test mode, kana set and press START"
 msgstr "Valitse testimoodi, kana-ryhmä ja paina ALOITA "
+
+msgid "Press any key or mouse button to continue..."
+msgstr ""
 
 msgid "Romaji"
 msgstr "Romaji"
@@ -222,6 +225,10 @@ msgid "Kana color"
 msgstr "Kanan väri"
 
 msgid "Romaji color"
+msgstr "Romajin väri"
+
+#, fuzzy
+msgid "Timer color"
 msgstr "Romajin väri"
 
 msgid "User-defined lesson"

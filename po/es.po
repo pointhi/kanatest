@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kanatest 0.4.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-09 00:37+0200\n"
+"POT-Creation-Date: 2013-01-26 21:02+0100\n"
 "PO-Revision-Date: 2009-07-10 17:20-0000\n"
 "Last-Translator: Daniel Halens Rodriguez <daniel.halens@sabayonlinux.org>\n"
 "Language-Team: Spanish\n"
@@ -85,6 +85,9 @@ msgstr "Pregunta"
 msgid "Select test mode, kana set and press START"
 msgstr ""
 "Selecciona el tipo de test, el conjunto de kanas y haz click en COMENZAR"
+
+msgid "Press any key or mouse button to continue..."
+msgstr ""
 
 msgid "Romaji"
 msgstr "Romaji"
@@ -226,6 +229,10 @@ msgid "Kana color"
 msgstr "Color de los kanas"
 
 msgid "Romaji color"
+msgstr "Color del romaji"
+
+#, fuzzy
+msgid "Timer color"
 msgstr "Color del romaji"
 
 msgid "User-defined lesson"

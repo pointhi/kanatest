@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kanatest 0.4.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-09 00:37+0200\n"
+"POT-Creation-Date: 2013-01-26 21:02+0100\n"
 "PO-Revision-Date: 2011-10-01 17:42+0300\n"
 "Last-Translator: Igor Urazov <z0rc3r@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -83,6 +83,9 @@ msgstr "Вопрос"
 
 msgid "Select test mode, kana set and press START"
 msgstr "Выберите режим тестирования, набор символов каны и нажмите «Пуск»"
+
+msgid "Press any key or mouse button to continue..."
+msgstr ""
 
 msgid "Romaji"
 msgstr "Киридзи"
@@ -220,6 +223,10 @@ msgid "Kana color"
 msgstr "Цвет символов каны"
 
 msgid "Romaji color"
+msgstr "Цвет киридзи"
+
+#, fuzzy
+msgid "Timer color"
 msgstr "Цвет киридзи"
 
 msgid "User-defined lesson"
