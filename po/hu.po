@@ -4,21 +4,20 @@
 # Copyright (C) 2008 Free Software Foundation, Inc.
 # This file is distributed under the same license as the Kanatest package.
 #
-# FIRST AUTHOR: Csaba Szigetvári <csaba.szigetvari@informedia.hu>, 2008, 2010.
+# FIRST AUTHOR: Csaba Szigetvári <csaba.szigetvari.budapest@gmail.com>, 2008, 2010, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: revision_28__hu\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-01-26 21:02+0100\n"
-"PO-Revision-Date: 2010-01-12 03:56+0100\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2013-09-12 15:15+0100\n"
+"Last-Translator: Csaba Szigetvári <csaba.szigetvari.budapest@gmail.com>\n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=0;\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Poedit 1.5.7\n"
 
 msgid "About"
 msgstr "Magunkról"
@@ -90,14 +89,13 @@ msgid "Select test mode, kana set and press START"
 msgstr "Válassz teszt üzemmódot, kana készletet és indíts a START-tal"
 
 msgid "Press any key or mouse button to continue..."
-msgstr ""
+msgstr "Nyomd bármely billentyűt vagy az egeret a folytatáshoz..."
 
 msgid "Romaji"
 msgstr "Romaji"
 
-#, fuzzy
 msgid "Reverse mode"
-msgstr "Teszt üzemmód"
+msgstr "visszafordító mód"
 
 msgid "Statistics"
 msgstr "Statisztikák"
@@ -156,11 +154,10 @@ msgstr "Hiba"
 msgid "no kanas found"
 msgstr "kana nem található"
 
-#, fuzzy
 msgid "kana found"
 msgid_plural "kanas found"
 msgstr[0] "kana megtalálva"
-msgstr[1] "kana megtalálva"
+msgstr[1] "kanák megtalálva"
 
 msgid "From"
 msgstr "Kezdés"
@@ -231,9 +228,8 @@ msgstr "Kana szín"
 msgid "Romaji color"
 msgstr "Romaji szín"
 
-#, fuzzy
 msgid "Timer color"
-msgstr "Romaji szín"
+msgstr "Időzítő szín"
 
 msgid "User-defined lesson"
 msgstr "Egyedi lecke"
@@ -250,13 +246,11 @@ msgstr "Kijelölt kana jelek"
 msgid "Display as"
 msgstr "Ábrázolásmód"
 
-#, fuzzy
 msgid "Hiragana + Romaji"
-msgstr "Hiragana"
+msgstr "Hiragana + Romaji"
 
-#, fuzzy
 msgid "Katakana + Romaji"
-msgstr "Katakana"
+msgstr "Katakana + Romaji"
 
 msgid "Reset"
 msgstr "Visszaállítás"
@@ -279,9 +273,8 @@ msgstr "Egyéb javításra nincsen mód. Folytassam ?"
 msgid "Date"
 msgstr "Dátum"
 
-#, fuzzy
 msgid "Test type"
-msgstr "Teszt időtartam"
+msgstr "Teszt típusa"
 
 msgid "Test time"
 msgstr "Teszt időtartam"
@@ -317,10 +310,10 @@ msgid "Mixed"
 msgstr "Keverve"
 
 msgid "Normal"
-msgstr ""
+msgstr "Normál"
 
 msgid "Reverse"
-msgstr ""
+msgstr "Visszavonás"
 
 msgid "All kanas"
 msgstr "Minden kana jel"
