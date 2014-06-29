@@ -1,0 +1,705 @@
+# Croatian translation of Kanatest.
+# Copyright (C) 2014 Mario Kamenjak
+# This file is distributed under the same license as the Kanatest package.
+# Mario Kamenjak <mkamenjak77@gmail.com>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Kanatest 0.4.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-26 21:02+0100\n"
+"PO-Revision-Date: 2013-01-26 21:02+0100\n"
+"Last-Translator: Mario Kamenjak <mkamenjak77@gmail.com>\n"
+"Language-Team: Croatian\n"
+"Language: hr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "About"
+msgstr "O proizvodu"
+
+msgid "compiled on"
+msgstr "Kompilirano na"
+
+msgid "Programming"
+msgstr "Programiranje"
+
+msgid "Graphics"
+msgstr "Grafike"
+
+msgid "Translators"
+msgstr "Prevoditelji"
+
+msgid ""
+"We would like to thank the following people for suggestions, bug reports and "
+"patches:"
+msgstr "Htjeli bismo se zahvaliti slijedećim osobama na prijedlozima, prijavama grešaka i "
+"zakrpama:"
+
+msgid "Contributors"
+msgstr "Pridonositelji"
+
+msgid ""
+"If you like our program, send a postcard with a photo of the city where you "
+"live to"
+msgstr "Ako vam se sviđa naš program pošaljite nam sliku grada u kojem živite"
+
+msgid "We have received several postcards from our happy users"
+msgstr "Već smo primili više razglednica od naših sretnih korisnika"
+
+msgid ""
+"Your postcards are a kind of motivation that encourages us to keep improving "
+"Kanatest :)"
+msgstr "Vaše razglednice su nam nekakva motivacija da nastavimo poboljšavati Kanatest"
+
+msgid "Thank you!"
+msgstr "Hvala"
+
+msgid "Postcards"
+msgstr "Razglednice"
+
+msgid "License"
+msgstr "Licenca"
+
+msgid "Kana chart"
+msgstr ""
+
+msgid "Hiragana"
+msgstr "Hiragana"
+
+msgid "Katakana"
+msgstr "Katakana"
+
+msgid "Test is in progress... Abort?"
+msgstr "Ispit je u tijeku...Prekinuti?"
+
+msgid "Question"
+msgstr "Pitanje"
+
+msgid "Select test mode, kana set and press START"
+msgstr "Izaberite način ispitivanja, set kana i stisnite START"
+
+msgid "Press any key or mouse button to continue..."
+msgstr "Stisni bilo koju tipku ili miš za nastavak..."
+
+msgid "Romaji"
+msgstr "Romaji"
+
+msgid "Reverse mode"
+msgstr "Unazadni način"
+
+msgid "Statistics"
+msgstr "Statistika"
+
+msgid "Options"
+msgstr "Opcije"
+
+msgid "Test mode"
+msgstr "Način ispitivanja"
+
+msgid "Kana set"
+msgstr "Set kana"
+
+msgid "Start"
+msgstr "Kreni"
+
+msgid "Press to begin testing..."
+msgstr "Stisni za početak testiranja"
+
+msgid "Stop"
+msgstr "Stani"
+
+msgid "Press to stop testing..."
+msgstr "Stisni za izlazak iz testa"
+
+msgid "Quit"
+msgstr "Prekid"
+
+msgid "Exit!"
+msgstr "Izlaz!"
+
+msgid "All"
+msgstr "svi"
+
+msgid "None"
+msgstr "Nijedan"
+
+msgid "Invert"
+msgstr "Obrni"
+
+msgid "Statistics based selection"
+msgstr "Odabir po statistici"
+
+msgid "Select"
+msgstr "Odabir"
+
+msgid "Select kana font"
+msgstr "Odaberi font kana"
+
+msgid "Please select at least two kanas to test."
+msgstr "Molim odaberi barem dvije kane za ispitivanje"
+
+msgid "Error"
+msgstr "Greška"
+
+msgid "no kanas found"
+msgstr "Kane nisu pronađene"
+
+msgid "kana found"
+msgid_plural "kanas found"
+msgstr[0] "Kana je pronađena"
+msgstr[1] "Kane su pronađene"
+msgstr[2] ""
+
+msgid "From"
+msgstr "Od"
+
+msgid "To"
+msgstr "Do"
+
+msgid "Ratio range"
+msgstr "Raspon omjera"
+
+msgid "Kanas"
+msgstr "Kane"
+
+msgid "General"
+msgstr "Općenito"
+
+msgid "Drill options"
+msgstr "Opcije vježbanja"
+
+msgid "Display each kana once"
+msgstr "Prikaži svaku kanu jednom"
+
+msgid ""
+"When this option is enabled the kanatest will display every question once"
+msgstr "Kada je ova opcija omogućena kanatest će prikazati svako pitanje jednom"
+
+msgid "Repeat wrongly-answered questions"
+msgstr "Ponovi krivo odgovorena pitanja"
+
+msgid ""
+"When this option is enabled the kanatest will repeat all wrongly answered "
+"questions at the end of test"
+msgstr "Kada je ova opcija omogućena kanatest će ponoviti sva krivo odgovorena pitanja"
+"pri kraju"
+
+msgid "Repeat all forever"
+msgstr "Ponavljaj sva zauvijek"
+
+msgid ""
+"When this option is enabled the kanatest will repeat all questions forever"
+msgstr "Kada je ova opcija uključena kanatest će ponavljati sva pitanja zauvijek"
+
+msgid "Correct answer display timeout"
+msgstr "Timeout prikaza točnog odgovora"
+
+msgid "Disabled"
+msgstr "Onemogućeno"
+
+msgid "1 sec"
+msgstr "1 sekunda"
+
+msgid "2 sec"
+msgstr "2 sekunde"
+
+msgid "3 sec"
+msgstr "3 sekunde"
+
+msgid "Until any key will be pressed"
+msgstr "Dok se ne pritisne bilo koja tipka"
+
+msgid "Appearance"
+msgstr "Izgled"
+
+msgid "Kana color"
+msgstr "Boja kana"
+
+msgid "Romaji color"
+msgstr "Boja romaji-a"
+
+msgid "Timer color"
+msgstr "Boja štoperice"
+
+msgid "User-defined lesson"
+msgstr "Korisnički definirana lekcija"
+
+msgid "Select all kanas in row"
+msgstr "Označi sve kane u retku"
+
+msgid "Deselect all kanas in row"
+msgstr "Odznači sve kane u retku"
+
+msgid "Selected kanas"
+msgstr "Označene kane"
+
+msgid "Display as"
+msgstr "Prikaži kao"
+
+msgid "Hiragana + Romaji"
+msgstr "Hiragana + Romaji"
+
+msgid "Katakana + Romaji"
+msgstr "Katakana + Romaji"
+
+msgid "Reset"
+msgstr "Ponovno postavi"
+
+msgid "Please select options"
+msgstr "Molim odaberi opcije"
+
+msgid "Remove lessons list"
+msgstr "Ukloni listu lekcija"
+
+msgid "Remove Hiragana statistics"
+msgstr "Obriši statistiku Hiragane"
+
+msgid "Remove Katakana statistics"
+msgstr "Obriši statistiku Katakane"
+
+msgid "No further recovery will be possible. Continue ?"
+msgstr "Neće biti moguće vratiti podatke"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Test type"
+msgstr "Tip testa"
+
+msgid "Test time"
+msgstr "Vrijeme testa"
+
+msgid "Questions"
+msgstr "Pitanja"
+
+msgid "Correct"
+msgstr "Točno"
+
+msgid "Wrong"
+msgstr "Krivo"
+
+msgid "Ratio (%)"
+msgstr "Udio (%)"
+
+msgid "Lessons"
+msgstr "Lekcije"
+
+msgid "Graph"
+msgstr "Graf"
+
+msgid "RW"
+msgstr "RW"
+
+msgid "RA"
+msgstr "RA"
+
+msgid "Chart"
+msgstr "Dijagram"
+
+msgid "Mixed"
+msgstr "Miješano"
+
+msgid "Normal"
+msgstr "Normalno"
+
+msgid "Reverse"
+msgstr "Unazad"
+
+msgid "All kanas"
+msgstr "Sve kane"
+
+msgid "Basic kanas"
+msgstr "Osnovne kane"
+
+msgid "A-I-U-E-O"
+msgstr "A-I-U-E-O"
+
+msgid "KA-KI-KU-KE-KO"
+msgstr "KA-KI-KU-KE-KO"
+
+msgid "SA-SHI-SU-SE-SO"
+msgstr "SA-SHI-SU-SE-SO"
+
+msgid "TA-CHI-TSU-TE-TO"
+msgstr "TA-CHI-TSU-TE-TO"
+
+msgid "NA-NI-NU-NE-NO"
+msgstr "NA-NI-NU-NE-NO"
+
+msgid "HA-HI-FU-HE-HO"
+msgstr "HA-HI-FU-HE-HO"
+
+msgid "MA-MI-MU-ME-MO"
+msgstr "MA-MI-MU-ME-MO"
+
+msgid "YA-YU-YO"
+msgstr "YA-YU-YO"
+
+msgid "RA-RI-RU-RE-RO"
+msgstr "RA-RI-RU-RE-RO"
+
+msgid "WA-WO-N"
+msgstr "WA-WO-N"
+
+msgid "Combo letters (part 1)"
+msgstr "Kombinirana slova (dio 1)"
+
+msgid "Combo letters (part 2)"
+msgstr "Kombinirana slova (dio 2)"
+
+#. TRANSLATORS: if there exist several possible transliterations for kanas, they must be separated by comma
+#. 0
+#. 1
+#. 2
+#. 3
+#. 4
+msgid "a"
+msgstr "a"
+
+msgid "i"
+msgstr "i"
+
+msgid "u"
+msgstr "u"
+
+msgid "e"
+msgstr "e"
+
+msgid "o"
+msgstr "o"
+
+msgid "ka"
+msgstr "ka"
+
+msgid "ki"
+msgstr "ki"
+
+msgid "ku"
+msgstr "ku"
+
+msgid "ke"
+msgstr "ke"
+
+msgid "ko"
+msgstr "ko"
+
+msgid "sa"
+msgstr "sa"
+
+msgid "shi"
+msgstr "shi,si"
+
+msgid "su"
+msgstr "su"
+
+msgid "se"
+msgstr "se"
+
+msgid "so"
+msgstr "so"
+
+msgid "ta"
+msgstr "ta"
+
+msgid "chi"
+msgstr "chi,ti"
+
+msgid "tsu"
+msgstr "tsu,du"
+
+msgid "te"
+msgstr "te"
+
+msgid "to"
+msgstr "to"
+
+msgid "na"
+msgstr "na"
+
+msgid "ni"
+msgstr "ni"
+
+msgid "nu"
+msgstr "nu"
+
+msgid "ne"
+msgstr "ne"
+
+msgid "no"
+msgstr "no"
+
+msgid "ha"
+msgstr "ha"
+
+msgid "hi"
+msgstr "hi"
+
+msgid "fu"
+msgstr "fu,hu"
+
+msgid "he"
+msgstr "he"
+
+msgid "ho"
+msgstr "ho"
+
+msgid "ma"
+msgstr "ma"
+
+msgid "mi"
+msgstr "mi"
+
+msgid "mu"
+msgstr "mu"
+
+msgid "me"
+msgstr "me"
+
+msgid "mo"
+msgstr "mo"
+
+msgid "ya"
+msgstr "ya"
+
+msgid "yu"
+msgstr "yu"
+
+msgid "yo"
+msgstr "yo"
+
+msgid "ra"
+msgstr "ra"
+
+msgid "ri"
+msgstr "ri"
+
+msgid "ru"
+msgstr "ru"
+
+msgid "re"
+msgstr "re"
+
+msgid "ro"
+msgstr "ro"
+
+msgid "wa"
+msgstr "wa"
+
+msgid "wo"
+msgstr "wo"
+
+msgid "n"
+msgstr "n"
+
+msgid "ga"
+msgstr "ga"
+
+msgid "gi"
+msgstr "gi"
+
+msgid "gu"
+msgstr "gu"
+
+msgid "ge"
+msgstr "ge"
+
+msgid "go"
+msgstr "go"
+
+msgid "za"
+msgstr "za"
+
+msgid "ji"
+msgstr "ji"
+
+msgid "zu"
+msgstr "zu"
+
+msgid "ze"
+msgstr "ze"
+
+msgid "zo"
+msgstr "zo"
+
+msgid "da"
+msgstr "da"
+
+msgid "di,ji"
+msgstr "di,ji"
+
+msgid "du,zu"
+msgstr "du,zu"
+
+msgid "de"
+msgstr "de"
+
+msgid "do"
+msgstr "do"
+
+msgid "ba"
+msgstr "ba"
+
+msgid "bi"
+msgstr "bi"
+
+msgid "bu"
+msgstr "bu"
+
+msgid "be"
+msgstr "be"
+
+msgid "bo"
+msgstr "bo"
+
+msgid "pa"
+msgstr "pa"
+
+msgid "pi"
+msgstr "pi"
+
+msgid "pu"
+msgstr "pu"
+
+msgid "pe"
+msgstr "pe"
+
+msgid "po"
+msgstr "po"
+
+msgid "kya"
+msgstr "kya"
+
+msgid "kyu"
+msgstr "kyu"
+
+msgid "kyo"
+msgstr "kyo"
+
+msgid "sha"
+msgstr "sha"
+
+msgid "shu"
+msgstr "shu"
+
+msgid "sho"
+msgstr "sho"
+
+msgid "cha"
+msgstr "cha"
+
+msgid "chu"
+msgstr "chu"
+
+msgid "cho"
+msgstr "cho"
+
+msgid "nya"
+msgstr "nya"
+
+msgid "nyu"
+msgstr "nyu"
+
+msgid "nyo"
+msgstr "nyo"
+
+msgid "hya"
+msgstr "hya"
+
+msgid "hyu"
+msgstr "hyu"
+
+msgid "hyo"
+msgstr "hyo"
+
+msgid "mya"
+msgstr "mya"
+
+msgid "myu"
+msgstr "myu"
+
+msgid "myo"
+msgstr "myo"
+
+msgid "rya"
+msgstr "rya"
+
+msgid "ryu"
+msgstr "ryu"
+
+msgid "ryo"
+msgstr "ryo"
+
+msgid "gya"
+msgstr "gya"
+
+msgid "gyu"
+msgstr "gyu"
+
+msgid "gyo"
+msgstr "gyo"
+
+msgid "ja"
+msgstr "ja"
+
+msgid "ju"
+msgstr "ju"
+
+msgid "jo"
+msgstr "jo"
+
+msgid "bya"
+msgstr "bya"
+
+msgid "byu"
+msgstr "byu"
+
+msgid "byo"
+msgstr "byo"
+
+msgid "pya"
+msgstr "pya"
+
+msgid "pyu"
+msgstr "pyu"
+
+msgid "pyo"
+msgstr "pyo"
+
+msgid "minute and"
+msgid_plural "minutes and"
+msgstr[0] "minuta i"
+msgstr[1] "minute i"
+msgstr[2] ""
+
+msgid "second"
+msgid_plural "seconds"
+msgstr[0] "sekunda"
+msgstr[1] "sekundi"
+msgstr[2] ""
+
+msgid "Test has finished!"
+msgstr "Test je završen"
+
+msgid "Total questions"
+msgstr "Broj pitanja"
+
+msgid "unique"
+msgstr "jedinstvenih"
+
+msgid "Correct answers"
+msgstr "Točni odgovori"
+
+msgid "Wrong answers"
+msgstr "Krivi odgovori"
+
+msgid "Correctness ratio"
+msgstr "Postotak točnosti"
+
+msgid "Drilling-time"
+msgstr "Vrijeme vježbe"
+
+msgid "Information"
+msgstr "Informacije"

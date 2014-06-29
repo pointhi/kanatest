@@ -118,7 +118,7 @@ gchar text_contributors[] = {
     "                rhn (Reverse mode)\n"
     "                Andrey Tikhonov\n"
     "                Takahide Nojima\n"
-	"                Jordan Irwin (Win32 fixes)\n" 
+    "                Jordan Irwin (Win32 fixes)\n" 
 };
 
 gchar text_postcards_address[] = {
@@ -158,6 +158,7 @@ gchar text_received_postcards[] = {
     "  * Alexander from Düsseldorf (Germany)\n"
     "  * Victor from Salvador (Brazil)\n"
     "  * Dante from Buenos Aires (Argentina)\n"
+    "  * Camilla from Stockholm (Sweden)\n"
 };
 
 gchar text_license[] = {
@@ -183,6 +184,7 @@ gchar *translators[] = {
     "es",    "Daniel Halens",        "daniel.halens@sabayonlinux.org",
     "fi",    "Aki Nyman",            "aki.nyman@gmail.com",
     "fr",    "Adrian Courrèges",     "a.courreges@gmail.com",
+    "hr",    "Mario Kamenjak",       "mkamenjak77@gmail.com",
     "hu",    "Szigetvári Csaba",     "csaba.szigetvari@informedia.hu",
     "it",    "Jacopo Farina",        "jacopo.farina@email.it",
     "pl",    "Piotr Mąka",           "silloz@users.sourceforge.net",

@@ -1,10 +1,10 @@
-2013-xx-xx: version 0.4.10
+2014-xx-xx: version 0.4.10
   * Reverse test mode (rhn)
   * Ported to GTK+ 3.0 (Wen-Yen Chuang)
   * Maemo port (Aki Nyman)
   * Win32 fixes (Jordan Irwin)
   * Some GUI improvements
-  * Added translations: fi, zh_CN, el
+  * Added translations: fi, zh_CN, el, hr
   * Updated translations: es, hu, ru
 
 2009-04-12: version 0.4.8
