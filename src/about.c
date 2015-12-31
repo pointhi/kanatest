@@ -180,7 +180,7 @@ gchar text_license[] = {
 gchar *translators[] = {
     "de",    "Mathias Brodala",      "info@noctus.net",
     "",      "Frank Polte",          "frederyk@gmx.de",
-    "el",    "Spyro Papanastasiou",  "univ@lavabit.com",
+    "el",    "Spyro Papanastasiou",  "spyridon.papanastasiou@gmail.com",
     "es",    "Daniel Halens",        "daniel.halens@sabayonlinux.org",
     "fi",    "Aki Nyman",            "aki.nyman@gmail.com",
     "fr",    "Adrian Courrèges",     "a.courreges@gmail.com",
@@ -210,7 +210,7 @@ gchar *translators[] = {
     gtk_window_set_modal (GTK_WINDOW(appGUI->about_window), TRUE);
     gtk_container_set_border_width (GTK_CONTAINER (appGUI->about_window), 12);
     gtk_window_set_title (GTK_WINDOW (appGUI->about_window), _("About"));
-    gtk_widget_set_size_request (appGUI->about_window, 470, 550);
+    gtk_widget_set_size_request (appGUI->about_window, 520, 590);
 
     g_signal_connect (G_OBJECT (appGUI->about_window), "delete_event",
                         G_CALLBACK(about_window_close_cb), appGUI);
