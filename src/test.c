@@ -451,10 +451,10 @@ test_update_answer_stats(gint kana_number, gboolean is_correct, GUI *appGUI) {
     if (config.kana_mode == HIRAGANA) {
         appGUI->sts->hiragana_counters[kana_number]++;
     } else if (config.kana_mode == KATAKANA) {
-        appGUI->sts->katakana_counters[kana_number]++;
+        appGUI->sts->katakana_counters[kana_number % MIXED_SEPARATOR]++;
     } else if (config.kana_mode == MIXED) {
         if (kana_number >= MIXED_SEPARATOR) {
-            appGUI->sts->katakana_counters[kana_number-MIXED_SEPARATOR]++;
+            appGUI->sts->katakana_counters[kana_number - MIXED_SEPARATOR]++;
         } else {
             appGUI->sts->hiragana_counters[kana_number]++;
         }
@@ -464,10 +464,10 @@ test_update_answer_stats(gint kana_number, gboolean is_correct, GUI *appGUI) {
         if (config.kana_mode == HIRAGANA) {
             appGUI->sts->correct_hiragana_counters[kana_number]++;
         } else if (config.kana_mode == KATAKANA) {
-            appGUI->sts->correct_katakana_counters[kana_number]++;
+            appGUI->sts->correct_katakana_counters[kana_number % MIXED_SEPARATOR]++;
         } else if (config.kana_mode == MIXED) {
             if (kana_number >= MIXED_SEPARATOR) {
-                appGUI->sts->correct_katakana_counters[kana_number-MIXED_SEPARATOR]++;
+                appGUI->sts->correct_katakana_counters[kana_number - MIXED_SEPARATOR]++;
             } else {
                 appGUI->sts->correct_hiragana_counters[kana_number]++;
             }

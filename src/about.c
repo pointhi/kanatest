@@ -118,7 +118,8 @@ gchar text_contributors[] = {
     "                rhn (Reverse mode)\n"
     "                Andrey Tikhonov\n"
     "                Takahide Nojima\n"
-    "                Jordan Irwin (Win32 fixes)\n" 
+    "                Jordan Irwin (Win32 fixes)\n"
+    "                Thomas Pointhuber\n"
 };
 
 gchar text_postcards_address[] = {
